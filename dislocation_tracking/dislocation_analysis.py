@@ -1,4 +1,3 @@
-from xml.dom.expatbuilder import FragmentBuilderNS
 import numpy as np
 import math
 from collections import defaultdict
@@ -23,7 +22,6 @@ def read_disloc_data(disloc_file):
         lens = []
         dislocations = []
         # Read in first dislocation data
-        # index
         for i in range(ndisloc):
             disloc_i = []
             index = indices.append(int(f.readline().strip()))
@@ -37,6 +35,16 @@ def read_disloc_data(disloc_file):
             dislocations.append(disloc_i)
 
     return np.array(dislocations, dtype=object)
+
+def get_cell_lims(dump_file):
+    """
+    Function to extract cell extents from dump file
+    """
+    dump = np.loadtxt(f"{dump_file}", skiprows=5, max_rows=3)
+    lims = []
+    for i in range(3):
+        lims.append(dump[i][1] - dump[i][0])
+    return lims[0], lims[1], lims[2]
 
 def wrap_coords_x(dislocation, x_extent):
     """
@@ -97,38 +105,33 @@ def get_avg_pos(dislocation):
     Input must be given as a numpy array
     """
     x_coords, y_coords, z_coords = get_disloc_coords(dislocation)
-
     avg_pos = [np.average(x_coords),np.average(y_coords),np.average(z_coords)]
 
     return avg_pos
 
-def get_velocity(avg_position, del_t):
+def perfect_disloc_coords(partial_1, partial_2):
     """
-    Function to calculate the velocity
-    using central differences
-    given the average dislocation position
-    as input
+    Function to calculate the coordinates of a perfect dislocation
+    by averaging the coordinates of two partial dislocations
     """
-    vel = []
+    return [np.average([partial_1[i], partial_2[i]]) for i in range(len(partial_1))]
 
-    # LHS boundary node
-    vel.append((avg_position[1]-avg_position[-1])/(2.0*del_t))
-    # RHS boundary node
-    vel.append((avg_position[0]-avg_position[-2])/(2.0*del_t))
-    # Bulk
-    for i in range(1,len(avg_position)-1):
-        vel.append((avg_position[i+1] - avg_position[i-1])/(2.0*del_t))
-
-    return vel
-
-def moving_average(a, n):
+def get_velocity(disloc, timestep):
     """
-    Function to calculate moving average
+    Function to calculate velocity from position data
+    Works both for partial or perfect dislocation
     """
-    ma = np.cumsum(a, dtype=float)
-    ma[n:] = ma[n:] - ma[:-n]
-    ma = ma[n-1:]/n
-    return ma
+    return np.gradient(disloc, timestep)
+
+def write_prop(filename, property, time):
+    """
+    Function to write out property time series of a dislocation to a text file
+
+    """
+    f = open(f"{filename}", "w")
+    for i in range(len(property)):
+        f.write(f"{round(time[i],1)}     {property[i]} \n")
+    f.close()
 
 ###################################################################
 #                                                                 #
@@ -151,7 +154,7 @@ def track_disloc(avg, x_lim, n_frames):
     - Assumptions:
     1. The dislocation only moves in the x direction
     and that it is therefore sufficient to only use the change in the x
-    coordinates
+    coordinates..+
     2. The number of dislocations is constant across all frames
     i.e. no dislocations are generated nor lost throughout the
     trajectory analysed (this will be changed in the future)
@@ -173,46 +176,40 @@ def track_disloc(avg, x_lim, n_frames):
     for i in range(1,2):
         for j in range(len(avg[i])):
             for k in range(len(avg[i])):
-                displacement = avg[i][j][0] - avg[i-1][k][0]
+                displacement = avg[i][j][0][0] - avg[i-1][k][0][0]
                 if abs(displacement) < d_cutoff:
                     pbc = False
-                    tracking_objects[track_ID].append([i-1,avg[i-1][k],int(pbc)]) # first frame coordinates
-                    tracking_objects[track_ID].append([i,avg[i][j],int(pbc)])   # second frame coordinates
+                    tracking_objects[track_ID].append([i-1,np.array([avg[i-1][k][0][0], avg[i-1][k][0][1], avg[i-1][k][0][2]]),int(pbc),avg[i-1][k][1]]) # first frame coordinates
+                    tracking_objects[track_ID].append([i,np.array([avg[i][j][0][0], avg[i][j][0][1], avg[i][j][0][2]]),int(pbc),avg[i][j][1]])   # second frame coordinates
                     track_ID += 1          
                 else:
-                    displacement = avg[i][j][0] + x_lim - avg[i-1][k][0]
+                    displacement = avg[i][j][0][0] + x_lim - avg[i-1][k][0][0]
                     if abs(displacement) < d_cutoff:
                         pbc = True
-                        # Unwrap coordinates
-                        # avg[i][j][0] += x_lim                           
-                        tracking_objects[track_ID].append([i-1,avg[i-1][k],int(pbc)]) # first frame coordinates
-                        tracking_objects[track_ID].append([i,avg[i][j],(pbc)])   # second frame coordinates
-                        track_ID += 1   
-
+                        tracking_objects[track_ID].append([i-1,np.array([avg[i-1][k][0][0], avg[i-1][k][0][1], avg[i-1][k][0][2]]),int(pbc),avg[i-1][k][1]]) # first frame coordinates
+                        tracking_objects[track_ID].append([i,np.array([avg[i][j][0][0], avg[i][j][0][1], avg[i][j][0][2]]),int(pbc),avg[i][j][1]])   # second frame coordinates
+                        track_ID += 1
+                     
     # For the remaining frames we compare the current x coordinate
     # to those of the already existing objects
-    distances = []
     for i in range(2,len(avg)):
-        print(i)
-        distances_i = []
         for j in range(len(avg[i])):
             # if avg[i][j][0] > x_lim:
             #     avg[i][j][0] -= x_lim            
             # if avg[i][j][0] < 0.0:
             #     avg[i][j][0] += x_lim                   
-            print(avg[i][j])
+            # print(avg[i][j])
             d_i = []
             for obj_ID, obj in tracking_objects.items():
-                print("obj[-1][1][0] ", obj[-1][1][0])
-                del_t = 0.001*500 # ps
                 # Calculate the distances between the current avg x position
                 # and the last x position added to each tracking object
-                # we need to account for PBCs                    
-                dist_1 = avg[i][j][0] - obj[-1][1][0]
-                dist_2 = avg[i][j][0] + x_lim - obj[-1][1][0]
-                print("dist_1 ",dist_1)
-                print("dist_2 ",dist_2)
+                dist_1 = avg[i][j][0][0] - obj[-1][1][0]
+                dist_2 = avg[i][j][0][0] + x_lim - obj[-1][1][0]
 
+                # Determine whether dislocation has crossed periodic boundary            
+                # For the first i frames the dislocation is allowed to move back
+                # This accounts for the first few frames before the dislocation
+                # starts moving                        
                 if i <= 10:
                     if dist_2 < abs(dist_1):
                         dist = dist_2
@@ -227,27 +224,20 @@ def track_disloc(avg, x_lim, n_frames):
                     else:
                         dist = abs(dist_1)
                         pbc = False
-                d_i.append([avg[i][j][0], avg[i][j][1], avg[i][j][2],obj_ID, dist, pbc])
-            print(np.array(d_i))
-            distances_i.append(d_i)
-            # append coordinate to corresponding dislocation
+                d_i.append([avg[i][j][0][0], avg[i][j][0][1], avg[i][j][0][2], obj_ID, dist, pbc])
+
+            # Append coordinate to corresponding dislocation
+            # Find the minimum distance between the current average position
+            # and the average position in each dislocation in the previous frame
             d_i = np.array(d_i)
             min_dist = np.amin(d_i, axis=0)[4]
-            print(min_dist)
             indx = np.where(d_i == min_dist)[0][0]
             x = d_i[indx][0]
             y = d_i[indx][1]
             z = d_i[indx][2]
             pbc = int(d_i[indx][5])
-            print(indx)
-            print(x, y, z)
-            print(pbc)
-            tracking_objects[indx].append([i,np.array([x,y,z]),pbc])
-            print("\n")
 
-        distances.append(distances_i)
-
-    print(tracking_objects[0][0][1][0])
+            tracking_objects[indx].append([i, np.array([x,y,z]), pbc, avg[i][j][1]])
 
     # Correct for PBCs
     pbcs = []
@@ -257,15 +247,9 @@ def track_disloc(avg, x_lim, n_frames):
             pbcs_i.append(object[j][2])
         pbcs.append(np.array(pbcs_i))
     
-    print(pbcs[1])
-    print(np.where(pbcs[1] == 1))
-    
     starts = []
     for pbc in pbcs:
         starts.append(np.where(pbc == 1)[0])
-
-    print(starts)
-    print(len(starts))
 
     for i, start in enumerate(starts):
         for s in start:
@@ -274,25 +258,45 @@ def track_disloc(avg, x_lim, n_frames):
              
     # Collect position data after tracking
     position = []
+    vertices = []
     t = []
     for i, object in tracking_objects.items():
         position_i = []
+        vertices_i = []
         t_i = []
         for j in range(len(object)):
             position_i.append(math.hypot(object[j][1][0]))
+            vertices_i.append(object[j][3])
             t_i.append(object[j][0]*0.001*500)
         position.append(position_i)
+        vertices.append(vertices_i)
         t.append(t_i)
 
-    # print("Tracking success rate")
-    # for i in range(len(position)):
-    #     success = (len(position[i])/n_frames)*100.0
-    #     print(f"Partial {i+1}: {success}%")
-    # print("\n")
+    # Change vertices from tuples to arrays for easier handling
+    # Sort vertices along y coords
+    disloc = []
+    for i in range(len(vertices)):
+        frames = []
+        for j in range(len(vertices[i])):
+            vertex = []
+            for k in range(len(vertices[i][j])):
+                # Wrap y
+                v_x = vertices[i][j][k][0]
+                v_y = vertices[i][j][k][1]
+                v_z = vertices[i][j][k][2]                           
+                vertex.append([v_x, v_y, v_z])
+            frames.append(sorted(vertex, key=lambda v: v[1]))
+        disloc.append(frames)
 
-    # # # plt.hist(acc)
+    # Unwrap x to be consistent with average position data
+    for i, start in enumerate(starts):
 
-    return position, t
+        for s in start:
+            for j in range(s,len(pbcs[i])):
+                for k in range(len(disloc[i][j])):
+                    disloc[i][j][k][0] += x_lim
+
+    return position, disloc, t
 
 
 ###################################################################
