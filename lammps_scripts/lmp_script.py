@@ -146,7 +146,7 @@ lmp.command(f"neigh_modify delay 10 check yes")
 ######################################################
 #    Define lower, upper, and mobile atom groups     #
 ######################################################
-upper_lim = (z1 - 7.0)*gamma_latt*np.sqrt(3)
+upper_lim = (z1 - 7.5)*gamma_latt*np.sqrt(3)
 lower_lim = (0.0 + 7.5)*gamma_latt*np.sqrt(3)
 lmp.command(f"region upper block INF INF INF INF {upper_lim} INF units box")
 lmp.command(f"region lower block INF INF INF INF INF {lower_lim} units box")
