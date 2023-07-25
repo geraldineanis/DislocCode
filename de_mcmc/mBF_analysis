@@ -1,0 +1,379 @@
+import numpy as np
+import scipy.stats as st
+from scipy.integrate import odeint
+import seaborn as sns
+import pandas as pd
+from matplotlib import pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib.patches import Ellipse
+import mpl_toolkits.mplot3d.art3d as art3d
+import os
+import glob
+import time
+
+from funcs import *
+
+# Number of points to discard
+n=6
+
+# Load data
+# Position data
+data = np.loadtxt("perfect_pos.txt")
+t_data_dim = data[:-n,0]
+t_range = np.ptp(t_data_dim)
+t_data = data[:-n,0]/t_range
+
+x_data = 0.1*data[n:,1]     # Convert from Angstroms to nm
+x_range = np.ptp(x_data)
+xi = x_data[0]
+x_data_dim = x_data - xi
+x_data = (x_data-xi)/x_range
+
+xs = x_range                                               # nm
+ts = t_range                                               # ps
+Fs = (250.0*1e6*1e12*np.sqrt(2)*0.352)/(2.0*(1e9**2))      # pN/nm
+
+# # Velocity data
+# v_data = np.loadtxt("perfect_vel.txt")
+
+# DE-MCMC results
+n_samples = int(1e6)
+burn = int(1e5)
+dims = 3
+params = [r"$c_{0}$", r"$c_{1}$", r"$c_{2}$"]
+log_params = [r"ln($c_{0}$)", r"ln($c_{1}$)", r"ln($c_{2}$)"]
+
+prior    = np.array([0.0, 0.0, 0.0])
+priorlow = np.array([2.0, 2.0, 2.0])
+priorup  = np.array([2.0, 2.0, 2.0])
+
+dirs = f"de_mc_out"
+data = np.load(f"./{dirs}/de_mcmc.npz")
+
+print(f"Remaining samples = {n_samples-burn}")
+
+# Note: work with logs of data - log(c_i) ~ Normal
+# The model is set up such that the we sample log(c_i)
+posterior, log_c, log_c_mean, post_cov, log_c_std = get_posterior(data, n_samples, burn, dims=3)
+
+print("Parameter Means", "\n", log_c_mean)
+print("Standard dev.", "\n", log_c_std)
+print("Posterior Covariance Matrix", "\n", post_cov)
+
+# Mean fit
+c_mean = np.exp(log_c_mean)
+# Calculate error (RMSE)
+mean_params = [c0_to_m(c_mean[0],ts,xs,Fs), c1_to_B(c_mean[1],ts,xs,Fs), c2_to_F(c_mean[2],Fs)]
+
+print("\n")
+print(f"m = {mean_params[0]}")
+print(f"B = {mean_params[1]}")
+print(f"F = {mean_params[2]}")
+
+# Evaluate model at mean values
+x0 = [0.0,0.0]
+x_mean, v_mean = ODE_solution_dim(mean_params, x0, t_data_dim)
+rmse = np.sqrt((np.sum((x_mean - x_data_dim)**2))/len(x_data))
+print(f"RMSE = {round(rmse,3)}")
+
+# Uncertainty quantification
+# Calculate error bars as +/- 2.0*std of ln(samples) at each timestep
+
+# Positions and Velocities
+# Samples - increase sample size later (e.g. 100000)
+N = 10000
+np.random.seed(123)
+
+# Non-dimensional data
+# Draw samples from posterior distribution
+samples = st.multivariate_normal.rvs(mean=log_c_mean, cov=post_cov, size=N)
+# # Evaluate the model at the samples
+# x0 = [0.0, 0.0]
+# model = np.array([ODE_solution(s,x0,t_data) for s in samples])
+# # Extract position and velocity data
+# model_pos = np.array([model[i][0] for i in range(len(model))])
+# model_vel = np.array([model[i][1] for i in range(len(model))])
+
+# # Draw samples from DE-MC and evaluate model
+# rnd_indx = np.random.choice(100,100)
+# samples_1 = np.array([[log_c[0][indx], log_c[1][indx], log_c[2][indx]] for indx in rnd_indx])
+
+# model_1 = np.array([ODE_solution(s,x0,t_data) for s in samples_1])
+# model_pos_1 = np.array([model[i][0] for i in range(len(model_1))])
+# model_vel_1 = np.array([model[i][1] for i in range(len(model_1))])
+
+# # Calculate uncertainties
+# # Means
+# pos_mean = [model_pos[:,i].mean() for i in range(len(t_data))]
+# vel_mean = [model_vel[:,i].mean() for i in range(len(t_data))]
+# # 2*sigma
+# pos_error = [2.0*model_pos[:,i].std() for i in range(len(t_data))]
+# vel_error = [2.0*model_vel[:,i].std() for i in range(len(t_data))]
+
+# # Plot fits
+# fig, axs = plt.subplots(1,2, figsize=(15,10))
+# fig.suptitle("Non-dimensional Model")
+# # Position
+# axs[0].plot(t_data, x_data, "x", c="tab:red", label="MD data", zorder=3)
+# axs[0].errorbar(t_data, pos_mean, yerr=pos_error, fmt=".", alpha=0.7, label=r"$\mu \pm 2.0\sigma$")
+# # for i in range(len(model_pos_1)):
+# #     axs[0].plot(t_data, model_pos_1[i], color="tab:red", lw=1, alpha=0.1)
+# axs[0].set_xlabel(r"$t_s$")
+# axs[0].set_ylabel(r"$x_s$")
+# axs[0].legend()
+
+# # Velocity
+# axs[1].plot(t_data, np.gradient(x_data,t_data), "x", c="tab:red", label="MD data", zorder=3)
+# axs[1].errorbar(t_data, vel_mean, yerr=vel_error, fmt=".", alpha=0.7, label=r"$\mu \pm 2.0\sigma$")
+# # for i in range(len(model_vel_1)):
+# #     axs[1].plot(t_data, model_vel_1[i], color="tab:red", lw=1, alpha=0.1)
+# axs[1].set_xlabel(r"$t_s$")
+# axs[1].set_ylabel(r"$v_s$")
+# axs[1].legend
+
+# plt.show()
+# # fig.savefig("fit.png", dpi=350, format="png")
+
+# Dimensional data
+# Use samples from above
+samples_dim = np.exp(samples)
+samples_dim = np.array([[c0_to_m(s[0],ts,xs,Fs), c1_to_B(s[1],ts,xs,Fs), c2_to_F(s[2],Fs)] for s in samples_dim])
+# Evaluate the model
+x0 = [0.0, 0.0]
+model_dim = [ODE_solution_dim(s,x0,t_data_dim) for s in samples_dim]
+# Extract position and velocity data
+model_dim_pos = np.array([model_dim[i][0] for i in range(len(model_dim))])
+model_dim_vel = np.array([model_dim[i][1] for i in range(len(model_dim))])
+
+# Calculate uncertainties
+# Means
+pos_dim_mean = [model_dim_pos[:,i].mean() for i in range(len(t_data))]
+vel_dim_mean = [model_dim_vel[:,i].mean() for i in range(len(t_data))]
+# 2*sigma
+pos_dim_error = [2.0*model_dim_pos[:,i].std() for i in range(len(t_data))]
+vel_dim_error = [2.0*model_dim_vel[:,i].std() for i in range(len(t_data))]
+
+# # Plot fits
+# fig, axs = plt.subplots(1,2, figsize=(15,10))
+# fig.suptitle("Dimensional Model")
+# # Position
+# axs[0].plot(t_data_dim, x_data_dim, "x", c="tab:red", label="MD data", zorder=3)
+# axs[0].errorbar(t_data_dim, pos_dim_mean, yerr=pos_dim_error, fmt=".", alpha=0.7, label=r"$\mu \pm 2.0\sigma$")
+
+# axs[0].set_xlabel("t (ps)")
+# axs[0].set_ylabel("x (nm)")
+# axs[0].legend()
+
+#  # Velocity
+# axs[1].plot(t_data_dim, np.gradient(x_data_dim,t_data_dim), "x", c="tab:red", label="MD data", zorder=3)
+# axs[1].errorbar(t_data_dim, vel_dim_mean, yerr=vel_dim_error, fmt=".", alpha=0.7, label=r"$\mu \pm 2.0\sigma$")
+
+# axs[1].set_xlabel("t (ps)")
+# axs[1].set_ylabel(r"$v_x$ (nm/ps)")
+# axs[1].legend
+
+# plt.show()
+# # fig.savefig("dim_fit.png", dpi=350, format="png")
+
+# m, B, and F
+c0_lower = samples[:,0].mean() - 2.0*samples[:,0].std()
+c0_upper = samples[:,0].mean() + 2.0*samples[:,0].std()
+
+c1_lower = samples[:,1].mean() - 2.0*samples[:,1].std()
+c1_upper = samples[:,1].mean() + 2.0*samples[:,1].std()
+
+c2_lower = samples[:,2].mean() - 2.0*samples[:,2].std()
+c2_upper = samples[:,2].mean() + 2.0*samples[:,2].std()
+
+def get_ellipse(cov, mean, color, label):
+    r2 = st.chi2.ppf(2*st.norm.cdf(2) - 1 ,2)
+
+    val, vec = np.linalg.eigh(cov)
+    width, height  = 2*np.sqrt(val[:,None]*r2)
+    rotation = np.degrees(np.arctan2(*vec[::-1,0]))
+
+    return Ellipse(xy=mean, width=width, height=height, fill=False, color=color, label=label, zorder=3 ,angle=rotation)
+
+# c0 & c1
+mean_01 = np.array([log_c_mean[0], log_c_mean[1]])
+cov_01 = np.array([[post_cov[0,0], post_cov[0,1]],
+                   [post_cov[1,0], post_cov[0,0]]])
+
+ellip_01 = get_ellipse(cov_01,mean_01, color="tab:red", label="95% Confidence Ellipse")
+
+# c0 & c2
+mean_02 = np.array([log_c_mean[0], log_c_mean[2]])
+cov_02 = np.array([[post_cov[0,0], post_cov[0,2]],
+                   [post_cov[2,0], post_cov[0,0]]])
+
+ellip_02 = get_ellipse(cov_02,mean_02, color="tab:red", label="95% Confidence Ellipse")
+
+# c1 & c2
+mean_12 = np.array([log_c_mean[1], log_c_mean[2]])
+cov_12 = np.array([[post_cov[1,1], post_cov[1,2]],
+                   [post_cov[2,1], post_cov[1,1]]])
+
+ellip_12 = get_ellipse(cov_12,mean_12, color="tab:red", label="95% Confidence Ellipse")
+
+x = np.linspace(-3.5, 5 , 1000)
+y = np.linspace(-3.5, 3.5, 1000)
+
+X, Y = np.meshgrid(x,y)
+pos = np.dstack((X,Y))
+
+# fig, axs = plt.subplots(2,2, sharex="col", sharey="row")
+# fig.delaxes(axs[0,1])
+# axs[0,0].plot(x, st.multivariate_normal.pdf(x, mean=mean_01[0], cov=cov_01[0,0]))
+# axs[0,0].axvline(mean_01[0], lw=1, ls="--", color="tab:red")
+# axs[0,0].axvline(c0_lower, lw=1, ls="--", c="k")
+# axs[0,0].axvline(c0_upper, lw=1, ls="--", c="tab:green")
+
+
+# axs[1,1].plot(st.multivariate_normal.pdf(x, mean=mean_01[1], cov=cov_01[1,1]),x)
+# axs[1,1].axhline(mean_01[1], lw=1, ls="--", color="tab:red")
+# axs[1,1].axhline(c1_lower, lw=1, ls="--", c="k")
+# axs[1,1].axhline(c1_upper, lw=1, ls="--", c="tab:green")
+
+
+# axs[1,0].scatter(samples[:,0], samples[:,1], s=1, alpha=0.2)
+# axs[1,0].add_artist(ellip_01)
+# # means
+# axs[1,0].axvline(mean_01[0], lw=1, ls="--", color="tab:red")
+# axs[1,0].axhline(mean_01[1], lw=1, ls="--", color="tab:red", label="Mean")
+
+# # Lower
+# axs[1,0].axvline(c0_lower, lw=1, ls="--", c="k")
+# axs[1,0].axhline(c1_lower, lw=1, ls="--", c="k", label="Lower")
+
+# # Upper
+# axs[1,0].axvline(c0_upper, lw=1, ls="--", c="tab:green")
+# axs[1,0].axhline(c1_upper, lw=1, ls="--", c="tab:green", label="Upper")
+
+# axs[1,0].scatter(c0_lower, c1_lower, c="tab:red")
+# axs[1,0].scatter(c0_upper, c1_upper, c="tab:red")
+# axs[1,0].scatter(c0_lower, c1_upper, c="k")
+# axs[1,0].scatter(c0_upper, c1_lower, c="k")
+
+# axs[1,0].legend(loc=(1.2,1.2))
+
+# axs[1,0].set_xlabel(r"$ln(c_0)$")
+# axs[1,0].set_ylabel(r"$ln(c_1$)")
+
+# plt.show()
+
+
+# fig, axs = plt.subplots(1,3, figsize=(15,10))
+
+# axs[0].scatter(samples[:,0], samples[:,1], s=5, alpha=0.2)
+# axs[0].add_artist(ellip_01)
+# # axs[0].scatter(c0_lower, c1_lower, c="tab:red")
+# # axs[0].scatter(c0_upper, c1_upper, c="tab:red")
+# # axs[0].scatter(c0_lower, c1_upper, c="k")
+# # axs[0].scatter(c0_upper, c1_lower, c="k")
+# axs[0].set_xlabel(r"$ln(c_0)$")
+# axs[0].set_ylabel(r"$ln(c_1$)")
+
+# axs[1].scatter(samples[:,0], samples[:,2], s=5, alpha=0.2)
+# axs[1].add_artist(ellip_02)
+# # axs[1].scatter(c0_lower, c2_lower, c="tab:red")
+# # axs[1].scatter(c0_upper, c2_upper, c="tab:red")
+# # axs[1].scatter(c0_lower, c2_upper, c="k")
+# # axs[1].scatter(c0_upper, c2_lower, c="k")
+# axs[1].set_xlabel(r"$ln(c_0)$")
+# axs[1].set_ylabel(r"$ln(c_2)$")
+
+# axs[2].scatter(samples[:,1], samples[:,2], s=5, alpha=0.2)
+# axs[2].add_artist(ellip_12)
+# # axs[2].scatter(c1_lower, c2_lower, c="tab:red")
+# # axs[2].scatter(c1_upper, c2_upper, c="tab:red")
+# # axs[2].scatter(c1_lower, c2_upper, c="k")
+# # axs[2].scatter(c1_upper, c2_lower, c="k")
+# axs[2].set_xlabel(r"$ln(c_1)$")
+# axs[2].set_ylabel(r"$ln(c_2)$")
+# axs[2].legend()
+
+# for ax in axs:
+#     ax.set_ylim(-4.5,5)
+
+# plt.show()
+
+# 3D Plot
+# NEED CORRECT ROTATIONS
+
+# fig = plt.figure()
+# ax = fig.add_subplot(projection="3d")
+
+# ax.scatter(samples[:,0], samples[:,1], samples[:,2], alpha=0.01)
+# ax.scatter(c0_lower, c1_lower, c2_lower, c="tab:red", label="Lower")
+# ax.scatter(c0_upper, c1_upper, c2_upper, c="tab:green", label="Uppper")
+
+# ax.add_patch(ellip_01)
+# art3d.pathpatch_2d_to_3d(ellip_01, z=samples[:,2].mean(), zdir="z")
+# ax.add_patch(ellip_02)
+# art3d.pathpatch_2d_to_3d(ellip_02, z=samples[:,1].mean(), zdir="y")
+# ax.add_patch(ellip_12)
+# art3d.pathpatch_2d_to_3d(ellip_12, z=samples[:,0].mean(), zdir="x")
+
+# ax.set_xlabel(r"$ln(c_0)$")
+# ax.set_ylabel(r"$ln(c_1$)")
+# ax.set_zlabel(r"$ln(c_2$)")
+
+# plt.show()
+
+# Contour plots
+x = np.linspace(-3.5, 3.5 , 1000)
+y = np.linspace(-3.5, 3.5, 1000)
+
+X, Y = np.meshgrid(x,y)
+pos = np.dstack((X,Y))
+
+fig, axs = plt.subplots(3,3, sharex="col",figsize=(10,10))
+fig.delaxes(axs[0,1])
+fig.delaxes(axs[0,2])
+fig.delaxes(axs[1,2])
+
+# ln(c0)
+axs[0,0].plot(x, st.multivariate_normal.pdf(x, mean=mean_01[0], cov=cov_01[0,0]))
+axs[0,0].axvline(mean_01[0], lw=1, ls="--", color="tab:red")
+axs[0,0].set_ylabel(r"$ln(c_0)$")
+
+
+# ln(c1) vs ln(c0)
+axs[1,0].contourf(x, y, st.multivariate_normal.pdf(pos, mean=mean_01, cov=cov_01))
+axs[1,0].axvline(mean_01[0], lw=1, ls="--", color="tab:red")
+axs[1,0].axhline(mean_01[1], lw=1, ls="--", color="tab:red")
+axs[1,0].set_ylim(-5,5)
+axs[1,0].set_ylabel(r"$ln(c_1)$")
+
+
+# ln(c2) vs ln(c0)
+axs[2,0].contourf(x, y, st.multivariate_normal.pdf(pos, mean=mean_02, cov=cov_02))
+axs[2,0].axvline(mean_02[0], lw=1, ls="--", color="tab:red")
+axs[2,0].axhline(mean_02[1], lw=1, ls="--", color="tab:red")
+axs[2,0].set_xlabel(r"$ln(c_0)$")
+axs[2,0].set_ylabel(r"$ln(c_2)$")
+
+
+# ln(c1)
+axs[1,1].plot(x, st.multivariate_normal.pdf(x, mean=mean_01[1], cov=cov_01[1,1]))
+axs[1,1].axvline(mean_01[1], lw=1, ls="--", color="tab:red")
+
+# ln(c2) vs ln(c1)
+axs[2,1].contourf(x, y, st.multivariate_normal.pdf(pos, mean=mean_12, cov=cov_12))
+axs[2,1].axvline(mean_12[0], lw=1, ls="--", color="tab:red")
+axs[2,1].axhline(mean_12[1], lw=1, ls="--", color="tab:red")
+axs[2,1].set_xlabel(r"$ln(c_1)$")
+
+# ln(c2)
+axs[2,2].plot(x, st.multivariate_normal.pdf(x, mean=mean_02[1], cov=cov_02[1,1]))
+axs[2,2].axvline(mean_02[1], lw=1, ls="--", color="tab:red")
+axs[2,2].set_xlabel(r"$ln(c_2)$")
+
+
+
+# for ax in axs:
+#     ax.set_aspect(aspect=1.0)
+
+# plt.colorbar(cb)
+plt.show()
+
