@@ -10,9 +10,7 @@ from ovito.data import DislocationNetwork
 import ovito
 ovito.enable_logging()
 
-# # Find and count dump files
-# start_frame = 0
-# end_frame = 1500
+start_frame = 25000
 
 # Set dump file writing frequency
 step = 500
@@ -45,9 +43,9 @@ for frame in range(pipeline.source.num_frames):
         lens.append(len(segment.points))
         vertices.append(segment.points)
 
-    with open(f"./Ni_disloc/disloc_data_{frame*step}.txt", "w") as fdata:
+    with open(f"./Ni_disloc/disloc_data_{start_frame+(frame*step)}.txt", "w") as fdata:
         # Write the number of dislocations found
-        print(f"Writing disloc_data_{frame*step}.txt")
+        print(f"Writing disloc_data_{start_frame+(frame*step)}.txt")
         fdata.write(f"{ndisloc} \n")
 
         for j, length in enumerate(lens):
