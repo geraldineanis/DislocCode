@@ -146,18 +146,22 @@ lmp.command(f"neigh_modify delay 10 check yes")
 ######################################################
 #    Define lower, upper, and mobile atom groups     #
 ######################################################
-upper_lim = (z1 - 7.5)*gamma_latt*np.sqrt(3)
-lower_lim = (0.0 + 7.5)*gamma_latt*np.sqrt(3)
-lmp.command(f"region upper block INF INF INF INF {upper_lim} INF units box")
-lmp.command(f"region lower block INF INF INF INF INF {lower_lim} units box")
+# Group definitions are written to restarts
+# Only needed if new simulation otherwise skip
 
-# definition of groups
-block = f"""
-group upper region upper
-group lower region lower
-group mobile subtract all upper lower
-"""
-lmp.commands_string(block)
+if sim_type == "new":
+    upper_lim = (z1 - 7.5)*gamma_latt*np.sqrt(3)
+    lower_lim = (0.0 + 7.5)*gamma_latt*np.sqrt(3)
+    lmp.command(f"region upper block INF INF INF INF {upper_lim} INF units box")
+    lmp.command(f"region lower block INF INF INF INF INF {lower_lim} units box")
+
+    # definition of groups
+    block = f"""
+    group upper region upper
+    group lower region lower
+    group mobile subtract all upper lower
+    """
+    lmp.commands_string(block)
 
 #######################################################
 #                   Define Computes            	#
