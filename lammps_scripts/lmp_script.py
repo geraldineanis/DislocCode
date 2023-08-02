@@ -150,8 +150,9 @@ lmp.command(f"neigh_modify delay 10 check yes")
 # Only needed if new simulation otherwise skip
 
 if sim_type == "new":
-    upper_lim = (z1 - 7.5)*gamma_latt*np.sqrt(3)
-    lower_lim = (0.0 + 7.5)*gamma_latt*np.sqrt(3)
+    upper_lim = lmp.extract_box()[1][2] - (7.5*gamma_latt*np.sqrt(3))
+    lower_lim = lmp.extract_box()[0][2] + (7.5*gamma_latt*np.sqrt(3))
+
     lmp.command(f"region upper block INF INF INF INF {upper_lim} INF units box")
     lmp.command(f"region lower block INF INF INF INF INF {lower_lim} units box")
 
@@ -161,7 +162,7 @@ if sim_type == "new":
     group lower region lower
     group mobile subtract all upper lower
     """
-    lmp.commands_string(block)
+    lmp.commands_string(block)    
 
 #######################################################
 #                   Define Computes            	#
