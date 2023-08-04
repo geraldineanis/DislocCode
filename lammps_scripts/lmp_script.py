@@ -52,9 +52,11 @@ thermo_ensemble = "NVT"
 timestep = 0.001 # timestep (ps)
 
 # User-set parameters
-temperature = 300   # Temperature (K)
-pressure = 1        # Pressure (bar)
-sigma = 500         # Shear stress (bar) - 250 MPa
+temperature = 300       # Temperature (K)
+pressure = 1            # Pressure (bar)
+
+sigma = 500             # Shear stress (bar) - 250 MPa
+loading_type = "sym"
 
 # Run times (ps)
 equil_run = 10000
@@ -257,7 +259,7 @@ if sim_type == "new":
 
     # Thermo outputs and dumps
     lmp.command("thermo 1")
-    lmp.command("thermo_style custom step pe ke lx ly lz pxx pyy pzz pxy pyz pxz temp c_pe_mobile")
+    lmp.command("thermo_style custom step pe ke lx ly lz pxx pyy pzz pxy pyz pxz temp")
     lmp.command("dump 1 all custom 500 dump.equilibration.* id type x y z vx vy vz fx fy fz c_eng")
 
     block = f"""
@@ -319,7 +321,7 @@ if sim_type == "new":
 lmp.command("thermo 1")
 lmp.command("thermo_style custom step pe ke lx ly lz pxx pyy pzz pxy pyz pxz temp c_pe_mobile")
 lmp.command("dump 1 all custom 5000 dump.shear.* id type x y z vx vy vz fx fy fz c_eng")
-lmp.command("dump 2 all custom 500 dump.shear_unwrap.* id type xu yu zu c_eng") # Unwrapped coordinates
+lmp.command("dump 2 all custom 500 dump.shear_unwrap.* id type xu yu zu vx vy vz fx fy fz c_eng") # Unwrapped coordinates
 
 block = f"""
 timestep {timestep}
@@ -330,16 +332,19 @@ lmp.commands_string(block)
 # Calculate shear force
 block = """
 variable nupper equal count(upper)
+variable nlower equal count(lower)
 variable length_x equal "lx"
 variable length_y equal "ly"
 """
 lmp.commands_string(block)
 
 nupper = lmp.extract_variable("nupper")
+nlower = lmp.extract_variable("nlower")
 lx = lmp.extract_variable("length_x")
 ly = lmp.extract_variable("length_y")
 
-app_force = (lx*ly)/nupper*sigma/eV_to_J
+app_force_upper = (lx*ly)/nupper*sigma/eV_to_J
+app_force_lower = (lx*ly)/nlower*sigma/eV_to_J
 
 # Boundaries
 # Velocity at boundaries
@@ -351,13 +356,32 @@ lmp.commands_string(block)
 
 # Boundary conditions
 # Rigid fixes must come before any box changing fix
-block = f"""
-fix 3 upper setforce NULL NULL 0.0
-fix 4 lower setforce 0.0 NULL 0.0
-fix 5 upper aveforce {app_force} 0.0 0.0 
-fix 6 upper rigid group 1 upper
-"""
-lmp.commands_string(block)
+if loading_type == "asymm":
+    block = f"""
+    fix 3 upper setforce NULL NULL 0.0
+    fix 4 lower setforce 0.0  NULL 0.0
+    
+    fix 5 upper aveforce {app_force_upper} 0.0 0.0 
+    
+    fix 6 upper rigid group 1 upper
+    """
+    lmp.commands_string(block)
+
+elif loading_type == "sym":
+    block = f"""
+    fix 3 upper setforce NULL NULL 0.0
+    fix 4 lower setforce NULL NULL 0.0
+    
+    fix 5 upper aveforce {app_force_upper} 0.0 0.0 
+    fix 6 lower aveforce {app_force_lower} 0.0 0.0 
+
+    fix 7 upper rigid group 1 upper
+    fix 7 lower rigid group 1 lower
+
+    """
+else:
+    print("Error: loading_type should be set to 'sym' or 'asymm'")
+    sys.exit()
 
 # Temperature/Pressure control
 # Ensemble chosen by setting thermo_ensemble variable at beginning
