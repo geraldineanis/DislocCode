@@ -179,7 +179,7 @@ lmp.command(f"neigh_modify delay 10 check yes")
 ######################################################
 #             Check for overlapping atoms            #
 ######################################################
-if check_overlap:
+if check_overlap and (sim_type == "new"):
     lmp.command("delete_atoms overlap 0.3 all all")
 
 ######################################################
