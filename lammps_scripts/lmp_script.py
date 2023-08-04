@@ -75,6 +75,9 @@ x3 = 40
 y1 = 40
 z1 = 40
 
+# Additional options
+check_overlap = False
+
 #####################################################
 #            Temperature/Pressure Control           #
 #####################################################
@@ -174,7 +177,8 @@ lmp.command(f"neigh_modify delay 10 check yes")
 ######################################################
 #             Check for overlapping atoms            #
 ######################################################
-# lmp.command("delete_atoms overlap 0.3 all all")
+if check_overlap:
+    lmp.command("delete_atoms overlap 0.3 all all")
 
 ######################################################
 #    Define lower, upper, and mobile atom groups     #
