@@ -72,8 +72,40 @@ x1 = 10
 x2 = 21
 x3 = 40
 
-y1 = 20
+y1 = 40
 z1 = 40
+
+#####################################################
+#             Temperature/Pressure Control          #
+#####################################################
+def thermo_type(thermo_ensemble):
+    if thermo_ensemble == "NVE":
+        block = f"""
+        fix 1 mobile nve
+        fix 2 mobile temp/rescale 1 {temperature} {temperature} 1.0 0.5
+        fix_modify 2 temp temp1
+        thermo_modify temp temp1
+        """ 
+    elif thermo_ensemble == "NVT":
+        block = f"""
+        fix 1 mobile nvt temp {temperature} {temperature} {100.0*timestep}
+        fix_modify 1 temp temp1
+        thermo_modify temp temp1
+        """ 
+    elif thermo_ensemble == "NPT":
+        block = f"""
+        # cannot apply barostat to a non-periodic dimension
+        fix 1 mobile npt temp {temperature} {temperature} {100.0*timestep} &
+                                x {pressure} {pressure} {1000.0*timestep} &
+                                y {pressure} {pressure} {1000.0*timestep}
+        fix_modify 1 temp temp1
+        thermo_modify temp temp1
+        """ 
+    else:
+        print("Error: thermo_ensemble should be set to 'NVE', 'NVT', or 'NPT'")
+        sys.exit()
+
+    lmp.commands_string(block)
 #####################################################
 #               System initialization               #
 #####################################################
@@ -295,36 +327,10 @@ if sim_type == "new":
     """
     lmp.commands_string(block)
 
-    # Equilibrate temperature/pressure
+    # Temperature/Pressure control
     # Ensemble chosen by setting thermo_ensemble variable at beginning
     # of script
-    if thermo_ensemble == "NVE":
-        block = f"""
-        fix 1 mobile nve
-        fix 2 mobile temp/rescale 1 {temperature} {temperature} 1.0 0.5
-        fix_modify 2 temp temp1
-        thermo_modify temp temp1
-        """ 
-    elif thermo_ensemble == "NVT":
-        block = f"""
-        fix 1 mobile nvt temp {temperature} {temperature} {100.0*timestep}
-        fix_modify 1 temp temp1
-        thermo_modify temp temp1
-        """ 
-    elif thermo_ensemble == "NPT":
-        block = f"""
-        # cannot apply barostat to a non-periodic dimension
-        fix 1 mobile npt temp {temperature} {temperature} {100.0*timestep} &
-                                x {pressure} {pressure} {1000.0*timestep} &
-                                y {pressure} {pressure} {1000.0*timestep}
-        fix_modify 1 temp temp1
-        thermo_modify temp temp1
-        """ 
-    else:
-        print("Error: thermo_ensemble should be set to 'NVE', 'NVT', or 'NPT'")
-        sys.exit()
-
-    lmp.commands_string(block)
+    thermo_type(thermo_ensemble)
 
     # Boundary conditions
     block = """
@@ -409,33 +415,8 @@ lmp.commands_string(block)
 # Temperature/Pressure control
 # Ensemble chosen by setting thermo_ensemble variable at beginning
 # of script
-if thermo_ensemble == "NVE":
-   block = f"""
-   fix 1 mobile nve
-   fix 2 mobile temp/rescale 1 {temperature} {temperature} 1.0 0.5
-   fix_modify 2 temp temp1
-   thermo_modify temp temp1
-   """ 
-elif thermo_ensemble == "NVT":
-   block = f"""
-   fix 1 mobile nvt temp {temperature} {temperature} {100.0*timestep}
-   fix_modify 1 temp temp1
-   thermo_modify temp temp1
-   """ 
-elif thermo_ensemble == "NPT":
-   block = f"""
-   # cannot apply barostat to a non-periodic dimension
-   fix 1 mobile npt temp {temperature} {temperature} {100.0*timestep} &
-                         x {pressure} {pressure} {1000.0*timestep} &
-                         y {pressure} {pressure} {1000.0*timestep}
-   fix_modify 1 temp temp1
-   thermo_modify temp temp1
-   """ 
-else:
-    print("Error: thermo_ensemble should be set to 'NVE', 'NVT', or 'NPT'")
-    sys.exit()
+thermo_type(thermo_ensemble)
 
-lmp.commands_string(block)
 
 # Run MD
 if sim_type == "new":
