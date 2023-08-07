@@ -73,7 +73,7 @@ x1 = 10
 x2 = 21
 x3 = 40
 
-y1 = 40
+y1 = 20
 z1 = 40
 
 # Additional options
