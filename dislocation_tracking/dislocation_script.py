@@ -6,7 +6,7 @@ from mpl_toolkits import mplot3d
 import os
 import glob
 from natsort import natsorted
-from disloc_analysis import *
+from dislocation_analysis import *
 
 ###################################################################
 #                                                                 #
