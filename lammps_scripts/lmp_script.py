@@ -373,10 +373,10 @@ elif loading_type == "sym":
     fix 4 lower setforce NULL NULL 0.0
     
     fix 5 upper aveforce {app_force_upper} 0.0 0.0 
-    fix 6 lower aveforce {app_force_lower} 0.0 0.0 
+    fix 6 lower aveforce {-app_force_lower} 0.0 0.0 
 
     fix 7 upper rigid group 1 upper
-    fix 7 lower rigid group 1 lower
+    fix 8 lower rigid group 1 lower
 
     """
 else:
