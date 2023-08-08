@@ -377,8 +377,9 @@ elif loading_type == "sym":
 
     fix 7 upper rigid group 1 upper
     fix 8 lower rigid group 1 lower
-
     """
+
+    lmp.commands_string(block)
 else:
     print("Error: loading_type should be set to 'sym' or 'asymm'")
     sys.exit()
