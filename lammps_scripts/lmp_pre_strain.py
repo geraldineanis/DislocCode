@@ -80,7 +80,7 @@ z1 = 40
 check_overlap = False
 
 # Pre-strain
-pre_strain = -np.sqrt(2)*gamma_latt/4.0
+pre_strain = np.sqrt(2)*gamma_latt/4.0
 
 #####################################################
 #             Temperature/Pressure Control          #
@@ -217,8 +217,8 @@ lmp.command("compute pe_mobile mobile reduce sum c_eng")
 ######################################################
 if sim_type == "new":
     # Fix upper and lower regions
-    lmp.command(f"fix 1 lower setforce 0.0 NULL 0.0")
-    lmp.command(f"fix 2 upper setforce 0.0 NULL 0.0")
+    lmp.command(f"fix 1 lower setforce NULL 0.0 0.0")
+    lmp.command(f"fix 2 upper setforce NULL 0.0 0.0")
 
     # Define dumps
     lmp.command("dump 1 all custom 100 dump.minim_1.* id type xs ys zs fx fy fz c_eng")
@@ -260,8 +260,8 @@ group lower_pre subtract all upper_pre
 """
 lmp.commands_string(block)
 
-lmp.command(f"displace_atoms upper_pre ramp x 0.0 {pre_strain} z {z_mid} {cell_extents[1][2]}")
-lmp.command(f"displace_atoms lower_pre ramp x 0.0 {pre_strain} z {cell_extents[0][2]} {z_mid}")
+lmp.command(f"displace_atoms upper_pre ramp x 0.0 {pre_strain}    z {z_mid} {cell_extents[1][2]}")
+lmp.command(f"displace_atoms lower_pre ramp x {-pre_strain } 0.0  z {cell_extents[0][2]} {z_mid}")
 
 lmp.command("dump 2 all custom 1 dump.displace.* id type xs ys zs fx fy fz c_eng")
 
@@ -275,8 +275,8 @@ if sim_type == "new":
 
 
     # Fix upper and lower regions
-    lmp.command(f"fix 1 lower setforce 0.0 NULL 0.0")
-    lmp.command(f"fix 2 upper setforce 0.0 NULL 0.0")
+    lmp.command(f"fix 1 lower setforce NULL 0.0 0.0")
+    lmp.command(f"fix 2 upper setforce NULL 0.0 0.0")
 
     # Define dumps
     lmp.command("dump 1 all custom 100 dump.minim_2.* id type xs ys zs fx fy fz c_eng")
@@ -342,8 +342,8 @@ if sim_type == "new":
 
     # Boundary conditions
     block = """
-    fix 3 lower setforce 0.0 NULL 0.0
-    fix 4 upper setforce 0.0 NULL 0.0
+    fix 3 lower setforce NULL 0.0 0.0
+    fix 4 upper setforce NULL 0.0 0.0
     """
     lmp.commands_string(block)
 
@@ -416,8 +416,8 @@ lmp.commands_string(block)
 # Rigid fixes must come before any box changing fix
 if loading_type == "asymm":
     block = f"""
-    fix 3 upper setforce NULL NULL 0.0
-    fix 4 lower setforce 0.0  NULL 0.0
+    fix 3 upper setforce NULL 0.0 0.0
+    fix 4 lower setforce 0.0  0.0 0.0
     
     fix 5 upper aveforce {app_force_upper} 0.0 0.0 
     
@@ -427,16 +427,16 @@ if loading_type == "asymm":
 
 elif loading_type == "sym":
     block = f"""
-    fix 3 upper setforce NULL NULL 0.0
-    fix 4 lower setforce NULL NULL 0.0
+    fix 3 upper setforce NULL 0.0 0.0
+    fix 4 lower setforce NULL 0.0 0.0
     
-    fix 5 upper aveforce {app_force_upper} 0.0 0.0 
-    fix 6 lower aveforce {app_force_lower} 0.0 0.0 
+    fix 5 upper aveforce  {app_force_upper} 0.0 0.0 
+    fix 6 lower aveforce -{app_force_lower} 0.0 0.0 
 
     fix 7 upper rigid group 1 upper
-    fix 7 lower rigid group 1 lower
-
+    fix 8 lower rigid group 1 lower
     """
+    lmp.commands_string(block)
 else:
     print("Error: loading_type should be set to 'sym' or 'asymm'")
     sys.exit()
