@@ -56,6 +56,7 @@ temperature = 300   # Temperature (K)
 pressure = 1        # Pressure (bar)
 sigma = 500         # Shear stress (bar) - 250 MPa
 loading_type = "sym"
+pre_strain = np.sqrt(2)*gamma_latt/4.0
 
 # Run times (ps)
 equil_run = 2
@@ -78,9 +79,6 @@ z1 = 40
 
 # Additional options
 check_overlap = False
-
-# Pre-strain
-pre_strain = np.sqrt(2)*gamma_latt/4.0
 
 #####################################################
 #             Temperature/Pressure Control          #
