@@ -247,21 +247,22 @@ if sim_type == "new":
 ######################################################
 #                    Displace atoms                  #
 ######################################################
-cell_extents = lmp.extract_box()
-z_mid = ((cell_extents[1][2])/2.0)
-lmp.command(f"region upper_pre block INF INF INF INF {z_mid} INF units box")
+if sim_type == "new":
+    cell_extents = lmp.extract_box()
+    z_mid = ((cell_extents[1][2])/2.0)
+    lmp.command(f"region upper_pre block INF INF INF INF {z_mid} INF units box")
 
-# definition of groups
-block = f"""
-group upper_pre region upper_pre
-group lower_pre subtract all upper_pre
-"""
-lmp.commands_string(block)
+    # definition of groups
+    block = f"""
+    group upper_pre region upper_pre
+    group lower_pre subtract all upper_pre
+    """
+    lmp.commands_string(block)
 
-lmp.command(f"displace_atoms upper_pre ramp x 0.0 {pre_strain}    z {z_mid} {cell_extents[1][2]}")
-lmp.command(f"displace_atoms lower_pre ramp x {-pre_strain } 0.0  z {cell_extents[0][2]} {z_mid}")
+    lmp.command(f"displace_atoms upper_pre ramp x 0.0 {pre_strain}    z {z_mid} {cell_extents[1][2]}")
+    lmp.command(f"displace_atoms lower_pre ramp x {-pre_strain } 0.0  z {cell_extents[0][2]} {z_mid}")
 
-lmp.command("dump 2 all custom 1 dump.displace.* id type xs ys zs fx fy fz c_eng")
+    lmp.command("dump 2 all custom 1 dump.displace.* id type xs ys zs fx fy fz c_eng")
 
 ######################################################
 #                   2nd Minimization                 #
