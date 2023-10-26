@@ -6,5 +6,5 @@ var searchData=
   ['atype_3',['atype',['../namespacegen__1disloc__Ni.html#a9a9238fc9e91432e3fe898ceaa0186fd',1,'gen_1disloc_Ni']]],
   ['avg_4',['avg',['../namespacedislocation__script.html#a711f87415665cafc982c086f34cbd839',1,'dislocation_script']]],
   ['avg_5fpos_5',['avg_pos',['../namespacedislocation__script.html#a55b10b241a2ba4d64dd1948e53c89c5f',1,'dislocation_script']]],
-  ['axs_6',['axs',['../namespacede__mc__analysis.html#a1665aee00fd1aea767f5856b46266604',1,'de_mc_analysis.axs'],['../namespacemBF__analysis.html#a4e6cd68a126fe14650db40fc0f935b30',1,'mBF_analysis.axs'],['../namespacedislocation__script.html#a87cf35062b57434092a54eda562d2e0c',1,'dislocation_script.axs']]]
+  ['axs_6',['axs',['../namespacede__mc__analysis.html#a1665aee00fd1aea767f5856b46266604',1,'de_mc_analysis.axs'],['../namespacedislocation__script.html#a87cf35062b57434092a54eda562d2e0c',1,'dislocation_script.axs']]]
 ];

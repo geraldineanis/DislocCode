@@ -14,10 +14,9 @@ var searchData=
   ['get_5favg_5fpos_11',['get_avg_pos',['../namespacedislocation__analysis.html#a38253d544efe9c62e04436e69baad4d5',1,'dislocation_analysis']]],
   ['get_5fcell_5flims_12',['get_cell_lims',['../namespacedislocation__analysis.html#afc6236d57db58545f87c377bd756a155',1,'dislocation_analysis']]],
   ['get_5fdisloc_5fcoords_13',['get_disloc_coords',['../namespacedislocation__analysis.html#abd86598650d2ab1ec7262a3ed52c42fa',1,'dislocation_analysis']]],
-  ['get_5fellipse_14',['get_ellipse',['../namespacemBF__analysis.html#aa2ed92db06f39fec16bc15e9304002d8',1,'mBF_analysis']]],
-  ['get_5fposterior_15',['get_posterior',['../namespacefuncs.html#a9e798fe6e7fc82bd3708154f1ac42237',1,'funcs']]],
-  ['get_5fvelocity_16',['get_velocity',['../namespacedislocation__analysis.html#af22d170b46ff4cf5ec39d4fd2b550674',1,'dislocation_analysis']]],
-  ['grbreak_17',['grbreak',['../namespacemc3__de__mcmc.html#a7a814ced192f38a0d0f7cb1d9c55b151',1,'mc3_de_mcmc']]],
-  ['grnmin_18',['grnmin',['../namespacemc3__de__mcmc.html#a5dcb2c816fb567e90e6ef84057b5c8ec',1,'mc3_de_mcmc']]],
-  ['grtest_19',['grtest',['../namespacemc3__de__mcmc.html#a45291cd235aabc115e79cb71d392bb0c',1,'mc3_de_mcmc']]]
+  ['get_5fposterior_14',['get_posterior',['../namespacefuncs.html#a9e798fe6e7fc82bd3708154f1ac42237',1,'funcs']]],
+  ['get_5fvelocity_15',['get_velocity',['../namespacedislocation__analysis.html#af22d170b46ff4cf5ec39d4fd2b550674',1,'dislocation_analysis']]],
+  ['grbreak_16',['grbreak',['../namespacemc3__de__mcmc.html#a7a814ced192f38a0d0f7cb1d9c55b151',1,'mc3_de_mcmc']]],
+  ['grnmin_17',['grnmin',['../namespacemc3__de__mcmc.html#a5dcb2c816fb567e90e6ef84057b5c8ec',1,'mc3_de_mcmc']]],
+  ['grtest_18',['grtest',['../namespacemc3__de__mcmc.html#a45291cd235aabc115e79cb71d392bb0c',1,'mc3_de_mcmc']]]
 ];

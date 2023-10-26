@@ -14,78 +14,57 @@
 \DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00010}00010\ \textcolor{keyword}{import}\ ovito}
 \DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00011}00011\ ovito.enable\_logging()}
 \DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00012}00012\ }
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00013}\mbox{\hyperlink{namespaceovito__disloc_a5d4ab630de6e385f9965bfbff4199810}{00013}}\ start\_frame\ =\ 25000}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00013}\mbox{\hyperlink{namespaceovito__disloc_a5d4ab630de6e385f9965bfbff4199810}{00013}}\ start\_frame\ =\ 0}
 \DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00014}00014\ }
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00015}00015\ \textcolor{comment}{\#\ Set\ dump\ file\ writing\ frequency}}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00015}00015\ \textcolor{comment}{\#\ Set\ dump\ file\ writing\ frequency\ -\/\ every\ n\ timesteps}}
 \DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00016}\mbox{\hyperlink{namespaceovito__disloc_a4350c996daea7331103780e164cab03a}{00016}}\ step\ =\ 500}
 \DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00017}00017\ }
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00018}00018\ \textcolor{comment}{\#\ dumps\ =\ natsorted(os.listdir("{}./dumps"{}))}}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00019}00019\ }
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00020}00020\ \textcolor{comment}{\#\ Load\ structure(s)}}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00021}\mbox{\hyperlink{namespaceovito__disloc_abe1d39e1b6caf7eb967132e5c519e422}{00021}}\ pipeline\ =\ import\_file(\textcolor{stringliteral}{"{}./dumps/dump.shear\_unwrap.*"{}})}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00022}\mbox{\hyperlink{namespaceovito__disloc_ae1ff65640dc268aafe84f86f49017b81}{00022}}\ data\ =\ pipeline.compute()}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00023}00023\ }
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00024}00024\ \textcolor{comment}{\#\ Set\ up\ dislocation\ analysis\ modifier}}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00025}\mbox{\hyperlink{namespaceovito__disloc_a106537419ae871b97a5efa49fcf1e9ff}{00025}}\ modifier\ =\ DislocationAnalysisModifier()}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00026}\mbox{\hyperlink{namespaceovito__disloc_a09c5f87803fdcda983bc5568dbedd228}{00026}}\ modifier.input\_crystal\_structure\ =\ DislocationAnalysisModifier.Lattice.FCC}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00027}00027\ pipeline.modifiers.append(modifier)}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00028}00028\ }
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00029}00029\ \textcolor{comment}{\#\ Evaluate\ pipeline\ at\ every\ frame}}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00030}00030\ \textcolor{comment}{\#\ Write\ dislocation\ output\ files\ for\ analysis}}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00031}\mbox{\hyperlink{namespaceovito__disloc_ac19c9093269fdc6d11ba96d4b21f2146}{00031}}\ start\ =\ time.time()}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00032}00032\ \textcolor{keywordflow}{for}\ frame\ \textcolor{keywordflow}{in}\ range(pipeline.source.num\_frames):}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00033}00033\ \ \ \ \ data\ =\ pipeline.compute(frame)}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00034}00034\ }
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00035}00035\ \ \ \ \ \textcolor{comment}{\#\ Extract\ outputs}}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00036}00036\ \ \ \ \ \textcolor{comment}{\#\ Number\ of\ dislocations\ found}}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00037}\mbox{\hyperlink{namespaceovito__disloc_a8f64a7cf058ed71c5ce15b34a3d54ea3}{00037}}\ \ \ \ \ ndisloc\ =\ len(data.dislocations.segments)}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00038}00038\ }
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00039}00039\ \ \ \ \ \textcolor{comment}{\#\ Number\ and\ coordinates\ of\ vertices}}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00040}\mbox{\hyperlink{namespaceovito__disloc_a937580ef45d6236e24145e04838529b7}{00040}}\ \ \ \ \ lens\ =\ []}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00041}\mbox{\hyperlink{namespaceovito__disloc_a48258ff2ae382b44c4038a781d61a2b4}{00041}}\ \ \ \ \ vertices\ =\ []}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{for}\ segment\ \textcolor{keywordflow}{in}\ data.dislocations.segments:}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00043}00043\ \ \ \ \ \ \ \ \ lens.append(len(segment.points))}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00044}00044\ \ \ \ \ \ \ \ \ vertices.append(segment.points)}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00045}00045\ }
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00046}00046\ \ \ \ \ \textcolor{keyword}{with}\ open(f\textcolor{stringliteral}{"{}./Ni\_disloc/disloc\_data\_\{start\_frame+(frame*step)\}.txt"{}},\ \textcolor{stringliteral}{"{}w"{}})\ \textcolor{keyword}{as}\ fdata:}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Write\ the\ number\ of\ dislocations\ found}}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00048}00048\ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}Writing\ disloc\_data\_\{start\_frame+(frame*step)\}.txt"{}})}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00049}00049\ \ \ \ \ \ \ \ \ fdata.write(f\textcolor{stringliteral}{"{}\{ndisloc\}\ \(\backslash\)n"{}})}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00050}00050\ }
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ j,\ length\ \textcolor{keywordflow}{in}\ enumerate(lens):}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Dislocation\ index}}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ fdata.write(f\textcolor{stringliteral}{"{}\{j\}\ \(\backslash\)n"{}})}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Number\ of\ vertices}}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ fdata.write(f\textcolor{stringliteral}{"{}\{length\}\ \(\backslash\)n"{}})}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Coordinates\ of\ vertices}}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ coords\ \textcolor{keywordflow}{in}\ vertices[j]:}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fdata.write(f\textcolor{stringliteral}{"{}\{coords[0]\}\ \{coords[1]\}\ \{coords[2]\}\ \(\backslash\)n"{}})}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00059}00059\ \ \ \ \ \ \ \ \ fdata.close()}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00018}00018\ \textcolor{comment}{\#\ Load\ structure(s)}}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00019}\mbox{\hyperlink{namespaceovito__disloc_abe1d39e1b6caf7eb967132e5c519e422}{00019}}\ pipeline\ =\ import\_file(\textcolor{stringliteral}{"{}./dumps/dump.shear\_unwrap.*"{}})}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00020}\mbox{\hyperlink{namespaceovito__disloc_ae1ff65640dc268aafe84f86f49017b81}{00020}}\ data\ =\ pipeline.compute()}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00022}00022\ \textcolor{comment}{\#\ Set\ up\ dislocation\ analysis\ modifier}}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00023}\mbox{\hyperlink{namespaceovito__disloc_a106537419ae871b97a5efa49fcf1e9ff}{00023}}\ modifier\ =\ DislocationAnalysisModifier()}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00024}\mbox{\hyperlink{namespaceovito__disloc_a09c5f87803fdcda983bc5568dbedd228}{00024}}\ modifier.input\_crystal\_structure\ =\ DislocationAnalysisModifier.Lattice.FCC}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00025}00025\ pipeline.modifiers.append(modifier)}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00027}00027\ \textcolor{comment}{\#\ Evaluate\ pipeline\ at\ every\ frame}}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00028}00028\ \textcolor{comment}{\#\ Write\ dislocation\ output\ files\ for\ analysis}}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00029}\mbox{\hyperlink{namespaceovito__disloc_ac19c9093269fdc6d11ba96d4b21f2146}{00029}}\ start\ =\ time.time()}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00030}00030\ \textcolor{keywordflow}{for}\ frame\ \textcolor{keywordflow}{in}\ range(pipeline.source.num\_frames):}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00031}00031\ \ \ \ \ data\ =\ pipeline.compute(frame)}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00033}00033\ \ \ \ \ \textcolor{comment}{\#\ Extract\ outputs}}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00034}00034\ \ \ \ \ \textcolor{comment}{\#\ Number\ of\ dislocations\ found}}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00035}\mbox{\hyperlink{namespaceovito__disloc_a8f64a7cf058ed71c5ce15b34a3d54ea3}{00035}}\ \ \ \ \ ndisloc\ =\ len(data.dislocations.segments)}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00037}00037\ \ \ \ \ \textcolor{comment}{\#\ Number\ and\ coordinates\ of\ vertices}}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00038}\mbox{\hyperlink{namespaceovito__disloc_a937580ef45d6236e24145e04838529b7}{00038}}\ \ \ \ \ lens\ =\ []}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00039}\mbox{\hyperlink{namespaceovito__disloc_a48258ff2ae382b44c4038a781d61a2b4}{00039}}\ \ \ \ \ vertices\ =\ []}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00040}00040\ \ \ \ \ \textcolor{keywordflow}{for}\ segment\ \textcolor{keywordflow}{in}\ data.dislocations.segments:}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00041}00041\ \ \ \ \ \ \ \ \ lens.append(len(segment.points))}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00042}00042\ \ \ \ \ \ \ \ \ vertices.append(segment.points)}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00044}00044\ \ \ \ \ \textcolor{keyword}{with}\ open(f\textcolor{stringliteral}{"{}./Ni\_disloc/disloc\_data\_\{start\_frame+(frame*step)\}.txt"{}},\ \textcolor{stringliteral}{"{}w"{}})\ \textcolor{keyword}{as}\ fdata:}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Write\ the\ number\ of\ dislocations\ found}}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00046}00046\ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}Writing\ disloc\_data\_\{start\_frame+(frame*step)\}.txt"{}})}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00047}00047\ \ \ \ \ \ \ \ \ fdata.write(f\textcolor{stringliteral}{"{}\{ndisloc\}\ \(\backslash\)n"{}})}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ j,\ length\ \textcolor{keywordflow}{in}\ enumerate(lens):}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Dislocation\ index}}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ fdata.write(f\textcolor{stringliteral}{"{}\{j\}\ \(\backslash\)n"{}})}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Number\ of\ vertices}}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ fdata.write(f\textcolor{stringliteral}{"{}\{length\}\ \(\backslash\)n"{}})}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Coordinates\ of\ vertices}}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ coords\ \textcolor{keywordflow}{in}\ vertices[j]:}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fdata.write(f\textcolor{stringliteral}{"{}\{coords[0]\}\ \{coords[1]\}\ \{coords[2]\}\ \(\backslash\)n"{}})}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00057}00057\ \ \ \ \ \ \ \ \ fdata.close()}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00059}00059\ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}Written\ disloc\_data\_\{frame*step\}.txt"{}})}
 \DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00060}00060\ }
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00061}00061\ \ \ \ \ \ \ \ \ print(f\textcolor{stringliteral}{"{}Written\ disloc\_data\_\{frame*step\}.txt"{}})}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00062}00062\ }
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00063}00063\ \ \ \ \ \textcolor{comment}{\#\ Export\ dislocation\ lines\ to\ a\ CA\ file:}}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00064}00064\ \ \ \ \ export\_file(data,\ f\textcolor{stringliteral}{"{}./Ni\_disloc/dislocations\_\{frame*step\}.ca"{}},\ \textcolor{stringliteral}{"{}ca"{}})}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00065}\mbox{\hyperlink{namespaceovito__disloc_ac711575ff58b7d71841a33e1ebf9b987}{00065}}\ end\ =\ time.time()}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00066}00066\ print(f\textcolor{stringliteral}{"{}Execution\ time\ =\ \{round(end-\/start,2)\}"{}})}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00067}00067\ }
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00068}00068\ \textcolor{comment}{\#print(len(data.dislocations.segments[0].points))}}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00069}00069\ }
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00070}00070\ }
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00071}00071\ \textcolor{comment}{\#\ total\_line\_length\ =\ data.attributes['DislocationAnalysis.total\_line\_length']}}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00072}00072\ \textcolor{comment}{\#\ cell\_volume\ =\ data.attributes['DislocationAnalysis.cell\_volume']}}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00073}00073\ }
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00074}00074\ \textcolor{comment}{\#print("{}Dislocation\ density:\ \%f"{}\ \%\ (total\_line\_length\ /\ cell\_volume))}}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00075}00075\ }
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00076}00076\ \textcolor{comment}{\#\ \#\ Print\ list\ of\ dislocation\ lines:}}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00077}00077\ \textcolor{comment}{\#\ print("{}Found\ \%i\ dislocation\ segments"{}\ \%\ len(data.dislocations.segments))}}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00078}00078\ \textcolor{comment}{\#\ for\ segment\ in\ data.dislocations.segments:}}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00079}00079\ \textcolor{comment}{\#\ \ \ \ \ print("{}Segment\ \%i:\ length=\%f,\ Burgers\ vector=\%s"{}\ \%\ (segment.id,\ segment.length,\ segment.true\_burgers\_vector))}}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00080}00080\ \textcolor{comment}{\#\ \ \ \ \ print(segment.points)}}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00081}00081\ }
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00082}00082\ \textcolor{comment}{\#\ \#\ Export\ dislocation\ lines\ to\ a\ CA\ file:}}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00083}00083\ \textcolor{comment}{\#\ export\_file(pipeline,\ "{}dislocations.ca"{},\ "{}ca"{})}}
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00084}00084\ }
-\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00061}00061\ \ \ \ \ \textcolor{comment}{\#\ Export\ dislocation\ lines\ to\ a\ CA\ file:}}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00062}00062\ \ \ \ \ export\_file(data,\ f\textcolor{stringliteral}{"{}./Ni\_disloc/dislocations\_\{frame*step\}.ca"{}},\ \textcolor{stringliteral}{"{}ca"{}})}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00063}\mbox{\hyperlink{namespaceovito__disloc_ac711575ff58b7d71841a33e1ebf9b987}{00063}}\ end\ =\ time.time()}
+\DoxyCodeLine{\Hypertarget{ovito__disloc_8py_source_l00064}00064\ print(f\textcolor{stringliteral}{"{}Execution\ time\ =\ \{round(end-\/start,2)\}"{}})}
 
 \end{DoxyCode}

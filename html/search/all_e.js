@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['params_0',['params',['../namespacemBF__analysis.html#aedf8af9c06eca845539eb37c4501322e',1,'mBF_analysis.params'],['../namespacemc3__de__mcmc.html#a4f5fb215d6e05bc7eb7ec50d0e6b664e',1,'mc3_de_mcmc.params'],['../namespacede__mc__analysis.html#ab698d17f4e3acbc67b37209a7a485953',1,'de_mc_analysis.params']]],
+  ['params_0',['params',['../namespacemc3__de__mcmc.html#a4f5fb215d6e05bc7eb7ec50d0e6b664e',1,'mc3_de_mcmc.params'],['../namespacede__mc__analysis.html#ab698d17f4e3acbc67b37209a7a485953',1,'de_mc_analysis.params']]],
   ['partial_5f1_1',['partial_1',['../namespacedislocation__script.html#a1680c1f0d8660bb78a0e79acba43789d',1,'dislocation_script']]],
   ['partial_5f1_5fvel_2',['partial_1_vel',['../namespacedislocation__script.html#a1de29d78a7e889a59af7e353d2a27323',1,'dislocation_script']]],
   ['partial_5f2_3',['partial_2',['../namespacedislocation__script.html#ada203a0e7d9e898705699cafeba1f3ef',1,'dislocation_script']]],
@@ -11,18 +11,15 @@ var searchData=
   ['pipeline_8',['pipeline',['../namespaceovito__disloc.html#abe1d39e1b6caf7eb967132e5c519e422',1,'ovito_disloc']]],
   ['plots_9',['plots',['../namespacemc3__de__mcmc.html#ad8bef0833b40a9da6dbdc8b37e02d1a8',1,'mc3_de_mcmc']]],
   ['pnames_10',['pnames',['../namespacemc3__de__mcmc.html#a58ae4fa9b0d3b89ba50ca208a333bb7b',1,'mc3_de_mcmc']]],
-  ['pos_11',['pos',['../namespacemBF__analysis.html#a067369257b570622b64103051955b9d6',1,'mBF_analysis']]],
-  ['pos_5fdim_5ferror_12',['pos_dim_error',['../namespacemBF__analysis.html#a659b06b0425e0f1d897805b2c75f5a06',1,'mBF_analysis']]],
-  ['pos_5fdim_5fmean_13',['pos_dim_mean',['../namespacemBF__analysis.html#a9997e6c126815fb13fc47cc1559d91f5',1,'mBF_analysis']]],
-  ['position_14',['position',['../namespacedislocation__script.html#a9edd750276def37b478564d74c9de2ae',1,'dislocation_script']]],
-  ['post_5fcov_15',['post_cov',['../namespacemBF__analysis.html#ac0fe4ae4f6c69c08b87d96c9877513b9',1,'mBF_analysis.post_cov'],['../namespacede__mc__analysis.html#a20655d36e621246dd384cbd634658481',1,'de_mc_analysis.post_cov']]],
-  ['posterior_16',['posterior',['../namespacemBF__analysis.html#a81ac22371a60462faa8386019dfe1455',1,'mBF_analysis.posterior'],['../namespacede__mc__analysis.html#ae47b49a04997b768daad60afc6a953d2',1,'de_mc_analysis.posterior']]],
-  ['potential_17',['potential',['../namespacelmp__script.html#a091915bca32c44c57015affd15ebc7b0',1,'lmp_script.potential'],['../namespacelmp__pre__strain.html#ad61037356d6dc05f2a89f591b23df807',1,'lmp_pre_strain.potential']]],
-  ['pre_5fstrain_18',['pre_strain',['../namespacelmp__pre__strain.html#adf41fb5de87453b6427cdffb8e8c64de',1,'lmp_pre_strain']]],
-  ['pressure_19',['pressure',['../namespacelmp__pre__strain.html#a475c9f4f9df1505f6599de39a942290d',1,'lmp_pre_strain.pressure'],['../namespacelmp__script.html#afb583a2c86b67e9161f87bb251c54208',1,'lmp_script.pressure']]],
-  ['prior_20',['prior',['../namespacede__mc__analysis.html#a3508e222aa24cc41bdf3bfa75656e27e',1,'de_mc_analysis.prior'],['../namespacemBF__analysis.html#a0146591cf47ac89ef74733ca1f959c95',1,'mBF_analysis.prior'],['../namespacemc3__de__mcmc.html#a90e22a7e965483443f1b8d52d6777d44',1,'mc3_de_mcmc.prior']]],
-  ['priorlow_21',['priorlow',['../namespacede__mc__analysis.html#aff61755f255fec817c56f6b1d818e9f8',1,'de_mc_analysis.priorlow'],['../namespacemBF__analysis.html#a2a09894d04ab41e5e63712ad58ddc104',1,'mBF_analysis.priorlow'],['../namespacemc3__de__mcmc.html#aae23575cd4a8691fa75c87fdd5207fb8',1,'mc3_de_mcmc.priorlow']]],
-  ['priorup_22',['priorup',['../namespacede__mc__analysis.html#ab7749656b58f1f5bd5759567947ab812',1,'de_mc_analysis.priorup'],['../namespacemBF__analysis.html#ae16a8db1d371656fac3ccf404245345c',1,'mBF_analysis.priorup'],['../namespacemc3__de__mcmc.html#ab9e4043c01dfa68d256dd06a34789a85',1,'mc3_de_mcmc.priorup']]],
-  ['problem_23',['problem',['../namespacelmp__pre__strain.html#aeb8419d2becf34a0cacf0f95ae2fdada',1,'lmp_pre_strain.problem'],['../namespacelmp__script.html#a4d044118ec4f3a4d4babfa76444604c4',1,'lmp_script.problem']]],
-  ['pstep_24',['pstep',['../namespacemc3__de__mcmc.html#a0b0c58a727ef48b44cf93b4a7418325e',1,'mc3_de_mcmc']]]
+  ['position_11',['position',['../namespacedislocation__script.html#a9edd750276def37b478564d74c9de2ae',1,'dislocation_script']]],
+  ['post_5fcov_12',['post_cov',['../namespacede__mc__analysis.html#a20655d36e621246dd384cbd634658481',1,'de_mc_analysis']]],
+  ['posterior_13',['posterior',['../namespacede__mc__analysis.html#ae47b49a04997b768daad60afc6a953d2',1,'de_mc_analysis']]],
+  ['potential_14',['potential',['../namespacelmp__script.html#a091915bca32c44c57015affd15ebc7b0',1,'lmp_script.potential'],['../namespacelmp__pre__strain.html#ad61037356d6dc05f2a89f591b23df807',1,'lmp_pre_strain.potential']]],
+  ['pre_5fstrain_15',['pre_strain',['../namespacelmp__pre__strain.html#adf41fb5de87453b6427cdffb8e8c64de',1,'lmp_pre_strain']]],
+  ['pressure_16',['pressure',['../namespacelmp__pre__strain.html#a475c9f4f9df1505f6599de39a942290d',1,'lmp_pre_strain.pressure'],['../namespacelmp__script.html#afb583a2c86b67e9161f87bb251c54208',1,'lmp_script.pressure']]],
+  ['prior_17',['prior',['../namespacede__mc__analysis.html#a3508e222aa24cc41bdf3bfa75656e27e',1,'de_mc_analysis.prior'],['../namespacemc3__de__mcmc.html#a90e22a7e965483443f1b8d52d6777d44',1,'mc3_de_mcmc.prior']]],
+  ['priorlow_18',['priorlow',['../namespacede__mc__analysis.html#aff61755f255fec817c56f6b1d818e9f8',1,'de_mc_analysis.priorlow'],['../namespacemc3__de__mcmc.html#aae23575cd4a8691fa75c87fdd5207fb8',1,'mc3_de_mcmc.priorlow']]],
+  ['priorup_19',['priorup',['../namespacede__mc__analysis.html#ab7749656b58f1f5bd5759567947ab812',1,'de_mc_analysis.priorup'],['../namespacemc3__de__mcmc.html#ab9e4043c01dfa68d256dd06a34789a85',1,'mc3_de_mcmc.priorup']]],
+  ['problem_20',['problem',['../namespacelmp__pre__strain.html#aeb8419d2becf34a0cacf0f95ae2fdada',1,'lmp_pre_strain.problem'],['../namespacelmp__script.html#a4d044118ec4f3a4d4babfa76444604c4',1,'lmp_script.problem']]],
+  ['pstep_21',['pstep',['../namespacemc3__de__mcmc.html#a0b0c58a727ef48b44cf93b4a7418325e',1,'mc3_de_mcmc']]]
 ];
