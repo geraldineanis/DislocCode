@@ -72,8 +72,6 @@ for i, frame in enumerate(disloc_frames):
 #                      Dislocation Tracking                       #
 #                                                                 #
 ###################################################################
-n_frames = len(disloc_frames)
-
 position, vertices, t = track_disloc(avg, x_lim)
 
 ###################################################################
