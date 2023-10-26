@@ -10,12 +10,10 @@ from ovito.data import DislocationNetwork
 import ovito
 ovito.enable_logging()
 
-start_frame = 25000
+start_frame = 0
 
-# Set dump file writing frequency
+# Set dump file writing frequency - every n timesteps
 step = 500
-
-# dumps = natsorted(os.listdir("./dumps"))
 
 # Load structure(s)
 pipeline = import_file("./dumps/dump.shear_unwrap.*")
@@ -64,23 +62,3 @@ for frame in range(pipeline.source.num_frames):
     export_file(data, f"./Ni_disloc/dislocations_{frame*step}.ca", "ca")
 end = time.time()
 print(f"Execution time = {round(end-start,2)}")
-
-#print(len(data.dislocations.segments[0].points))
-
-
-# total_line_length = data.attributes['DislocationAnalysis.total_line_length']
-# cell_volume = data.attributes['DislocationAnalysis.cell_volume']
-
-#print("Dislocation density: %f" % (total_line_length / cell_volume))
-
-# # Print list of dislocation lines:
-# print("Found %i dislocation segments" % len(data.dislocations.segments))
-# for segment in data.dislocations.segments:
-#     print("Segment %i: length=%f, Burgers vector=%s" % (segment.id, segment.length, segment.true_burgers_vector))
-#     print(segment.points)
-
-# # Export dislocation lines to a CA file:
-# export_file(pipeline, "dislocations.ca", "ca")
-
-## Or export dislocations to a ParaView VTK file:
-#export_file(pipeline, "dislocations.vtk", "vtk/disloc")
