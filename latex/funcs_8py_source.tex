@@ -6,7 +6,7 @@
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00002}00002\ \textcolor{keyword}{from}\ scipy.integrate\ \textcolor{keyword}{import}\ odeint}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00003}00003\ }
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00004}00004\ \textcolor{comment}{\#\ Equation\ of\ motion\ solution}}
-\DoxyCodeLine{\Hypertarget{funcs_8py_source_l00005}\mbox{\hyperlink{namespacefuncs_a66572a84eec5245067f599ca5a3bc663}{00005}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacefuncs_a66572a84eec5245067f599ca5a3bc663}{x\_t}}(t,xi,m,\ B,\ F):}
+\DoxyCodeLine{\Hypertarget{funcs_8py_source_l00005}\mbox{\hyperlink{namespacefuncs_af2d0ab5140fa7165180f56988326e7ea}{00005}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacefuncs_af2d0ab5140fa7165180f56988326e7ea}{x\_t}}(t,xi,m,\ B,\ F):}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00006}00006\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00007}00007\ \textcolor{stringliteral}{\ \ \ \ Analytic\ solution\ to\ the\ equation\ of\ motion\ mx"{}\ +\ Bx'\ =\ F}}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00008}00008\ \textcolor{stringliteral}{\ \ \ \ Full\ dimensional\ equation}}
@@ -15,7 +15,7 @@
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00011}00011\ }
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00012}00012\ }
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00013}00013\ \textcolor{comment}{\#\ Non-\/dimensional\ Model}}
-\DoxyCodeLine{\Hypertarget{funcs_8py_source_l00014}\mbox{\hyperlink{namespacefuncs_ae83e83b28431124ae260975b6ecb9bd0}{00014}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacefuncs_ae83e83b28431124ae260975b6ecb9bd0}{x\_derivatives}}(x,t,c0,c1,c2):}
+\DoxyCodeLine{\Hypertarget{funcs_8py_source_l00014}\mbox{\hyperlink{namespacefuncs_ac34dcb7641de37b9f8c47b55f6f8866b}{00014}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacefuncs_ac34dcb7641de37b9f8c47b55f6f8866b}{x\_derivatives}}(x,t,c0,c1,c2):}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00015}00015\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00016}00016\ \textcolor{stringliteral}{\ \ \ \ x:\ LHS\ row\ vector\ (dependent\ variable)}}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00017}00017\ \textcolor{stringliteral}{\ \ \ \ t:\ time\ (the\ independent\ variable)}}
@@ -24,7 +24,7 @@
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00020}00020\ \ \ \ \ dxdt\ =\ [x[1],\ np.exp(c0)*(np.exp(c2)\ -\/\ np.exp(c1)*x[1])]}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{return}\ dxdt}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00022}00022\ }
-\DoxyCodeLine{\Hypertarget{funcs_8py_source_l00023}\mbox{\hyperlink{namespacefuncs_adf167798b7cf991996456f8aa3e167c9}{00023}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacefuncs_adf167798b7cf991996456f8aa3e167c9}{ODE\_solution}}(t,x0,t\_data):}
+\DoxyCodeLine{\Hypertarget{funcs_8py_source_l00023}\mbox{\hyperlink{namespacefuncs_a6f41c57e2b22ccd30504b7308b3ef0a5}{00023}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacefuncs_a6f41c57e2b22ccd30504b7308b3ef0a5}{ODE\_solution}}(t,x0,t\_data):}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00024}00024\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00025}00025\ \textcolor{stringliteral}{\ \ \ \ x0:\ vector\ containing\ initial\ position\ and\ velocity}}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00026}00026\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
@@ -33,7 +33,7 @@
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00029}00029\ \ \ \ \ \textcolor{keywordflow}{return}\ position,\ velocity}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00030}00030\ }
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00031}00031\ \textcolor{comment}{\#\ Dimensional\ Model}}
-\DoxyCodeLine{\Hypertarget{funcs_8py_source_l00032}\mbox{\hyperlink{namespacefuncs_a47c9eb33bb1a803d00dfb120b5fbf222}{00032}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacefuncs_a47c9eb33bb1a803d00dfb120b5fbf222}{x\_derivatives\_dim}}(x,t,m,B,F):}
+\DoxyCodeLine{\Hypertarget{funcs_8py_source_l00032}\mbox{\hyperlink{namespacefuncs_ad67954a2c6f4626ce9e16627630e22ed}{00032}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacefuncs_ad67954a2c6f4626ce9e16627630e22ed}{x\_derivatives\_dim}}(x,t,m,B,F):}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00033}00033\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00034}00034\ \textcolor{stringliteral}{\ \ \ \ x:\ LHS\ row\ vector\ (dependent\ variable)}}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00035}00035\ \textcolor{stringliteral}{\ \ \ \ t:\ time\ (the\ independent\ variable)}}
@@ -42,7 +42,7 @@
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00038}00038\ \ \ \ \ dxdt\ =\ [x[1],\ (1/m)*(F\ -\/\ B*x[1])]}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00039}00039\ \ \ \ \ \textcolor{keywordflow}{return}\ dxdt}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00040}00040\ }
-\DoxyCodeLine{\Hypertarget{funcs_8py_source_l00041}\mbox{\hyperlink{namespacefuncs_a221e91ed4cdefcdb446ada2b1ba23b4f}{00041}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacefuncs_a221e91ed4cdefcdb446ada2b1ba23b4f}{ODE\_solution\_dim}}(t,x0,t\_data):}
+\DoxyCodeLine{\Hypertarget{funcs_8py_source_l00041}\mbox{\hyperlink{namespacefuncs_a543157c31e20837d8dd6891bd93e867b}{00041}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacefuncs_a543157c31e20837d8dd6891bd93e867b}{ODE\_solution\_dim}}(t,x0,t\_data):}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00042}00042\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00043}00043\ \textcolor{stringliteral}{\ \ \ \ x0:\ vector\ containing\ initial\ position\ and\ velocity}}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00044}00044\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
@@ -52,17 +52,17 @@
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00048}00048\ }
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00049}00049\ \textcolor{comment}{\#\ Functions\ to\ convert\ from\ non-\/dimensional\ parameters}}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00050}00050\ \textcolor{comment}{\#\ c0,\ c1,\ c2\ to\ m,\ B,\ F}}
-\DoxyCodeLine{\Hypertarget{funcs_8py_source_l00051}\mbox{\hyperlink{namespacefuncs_abedd3552707c3ce9919f3526be43fd81}{00051}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacefuncs_abedd3552707c3ce9919f3526be43fd81}{c0\_to\_m}}(c0,ts,xs,Fs):}
+\DoxyCodeLine{\Hypertarget{funcs_8py_source_l00051}\mbox{\hyperlink{namespacefuncs_a2f73b98a1da5de062e191f6137156de0}{00051}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacefuncs_a2f73b98a1da5de062e191f6137156de0}{c0\_to\_m}}(c0,ts,xs,Fs):}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00052}00052\ \ \ \ \ \textcolor{keywordflow}{return}\ ((ts**2)*Fs)/(xs*c0)}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00053}00053\ }
-\DoxyCodeLine{\Hypertarget{funcs_8py_source_l00054}\mbox{\hyperlink{namespacefuncs_a0018fbc1d06eaceff83ed3c97323f1d0}{00054}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacefuncs_a0018fbc1d06eaceff83ed3c97323f1d0}{c1\_to\_B}}(c1,ts,xs,Fs):}
+\DoxyCodeLine{\Hypertarget{funcs_8py_source_l00054}\mbox{\hyperlink{namespacefuncs_ab0932baa334ad3593902f4ea92de333b}{00054}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacefuncs_ab0932baa334ad3593902f4ea92de333b}{c1\_to\_B}}(c1,ts,xs,Fs):}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{return}\ (c1*ts*Fs)/xs}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00056}00056\ }
-\DoxyCodeLine{\Hypertarget{funcs_8py_source_l00057}\mbox{\hyperlink{namespacefuncs_ab72c8a905dc2e62d8c44b129dafe8c78}{00057}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacefuncs_ab72c8a905dc2e62d8c44b129dafe8c78}{c2\_to\_F}}(c2,Fs):}
+\DoxyCodeLine{\Hypertarget{funcs_8py_source_l00057}\mbox{\hyperlink{namespacefuncs_af4435a845fb35f9c92a80999be6a5d84}{00057}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacefuncs_af4435a845fb35f9c92a80999be6a5d84}{c2\_to\_F}}(c2,Fs):}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{return}\ Fs*c2}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00059}00059\ }
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00060}00060\ \textcolor{comment}{\#\ DE-\/MC\ Analysis}}
-\DoxyCodeLine{\Hypertarget{funcs_8py_source_l00061}\mbox{\hyperlink{namespacefuncs_a9e798fe6e7fc82bd3708154f1ac42237}{00061}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacefuncs_a9e798fe6e7fc82bd3708154f1ac42237}{get\_posterior}}(data,\ n\_samples,\ burn,\ dims=3):}
+\DoxyCodeLine{\Hypertarget{funcs_8py_source_l00061}\mbox{\hyperlink{namespacefuncs_a5737b8a61a3f2ecfbd0e9890fa7bc5c0}{00061}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacefuncs_a5737b8a61a3f2ecfbd0e9890fa7bc5c0}{get\_posterior}}(data,\ n\_samples,\ burn,\ dims=3):}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00062}00062\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00063}00063\ \textcolor{stringliteral}{\ \ \ \ Function\ to\ get\ parameter\ posterior\ distributions}}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00064}00064\ \textcolor{stringliteral}{\ \ \ \ Returns\ posterior\ samples\ for\ each\ parameter\ discarding\ burn\ samples}}
@@ -81,7 +81,7 @@
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00077}00077\ \ \ \ \ }
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00078}00078\ \ \ \ \ \textcolor{keywordflow}{return}\ posterior,\ c\_dist,\ c\_means,\ post\_cov,\ c\_std}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00079}00079\ }
-\DoxyCodeLine{\Hypertarget{funcs_8py_source_l00080}\mbox{\hyperlink{namespacefuncs_a2db14a95b7d297f4b144662a4432e564}{00080}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacefuncs_a2db14a95b7d297f4b144662a4432e564}{stat\_convergence}}(data,\ dims):}
+\DoxyCodeLine{\Hypertarget{funcs_8py_source_l00080}\mbox{\hyperlink{namespacefuncs_a1f4d59a8b841f2e76b6da40ed5b7afc9}{00080}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacefuncs_a1f4d59a8b841f2e76b6da40ed5b7afc9}{stat\_convergence}}(data,\ dims):}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00081}00081\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00082}00082\ \textcolor{stringliteral}{\ \ \ \ Function\ to\ calculate\ the\ mean\ and\ standarde\ deviation\ of\ a\ parameter\ dataset}}
 \DoxyCodeLine{\Hypertarget{funcs_8py_source_l00083}00083\ \textcolor{stringliteral}{\ \ \ \ with\ increasing\ sample\ size}}

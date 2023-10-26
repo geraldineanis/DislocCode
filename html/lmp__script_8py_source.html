@@ -93,11 +93,11 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">from</span> mpi4py <span class="keyword">import</span> MPI</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"># Select &quot;Ni&quot; or &quot;Ni3Al&quot; </span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#aa1d5221b2e673059420a5b761be958d8">   22</a></span>sys_type = <span class="stringliteral">&quot;Ni&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a47a6a162aaaec8deeb946d93afc43640">   22</a></span>sys_type = <span class="stringliteral">&quot;Ni&quot;</span></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"># Set lattice parameter</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keywordflow">if</span> sys_type == <span class="stringliteral">&quot;Ni&quot;</span>:</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a2e50bd5a93840e3557d1003036954507">   26</a></span>    gamma_latt = 3.52   </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a9b27874ba7d145bc1250fc9179cc308c">   26</a></span>    gamma_latt = 3.52   </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keywordflow">elif</span> sys_type == <span class="stringliteral">&quot;Ni3Al&quot;</span>:</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    gamma_latt = 3.57</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keywordflow">else</span>:</div>
@@ -108,56 +108,56 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"># if sim_type = &quot;new&quot; do structural relaxation and equilibration</span></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"># if sim_type = &quot;continue&quot; skip to production</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"># give last timestep to be read from dump file - later change to binary file for precision</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a618d3b5ba80f2372a6db574052f5c07b">   37</a></span>sim_type = <span class="stringliteral">&quot;new&quot;</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a0cc3f74bbf11904047904ba2858f06bf">   37</a></span>sim_type = <span class="stringliteral">&quot;new&quot;</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"># Only change this if doing a restart </span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"># i.e. sim_type = &quot;continue&quot;</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a52c6e0e464cae1cd1380ffa4350e1597">   41</a></span>restart_file = <span class="stringliteral">&quot;md_restart.30000&quot;</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a33889d94b8fc5f4f9cb50f8a301c7092">   42</a></span>last_timestep = 30000</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a173b5dda013af94c6c3e397545212c77">   41</a></span>restart_file = <span class="stringliteral">&quot;md_restart.30000&quot;</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a384c3d971a2c23a7b5d687535cd4d870">   42</a></span>last_timestep = 30000</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"># Set problem type</span></div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"># if problem = &quot;relax&quot; perform an energy minimization</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"># if problem = &quot;single&quot; calculate energy of struc. only</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a4d044118ec4f3a4d4babfa76444604c4">   47</a></span>problem = <span class="stringliteral">&quot;relax&quot;</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#ab351eda9f100d89986f3490815569740">   47</a></span>problem = <span class="stringliteral">&quot;relax&quot;</span></div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"># Ensemble</span></div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"># options: &quot;NVE&quot;, &quot;NVT&quot;, or &quot;NPT&quot;</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a2748450bcfc54f19257a0941bfe2b0ed">   51</a></span>thermo_ensemble = <span class="stringliteral">&quot;NVT&quot;</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a5485d21946fa9843b2532960f21fe4b0">   52</a></span>timestep = 0.001 <span class="comment"># timestep (ps)</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a0d1ba6853502d541ca10c5de7959fb62">   51</a></span>thermo_ensemble = <span class="stringliteral">&quot;NVT&quot;</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#ab9edcc09985767509bf717e25ac80ab7">   52</a></span>timestep = 0.001 <span class="comment"># timestep (ps)</span></div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"># User-set parameters</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a0cd0bb3c6267a8635fd8bfc42ec0d5a4">   55</a></span>temperature = 300       <span class="comment"># Temperature (K)</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#afb583a2c86b67e9161f87bb251c54208">   56</a></span>pressure = 1            <span class="comment"># Pressure (bar)</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a0ac2a299549fcca3cd14e4c1ac2087d2">   55</a></span>temperature = 300       <span class="comment"># Temperature (K)</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#ad19429a485400193c6dfc8c71b151c06">   56</a></span>pressure = 1            <span class="comment"># Pressure (bar)</span></div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a517f3769f510948a0f72a74b01e3ab46">   58</a></span>sigma = 500             <span class="comment"># Shear stress (bar) - 250 MPa</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#ab2edb54061e9fb14ec6e858a67fa90aa">   59</a></span>loading_type = <span class="stringliteral">&quot;sym&quot;</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a64cddb1ad704ff5cc78b012010314024">   58</a></span>sigma = 500             <span class="comment"># Shear stress (bar) - 250 MPa</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a9242f629ea2e29adf5bdea1ac0a2c1de">   59</a></span>loading_type = <span class="stringliteral">&quot;sym&quot;</span></div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"># Run times (ps)</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#adff3fc8a8484701d6c5cf7bc0ff08840">   62</a></span>equil_run = 10000</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#aa5b019c76251318ab580e437ed07b10b">   63</a></span>MD_run = 50000</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#afb36f83be68f340092b318ed7c189a6c">   62</a></span>equil_run = 10000</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a16106246b4cae2c0caff572f31dc716e">   63</a></span>MD_run = 50000</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keywordflow">if</span> sim_type == <span class="stringliteral">&quot;continue&quot;</span>:</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    MD_run = MD_run - last_timestep</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"># Energy conversion</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#ab918ad229b06955e568cc83956ef6557">   69</a></span>eV_to_J = 1602191.7</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#ad95fb03238f547447c8eb79ac6ea1fa3">   69</a></span>eV_to_J = 1602191.7</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"># Block sizes to set offset in x for different layers</span></div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"># and simulation box dimensions</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a1bd13a6e49da2998eefc80ec636b7d32">   73</a></span>x1 = 10</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a56e261433aca72c3f8b882d1b78c14f0">   74</a></span>x2 = 21</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#afdf25bade859dc63e6d7fee6516f7233">   75</a></span>x3 = 40</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a97fcb0e1731b36905e90757f211b1340">   73</a></span>x1 = 10</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#ad660c90589efbb535c7d55dc032c1b09">   74</a></span>x2 = 21</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#ae067fb8a14696066b62593d8adf469cd">   75</a></span>x3 = 40</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a29e674e6bfb47e9cc72ee793baf17f7f">   77</a></span>y1 = 40</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a0fddbaa506b8ca67cbb69946d16a8b05">   78</a></span>z1 = 40</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a886daa12d11655f342168e87c7c0b1cb">   77</a></span>y1 = 40</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a5f1285c04e47d67d87125b6653c68562">   78</a></span>z1 = 40</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment"># Additional options</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a7ae941ff658ad920b218576cc66f8ef3">   81</a></span>check_overlap = <span class="keyword">False</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#aa79f3f854f59cfd74086c89e25a0f55f">   81</a></span>check_overlap = <span class="keyword">False</span></div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
 <div class="foldopen" id="foldopen00087" data-start="" data-end="">
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a743f1118121d80c92f676183b59e4af3">   87</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacelmp__script.html#a743f1118121d80c92f676183b59e4af3">thermo_type</a>(thermo_ensemble):</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a111d1f34a231d570fc30d0e0fcd86582">   87</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacelmp__script.html#a111d1f34a231d570fc30d0e0fcd86582">thermo_type</a>(thermo_ensemble):</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordflow">if</span> thermo_ensemble == <span class="stringliteral">&quot;NVE&quot;</span>:</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        block = f<span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="stringliteral">        fix 1 mobile nve</span></div>
@@ -189,13 +189,13 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment"># create a LAMMPS instance</span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#ab22aa203cba600d97dfcb1328eddcb79">  120</a></span>lmp = lammps()</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#ab124f7285006b751c3f603fcd4b80a47">  120</a></span>lmp = lammps()</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="keywordflow">if</span> sim_type == <span class="stringliteral">&quot;new&quot;</span>:</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#aa42e5715024976818cf4c73edda11088">  124</a></span>    units = <span class="stringliteral">&quot;metal&quot;</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#ab4a60aabe529e19e17b4e27692988e55">  124</a></span>    units = <span class="stringliteral">&quot;metal&quot;</span></div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#aa1a6aaf1294fe4b78e01d1f77aaf8b21">  126</a></span>    block = f<span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a76bcce3ead38fc192860a18230a72002">  126</a></span>    block = f<span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="stringliteral">    clear</span></div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="stringliteral">    units {units}</span></div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="stringliteral">    dimension 3</span></div>
@@ -209,9 +209,9 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="comment"># Create lattice to setup simulation box</span></div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    lmp.command(f<span class="stringliteral">&quot;lattice none {gamma_latt}&quot;</span>)</div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="comment"># Simulation box parameters</span></div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#af1a3702c7f3040ceab2ccfaaec9e13f5">  140</a></span>    box_name = <span class="stringliteral">&quot;sim_box&quot;</span> <span class="comment"># region-ID</span></div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#ab16a557dd4ddc63d2551e093c551cc40">  141</a></span>    box_dim = [(x1+x2+x3)*np.sqrt(2)/2.0, y1*np.sqrt(6)/2.0, z1*np.sqrt(3)]</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a1cb548098342123d34bab492818158cb">  142</a></span>    species = 1  <span class="comment"># number of atom types to use in simulation</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a6011ea35234b3073111d25753f715643">  140</a></span>    box_name = <span class="stringliteral">&quot;sim_box&quot;</span> <span class="comment"># region-ID</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a01fc441b4d74aa997465a8eddad21cc9">  141</a></span>    box_dim = [(x1+x2+x3)*np.sqrt(2)/2.0, y1*np.sqrt(6)/2.0, z1*np.sqrt(3)]</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#aeb0b627a85488d9be1a7632200c41cfe">  142</a></span>    species = 1  <span class="comment"># number of atom types to use in simulation</span></div>
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="comment"># Define simulation box</span></div>
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    lmp.command(f<span class="stringliteral">&quot;region {box_name} block 0 {box_dim[0]} 0 {box_dim[1]} 0 {box_dim[2]}&quot;</span>)</div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    lmp.command(f<span class="stringliteral">&quot;create_box {species} {box_name}&quot;</span>)</div>
@@ -220,7 +220,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="comment"># 1st padding layer</span></div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    lmp.command(f<span class="stringliteral">&quot;read_data Ni_start.data group pad_1 add append&quot;</span>)</div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="comment"># Cell containing dislocation(s)</span></div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a27a75f58d55c180e3d739a1a5190ad88">  151</a></span>    x_shift  = x1*gamma_latt*np.sqrt(2)</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a46326c15278ffc091dac92438f16af68">  151</a></span>    x_shift  = x1*gamma_latt*np.sqrt(2)</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    lmp.command(f<span class="stringliteral">&quot;read_data disloc_Ni.data group disloc shift {x_shift} 0. 0. add append&quot;</span>)</div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="comment"># 2nd padding layer</span></div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    x_shift  = (x1+x2)*gamma_latt*np.sqrt(2)</div>
@@ -233,8 +233,8 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    print(<span class="stringliteral">&quot;Error: sim_type should be set to &#39;new&#39; or &#39;continue&#39;&quot;</span>)</div>
 <div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    sys.exit()  </div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a091915bca32c44c57015affd15ebc7b0">  166</a></span>potential = <span class="stringliteral">&quot;./NiAl_Mishin_2004.eam.alloy&quot;</span></div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a0d3671f0890db61ab502b6a40e68b9a4">  167</a></span>elements = [<span class="stringliteral">&quot;Ni&quot;</span>, <span class="stringliteral">&quot;Al&quot;</span>]</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a2284450a7e0fc8239d572deb7609c49e">  166</a></span>potential = <span class="stringliteral">&quot;./NiAl_Mishin_2004.eam.alloy&quot;</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a7c47321fae78722b8f29ac89125e15a8">  167</a></span>elements = [<span class="stringliteral">&quot;Ni&quot;</span>, <span class="stringliteral">&quot;Al&quot;</span>]</div>
 <div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
 <div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>lmp.command(<span class="stringliteral">&quot;pair_style eam/alloy&quot;</span>)</div>
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
@@ -253,8 +253,8 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="keywordflow">if</span> sim_type == <span class="stringliteral">&quot;new&quot;</span>:</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#aecfc2ca543ecd04985f9e30570cb19af">  192</a></span>    upper_lim = lmp.extract_box()[1][2] - (7.5*gamma_latt*np.sqrt(3))</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a7449c01309ebafb825b3111737c6dced">  193</a></span>    lower_lim = lmp.extract_box()[0][2] + (7.5*gamma_latt*np.sqrt(3))</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#ac43304e147bd7f78311c61442fa2dff8">  192</a></span>    upper_lim = lmp.extract_box()[1][2] - (7.5*gamma_latt*np.sqrt(3))</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a14c2d6545f4ded26c9f86c71c85bd5c4">  193</a></span>    lower_lim = lmp.extract_box()[0][2] + (7.5*gamma_latt*np.sqrt(3))</div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    lmp.command(f<span class="stringliteral">&quot;region upper block INF INF INF INF {upper_lim} INF units box&quot;</span>)</div>
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    lmp.command(f<span class="stringliteral">&quot;region lower block INF INF INF INF INF {lower_lim} units box&quot;</span>)</div>
@@ -337,7 +337,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    <span class="comment"># Temperature/Pressure control</span></div>
 <div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    <span class="comment"># Ensemble chosen by setting thermo_ensemble variable at beginning</span></div>
 <div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    <span class="comment"># of script</span></div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    <a class="code hl_function" href="namespacelmp__script.html#a743f1118121d80c92f676183b59e4af3">thermo_type</a>(thermo_ensemble)</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    <a class="code hl_function" href="namespacelmp__script.html#a111d1f34a231d570fc30d0e0fcd86582">thermo_type</a>(thermo_ensemble)</div>
 <div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span> </div>
 <div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    <span class="comment"># Boundary conditions</span></div>
 <div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    block = <span class="stringliteral">&quot;&quot;&quot;</span></div>
@@ -392,13 +392,13 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span><span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>lmp.commands_string(block)</div>
 <div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span> </div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a8a86c7ef2e11ba3fe779a9cc8de149fe">  341</a></span>nupper = lmp.extract_variable(<span class="stringliteral">&quot;nupper&quot;</span>)</div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a968afc4216762ba21cf54fe117e033ba">  342</a></span>nlower = lmp.extract_variable(<span class="stringliteral">&quot;nlower&quot;</span>)</div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#af9a68d54037c1546121d4a902f2a479d">  343</a></span>lx = lmp.extract_variable(<span class="stringliteral">&quot;length_x&quot;</span>)</div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a0cd872fc1319c3f52f8ad121b394acc4">  344</a></span>ly = lmp.extract_variable(<span class="stringliteral">&quot;length_y&quot;</span>)</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#addad1d6bcd26b64827081caea9091048">  341</a></span>nupper = lmp.extract_variable(<span class="stringliteral">&quot;nupper&quot;</span>)</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#aed8ad95a596ff8ea1efa3b85ea51ba1e">  342</a></span>nlower = lmp.extract_variable(<span class="stringliteral">&quot;nlower&quot;</span>)</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#af7c2dc72bb970fef4e6313293cadfe95">  343</a></span>lx = lmp.extract_variable(<span class="stringliteral">&quot;length_x&quot;</span>)</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a6d5d22bdb3cf920dd706c9a1f94f376c">  344</a></span>ly = lmp.extract_variable(<span class="stringliteral">&quot;length_y&quot;</span>)</div>
 <div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span> </div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#aed2dc3eee849d4cd085a79eb3ba5d93a">  346</a></span>app_force_upper = (lx*ly)/nupper*sigma/eV_to_J</div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#ab8e024a1024b0913f565b9ccee3b8269">  347</a></span>app_force_lower = (lx*ly)/nlower*sigma/eV_to_J</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a96b94c283374078d5e9fd204c5acda83">  346</a></span>app_force_upper = (lx*ly)/nupper*sigma/eV_to_J</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno"><a class="line" href="namespacelmp__script.html#a5a820f2c23ea594534330561c620ea98">  347</a></span>app_force_lower = (lx*ly)/nlower*sigma/eV_to_J</div>
 <div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span> </div>
 <div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span><span class="comment"># Boundaries</span></div>
 <div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span><span class="comment"># Velocity at boundaries</span></div>
@@ -441,7 +441,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span><span class="comment"># Ensemble chosen by setting thermo_ensemble variable at beginning</span></div>
 <div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span><span class="comment"># of script</span></div>
 <div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span> </div>
-<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span><a class="code hl_function" href="namespacelmp__script.html#a743f1118121d80c92f676183b59e4af3">thermo_type</a>(thermo_ensemble)</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span><a class="code hl_function" href="namespacelmp__script.html#a111d1f34a231d570fc30d0e0fcd86582">thermo_type</a>(thermo_ensemble)</div>
 <div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span> </div>
 <div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span><span class="comment"># Run MD</span></div>
 <div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span><span class="keywordflow">if</span> sim_type == <span class="stringliteral">&quot;new&quot;</span>:</div>
@@ -453,7 +453,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>lmp.command(f<span class="stringliteral">&quot;run {MD_run}&quot;</span>)</div>
 <div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span> </div>
 <div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>MPI.Finalize()</div>
-<div class="ttc" id="anamespacelmp__script_html_a743f1118121d80c92f676183b59e4af3"><div class="ttname"><a href="namespacelmp__script.html#a743f1118121d80c92f676183b59e4af3">lmp_script.thermo_type</a></div><div class="ttdeci">thermo_type(thermo_ensemble)</div><div class="ttdoc">Temperature/Pressure Control #.</div><div class="ttdef"><b>Definition</b> <a href="#l00087">lmp_script.py:87</a></div></div>
+<div class="ttc" id="anamespacelmp__script_html_a111d1f34a231d570fc30d0e0fcd86582"><div class="ttname"><a href="namespacelmp__script.html#a111d1f34a231d570fc30d0e0fcd86582">lmp_script.thermo_type</a></div><div class="ttdeci">thermo_type(thermo_ensemble)</div><div class="ttdoc">Temperature/Pressure Control #.</div><div class="ttdef"><b>Definition</b> <a href="#l00087">lmp_script.py:87</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

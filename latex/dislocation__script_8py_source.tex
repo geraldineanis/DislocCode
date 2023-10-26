@@ -11,53 +11,53 @@
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00007}00007\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00012}00012\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00013}00013\ \textcolor{comment}{\#\ List\ frames}}
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00014}\mbox{\hyperlink{namespacedislocation__script_a96bba6f400dc94de95dbff513a1420a9}{00014}}\ disloc\_frames\ =\ natsorted(glob.glob(\textcolor{stringliteral}{"{}./Ni\_disloc/disloc\_data\_*.txt"{}}))}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00014}\mbox{\hyperlink{namespacedislocation__script_ae6a4c38374648f1959fe1af22f635347}{00014}}\ disloc\_frames\ =\ natsorted(glob.glob(\textcolor{stringliteral}{"{}./Ni\_disloc/disloc\_data\_*.txt"{}}))}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00015}00015\ }
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00016}\mbox{\hyperlink{namespacedislocation__script_a1098f79dc28172319a10c53fe2316424}{00016}}\ step\ =\ 500*0.001}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00016}\mbox{\hyperlink{namespacedislocation__script_abc16e65f240ed0c8f3e876e8732c0a33}{00016}}\ step\ =\ 500*0.001}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00017}00017\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00018}00018\ \textcolor{comment}{\#\ Dislocation\ lines\ coordinates}}
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00019}\mbox{\hyperlink{namespacedislocation__script_ae86b8be9b80189b8c981cfd3e972a757}{00019}}\ x\_coords\ =\ []}
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00020}\mbox{\hyperlink{namespacedislocation__script_abea80a044a85771e4e25b5fc0a934505}{00020}}\ y\_coords\ =\ []}
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00021}\mbox{\hyperlink{namespacedislocation__script_a21f68ee2ec006005f75e1048367ebb44}{00021}}\ z\_coords\ =\ []}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00019}\mbox{\hyperlink{namespacedislocation__script_a8073081ec3f90fe7fcd2ea5903f62f69}{00019}}\ x\_coords\ =\ []}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00020}\mbox{\hyperlink{namespacedislocation__script_a4f05f41a98bb4adf6794867938b2a9db}{00020}}\ y\_coords\ =\ []}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00021}\mbox{\hyperlink{namespacedislocation__script_a92a7e3e976891652820e1651ef7c2f16}{00021}}\ z\_coords\ =\ []}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00022}00022\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00023}00023\ \textcolor{comment}{\#\ Time}}
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00024}\mbox{\hyperlink{namespacedislocation__script_af2d678f005ab88e1f787c9704e8065ea}{00024}}\ time\ =\ []}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00024}\mbox{\hyperlink{namespacedislocation__script_adcdd8363ea3f48cedfaf95f119d2b14f}{00024}}\ time\ =\ []}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00025}00025\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(len(disloc\_frames)):}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00026}00026\ \ \ \ \ time.append(i*step)}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00027}00027\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00028}00028\ \textcolor{comment}{\#\ Position\ averages}}
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00029}\mbox{\hyperlink{namespacedislocation__script_a711f87415665cafc982c086f34cbd839}{00029}}\ avg\ =\ []}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00029}\mbox{\hyperlink{namespacedislocation__script_afc99cd470e3b9f271184c239275fd258}{00029}}\ avg\ =\ []}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00030}00030\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00031}00031\ }
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00032}\mbox{\hyperlink{namespacedislocation__script_aca9f33c8ffc66c66d823514f22ee5937}{00032}}\ x\_lim,\ y\_lim,\ z\_lim\ =\ \mbox{\hyperlink{namespacedislocation__analysis_afc6236d57db58545f87c377bd756a155}{get\_cell\_lims}}(\textcolor{stringliteral}{"{}dump.shear\_unwrap.0"{}})}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00032}\mbox{\hyperlink{namespacedislocation__script_a21e3982c62cfb08a0785b823e5ef9026}{00032}}\ x\_lim,\ y\_lim,\ z\_lim\ =\ \mbox{\hyperlink{namespacedislocation__analysis_a8d90bf172b2934bc622a56e03cc49dcc}{get\_cell\_lims}}(\textcolor{stringliteral}{"{}dump.shear\_unwrap.0"{}})}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00033}00033\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00034}00034\ \textcolor{keywordflow}{for}\ i,\ frame\ \textcolor{keywordflow}{in}\ enumerate(disloc\_frames):}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00035}00035\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00036}00036\ \ \ \ \ \textcolor{comment}{\#\ Read\ in\ cell\ extents\ from\ dump\ file}}
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00037}\mbox{\hyperlink{namespacedislocation__script_a25593ec0a686b24776a88c73b37a55c5}{00037}}\ \ \ \ \ dislocations\ =\ \mbox{\hyperlink{namespacedislocation__analysis_a513cfd8fa21b58d68ab6e500985171ad}{read\_disloc\_data}}(frame)}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00037}\mbox{\hyperlink{namespacedislocation__script_a5e4fca75e12dec3b4b65df796a6cafdc}{00037}}\ \ \ \ \ dislocations\ =\ \mbox{\hyperlink{namespacedislocation__analysis_aae429f90ce8c140b926470b760cbcd01}{read\_disloc\_data}}(frame)}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00038}00038\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00039}00039\ \ \ \ \ \textcolor{comment}{\#\ Process\ dislocation\ data}}
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00040}\mbox{\hyperlink{namespacedislocation__script_a4e49d181a9d9c4f6c34cb15cea5b8bd3}{00040}}\ \ \ \ \ x\_coords\_i\ =\ []}
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00041}\mbox{\hyperlink{namespacedislocation__script_a494f606737804f9b8853b24fa62bd879}{00041}}\ \ \ \ \ y\_coords\_i\ =\ []}
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00042}\mbox{\hyperlink{namespacedislocation__script_ae15f5732d37e8f43c06167ee03f5eb06}{00042}}\ \ \ \ \ z\_coords\_i\ =\ []}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00040}\mbox{\hyperlink{namespacedislocation__script_a6e8d56f3d36989ce6bdeed89267b1955}{00040}}\ \ \ \ \ x\_coords\_i\ =\ []}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00041}\mbox{\hyperlink{namespacedislocation__script_afa9d8e735967a8f3008c1c9cc61a2bea}{00041}}\ \ \ \ \ y\_coords\_i\ =\ []}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00042}\mbox{\hyperlink{namespacedislocation__script_aa60989aceb75ffc1a6318503767e0ce1}{00042}}\ \ \ \ \ z\_coords\_i\ =\ []}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00043}00043\ }
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00044}\mbox{\hyperlink{namespacedislocation__script_a55b10b241a2ba4d64dd1948e53c89c5f}{00044}}\ \ \ \ \ avg\_pos\ =\ []}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00044}\mbox{\hyperlink{namespacedislocation__script_aebe67fc88bb069f4ed198d36c2f30716}{00044}}\ \ \ \ \ avg\_pos\ =\ []}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00045}00045\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00046}00046\ \ \ \ \ \textcolor{keywordflow}{for}\ dislocation\ \textcolor{keywordflow}{in}\ dislocations:}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Wrap\ coordinates}}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ dislocation\ =\ wrap\_coords\_y(dislocation,y\_lim)}}
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00049}\mbox{\hyperlink{namespacedislocation__script_a70d12ae27b05fa2a8cb49d3984e571a2}{00049}}\ \ \ \ \ \ \ \ \ dislocation\ =\ \mbox{\hyperlink{namespacedislocation__analysis_a2046904742a5b354cdc88c1ed03a37c1}{wrap\_coords}}(dislocation,\textcolor{stringliteral}{"{}y"{}},y\_lim)}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00049}\mbox{\hyperlink{namespacedislocation__script_a1f0a96e503a0bb30edc2084199264bc1}{00049}}\ \ \ \ \ \ \ \ \ dislocation\ =\ \mbox{\hyperlink{namespacedislocation__analysis_a34abca717001b69ffaddd617df73d6e0}{wrap\_coords}}(dislocation,\textcolor{stringliteral}{"{}y"{}},y\_lim)}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00050}00050\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00051}00051\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Get\ coordinates\ of\ dislocation\ line\ vertices}}
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00053}\mbox{\hyperlink{namespacedislocation__script_acdb9d6586aebcfb091ecb13aeb337f39}{00053}}\ \ \ \ \ \ \ \ \ x,\ y,\ z\ =\ \mbox{\hyperlink{namespacedislocation__analysis_abd86598650d2ab1ec7262a3ed52c42fa}{get\_disloc\_coords}}(dislocation)}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00053}\mbox{\hyperlink{namespacedislocation__script_a9336ebf25087d91c818ee6e9ec29f8c1}{00053}}\ \ \ \ \ \ \ \ \ x,\ y,\ z\ =\ \mbox{\hyperlink{namespacedislocation__analysis_a6db068cc761ab189dbbe6a55f4c8b982}{get\_disloc\_coords}}(dislocation)}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00054}00054\ \ \ \ \ \ \ \ \ x\_coords\_i.append(x)}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00055}00055\ \ \ \ \ \ \ \ \ y\_coords\_i.append(y)}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00056}00056\ \ \ \ \ \ \ \ \ z\_coords\_i.append(z)}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00057}00057\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Get\ average\ position}}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Also\ save\ coordinates\ of\ all\ vertices}}
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00060}00060\ \ \ \ \ \ \ \ \ avg\_pos.append([\mbox{\hyperlink{namespacedislocation__analysis_a38253d544efe9c62e04436e69baad4d5}{get\_avg\_pos}}(dislocation),list(zip(x,y,z))])}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00060}00060\ \ \ \ \ \ \ \ \ avg\_pos.append([\mbox{\hyperlink{namespacedislocation__analysis_a3b980b79feacf39c4e65476bda9c0e42}{get\_avg\_pos}}(dislocation),list(zip(x,y,z))])}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00061}00061\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00062}00062\ \ \ \ \ \textcolor{comment}{\#\ Append\ coordinates}}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00063}00063\ \ \ \ \ x\_coords.append(x\_coords\_i)}
@@ -68,24 +68,24 @@
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00068}00068\ \ \ \ \ avg.append(np.array(avg\_pos,\ dtype=object))}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00069}00069\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00070}00070\ }
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00075}\mbox{\hyperlink{namespacedislocation__script_a9edd750276def37b478564d74c9de2ae}{00075}}\ position,\ vertices,\ t\ =\ \mbox{\hyperlink{namespacedislocation__analysis_a01385d32951f36802f7d0e6320207bb2}{track\_disloc}}(avg,\ x\_lim)}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00075}\mbox{\hyperlink{namespacedislocation__script_a7130b1618285588513fd1ff97884b9d9}{00075}}\ position,\ vertices,\ t\ =\ \mbox{\hyperlink{namespacedislocation__analysis_a0698b7189d8fc15d0b9c235010feead3}{track\_disloc}}(avg,\ x\_lim)}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00076}00076\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00077}00077\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00082}00082\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00083}00083\ \textcolor{comment}{\#\ Partial\ Dislocations}}
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00084}\mbox{\hyperlink{namespacedislocation__script_a1680c1f0d8660bb78a0e79acba43789d}{00084}}\ partial\_1\ =\ position[0]}
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00085}\mbox{\hyperlink{namespacedislocation__script_ada203a0e7d9e898705699cafeba1f3ef}{00085}}\ partial\_2\ =\ position[1]}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00084}\mbox{\hyperlink{namespacedislocation__script_a91147ca25eb6f1e10ff469bf18499299}{00084}}\ partial\_1\ =\ position[0]}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00085}\mbox{\hyperlink{namespacedislocation__script_af2d4757c7ad7fe053a842840011f2bd4}{00085}}\ partial\_2\ =\ position[1]}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00086}00086\ }
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00087}\mbox{\hyperlink{namespacedislocation__script_a1de29d78a7e889a59af7e353d2a27323}{00087}}\ partial\_1\_vel\ =\ \mbox{\hyperlink{namespacedislocation__analysis_af22d170b46ff4cf5ec39d4fd2b550674}{get\_velocity}}(partial\_1,\ step)}
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00088}\mbox{\hyperlink{namespacedislocation__script_a91fba7b157ed8ba52b019a7dbab94ea4}{00088}}\ partial\_2\_vel\ =\ \mbox{\hyperlink{namespacedislocation__analysis_af22d170b46ff4cf5ec39d4fd2b550674}{get\_velocity}}(partial\_2,\ step)}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00087}\mbox{\hyperlink{namespacedislocation__script_a4aeda4a8e2b7dc0e4136df701a684cb2}{00087}}\ partial\_1\_vel\ =\ \mbox{\hyperlink{namespacedislocation__analysis_a2def0450b05616480c8446dc78ccb4d0}{get\_velocity}}(partial\_1,\ step)}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00088}\mbox{\hyperlink{namespacedislocation__script_ab2549281a87e65f74bd5fa2e20ead650}{00088}}\ partial\_2\_vel\ =\ \mbox{\hyperlink{namespacedislocation__analysis_a2def0450b05616480c8446dc78ccb4d0}{get\_velocity}}(partial\_2,\ step)}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00089}00089\ }
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00090}\mbox{\hyperlink{namespacedislocation__script_a0ae6a2fd1f4482fcbd06eb4298b97c31}{00090}}\ labels\ =\ [\textcolor{stringliteral}{"{}Partial\ 1"{}},\ \textcolor{stringliteral}{"{}Partial\ 2"{}}]}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00090}\mbox{\hyperlink{namespacedislocation__script_a0f59db5220a1b7eca136f6e360055d03}{00090}}\ labels\ =\ [\textcolor{stringliteral}{"{}Partial\ 1"{}},\ \textcolor{stringliteral}{"{}Partial\ 2"{}}]}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00091}00091\ }
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00092}\mbox{\hyperlink{namespacedislocation__script_a87cf35062b57434092a54eda562d2e0c}{00092}}\ fig,\ axs\ =\ plt.subplots(1,\ 2\ ,\ figsize=(11,5))}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00092}\mbox{\hyperlink{namespacedislocation__script_a5b5398ce3cb5c9b60d8bb20a94dc945b}{00092}}\ fig,\ axs\ =\ plt.subplots(1,\ 2\ ,\ figsize=(11,5))}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00093}00093\ fig.suptitle(\textcolor{stringliteral}{"{}Partial\ Dislocations"{}})}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00094}00094\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00095}00095\ axs[0].set\_title(\textcolor{stringliteral}{"{}Position"{}})}
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00096}\mbox{\hyperlink{namespacedislocation__script_ab41c03a25388e0e0daa9923b89b62933}{00096}}\ axs[0].plot(t[0],\ partial\_1,\ label=labels[0])}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00096}\mbox{\hyperlink{namespacedislocation__script_a22f45a3cb4f074e609f58ebaeef0ecf9}{00096}}\ axs[0].plot(t[0],\ partial\_1,\ label=labels[0])}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00097}00097\ axs[0].plot(t[1],\ partial\_2,\ label=labels[1])}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00098}00098\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00099}00099\ axs[0].set\_ylabel(\textcolor{stringliteral}{r"{}\$x\$\ \$(\(\backslash\)mathring\ A)\$"{}})}
@@ -100,16 +100,16 @@
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00108}00108\ \ \ \ \ ax.set\_xlabel(\textcolor{stringliteral}{r"{}\$t\$\ (ps)"{}})}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00109}00109\ \ \ \ \ ax.legend()}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00110}00110\ plt.show()}
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00111}\mbox{\hyperlink{namespacedislocation__script_a82d76aa11604529ac19326c5b83c4f31}{00111}}\ fig.savefig(\textcolor{stringliteral}{"{}partials\_pos\_vel.png"{}},\ dpi=350,\ format=\textcolor{stringliteral}{"{}png"{}})}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00111}\mbox{\hyperlink{namespacedislocation__script_ab4024db5b48e2ddd9bcd43847f10f016}{00111}}\ fig.savefig(\textcolor{stringliteral}{"{}partials\_pos\_vel.png"{}},\ dpi=350,\ format=\textcolor{stringliteral}{"{}png"{}})}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00112}00112\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00113}00113\ \textcolor{comment}{\#\ Perfect\ Dislocation}}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00114}00114\ \textcolor{comment}{\#\ Average\ coordinates\ of\ partials}}
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00115}\mbox{\hyperlink{namespacedislocation__script_a42fb3420cea25d75586959aa5a142fd1}{00115}}\ perfect\_disloc\ =\ \mbox{\hyperlink{namespacedislocation__analysis_a2a3e2d7a1c8307eb0036b9189ade83b9}{perfect\_disloc\_coords}}(partial\_1,\ partial\_2)}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00115}\mbox{\hyperlink{namespacedislocation__script_a8df33c06b5cafb5edb3a101dbdbaf5c8}{00115}}\ perfect\_disloc\ =\ \mbox{\hyperlink{namespacedislocation__analysis_a509c3eeaed17b3ea4c6402fd6e674c7d}{perfect\_disloc\_coords}}(partial\_1,\ partial\_2)}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00116}00116\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00117}00117\ \textcolor{comment}{\#\ Calculate\ perfect\ dislocation\ velocities}}
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00118}\mbox{\hyperlink{namespacedislocation__script_a491edcd113a47d13c15672fecccae16f}{00118}}\ velocity\ =\ \mbox{\hyperlink{namespacedislocation__analysis_af22d170b46ff4cf5ec39d4fd2b550674}{get\_velocity}}(perfect\_disloc,\ step)}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00118}\mbox{\hyperlink{namespacedislocation__script_aecfeca1289d00fbe5fc76a8dd5295913}{00118}}\ velocity\ =\ \mbox{\hyperlink{namespacedislocation__analysis_a2def0450b05616480c8446dc78ccb4d0}{get\_velocity}}(perfect\_disloc,\ step)}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00119}00119\ }
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00120}\mbox{\hyperlink{namespacedislocation__script_a51f1d8e4a10cc09d6b22734779894862}{00120}}\ fig1,\ axs\ =\ plt.subplots(1,\ 2\ ,\ figsize=(11,5))}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00120}\mbox{\hyperlink{namespacedislocation__script_a9452f6281dfc1f84aac1036ded420476}{00120}}\ fig1,\ axs\ =\ plt.subplots(1,\ 2\ ,\ figsize=(11,5))}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00121}00121\ fig1.suptitle(\textcolor{stringliteral}{"{}Perfect\ Dislocation"{}})}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00122}00122\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00123}00123\ axs[0].set\_title(\textcolor{stringliteral}{"{}Position"{}})}
@@ -129,10 +129,10 @@
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00137}00137\ fig1.savefig(\textcolor{stringliteral}{"{}perfect\_pos\_vel.png"{}},\ dpi=350,\ format=\textcolor{stringliteral}{"{}png"{}})}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00138}00138\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00139}00139\ \textcolor{comment}{\#\ Write\ coordinates\ and\ velocity\ of\ perfect\ dislocation}}
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00140}\mbox{\hyperlink{namespacedislocation__script_a16f183174a26dd8be058aeccfb43fc0f}{00140}}\ filename\ =\ \textcolor{stringliteral}{"{}perfect\_pos.txt"{}}}
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00141}00141\ \mbox{\hyperlink{namespacedislocation__analysis_a16f3d5592ca2ac107c1022d45c502b90}{write\_prop}}(filename,\ perfect\_disloc,\ time)}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00140}\mbox{\hyperlink{namespacedislocation__script_a0a9e9c5c3eae62014f8951f1c926fd22}{00140}}\ filename\ =\ \textcolor{stringliteral}{"{}perfect\_pos.txt"{}}}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00141}00141\ \mbox{\hyperlink{namespacedislocation__analysis_ab7efed17b69b14fe72695ecdd14ca09b}{write\_prop}}(filename,\ perfect\_disloc,\ time)}
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00142}00142\ }
 \DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00143}00143\ filename\ =\ \textcolor{stringliteral}{"{}perfect\_vel.txt"{}}}
-\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00144}00144\ \mbox{\hyperlink{namespacedislocation__analysis_a16f3d5592ca2ac107c1022d45c502b90}{write\_prop}}(filename,\ velocity,\ time)}
+\DoxyCodeLine{\Hypertarget{dislocation__script_8py_source_l00144}00144\ \mbox{\hyperlink{namespacedislocation__analysis_ab7efed17b69b14fe72695ecdd14ca09b}{write\_prop}}(filename,\ velocity,\ time)}
 
 \end{DoxyCode}

@@ -94,11 +94,11 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"># Test effect of changing prior distribution</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"># Setting nchains to 14 chains</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a70043a698e2e3cd0dd0263e7d60e2203">   13</a></span>chains = 14</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#af134adf18c58098d1ed27762f4b5d5b8">   13</a></span>chains = 14</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a90e22a7e965483443f1b8d52d6777d44">   15</a></span>prior =    [np.array([0.0, 0.0, 0.0])]</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#aae23575cd4a8691fa75c87fdd5207fb8">   16</a></span>priorlow = [np.array([2.0, 2.0, 2.0])]</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#ab9e4043c01dfa68d256dd06a34789a85">   17</a></span>priorup =  [np.array([2.0, 2.0, 2.0])]</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a81a3a3e620ac63ad46dda3f81db472c6">   15</a></span>prior =    [np.array([0.0, 0.0, 0.0])]</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a74ad46de1451ea876841ed49a7cdb781">   16</a></span>priorlow = [np.array([2.0, 2.0, 2.0])]</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#af8d7102cf9fc76c433b9994ca4ba0974">   17</a></span>priorup =  [np.array([2.0, 2.0, 2.0])]</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"># Calibration parameters for model are c0, c1, and c2</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"># See notes for non-dimensionalising equation of motion</span></div>
@@ -108,20 +108,20 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"># Number of points to throw away</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"># Later modify the model to account for lag</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"># (time needed for correct strain field to develop)</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a03bd4a987e0ea91c91e9f1e9a6d3c300">   27</a></span>n = 6</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a76f11d9a0a47b94f72c2d0e77fb32240">   27</a></span>n = 6</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a9bed2f42f8e47dfbc2b8ea1af6ac77f2">   29</a></span>data = np.loadtxt(<span class="stringliteral">&quot;perfect_pos.txt&quot;</span>)</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a930def0ab61245d22d600cd7a5bd38ab">   30</a></span>t_data = data[:-n,0]</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a848680a84960ee0949d20bea5df14484">   31</a></span>t_range = np.ptp(t_data)</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a511ae0b1c13f95e5f08f1a0dd3da3d93">   29</a></span>data = np.loadtxt(<span class="stringliteral">&quot;perfect_pos.txt&quot;</span>)</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#aed39282eeeb6b1970c1ce27485e91afe">   30</a></span>t_data = data[:-n,0]</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a5d751bacdd9e4d26d056f5398ae4246e">   31</a></span>t_range = np.ptp(t_data)</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>t_data = data[:-n,0]/t_range</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#ac1c739c66a6f42b3304eba0e7a4e10ac">   33</a></span>x_data = 0.1*data[n:,1]     <span class="comment"># Convert from Angstroms to nm</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a861305786a43e176db41102cf2886130">   34</a></span>x_range = np.ptp(x_data)</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a6ab88e01d878a4766d4860e5ea269180">   35</a></span>xi = x_data[0]</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a5637c0fc79271593e595e5f5a28a042e">   33</a></span>x_data = 0.1*data[n:,1]     <span class="comment"># Convert from Angstroms to nm</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a5a4e70aef1b59c2077e838835e0ad13c">   34</a></span>x_range = np.ptp(x_data)</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a39291e1e7c5545a7b8a9c64b89d973f9">   35</a></span>xi = x_data[0]</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>x_data = (x_data-xi)/x_range</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"># Model (non-dimensional equation of motion)</span></div>
 <div class="foldopen" id="foldopen00039" data-start="" data-end="">
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#ae8b9f64754fb42c7089f4a194badb5e8">   39</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacemc3__de__mcmc.html#ae8b9f64754fb42c7089f4a194badb5e8">x_derivatives</a>(x,t,c0,c1,c2):</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#ac34dcb7641de37b9f8c47b55f6f8866b">   39</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacemc3__de__mcmc.html#ac34dcb7641de37b9f8c47b55f6f8866b">x_derivatives</a>(x,t,c0,c1,c2):</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="stringliteral">&quot;&quot;&quot;</span></div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="stringliteral">    x: LHS row vector (dependent variable)</span></div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="stringliteral">    t: time (the independent variable)</span></div>
@@ -133,10 +133,10 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"># Set the initial conditions</span></div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"># initial position and velocity</span></div>
 </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a21b63f5a722f864d26221c99dc7f379a">   50</a></span>x0 = [0.0,0.0]  </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a7bae07f096dd3fd9016a444d18e13045">   50</a></span>x0 = [0.0,0.0]  </div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="foldopen" id="foldopen00052" data-start="" data-end="">
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a4ffd4bdc634b3a51785fef49a72731c6">   52</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacemc3__de__mcmc.html#a4ffd4bdc634b3a51785fef49a72731c6">ODE_solution</a>(t):</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a864f85bd9175f281dde1d54106019151">   52</a></span><span class="keyword">def </span><a class="code hl_function" href="namespacemc3__de__mcmc.html#a864f85bd9175f281dde1d54106019151">ODE_solution</a>(t):</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    c0, c1, c2 = t  <span class="comment"># Unpack parameters</span></div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    position, velocity = odeint(x_derivatives, x0, t_data, args=(c0,c1,c2)).T</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordflow">return</span> position</div>
@@ -144,21 +144,21 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment"># Input data</span></div>
 </div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>data = np.array(x_data)</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#af5011cd1202e01b051a98daa7c23cb3d">   59</a></span>uncert = np.ones_like(x_data)*np.random.normal(0.0,0.1)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a807c68c44fc6c46d4c215e6ca1fe7803">   59</a></span>uncert = np.ones_like(x_data)*np.random.normal(0.0,0.1)</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"># Modelling function</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#aca0b673fd8544384953f567225d55572">   62</a></span>func = ODE_solution</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a3699148440db7bdde6e95e16092363d1">   62</a></span>func = ODE_solution</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"># indparams = [x]</span></div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment"># Fitting Parameters</span></div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment"># Initial guess</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a9ec699d27fefdc35b564f3ac78ba8621">   68</a></span>ndims = 3</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a4f5fb215d6e05bc7eb7ec50d0e6b664e">   69</a></span>params = np.random.random(ndims)</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a484873c74138512e41bc50d17b7d955a">   68</a></span>ndims = 3</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a41000f175dc0115080e2a682cc06dbe9">   69</a></span>params = np.random.random(ndims)</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"># Parameters stepping behavior</span></div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"># ADJUST</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a0b0c58a727ef48b44cf93b4a7418325e">   73</a></span>pstep = np.array([0.5, 1.0, 1.0])</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a2e878e6631d1d5c32cb8255685fb5873">   73</a></span>pstep = np.array([0.5, 1.0, 1.0])</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"># Parameter priors</span></div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"># Set Gaussian priors on all parameters</span></div>
@@ -169,49 +169,49 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment"># priorup = np.array([1.0, 1.0, 1.0])</span></div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment"># Parameter names</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a58ae4fa9b0d3b89ba50ca208a333bb7b">   84</a></span>pnames = [<span class="stringliteral">&quot;c0&quot;</span>, <span class="stringliteral">&quot;c1&quot;</span>, <span class="stringliteral">&quot;c2&quot;</span>]</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#afbd71b7d5bcfc4f51c2f07f1972daea6">   85</a></span>textnames = [<span class="stringliteral">r&quot;c_{0}&quot;</span>, <span class="stringliteral">r&quot;c_{1}&quot;</span>, <span class="stringliteral">r&quot;c_{2}&quot;</span>]</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a9ef70fcb7c461949595ef21bfb46767a">   84</a></span>pnames = [<span class="stringliteral">&quot;c0&quot;</span>, <span class="stringliteral">&quot;c1&quot;</span>, <span class="stringliteral">&quot;c2&quot;</span>]</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a24d1a61d55970de3d60e08137eee93c5">   85</a></span>textnames = [<span class="stringliteral">r&quot;c_{0}&quot;</span>, <span class="stringliteral">r&quot;c_{1}&quot;</span>, <span class="stringliteral">r&quot;c_{2}&quot;</span>]</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment"># Sampler algorithm</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#ac919e1e06f1cf5a1c1786bed4475240d">   88</a></span>sampler = <span class="stringliteral">&quot;snooker&quot;</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a71d9b0b34bf9d29928539ce91402fec7">   88</a></span>sampler = <span class="stringliteral">&quot;snooker&quot;</span></div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment"># MCMC Configuration</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a04f48466b9f416804b037da0af47e750">   91</a></span>nsamples = 1e6</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#ac33acee5ea1f2069e2257788c425b69a">   92</a></span>burnin = 0</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a5341569b7fe2e9389a433a0a76ee191b">   93</a></span>nchains = chains</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a24fd194aa99181dd126f2f96412c516c">   94</a></span>ncpu = 7</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a7a5fb118920a423ec59e269ff9a17446">   95</a></span>thinning = 1</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a1d7032fb58a83cdde2d9963a8f76c7d3">   91</a></span>nsamples = 1e6</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a57ee564b3180b28884295f579dac6851">   92</a></span>burnin = 0</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#afe756bbb491f1c0b4bba49a3d475a2b2">   93</a></span>nchains = chains</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a6201a0661c3d5b88df5f63529298eb48">   94</a></span>ncpu = 7</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a73901b89090c7acb9ea14b91fbfc1791">   95</a></span>thinning = 1</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment"># Pre-MCMC setup</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a7df9b798b9055b5d0fd8e2a6895aef55">   98</a></span>kickoff = <span class="stringliteral">&quot;normal&quot;</span>      <span class="comment"># MCMC initial draw - can also be &quot;uniform&quot;</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#ae3e83d26bafa988822f96ffa8476cf9f">   99</a></span>hsize = 10              <span class="comment"># DEMC snooker pre-MCMC sample size</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#af214026ac56627508ed619270adc6ccb">   98</a></span>kickoff = <span class="stringliteral">&quot;normal&quot;</span>      <span class="comment"># MCMC initial draw - can also be &quot;uniform&quot;</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a318dc897fbcde3d1413b0128a9b0d342">   99</a></span>hsize = 10              <span class="comment"># DEMC snooker pre-MCMC sample size</span></div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment"># Convergence</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a45291cd235aabc115e79cb71d392bb0c">  102</a></span>grtest = <span class="keyword">True</span>             <span class="comment"># Run Gelman-Rubin convergence test</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a7a814ced192f38a0d0f7cb1d9c55b151">  103</a></span>grbreak = 0.0             <span class="comment"># Convergence threshold to stop MCMC - 0.0 is no break</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a5dcb2c816fb567e90e6ef84057b5c8ec">  104</a></span>grnmin = 0.5</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a798e8eb818f39a4eb0cf08929403d30e">  102</a></span>grtest = <span class="keyword">True</span>             <span class="comment"># Run Gelman-Rubin convergence test</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a2378b5257a2ca3ff99729439ecaa9ba6">  103</a></span>grbreak = 0.0             <span class="comment"># Convergence threshold to stop MCMC - 0.0 is no break</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a326c3548c6977e9e9efe1cb2fc107c29">  104</a></span>grnmin = 0.5</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment"># Fine-tuning</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a6f3d4c3ba056db7447079ae1af0a88b4">  107</a></span>fgamma = 1.0              <span class="comment"># Scale factor for DEMC&#39;s gamma jump</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a867e9553387e6f5cdb84368d8637d992">  108</a></span>fepsilon = 0.0            <span class="comment"># Jump scale factor for DEMC&#39;s &quot;e&quot; distribution</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a87f922d1c1d0c26e61fcfaeb408f9a2b">  107</a></span>fgamma = 1.0              <span class="comment"># Scale factor for DEMC&#39;s gamma jump</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#aa2914e5636a5b93b5bea95c2badaf7cf">  108</a></span>fepsilon = 0.0            <span class="comment"># Jump scale factor for DEMC&#39;s &quot;e&quot; distribution</span></div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment"># Logging</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a647c4bae7934db6eae01f545bf46afcf">  111</a></span>log = <span class="stringliteral">&quot;de_mcmc.log&quot;</span>       <span class="comment"># Store screen output into a log file</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a0d53916ead8724126518e4b16b78ba0f">  111</a></span>log = <span class="stringliteral">&quot;de_mcmc.log&quot;</span>       <span class="comment"># Store screen output into a log file</span></div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment"># Outputs</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a46313bd7de8c6d5fb02cfb7e742f4733">  114</a></span>savefile = <span class="stringliteral">&#39;de_mcmc.npz&#39;</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#ad8bef0833b40a9da6dbdc8b37e02d1a8">  115</a></span>plots = <span class="keyword">True</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#ae736776cd3781ec213fe4900f76b25cd">  116</a></span>theme = <span class="stringliteral">&#39;indigo&#39;</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#ae472ab5c0936938edf20c751b6c29c01">  117</a></span>statistics = <span class="stringliteral">&#39;med_central&#39;</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a1210d3b427f08928e7b317461cec11e1">  118</a></span>rms = <span class="keyword">True</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#ad10ccc06ad4c18693e839c24e23a470d">  114</a></span>savefile = <span class="stringliteral">&#39;de_mcmc.npz&#39;</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a4e7e74ba5163b07429e0cff22fffe93e">  115</a></span>plots = <span class="keyword">True</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#aed233a7939a79ac9011b5c18e7126e23">  116</a></span>theme = <span class="stringliteral">&#39;indigo&#39;</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#acd3f668781d1800aea9821a224361718">  117</a></span>statistics = <span class="stringliteral">&#39;med_central&#39;</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#aefa7c995dd1c679dd84f78f4e65454dc">  118</a></span>rms = <span class="keyword">True</span></div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment"># MCMC run</span></div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(len(prior)):</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a23fa74703bf483e42e6646044663e26e">  122</a></span>    dir = f<span class="stringliteral">&quot;de_mc_out&quot;</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a9a8d37e4899f05c230ed788491012e1d">  122</a></span>    dir = f<span class="stringliteral">&quot;de_mc_out&quot;</span></div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    os.mkdir(dir)</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    os.chdir(dir)</div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#a8661ef89a2fa5918774134da7648857a">  126</a></span>    output = mc3.sample(</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="namespacemc3__de__mcmc.html#ad288825273ed7192429ab0474fb2d4a0">  126</a></span>    output = mc3.sample(</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        data=data, uncert=uncert, func=func, params=params, pstep=pstep,</div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        pnames=pnames, texnames=textnames,</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        prior=prior[i], priorlow=priorlow[i], priorup=priorup[i],</div>
@@ -225,8 +225,8 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    )</div>
 <div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    os.chdir(<span class="stringliteral">&quot;../&quot;</span>)</div>
-<div class="ttc" id="anamespacemc3__de__mcmc_html_a4ffd4bdc634b3a51785fef49a72731c6"><div class="ttname"><a href="namespacemc3__de__mcmc.html#a4ffd4bdc634b3a51785fef49a72731c6">mc3_de_mcmc.ODE_solution</a></div><div class="ttdeci">ODE_solution(t)</div><div class="ttdef"><b>Definition</b> <a href="#l00052">mc3_de_mcmc.py:52</a></div></div>
-<div class="ttc" id="anamespacemc3__de__mcmc_html_ae8b9f64754fb42c7089f4a194badb5e8"><div class="ttname"><a href="namespacemc3__de__mcmc.html#ae8b9f64754fb42c7089f4a194badb5e8">mc3_de_mcmc.x_derivatives</a></div><div class="ttdeci">x_derivatives(x, t, c0, c1, c2)</div><div class="ttdef"><b>Definition</b> <a href="#l00039">mc3_de_mcmc.py:39</a></div></div>
+<div class="ttc" id="anamespacemc3__de__mcmc_html_a864f85bd9175f281dde1d54106019151"><div class="ttname"><a href="namespacemc3__de__mcmc.html#a864f85bd9175f281dde1d54106019151">mc3_de_mcmc.ODE_solution</a></div><div class="ttdeci">ODE_solution(t)</div><div class="ttdef"><b>Definition</b> <a href="#l00052">mc3_de_mcmc.py:52</a></div></div>
+<div class="ttc" id="anamespacemc3__de__mcmc_html_ac34dcb7641de37b9f8c47b55f6f8866b"><div class="ttname"><a href="namespacemc3__de__mcmc.html#ac34dcb7641de37b9f8c47b55f6f8866b">mc3_de_mcmc.x_derivatives</a></div><div class="ttdeci">x_derivatives(x, t, c0, c1, c2)</div><div class="ttdef"><b>Definition</b> <a href="#l00039">mc3_de_mcmc.py:39</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

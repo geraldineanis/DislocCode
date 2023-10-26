@@ -90,34 +90,34 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"># Structure fle name</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#abe656e49c3a6e384d8b20ded7e311653">    9</a></span>out_file = <span class="stringliteral">&quot;Ni_end.data&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#a29cf49a96e2e5ad754a6dc1158c8fb64">    9</a></span>out_file = <span class="stringliteral">&quot;Ni_end.data&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"># Lattice parameters</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#a6b7bc9fba7c0f35ecbc12722b87dab1c">   12</a></span>gamma_latt = 3.52</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#a9b27874ba7d145bc1250fc9179cc308c">   12</a></span>gamma_latt = 3.52</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"># Directions for (111)</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#a85a4adb8220a58448fcb7966029709f5">   15</a></span>directions = np.array([[1,-1,0],</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#a94c73cf6934fd835103f0f2794071ee9">   15</a></span>directions = np.array([[1,-1,0],</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>                       [1,1,-2],</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>                       [1,1,1]])</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"># Layer sizes</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#a3ca25fdbb1fa9d136f63e2d42b1bb3f8">   20</a></span>x1 = int(45*2)</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#aea6761d1fa476788d0ec76490b286fa2">   21</a></span>y1 = int(10*2)</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#ac855fe39eab7fca114e3a9b77273383a">   22</a></span>z1 = int(40)</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#ac39b33361203e68d7820336db48d45e6">   20</a></span>x1 = int(45*2)</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#a7f911dc1dbbc41c6cae56357e8fb2230">   21</a></span>y1 = int(10*2)</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#a0476983c629a0ea109b36d6c278fbdc0">   22</a></span>z1 = int(40)</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"># Box dimensions</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#ad09c788ecb0cbde07b271f814dc92491">   25</a></span>cell_x = x1*gamma_latt*np.sqrt(2)/2.0</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#a0ac7dfb12ea58c7cfeb9b77430787cd6">   26</a></span>cell_y = y1*gamma_latt*np.sqrt(6)/2.0</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#a10b0761305d230845f4a875e9afcf186">   27</a></span>cell_z = z1*gamma_latt*np.sqrt(3)</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#a70b9b907071b6ffcf0683ff0bb1216c2">   28</a></span>box_dim = [cell_x,cell_y,cell_z]</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#a90585e1e8a2efdd14881dcb8bdb6b4ce">   25</a></span>cell_x = x1*gamma_latt*np.sqrt(2)/2.0</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#a109685f7f246c6a1cb0b53a781089602">   26</a></span>cell_y = y1*gamma_latt*np.sqrt(6)/2.0</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#a67afb20ecfb2cdfb9638976752dad070">   27</a></span>cell_z = z1*gamma_latt*np.sqrt(3)</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#a01fc441b4d74aa997465a8eddad21cc9">   28</a></span>box_dim = [cell_x,cell_y,cell_z]</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#a219db01ca6da045512c3c62ea43ae49f">   34</a></span>gamma_1 = FaceCenteredCubic(directions=directions, size=(x1,y1,z1), symbol=<span class="stringliteral">&quot;Ni&quot;</span>, pbc=(1,1,1), latticeconstant=gamma_latt)</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#ac6df1fc5cf5a0b66c5d4cbcae3a70496">   34</a></span>gamma_1 = FaceCenteredCubic(directions=directions, size=(x1,y1,z1), symbol=<span class="stringliteral">&quot;Ni&quot;</span>, pbc=(1,1,1), latticeconstant=gamma_latt)</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#a63a8bf5e46f6aaa0bac01dce644875d5">   37</a></span>gamma_1_atoms = gamma_1.get_positions()</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#a2a50ea3907f79ce4172519078fb202cd">   38</a></span>gamma_1_atom_types = gamma_1.get_chemical_symbols()</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#a306d78911ebfe14089aa71f180605c45">   37</a></span>gamma_1_atoms = gamma_1.get_positions()</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#a0db21c3128d02c7c746d9d02a445111d">   38</a></span>gamma_1_atom_types = gamma_1.get_chemical_symbols()</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>gamma_1 = list(zip(gamma_1_atom_types, gamma_1_atoms))</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
@@ -128,7 +128,7 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="comment"># Comment line</span></div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    fdata.write(<span class="stringliteral">&quot;This is a test to generate atoms for LAMMPS\n\n&quot;</span>)</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#ac09edc1c13c7f56180110cac39f8b7b6">   51</a></span>    ntypes = 1</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="namespacegen__111__atoms.html#a63fd5f00cf27a20499f15f1796d5b7ea">   51</a></span>    ntypes = 1</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="comment"># Header</span></div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="comment"># Number of atoms and atom types</span></div>

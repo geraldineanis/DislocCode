@@ -3,95 +3,95 @@
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{namespacelmp__script_a743f1118121d80c92f676183b59e4af3}{thermo\+\_\+type}} (\mbox{\hyperlink{namespacelmp__script_a2748450bcfc54f19257a0941bfe2b0ed}{thermo\+\_\+ensemble}})
+\mbox{\hyperlink{namespacelmp__script_a111d1f34a231d570fc30d0e0fcd86582}{thermo\+\_\+type}} (\mbox{\hyperlink{namespacelmp__script_a0d1ba6853502d541ca10c5de7959fb62}{thermo\+\_\+ensemble}})
 \begin{DoxyCompactList}\small\item\em Temperature/\+Pressure Control \#. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-str \mbox{\hyperlink{namespacelmp__script_aa1d5221b2e673059420a5b761be958d8}{sys\+\_\+type}} = "{}Ni"{}
+tuple \mbox{\hyperlink{namespacelmp__script_a5a820f2c23ea594534330561c620ea98}{app\+\_\+force\+\_\+lower}} = (\mbox{\hyperlink{namespacelmp__script_af7c2dc72bb970fef4e6313293cadfe95}{lx}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a6d5d22bdb3cf920dd706c9a1f94f376c}{ly}})/\mbox{\hyperlink{namespacelmp__script_aed8ad95a596ff8ea1efa3b85ea51ba1e}{nlower}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a64cddb1ad704ff5cc78b012010314024}{sigma}}/\mbox{\hyperlink{namespacelmp__script_ad95fb03238f547447c8eb79ac6ea1fa3}{e\+V\+\_\+to\+\_\+J}}
 \item 
-float \mbox{\hyperlink{namespacelmp__script_a2e50bd5a93840e3557d1003036954507}{gamma\+\_\+latt}} = 3.\+52
+tuple \mbox{\hyperlink{namespacelmp__script_a96b94c283374078d5e9fd204c5acda83}{app\+\_\+force\+\_\+upper}} = (\mbox{\hyperlink{namespacelmp__script_af7c2dc72bb970fef4e6313293cadfe95}{lx}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a6d5d22bdb3cf920dd706c9a1f94f376c}{ly}})/\mbox{\hyperlink{namespacelmp__script_addad1d6bcd26b64827081caea9091048}{nupper}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a64cddb1ad704ff5cc78b012010314024}{sigma}}/\mbox{\hyperlink{namespacelmp__script_ad95fb03238f547447c8eb79ac6ea1fa3}{e\+V\+\_\+to\+\_\+J}}
 \item 
-str \mbox{\hyperlink{namespacelmp__script_a618d3b5ba80f2372a6db574052f5c07b}{sim\+\_\+type}} = "{}new"{}
+str \mbox{\hyperlink{namespacelmp__script_a76bcce3ead38fc192860a18230a72002}{block}}
 \item 
-str \mbox{\hyperlink{namespacelmp__script_a52c6e0e464cae1cd1380ffa4350e1597}{restart\+\_\+file}} = "{}md\+\_\+restart.\+30000"{}
+list \mbox{\hyperlink{namespacelmp__script_a01fc441b4d74aa997465a8eddad21cc9}{box\+\_\+dim}} = \mbox{[}(\mbox{\hyperlink{namespacelmp__script_a97fcb0e1731b36905e90757f211b1340}{x1}}+\mbox{\hyperlink{namespacelmp__script_ad660c90589efbb535c7d55dc032c1b09}{x2}}+\mbox{\hyperlink{namespacelmp__script_ae067fb8a14696066b62593d8adf469cd}{x3}})\texorpdfstring{$\ast$}{*}np.\+sqrt(2)/2.\+0, \mbox{\hyperlink{namespacelmp__script_a886daa12d11655f342168e87c7c0b1cb}{y1}}\texorpdfstring{$\ast$}{*}np.\+sqrt(6)/2.\+0, \mbox{\hyperlink{namespacelmp__script_a5f1285c04e47d67d87125b6653c68562}{z1}}\texorpdfstring{$\ast$}{*}np.\+sqrt(3)\mbox{]}
 \item 
-int \mbox{\hyperlink{namespacelmp__script_a33889d94b8fc5f4f9cb50f8a301c7092}{last\+\_\+timestep}} = 30000
+str \mbox{\hyperlink{namespacelmp__script_a6011ea35234b3073111d25753f715643}{box\+\_\+name}} = "{}sim\+\_\+box"{}
 \item 
-str \mbox{\hyperlink{namespacelmp__script_a4d044118ec4f3a4d4babfa76444604c4}{problem}} = "{}relax"{}
+bool \mbox{\hyperlink{namespacelmp__script_aa79f3f854f59cfd74086c89e25a0f55f}{check\+\_\+overlap}} = False
 \item 
-str \mbox{\hyperlink{namespacelmp__script_a2748450bcfc54f19257a0941bfe2b0ed}{thermo\+\_\+ensemble}} = "{}NVT"{}
+list \mbox{\hyperlink{namespacelmp__script_a7c47321fae78722b8f29ac89125e15a8}{elements}} = \mbox{[}"{}Ni"{}, "{}Al"{}\mbox{]}
 \item 
-float \mbox{\hyperlink{namespacelmp__script_a5485d21946fa9843b2532960f21fe4b0}{timestep}} = 0.\+001
+int \mbox{\hyperlink{namespacelmp__script_afb36f83be68f340092b318ed7c189a6c}{equil\+\_\+run}} = 10000
 \item 
-int \mbox{\hyperlink{namespacelmp__script_a0cd0bb3c6267a8635fd8bfc42ec0d5a4}{temperature}} = 300
+float \mbox{\hyperlink{namespacelmp__script_ad95fb03238f547447c8eb79ac6ea1fa3}{e\+V\+\_\+to\+\_\+J}} = 1602191.\+7
 \item 
-int \mbox{\hyperlink{namespacelmp__script_afb583a2c86b67e9161f87bb251c54208}{pressure}} = 1
+float \mbox{\hyperlink{namespacelmp__script_a9b27874ba7d145bc1250fc9179cc308c}{gamma\+\_\+latt}} = 3.\+52
 \item 
-int \mbox{\hyperlink{namespacelmp__script_a517f3769f510948a0f72a74b01e3ab46}{sigma}} = 500
+int \mbox{\hyperlink{namespacelmp__script_a384c3d971a2c23a7b5d687535cd4d870}{last\+\_\+timestep}} = 30000
 \item 
-str \mbox{\hyperlink{namespacelmp__script_ab2edb54061e9fb14ec6e858a67fa90aa}{loading\+\_\+type}} = "{}sym"{}
-\item 
-int \mbox{\hyperlink{namespacelmp__script_adff3fc8a8484701d6c5cf7bc0ff08840}{equil\+\_\+run}} = 10000
-\item 
-int \mbox{\hyperlink{namespacelmp__script_aa5b019c76251318ab580e437ed07b10b}{MD\+\_\+run}} = 50000
-\item 
-float \mbox{\hyperlink{namespacelmp__script_ab918ad229b06955e568cc83956ef6557}{e\+V\+\_\+to\+\_\+J}} = 1602191.\+7
-\item 
-int \mbox{\hyperlink{namespacelmp__script_a1bd13a6e49da2998eefc80ec636b7d32}{x1}} = 10
-\item 
-int \mbox{\hyperlink{namespacelmp__script_a56e261433aca72c3f8b882d1b78c14f0}{x2}} = 21
-\item 
-int \mbox{\hyperlink{namespacelmp__script_afdf25bade859dc63e6d7fee6516f7233}{x3}} = 40
-\item 
-int \mbox{\hyperlink{namespacelmp__script_a29e674e6bfb47e9cc72ee793baf17f7f}{y1}} = 40
-\item 
-int \mbox{\hyperlink{namespacelmp__script_a0fddbaa506b8ca67cbb69946d16a8b05}{z1}} = 40
-\item 
-bool \mbox{\hyperlink{namespacelmp__script_a7ae941ff658ad920b218576cc66f8ef3}{check\+\_\+overlap}} = False
-\item 
-\mbox{\hyperlink{namespacelmp__script_ab22aa203cba600d97dfcb1328eddcb79}{lmp}} = lammps()
+\mbox{\hyperlink{namespacelmp__script_ab124f7285006b751c3f603fcd4b80a47}{lmp}} = lammps()
 \begin{DoxyCompactList}\small\item\em System initialization \#. \end{DoxyCompactList}\item 
-str \mbox{\hyperlink{namespacelmp__script_aa42e5715024976818cf4c73edda11088}{units}} = "{}metal"{}
+str \mbox{\hyperlink{namespacelmp__script_a9242f629ea2e29adf5bdea1ac0a2c1de}{loading\+\_\+type}} = "{}sym"{}
 \item 
-str \mbox{\hyperlink{namespacelmp__script_aa1a6aaf1294fe4b78e01d1f77aaf8b21}{block}}
+\mbox{\hyperlink{namespacelmp__script_a14c2d6545f4ded26c9f86c71c85bd5c4}{lower\+\_\+lim}} = lmp.\+extract\+\_\+box()\mbox{[}0\mbox{]}\mbox{[}2\mbox{]} + (7.\+5\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a9b27874ba7d145bc1250fc9179cc308c}{gamma\+\_\+latt}}\texorpdfstring{$\ast$}{*}np.\+sqrt(3))
 \item 
-str \mbox{\hyperlink{namespacelmp__script_af1a3702c7f3040ceab2ccfaaec9e13f5}{box\+\_\+name}} = "{}sim\+\_\+box"{}
+\mbox{\hyperlink{namespacelmp__script_af7c2dc72bb970fef4e6313293cadfe95}{lx}} = lmp.\+extract\+\_\+variable("{}length\+\_\+x"{})
 \item 
-list \mbox{\hyperlink{namespacelmp__script_ab16a557dd4ddc63d2551e093c551cc40}{box\+\_\+dim}} = \mbox{[}(\mbox{\hyperlink{namespacelmp__script_a1bd13a6e49da2998eefc80ec636b7d32}{x1}}+\mbox{\hyperlink{namespacelmp__script_a56e261433aca72c3f8b882d1b78c14f0}{x2}}+\mbox{\hyperlink{namespacelmp__script_afdf25bade859dc63e6d7fee6516f7233}{x3}})\texorpdfstring{$\ast$}{*}np.\+sqrt(2)/2.\+0, \mbox{\hyperlink{namespacelmp__script_a29e674e6bfb47e9cc72ee793baf17f7f}{y1}}\texorpdfstring{$\ast$}{*}np.\+sqrt(6)/2.\+0, \mbox{\hyperlink{namespacelmp__script_a0fddbaa506b8ca67cbb69946d16a8b05}{z1}}\texorpdfstring{$\ast$}{*}np.\+sqrt(3)\mbox{]}
+\mbox{\hyperlink{namespacelmp__script_a6d5d22bdb3cf920dd706c9a1f94f376c}{ly}} = lmp.\+extract\+\_\+variable("{}length\+\_\+y"{})
 \item 
-int \mbox{\hyperlink{namespacelmp__script_a1cb548098342123d34bab492818158cb}{species}} = 1
+int \mbox{\hyperlink{namespacelmp__script_a16106246b4cae2c0caff572f31dc716e}{MD\+\_\+run}} = 50000
 \item 
-int \mbox{\hyperlink{namespacelmp__script_a27a75f58d55c180e3d739a1a5190ad88}{x\+\_\+shift}} = \mbox{\hyperlink{namespacelmp__script_a1bd13a6e49da2998eefc80ec636b7d32}{x1}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a2e50bd5a93840e3557d1003036954507}{gamma\+\_\+latt}}\texorpdfstring{$\ast$}{*}np.\+sqrt(2)
+\mbox{\hyperlink{namespacelmp__script_aed8ad95a596ff8ea1efa3b85ea51ba1e}{nlower}} = lmp.\+extract\+\_\+variable("{}nlower"{})
 \item 
-str \mbox{\hyperlink{namespacelmp__script_a091915bca32c44c57015affd15ebc7b0}{potential}} = "{}./Ni\+Al\+\_\+\+Mishin\+\_\+2004.\+eam.\+alloy"{}
+\mbox{\hyperlink{namespacelmp__script_addad1d6bcd26b64827081caea9091048}{nupper}} = lmp.\+extract\+\_\+variable("{}nupper"{})
+\item 
+str \mbox{\hyperlink{namespacelmp__script_a2284450a7e0fc8239d572deb7609c49e}{potential}} = "{}./Ni\+Al\+\_\+\+Mishin\+\_\+2004.\+eam.\+alloy"{}
 \begin{DoxyCompactList}\small\item\em Define Interatomic Potential \#. \end{DoxyCompactList}\item 
-list \mbox{\hyperlink{namespacelmp__script_a0d3671f0890db61ab502b6a40e68b9a4}{elements}} = \mbox{[}"{}Ni"{}, "{}Al"{}\mbox{]}
+int \mbox{\hyperlink{namespacelmp__script_ad19429a485400193c6dfc8c71b151c06}{pressure}} = 1
 \item 
-\mbox{\hyperlink{namespacelmp__script_aecfc2ca543ecd04985f9e30570cb19af}{upper\+\_\+lim}} = lmp.\+extract\+\_\+box()\mbox{[}1\mbox{]}\mbox{[}2\mbox{]} -\/ (7.\+5\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a2e50bd5a93840e3557d1003036954507}{gamma\+\_\+latt}}\texorpdfstring{$\ast$}{*}np.\+sqrt(3))
+str \mbox{\hyperlink{namespacelmp__script_ab351eda9f100d89986f3490815569740}{problem}} = "{}relax"{}
 \item 
-\mbox{\hyperlink{namespacelmp__script_a7449c01309ebafb825b3111737c6dced}{lower\+\_\+lim}} = lmp.\+extract\+\_\+box()\mbox{[}0\mbox{]}\mbox{[}2\mbox{]} + (7.\+5\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a2e50bd5a93840e3557d1003036954507}{gamma\+\_\+latt}}\texorpdfstring{$\ast$}{*}np.\+sqrt(3))
+str \mbox{\hyperlink{namespacelmp__script_a173b5dda013af94c6c3e397545212c77}{restart\+\_\+file}} = "{}md\+\_\+restart.\+30000"{}
 \item 
-\mbox{\hyperlink{namespacelmp__script_a8a86c7ef2e11ba3fe779a9cc8de149fe}{nupper}} = lmp.\+extract\+\_\+variable("{}nupper"{})
+int \mbox{\hyperlink{namespacelmp__script_a64cddb1ad704ff5cc78b012010314024}{sigma}} = 500
 \item 
-\mbox{\hyperlink{namespacelmp__script_a968afc4216762ba21cf54fe117e033ba}{nlower}} = lmp.\+extract\+\_\+variable("{}nlower"{})
+str \mbox{\hyperlink{namespacelmp__script_a0cc3f74bbf11904047904ba2858f06bf}{sim\+\_\+type}} = "{}new"{}
 \item 
-\mbox{\hyperlink{namespacelmp__script_af9a68d54037c1546121d4a902f2a479d}{lx}} = lmp.\+extract\+\_\+variable("{}length\+\_\+x"{})
+int \mbox{\hyperlink{namespacelmp__script_aeb0b627a85488d9be1a7632200c41cfe}{species}} = 1
 \item 
-\mbox{\hyperlink{namespacelmp__script_a0cd872fc1319c3f52f8ad121b394acc4}{ly}} = lmp.\+extract\+\_\+variable("{}length\+\_\+y"{})
+str \mbox{\hyperlink{namespacelmp__script_a47a6a162aaaec8deeb946d93afc43640}{sys\+\_\+type}} = "{}Ni"{}
 \item 
-tuple \mbox{\hyperlink{namespacelmp__script_aed2dc3eee849d4cd085a79eb3ba5d93a}{app\+\_\+force\+\_\+upper}} = (\mbox{\hyperlink{namespacelmp__script_af9a68d54037c1546121d4a902f2a479d}{lx}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a0cd872fc1319c3f52f8ad121b394acc4}{ly}})/\mbox{\hyperlink{namespacelmp__script_a8a86c7ef2e11ba3fe779a9cc8de149fe}{nupper}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a517f3769f510948a0f72a74b01e3ab46}{sigma}}/\mbox{\hyperlink{namespacelmp__script_ab918ad229b06955e568cc83956ef6557}{e\+V\+\_\+to\+\_\+J}}
+int \mbox{\hyperlink{namespacelmp__script_a0ac2a299549fcca3cd14e4c1ac2087d2}{temperature}} = 300
 \item 
-tuple \mbox{\hyperlink{namespacelmp__script_ab8e024a1024b0913f565b9ccee3b8269}{app\+\_\+force\+\_\+lower}} = (\mbox{\hyperlink{namespacelmp__script_af9a68d54037c1546121d4a902f2a479d}{lx}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a0cd872fc1319c3f52f8ad121b394acc4}{ly}})/\mbox{\hyperlink{namespacelmp__script_a968afc4216762ba21cf54fe117e033ba}{nlower}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a517f3769f510948a0f72a74b01e3ab46}{sigma}}/\mbox{\hyperlink{namespacelmp__script_ab918ad229b06955e568cc83956ef6557}{e\+V\+\_\+to\+\_\+J}}
+str \mbox{\hyperlink{namespacelmp__script_a0d1ba6853502d541ca10c5de7959fb62}{thermo\+\_\+ensemble}} = "{}NVT"{}
+\item 
+float \mbox{\hyperlink{namespacelmp__script_ab9edcc09985767509bf717e25ac80ab7}{timestep}} = 0.\+001
+\item 
+str \mbox{\hyperlink{namespacelmp__script_ab4a60aabe529e19e17b4e27692988e55}{units}} = "{}metal"{}
+\item 
+\mbox{\hyperlink{namespacelmp__script_ac43304e147bd7f78311c61442fa2dff8}{upper\+\_\+lim}} = lmp.\+extract\+\_\+box()\mbox{[}1\mbox{]}\mbox{[}2\mbox{]} -\/ (7.\+5\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a9b27874ba7d145bc1250fc9179cc308c}{gamma\+\_\+latt}}\texorpdfstring{$\ast$}{*}np.\+sqrt(3))
+\item 
+int \mbox{\hyperlink{namespacelmp__script_a97fcb0e1731b36905e90757f211b1340}{x1}} = 10
+\item 
+int \mbox{\hyperlink{namespacelmp__script_ad660c90589efbb535c7d55dc032c1b09}{x2}} = 21
+\item 
+int \mbox{\hyperlink{namespacelmp__script_ae067fb8a14696066b62593d8adf469cd}{x3}} = 40
+\item 
+int \mbox{\hyperlink{namespacelmp__script_a46326c15278ffc091dac92438f16af68}{x\+\_\+shift}} = \mbox{\hyperlink{namespacelmp__script_a97fcb0e1731b36905e90757f211b1340}{x1}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a9b27874ba7d145bc1250fc9179cc308c}{gamma\+\_\+latt}}\texorpdfstring{$\ast$}{*}np.\+sqrt(2)
+\item 
+int \mbox{\hyperlink{namespacelmp__script_a886daa12d11655f342168e87c7c0b1cb}{y1}} = 40
+\item 
+int \mbox{\hyperlink{namespacelmp__script_a5f1285c04e47d67d87125b6653c68562}{z1}} = 40
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{namespacelmp__script_a743f1118121d80c92f676183b59e4af3}\label{namespacelmp__script_a743f1118121d80c92f676183b59e4af3} 
+\Hypertarget{namespacelmp__script_a111d1f34a231d570fc30d0e0fcd86582}\label{namespacelmp__script_a111d1f34a231d570fc30d0e0fcd86582} 
 \index{lmp\_script@{lmp\_script}!thermo\_type@{thermo\_type}}
 \index{thermo\_type@{thermo\_type}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{thermo\_type()}{thermo\_type()}}
-{\footnotesize\ttfamily lmp\+\_\+script.\+thermo\+\_\+type (\begin{DoxyParamCaption}\item[{}]{thermo\+\_\+ensemble }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily thermo\+\_\+type (\begin{DoxyParamCaption}\item[{}]{thermo\+\_\+ensemble }\end{DoxyParamCaption})}
 
 
 
@@ -136,31 +136,31 @@ Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00087}{87}} of file 
 
 
 \doxysubsection{Variable Documentation}
-\Hypertarget{namespacelmp__script_ab8e024a1024b0913f565b9ccee3b8269}\label{namespacelmp__script_ab8e024a1024b0913f565b9ccee3b8269} 
+\Hypertarget{namespacelmp__script_a5a820f2c23ea594534330561c620ea98}\label{namespacelmp__script_a5a820f2c23ea594534330561c620ea98} 
 \index{lmp\_script@{lmp\_script}!app\_force\_lower@{app\_force\_lower}}
 \index{app\_force\_lower@{app\_force\_lower}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{app\_force\_lower}{app\_force\_lower}}
-{\footnotesize\ttfamily tuple lmp\+\_\+script.\+app\+\_\+force\+\_\+lower = (\mbox{\hyperlink{namespacelmp__script_af9a68d54037c1546121d4a902f2a479d}{lx}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a0cd872fc1319c3f52f8ad121b394acc4}{ly}})/\mbox{\hyperlink{namespacelmp__script_a968afc4216762ba21cf54fe117e033ba}{nlower}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a517f3769f510948a0f72a74b01e3ab46}{sigma}}/\mbox{\hyperlink{namespacelmp__script_ab918ad229b06955e568cc83956ef6557}{e\+V\+\_\+to\+\_\+J}}}
+{\footnotesize\ttfamily tuple app\+\_\+force\+\_\+lower = (\mbox{\hyperlink{namespacelmp__script_af7c2dc72bb970fef4e6313293cadfe95}{lx}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a6d5d22bdb3cf920dd706c9a1f94f376c}{ly}})/\mbox{\hyperlink{namespacelmp__script_aed8ad95a596ff8ea1efa3b85ea51ba1e}{nlower}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a64cddb1ad704ff5cc78b012010314024}{sigma}}/\mbox{\hyperlink{namespacelmp__script_ad95fb03238f547447c8eb79ac6ea1fa3}{e\+V\+\_\+to\+\_\+J}}}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00347}{347}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_aed2dc3eee849d4cd085a79eb3ba5d93a}\label{namespacelmp__script_aed2dc3eee849d4cd085a79eb3ba5d93a} 
+\Hypertarget{namespacelmp__script_a96b94c283374078d5e9fd204c5acda83}\label{namespacelmp__script_a96b94c283374078d5e9fd204c5acda83} 
 \index{lmp\_script@{lmp\_script}!app\_force\_upper@{app\_force\_upper}}
 \index{app\_force\_upper@{app\_force\_upper}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{app\_force\_upper}{app\_force\_upper}}
-{\footnotesize\ttfamily tuple lmp\+\_\+script.\+app\+\_\+force\+\_\+upper = (\mbox{\hyperlink{namespacelmp__script_af9a68d54037c1546121d4a902f2a479d}{lx}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a0cd872fc1319c3f52f8ad121b394acc4}{ly}})/\mbox{\hyperlink{namespacelmp__script_a8a86c7ef2e11ba3fe779a9cc8de149fe}{nupper}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a517f3769f510948a0f72a74b01e3ab46}{sigma}}/\mbox{\hyperlink{namespacelmp__script_ab918ad229b06955e568cc83956ef6557}{e\+V\+\_\+to\+\_\+J}}}
+{\footnotesize\ttfamily tuple app\+\_\+force\+\_\+upper = (\mbox{\hyperlink{namespacelmp__script_af7c2dc72bb970fef4e6313293cadfe95}{lx}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a6d5d22bdb3cf920dd706c9a1f94f376c}{ly}})/\mbox{\hyperlink{namespacelmp__script_addad1d6bcd26b64827081caea9091048}{nupper}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a64cddb1ad704ff5cc78b012010314024}{sigma}}/\mbox{\hyperlink{namespacelmp__script_ad95fb03238f547447c8eb79ac6ea1fa3}{e\+V\+\_\+to\+\_\+J}}}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00346}{346}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_aa1a6aaf1294fe4b78e01d1f77aaf8b21}\label{namespacelmp__script_aa1a6aaf1294fe4b78e01d1f77aaf8b21} 
+\Hypertarget{namespacelmp__script_a76bcce3ead38fc192860a18230a72002}\label{namespacelmp__script_a76bcce3ead38fc192860a18230a72002} 
 \index{lmp\_script@{lmp\_script}!block@{block}}
 \index{block@{block}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{block}{block}}
-{\footnotesize\ttfamily str lmp\+\_\+script.\+block}
+{\footnotesize\ttfamily str block}
 
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
@@ -178,91 +178,91 @@ Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00346}{346}} of file
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00126}{126}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_ab16a557dd4ddc63d2551e093c551cc40}\label{namespacelmp__script_ab16a557dd4ddc63d2551e093c551cc40} 
+\Hypertarget{namespacelmp__script_a01fc441b4d74aa997465a8eddad21cc9}\label{namespacelmp__script_a01fc441b4d74aa997465a8eddad21cc9} 
 \index{lmp\_script@{lmp\_script}!box\_dim@{box\_dim}}
 \index{box\_dim@{box\_dim}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{box\_dim}{box\_dim}}
-{\footnotesize\ttfamily list lmp\+\_\+script.\+box\+\_\+dim = \mbox{[}(\mbox{\hyperlink{namespacelmp__script_a1bd13a6e49da2998eefc80ec636b7d32}{x1}}+\mbox{\hyperlink{namespacelmp__script_a56e261433aca72c3f8b882d1b78c14f0}{x2}}+\mbox{\hyperlink{namespacelmp__script_afdf25bade859dc63e6d7fee6516f7233}{x3}})\texorpdfstring{$\ast$}{*}np.\+sqrt(2)/2.\+0, \mbox{\hyperlink{namespacelmp__script_a29e674e6bfb47e9cc72ee793baf17f7f}{y1}}\texorpdfstring{$\ast$}{*}np.\+sqrt(6)/2.\+0, \mbox{\hyperlink{namespacelmp__script_a0fddbaa506b8ca67cbb69946d16a8b05}{z1}}\texorpdfstring{$\ast$}{*}np.\+sqrt(3)\mbox{]}}
+{\footnotesize\ttfamily list box\+\_\+dim = \mbox{[}(\mbox{\hyperlink{namespacelmp__script_a97fcb0e1731b36905e90757f211b1340}{x1}}+\mbox{\hyperlink{namespacelmp__script_ad660c90589efbb535c7d55dc032c1b09}{x2}}+\mbox{\hyperlink{namespacelmp__script_ae067fb8a14696066b62593d8adf469cd}{x3}})\texorpdfstring{$\ast$}{*}np.\+sqrt(2)/2.\+0, \mbox{\hyperlink{namespacelmp__script_a886daa12d11655f342168e87c7c0b1cb}{y1}}\texorpdfstring{$\ast$}{*}np.\+sqrt(6)/2.\+0, \mbox{\hyperlink{namespacelmp__script_a5f1285c04e47d67d87125b6653c68562}{z1}}\texorpdfstring{$\ast$}{*}np.\+sqrt(3)\mbox{]}}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00141}{141}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_af1a3702c7f3040ceab2ccfaaec9e13f5}\label{namespacelmp__script_af1a3702c7f3040ceab2ccfaaec9e13f5} 
+\Hypertarget{namespacelmp__script_a6011ea35234b3073111d25753f715643}\label{namespacelmp__script_a6011ea35234b3073111d25753f715643} 
 \index{lmp\_script@{lmp\_script}!box\_name@{box\_name}}
 \index{box\_name@{box\_name}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{box\_name}{box\_name}}
-{\footnotesize\ttfamily str lmp\+\_\+script.\+box\+\_\+name = "{}sim\+\_\+box"{}}
+{\footnotesize\ttfamily str box\+\_\+name = "{}sim\+\_\+box"{}}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00140}{140}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_a7ae941ff658ad920b218576cc66f8ef3}\label{namespacelmp__script_a7ae941ff658ad920b218576cc66f8ef3} 
+\Hypertarget{namespacelmp__script_aa79f3f854f59cfd74086c89e25a0f55f}\label{namespacelmp__script_aa79f3f854f59cfd74086c89e25a0f55f} 
 \index{lmp\_script@{lmp\_script}!check\_overlap@{check\_overlap}}
 \index{check\_overlap@{check\_overlap}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{check\_overlap}{check\_overlap}}
-{\footnotesize\ttfamily bool lmp\+\_\+script.\+check\+\_\+overlap = False}
+{\footnotesize\ttfamily bool check\+\_\+overlap = False}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00081}{81}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_a0d3671f0890db61ab502b6a40e68b9a4}\label{namespacelmp__script_a0d3671f0890db61ab502b6a40e68b9a4} 
+\Hypertarget{namespacelmp__script_a7c47321fae78722b8f29ac89125e15a8}\label{namespacelmp__script_a7c47321fae78722b8f29ac89125e15a8} 
 \index{lmp\_script@{lmp\_script}!elements@{elements}}
 \index{elements@{elements}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{elements}{elements}}
-{\footnotesize\ttfamily list lmp\+\_\+script.\+elements = \mbox{[}"{}Ni"{}, "{}Al"{}\mbox{]}}
+{\footnotesize\ttfamily list elements = \mbox{[}"{}Ni"{}, "{}Al"{}\mbox{]}}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00167}{167}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_adff3fc8a8484701d6c5cf7bc0ff08840}\label{namespacelmp__script_adff3fc8a8484701d6c5cf7bc0ff08840} 
+\Hypertarget{namespacelmp__script_afb36f83be68f340092b318ed7c189a6c}\label{namespacelmp__script_afb36f83be68f340092b318ed7c189a6c} 
 \index{lmp\_script@{lmp\_script}!equil\_run@{equil\_run}}
 \index{equil\_run@{equil\_run}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{equil\_run}{equil\_run}}
-{\footnotesize\ttfamily int lmp\+\_\+script.\+equil\+\_\+run = 10000}
+{\footnotesize\ttfamily int equil\+\_\+run = 10000}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00062}{62}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_ab918ad229b06955e568cc83956ef6557}\label{namespacelmp__script_ab918ad229b06955e568cc83956ef6557} 
+\Hypertarget{namespacelmp__script_ad95fb03238f547447c8eb79ac6ea1fa3}\label{namespacelmp__script_ad95fb03238f547447c8eb79ac6ea1fa3} 
 \index{lmp\_script@{lmp\_script}!eV\_to\_J@{eV\_to\_J}}
 \index{eV\_to\_J@{eV\_to\_J}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{eV\_to\_J}{eV\_to\_J}}
-{\footnotesize\ttfamily float lmp\+\_\+script.\+e\+V\+\_\+to\+\_\+J = 1602191.\+7}
+{\footnotesize\ttfamily float e\+V\+\_\+to\+\_\+J = 1602191.\+7}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00069}{69}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_a2e50bd5a93840e3557d1003036954507}\label{namespacelmp__script_a2e50bd5a93840e3557d1003036954507} 
+\Hypertarget{namespacelmp__script_a9b27874ba7d145bc1250fc9179cc308c}\label{namespacelmp__script_a9b27874ba7d145bc1250fc9179cc308c} 
 \index{lmp\_script@{lmp\_script}!gamma\_latt@{gamma\_latt}}
 \index{gamma\_latt@{gamma\_latt}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{gamma\_latt}{gamma\_latt}}
-{\footnotesize\ttfamily float lmp\+\_\+script.\+gamma\+\_\+latt = 3.\+52}
+{\footnotesize\ttfamily float gamma\+\_\+latt = 3.\+52}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00026}{26}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_a33889d94b8fc5f4f9cb50f8a301c7092}\label{namespacelmp__script_a33889d94b8fc5f4f9cb50f8a301c7092} 
+\Hypertarget{namespacelmp__script_a384c3d971a2c23a7b5d687535cd4d870}\label{namespacelmp__script_a384c3d971a2c23a7b5d687535cd4d870} 
 \index{lmp\_script@{lmp\_script}!last\_timestep@{last\_timestep}}
 \index{last\_timestep@{last\_timestep}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{last\_timestep}{last\_timestep}}
-{\footnotesize\ttfamily int lmp\+\_\+script.\+last\+\_\+timestep = 30000}
+{\footnotesize\ttfamily int last\+\_\+timestep = 30000}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00042}{42}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_ab22aa203cba600d97dfcb1328eddcb79}\label{namespacelmp__script_ab22aa203cba600d97dfcb1328eddcb79} 
+\Hypertarget{namespacelmp__script_ab124f7285006b751c3f603fcd4b80a47}\label{namespacelmp__script_ab124f7285006b751c3f603fcd4b80a47} 
 \index{lmp\_script@{lmp\_script}!lmp@{lmp}}
 \index{lmp@{lmp}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{lmp}{lmp}}
-{\footnotesize\ttfamily lmp\+\_\+script.\+lmp = lammps()}
+{\footnotesize\ttfamily lmp = lammps()}
 
 
 
@@ -272,81 +272,81 @@ System initialization \#.
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00120}{120}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_ab2edb54061e9fb14ec6e858a67fa90aa}\label{namespacelmp__script_ab2edb54061e9fb14ec6e858a67fa90aa} 
+\Hypertarget{namespacelmp__script_a9242f629ea2e29adf5bdea1ac0a2c1de}\label{namespacelmp__script_a9242f629ea2e29adf5bdea1ac0a2c1de} 
 \index{lmp\_script@{lmp\_script}!loading\_type@{loading\_type}}
 \index{loading\_type@{loading\_type}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{loading\_type}{loading\_type}}
-{\footnotesize\ttfamily str lmp\+\_\+script.\+loading\+\_\+type = "{}sym"{}}
+{\footnotesize\ttfamily str loading\+\_\+type = "{}sym"{}}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00059}{59}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_a7449c01309ebafb825b3111737c6dced}\label{namespacelmp__script_a7449c01309ebafb825b3111737c6dced} 
+\Hypertarget{namespacelmp__script_a14c2d6545f4ded26c9f86c71c85bd5c4}\label{namespacelmp__script_a14c2d6545f4ded26c9f86c71c85bd5c4} 
 \index{lmp\_script@{lmp\_script}!lower\_lim@{lower\_lim}}
 \index{lower\_lim@{lower\_lim}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{lower\_lim}{lower\_lim}}
-{\footnotesize\ttfamily lmp\+\_\+script.\+lower\+\_\+lim = lmp.\+extract\+\_\+box()\mbox{[}0\mbox{]}\mbox{[}2\mbox{]} + (7.\+5\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a2e50bd5a93840e3557d1003036954507}{gamma\+\_\+latt}}\texorpdfstring{$\ast$}{*}np.\+sqrt(3))}
+{\footnotesize\ttfamily lower\+\_\+lim = lmp.\+extract\+\_\+box()\mbox{[}0\mbox{]}\mbox{[}2\mbox{]} + (7.\+5\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a9b27874ba7d145bc1250fc9179cc308c}{gamma\+\_\+latt}}\texorpdfstring{$\ast$}{*}np.\+sqrt(3))}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00193}{193}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_af9a68d54037c1546121d4a902f2a479d}\label{namespacelmp__script_af9a68d54037c1546121d4a902f2a479d} 
+\Hypertarget{namespacelmp__script_af7c2dc72bb970fef4e6313293cadfe95}\label{namespacelmp__script_af7c2dc72bb970fef4e6313293cadfe95} 
 \index{lmp\_script@{lmp\_script}!lx@{lx}}
 \index{lx@{lx}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{lx}{lx}}
-{\footnotesize\ttfamily lmp\+\_\+script.\+lx = lmp.\+extract\+\_\+variable("{}length\+\_\+x"{})}
+{\footnotesize\ttfamily lx = lmp.\+extract\+\_\+variable("{}length\+\_\+x"{})}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00343}{343}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_a0cd872fc1319c3f52f8ad121b394acc4}\label{namespacelmp__script_a0cd872fc1319c3f52f8ad121b394acc4} 
+\Hypertarget{namespacelmp__script_a6d5d22bdb3cf920dd706c9a1f94f376c}\label{namespacelmp__script_a6d5d22bdb3cf920dd706c9a1f94f376c} 
 \index{lmp\_script@{lmp\_script}!ly@{ly}}
 \index{ly@{ly}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{ly}{ly}}
-{\footnotesize\ttfamily lmp\+\_\+script.\+ly = lmp.\+extract\+\_\+variable("{}length\+\_\+y"{})}
+{\footnotesize\ttfamily ly = lmp.\+extract\+\_\+variable("{}length\+\_\+y"{})}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00344}{344}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_aa5b019c76251318ab580e437ed07b10b}\label{namespacelmp__script_aa5b019c76251318ab580e437ed07b10b} 
+\Hypertarget{namespacelmp__script_a16106246b4cae2c0caff572f31dc716e}\label{namespacelmp__script_a16106246b4cae2c0caff572f31dc716e} 
 \index{lmp\_script@{lmp\_script}!MD\_run@{MD\_run}}
 \index{MD\_run@{MD\_run}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{MD\_run}{MD\_run}}
-{\footnotesize\ttfamily int lmp\+\_\+script.\+MD\+\_\+run = 50000}
+{\footnotesize\ttfamily int MD\+\_\+run = 50000}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00063}{63}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_a968afc4216762ba21cf54fe117e033ba}\label{namespacelmp__script_a968afc4216762ba21cf54fe117e033ba} 
+\Hypertarget{namespacelmp__script_aed8ad95a596ff8ea1efa3b85ea51ba1e}\label{namespacelmp__script_aed8ad95a596ff8ea1efa3b85ea51ba1e} 
 \index{lmp\_script@{lmp\_script}!nlower@{nlower}}
 \index{nlower@{nlower}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{nlower}{nlower}}
-{\footnotesize\ttfamily lmp\+\_\+script.\+nlower = lmp.\+extract\+\_\+variable("{}nlower"{})}
+{\footnotesize\ttfamily nlower = lmp.\+extract\+\_\+variable("{}nlower"{})}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00342}{342}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_a8a86c7ef2e11ba3fe779a9cc8de149fe}\label{namespacelmp__script_a8a86c7ef2e11ba3fe779a9cc8de149fe} 
+\Hypertarget{namespacelmp__script_addad1d6bcd26b64827081caea9091048}\label{namespacelmp__script_addad1d6bcd26b64827081caea9091048} 
 \index{lmp\_script@{lmp\_script}!nupper@{nupper}}
 \index{nupper@{nupper}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{nupper}{nupper}}
-{\footnotesize\ttfamily lmp\+\_\+script.\+nupper = lmp.\+extract\+\_\+variable("{}nupper"{})}
+{\footnotesize\ttfamily nupper = lmp.\+extract\+\_\+variable("{}nupper"{})}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00341}{341}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_a091915bca32c44c57015affd15ebc7b0}\label{namespacelmp__script_a091915bca32c44c57015affd15ebc7b0} 
+\Hypertarget{namespacelmp__script_a2284450a7e0fc8239d572deb7609c49e}\label{namespacelmp__script_a2284450a7e0fc8239d572deb7609c49e} 
 \index{lmp\_script@{lmp\_script}!potential@{potential}}
 \index{potential@{potential}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{potential}{potential}}
-{\footnotesize\ttfamily str lmp\+\_\+script.\+potential = "{}./Ni\+Al\+\_\+\+Mishin\+\_\+2004.\+eam.\+alloy"{}}
+{\footnotesize\ttfamily str potential = "{}./Ni\+Al\+\_\+\+Mishin\+\_\+2004.\+eam.\+alloy"{}}
 
 
 
@@ -356,181 +356,181 @@ Define Interatomic Potential \#.
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00166}{166}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_afb583a2c86b67e9161f87bb251c54208}\label{namespacelmp__script_afb583a2c86b67e9161f87bb251c54208} 
+\Hypertarget{namespacelmp__script_ad19429a485400193c6dfc8c71b151c06}\label{namespacelmp__script_ad19429a485400193c6dfc8c71b151c06} 
 \index{lmp\_script@{lmp\_script}!pressure@{pressure}}
 \index{pressure@{pressure}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{pressure}{pressure}}
-{\footnotesize\ttfamily int lmp\+\_\+script.\+pressure = 1}
+{\footnotesize\ttfamily int pressure = 1}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00056}{56}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_a4d044118ec4f3a4d4babfa76444604c4}\label{namespacelmp__script_a4d044118ec4f3a4d4babfa76444604c4} 
+\Hypertarget{namespacelmp__script_ab351eda9f100d89986f3490815569740}\label{namespacelmp__script_ab351eda9f100d89986f3490815569740} 
 \index{lmp\_script@{lmp\_script}!problem@{problem}}
 \index{problem@{problem}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{problem}{problem}}
-{\footnotesize\ttfamily str lmp\+\_\+script.\+problem = "{}relax"{}}
+{\footnotesize\ttfamily str problem = "{}relax"{}}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00047}{47}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_a52c6e0e464cae1cd1380ffa4350e1597}\label{namespacelmp__script_a52c6e0e464cae1cd1380ffa4350e1597} 
+\Hypertarget{namespacelmp__script_a173b5dda013af94c6c3e397545212c77}\label{namespacelmp__script_a173b5dda013af94c6c3e397545212c77} 
 \index{lmp\_script@{lmp\_script}!restart\_file@{restart\_file}}
 \index{restart\_file@{restart\_file}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{restart\_file}{restart\_file}}
-{\footnotesize\ttfamily str lmp\+\_\+script.\+restart\+\_\+file = "{}md\+\_\+restart.\+30000"{}}
+{\footnotesize\ttfamily str restart\+\_\+file = "{}md\+\_\+restart.\+30000"{}}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00041}{41}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_a517f3769f510948a0f72a74b01e3ab46}\label{namespacelmp__script_a517f3769f510948a0f72a74b01e3ab46} 
+\Hypertarget{namespacelmp__script_a64cddb1ad704ff5cc78b012010314024}\label{namespacelmp__script_a64cddb1ad704ff5cc78b012010314024} 
 \index{lmp\_script@{lmp\_script}!sigma@{sigma}}
 \index{sigma@{sigma}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{sigma}{sigma}}
-{\footnotesize\ttfamily int lmp\+\_\+script.\+sigma = 500}
+{\footnotesize\ttfamily int sigma = 500}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00058}{58}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_a618d3b5ba80f2372a6db574052f5c07b}\label{namespacelmp__script_a618d3b5ba80f2372a6db574052f5c07b} 
+\Hypertarget{namespacelmp__script_a0cc3f74bbf11904047904ba2858f06bf}\label{namespacelmp__script_a0cc3f74bbf11904047904ba2858f06bf} 
 \index{lmp\_script@{lmp\_script}!sim\_type@{sim\_type}}
 \index{sim\_type@{sim\_type}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{sim\_type}{sim\_type}}
-{\footnotesize\ttfamily str lmp\+\_\+script.\+sim\+\_\+type = "{}new"{}}
+{\footnotesize\ttfamily str sim\+\_\+type = "{}new"{}}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00037}{37}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_a1cb548098342123d34bab492818158cb}\label{namespacelmp__script_a1cb548098342123d34bab492818158cb} 
+\Hypertarget{namespacelmp__script_aeb0b627a85488d9be1a7632200c41cfe}\label{namespacelmp__script_aeb0b627a85488d9be1a7632200c41cfe} 
 \index{lmp\_script@{lmp\_script}!species@{species}}
 \index{species@{species}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{species}{species}}
-{\footnotesize\ttfamily int lmp\+\_\+script.\+species = 1}
+{\footnotesize\ttfamily int species = 1}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00142}{142}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_aa1d5221b2e673059420a5b761be958d8}\label{namespacelmp__script_aa1d5221b2e673059420a5b761be958d8} 
+\Hypertarget{namespacelmp__script_a47a6a162aaaec8deeb946d93afc43640}\label{namespacelmp__script_a47a6a162aaaec8deeb946d93afc43640} 
 \index{lmp\_script@{lmp\_script}!sys\_type@{sys\_type}}
 \index{sys\_type@{sys\_type}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{sys\_type}{sys\_type}}
-{\footnotesize\ttfamily str lmp\+\_\+script.\+sys\+\_\+type = "{}Ni"{}}
+{\footnotesize\ttfamily str sys\+\_\+type = "{}Ni"{}}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00022}{22}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_a0cd0bb3c6267a8635fd8bfc42ec0d5a4}\label{namespacelmp__script_a0cd0bb3c6267a8635fd8bfc42ec0d5a4} 
+\Hypertarget{namespacelmp__script_a0ac2a299549fcca3cd14e4c1ac2087d2}\label{namespacelmp__script_a0ac2a299549fcca3cd14e4c1ac2087d2} 
 \index{lmp\_script@{lmp\_script}!temperature@{temperature}}
 \index{temperature@{temperature}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{temperature}{temperature}}
-{\footnotesize\ttfamily int lmp\+\_\+script.\+temperature = 300}
+{\footnotesize\ttfamily int temperature = 300}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00055}{55}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_a2748450bcfc54f19257a0941bfe2b0ed}\label{namespacelmp__script_a2748450bcfc54f19257a0941bfe2b0ed} 
+\Hypertarget{namespacelmp__script_a0d1ba6853502d541ca10c5de7959fb62}\label{namespacelmp__script_a0d1ba6853502d541ca10c5de7959fb62} 
 \index{lmp\_script@{lmp\_script}!thermo\_ensemble@{thermo\_ensemble}}
 \index{thermo\_ensemble@{thermo\_ensemble}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{thermo\_ensemble}{thermo\_ensemble}}
-{\footnotesize\ttfamily str lmp\+\_\+script.\+thermo\+\_\+ensemble = "{}NVT"{}}
+{\footnotesize\ttfamily str thermo\+\_\+ensemble = "{}NVT"{}}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00051}{51}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_a5485d21946fa9843b2532960f21fe4b0}\label{namespacelmp__script_a5485d21946fa9843b2532960f21fe4b0} 
+\Hypertarget{namespacelmp__script_ab9edcc09985767509bf717e25ac80ab7}\label{namespacelmp__script_ab9edcc09985767509bf717e25ac80ab7} 
 \index{lmp\_script@{lmp\_script}!timestep@{timestep}}
 \index{timestep@{timestep}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{timestep}{timestep}}
-{\footnotesize\ttfamily float lmp\+\_\+script.\+timestep = 0.\+001}
+{\footnotesize\ttfamily float timestep = 0.\+001}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00052}{52}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_aa42e5715024976818cf4c73edda11088}\label{namespacelmp__script_aa42e5715024976818cf4c73edda11088} 
+\Hypertarget{namespacelmp__script_ab4a60aabe529e19e17b4e27692988e55}\label{namespacelmp__script_ab4a60aabe529e19e17b4e27692988e55} 
 \index{lmp\_script@{lmp\_script}!units@{units}}
 \index{units@{units}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{units}{units}}
-{\footnotesize\ttfamily str lmp\+\_\+script.\+units = "{}metal"{}}
+{\footnotesize\ttfamily str units = "{}metal"{}}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00124}{124}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_aecfc2ca543ecd04985f9e30570cb19af}\label{namespacelmp__script_aecfc2ca543ecd04985f9e30570cb19af} 
+\Hypertarget{namespacelmp__script_ac43304e147bd7f78311c61442fa2dff8}\label{namespacelmp__script_ac43304e147bd7f78311c61442fa2dff8} 
 \index{lmp\_script@{lmp\_script}!upper\_lim@{upper\_lim}}
 \index{upper\_lim@{upper\_lim}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{upper\_lim}{upper\_lim}}
-{\footnotesize\ttfamily lmp\+\_\+script.\+upper\+\_\+lim = lmp.\+extract\+\_\+box()\mbox{[}1\mbox{]}\mbox{[}2\mbox{]} -\/ (7.\+5\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a2e50bd5a93840e3557d1003036954507}{gamma\+\_\+latt}}\texorpdfstring{$\ast$}{*}np.\+sqrt(3))}
+{\footnotesize\ttfamily upper\+\_\+lim = lmp.\+extract\+\_\+box()\mbox{[}1\mbox{]}\mbox{[}2\mbox{]} -\/ (7.\+5\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a9b27874ba7d145bc1250fc9179cc308c}{gamma\+\_\+latt}}\texorpdfstring{$\ast$}{*}np.\+sqrt(3))}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00192}{192}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_a1bd13a6e49da2998eefc80ec636b7d32}\label{namespacelmp__script_a1bd13a6e49da2998eefc80ec636b7d32} 
+\Hypertarget{namespacelmp__script_a97fcb0e1731b36905e90757f211b1340}\label{namespacelmp__script_a97fcb0e1731b36905e90757f211b1340} 
 \index{lmp\_script@{lmp\_script}!x1@{x1}}
 \index{x1@{x1}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{x1}{x1}}
-{\footnotesize\ttfamily int lmp\+\_\+script.\+x1 = 10}
+{\footnotesize\ttfamily int x1 = 10}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00073}{73}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_a56e261433aca72c3f8b882d1b78c14f0}\label{namespacelmp__script_a56e261433aca72c3f8b882d1b78c14f0} 
+\Hypertarget{namespacelmp__script_ad660c90589efbb535c7d55dc032c1b09}\label{namespacelmp__script_ad660c90589efbb535c7d55dc032c1b09} 
 \index{lmp\_script@{lmp\_script}!x2@{x2}}
 \index{x2@{x2}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{x2}{x2}}
-{\footnotesize\ttfamily int lmp\+\_\+script.\+x2 = 21}
+{\footnotesize\ttfamily int x2 = 21}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00074}{74}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_afdf25bade859dc63e6d7fee6516f7233}\label{namespacelmp__script_afdf25bade859dc63e6d7fee6516f7233} 
+\Hypertarget{namespacelmp__script_ae067fb8a14696066b62593d8adf469cd}\label{namespacelmp__script_ae067fb8a14696066b62593d8adf469cd} 
 \index{lmp\_script@{lmp\_script}!x3@{x3}}
 \index{x3@{x3}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{x3}{x3}}
-{\footnotesize\ttfamily int lmp\+\_\+script.\+x3 = 40}
+{\footnotesize\ttfamily int x3 = 40}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00075}{75}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_a27a75f58d55c180e3d739a1a5190ad88}\label{namespacelmp__script_a27a75f58d55c180e3d739a1a5190ad88} 
+\Hypertarget{namespacelmp__script_a46326c15278ffc091dac92438f16af68}\label{namespacelmp__script_a46326c15278ffc091dac92438f16af68} 
 \index{lmp\_script@{lmp\_script}!x\_shift@{x\_shift}}
 \index{x\_shift@{x\_shift}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{x\_shift}{x\_shift}}
-{\footnotesize\ttfamily tuple lmp\+\_\+script.\+x\+\_\+shift = \mbox{\hyperlink{namespacelmp__script_a1bd13a6e49da2998eefc80ec636b7d32}{x1}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a2e50bd5a93840e3557d1003036954507}{gamma\+\_\+latt}}\texorpdfstring{$\ast$}{*}np.\+sqrt(2)}
+{\footnotesize\ttfamily tuple x\+\_\+shift = \mbox{\hyperlink{namespacelmp__script_a97fcb0e1731b36905e90757f211b1340}{x1}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__script_a9b27874ba7d145bc1250fc9179cc308c}{gamma\+\_\+latt}}\texorpdfstring{$\ast$}{*}np.\+sqrt(2)}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00151}{151}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_a29e674e6bfb47e9cc72ee793baf17f7f}\label{namespacelmp__script_a29e674e6bfb47e9cc72ee793baf17f7f} 
+\Hypertarget{namespacelmp__script_a886daa12d11655f342168e87c7c0b1cb}\label{namespacelmp__script_a886daa12d11655f342168e87c7c0b1cb} 
 \index{lmp\_script@{lmp\_script}!y1@{y1}}
 \index{y1@{y1}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{y1}{y1}}
-{\footnotesize\ttfamily int lmp\+\_\+script.\+y1 = 40}
+{\footnotesize\ttfamily int y1 = 40}
 
 
 
 Definition at line \mbox{\hyperlink{lmp__script_8py_source_l00077}{77}} of file \mbox{\hyperlink{lmp__script_8py_source}{lmp\+\_\+script.\+py}}.
 
-\Hypertarget{namespacelmp__script_a0fddbaa506b8ca67cbb69946d16a8b05}\label{namespacelmp__script_a0fddbaa506b8ca67cbb69946d16a8b05} 
+\Hypertarget{namespacelmp__script_a5f1285c04e47d67d87125b6653c68562}\label{namespacelmp__script_a5f1285c04e47d67d87125b6653c68562} 
 \index{lmp\_script@{lmp\_script}!z1@{z1}}
 \index{z1@{z1}!lmp\_script@{lmp\_script}}
 \doxysubsubsection{\texorpdfstring{z1}{z1}}
-{\footnotesize\ttfamily int lmp\+\_\+script.\+z1 = 40}
+{\footnotesize\ttfamily int z1 = 40}
 
 
 

@@ -3,101 +3,101 @@
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{namespacemc3__de__mcmc_ae8b9f64754fb42c7089f4a194badb5e8}{x\+\_\+derivatives}} (x, t, c0, c1, c2)
+\mbox{\hyperlink{namespacemc3__de__mcmc_a864f85bd9175f281dde1d54106019151}{ODE\+\_\+solution}} (t)
 \item 
-\mbox{\hyperlink{namespacemc3__de__mcmc_a4ffd4bdc634b3a51785fef49a72731c6}{ODE\+\_\+solution}} (t)
+\mbox{\hyperlink{namespacemc3__de__mcmc_ac34dcb7641de37b9f8c47b55f6f8866b}{x\+\_\+derivatives}} (x, t, c0, c1, c2)
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-int \mbox{\hyperlink{namespacemc3__de__mcmc_a70043a698e2e3cd0dd0263e7d60e2203}{chains}} = 14
+int \mbox{\hyperlink{namespacemc3__de__mcmc_a57ee564b3180b28884295f579dac6851}{burnin}} = 0
 \item 
-list \mbox{\hyperlink{namespacemc3__de__mcmc_a90e22a7e965483443f1b8d52d6777d44}{prior}} = \mbox{[}np.\+array(\mbox{[}0.\+0, 0.\+0, 0.\+0\mbox{]})\mbox{]}
+int \mbox{\hyperlink{namespacemc3__de__mcmc_af134adf18c58098d1ed27762f4b5d5b8}{chains}} = 14
 \item 
-list \mbox{\hyperlink{namespacemc3__de__mcmc_aae23575cd4a8691fa75c87fdd5207fb8}{priorlow}} = \mbox{[}np.\+array(\mbox{[}2.\+0, 2.\+0, 2.\+0\mbox{]})\mbox{]}
+\mbox{\hyperlink{namespacemc3__de__mcmc_a511ae0b1c13f95e5f08f1a0dd3da3d93}{data}} = np.\+loadtxt("{}perfect\+\_\+pos.\+txt"{})
 \item 
-list \mbox{\hyperlink{namespacemc3__de__mcmc_ab9e4043c01dfa68d256dd06a34789a85}{priorup}} = \mbox{[}np.\+array(\mbox{[}2.\+0, 2.\+0, 2.\+0\mbox{]})\mbox{]}
+str \mbox{\hyperlink{namespacemc3__de__mcmc_a9a8d37e4899f05c230ed788491012e1d}{dir}} = f"{}de\+\_\+mc\+\_\+out"{}
 \item 
-int \mbox{\hyperlink{namespacemc3__de__mcmc_a03bd4a987e0ea91c91e9f1e9a6d3c300}{n}} = 6
+float \mbox{\hyperlink{namespacemc3__de__mcmc_aa2914e5636a5b93b5bea95c2badaf7cf}{fepsilon}} = 0.\+0
 \item 
-\mbox{\hyperlink{namespacemc3__de__mcmc_a9bed2f42f8e47dfbc2b8ea1af6ac77f2}{data}} = np.\+loadtxt("{}perfect\+\_\+pos.\+txt"{})
+float \mbox{\hyperlink{namespacemc3__de__mcmc_a87f922d1c1d0c26e61fcfaeb408f9a2b}{fgamma}} = 1.\+0
 \item 
-\mbox{\hyperlink{namespacemc3__de__mcmc_a930def0ab61245d22d600cd7a5bd38ab}{t\+\_\+data}} = \mbox{\hyperlink{namespacemc3__de__mcmc_a9bed2f42f8e47dfbc2b8ea1af6ac77f2}{data}}\mbox{[}\+:-\/\mbox{\hyperlink{namespacemc3__de__mcmc_a03bd4a987e0ea91c91e9f1e9a6d3c300}{n}},0\mbox{]}
+\mbox{\hyperlink{namespacemc3__de__mcmc_a3699148440db7bdde6e95e16092363d1}{func}} = \mbox{\hyperlink{namespacemc3__de__mcmc_a864f85bd9175f281dde1d54106019151}{ODE\+\_\+solution}}
 \item 
-\mbox{\hyperlink{namespacemc3__de__mcmc_a848680a84960ee0949d20bea5df14484}{t\+\_\+range}} = np.\+ptp(\mbox{\hyperlink{namespacemc3__de__mcmc_a930def0ab61245d22d600cd7a5bd38ab}{t\+\_\+data}})
+float \mbox{\hyperlink{namespacemc3__de__mcmc_a2378b5257a2ca3ff99729439ecaa9ba6}{grbreak}} = 0.\+0
 \item 
-float \mbox{\hyperlink{namespacemc3__de__mcmc_ac1c739c66a6f42b3304eba0e7a4e10ac}{x\+\_\+data}} = 0.\+1\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacemc3__de__mcmc_a9bed2f42f8e47dfbc2b8ea1af6ac77f2}{data}}\mbox{[}n\+:,1\mbox{]}
+float \mbox{\hyperlink{namespacemc3__de__mcmc_a326c3548c6977e9e9efe1cb2fc107c29}{grnmin}} = 0.\+5
 \item 
-\mbox{\hyperlink{namespacemc3__de__mcmc_a861305786a43e176db41102cf2886130}{x\+\_\+range}} = np.\+ptp(\mbox{\hyperlink{namespacemc3__de__mcmc_ac1c739c66a6f42b3304eba0e7a4e10ac}{x\+\_\+data}})
+bool \mbox{\hyperlink{namespacemc3__de__mcmc_a798e8eb818f39a4eb0cf08929403d30e}{grtest}} = True
 \item 
-float \mbox{\hyperlink{namespacemc3__de__mcmc_a6ab88e01d878a4766d4860e5ea269180}{xi}} = \mbox{\hyperlink{namespacemc3__de__mcmc_ac1c739c66a6f42b3304eba0e7a4e10ac}{x\+\_\+data}}\mbox{[}0\mbox{]}
+int \mbox{\hyperlink{namespacemc3__de__mcmc_a318dc897fbcde3d1413b0128a9b0d342}{hsize}} = 10
 \item 
-list \mbox{\hyperlink{namespacemc3__de__mcmc_a21b63f5a722f864d26221c99dc7f379a}{x0}} = \mbox{[}0.\+0,0.\+0\mbox{]}
+str \mbox{\hyperlink{namespacemc3__de__mcmc_af214026ac56627508ed619270adc6ccb}{kickoff}} = "{}normal"{}
 \item 
-\mbox{\hyperlink{namespacemc3__de__mcmc_af5011cd1202e01b051a98daa7c23cb3d}{uncert}} = np.\+ones\+\_\+like(\mbox{\hyperlink{namespacemc3__de__mcmc_ac1c739c66a6f42b3304eba0e7a4e10ac}{x\+\_\+data}})\texorpdfstring{$\ast$}{*}np.\+random.\+normal(0.\+0,0.\+1)
+str \mbox{\hyperlink{namespacemc3__de__mcmc_a0d53916ead8724126518e4b16b78ba0f}{log}} = "{}de\+\_\+mcmc.\+log"{}
 \item 
-\mbox{\hyperlink{namespacemc3__de__mcmc_aca0b673fd8544384953f567225d55572}{func}} = \mbox{\hyperlink{namespacemc3__de__mcmc_a4ffd4bdc634b3a51785fef49a72731c6}{ODE\+\_\+solution}}
+int \mbox{\hyperlink{namespacemc3__de__mcmc_a76f11d9a0a47b94f72c2d0e77fb32240}{n}} = 6
 \item 
-int \mbox{\hyperlink{namespacemc3__de__mcmc_a9ec699d27fefdc35b564f3ac78ba8621}{ndims}} = 3
+int \mbox{\hyperlink{namespacemc3__de__mcmc_afe756bbb491f1c0b4bba49a3d475a2b2}{nchains}} = \mbox{\hyperlink{namespacemc3__de__mcmc_af134adf18c58098d1ed27762f4b5d5b8}{chains}}
 \item 
-\mbox{\hyperlink{namespacemc3__de__mcmc_a4f5fb215d6e05bc7eb7ec50d0e6b664e}{params}} = np.\+random.\+random(\mbox{\hyperlink{namespacemc3__de__mcmc_a9ec699d27fefdc35b564f3ac78ba8621}{ndims}})
+int \mbox{\hyperlink{namespacemc3__de__mcmc_a6201a0661c3d5b88df5f63529298eb48}{ncpu}} = 7
 \item 
-\mbox{\hyperlink{namespacemc3__de__mcmc_a0b0c58a727ef48b44cf93b4a7418325e}{pstep}} = np.\+array(\mbox{[}0.\+5, 1.\+0, 1.\+0\mbox{]})
+int \mbox{\hyperlink{namespacemc3__de__mcmc_a484873c74138512e41bc50d17b7d955a}{ndims}} = 3
 \item 
-list \mbox{\hyperlink{namespacemc3__de__mcmc_a58ae4fa9b0d3b89ba50ca208a333bb7b}{pnames}} = \mbox{[}"{}c0"{}, "{}c1"{}, "{}c2"{}\mbox{]}
+int \mbox{\hyperlink{namespacemc3__de__mcmc_a1d7032fb58a83cdde2d9963a8f76c7d3}{nsamples}} = 1e6
 \item 
-list \mbox{\hyperlink{namespacemc3__de__mcmc_afbd71b7d5bcfc4f51c2f07f1972daea6}{textnames}} = \mbox{[}r"{}c\+\_\+\{0\}"{}, r"{}c\+\_\+\{1\}"{}, r"{}c\+\_\+\{2\}"{}\mbox{]}
+\mbox{\hyperlink{namespacemc3__de__mcmc_ad288825273ed7192429ab0474fb2d4a0}{output}}
 \item 
-str \mbox{\hyperlink{namespacemc3__de__mcmc_ac919e1e06f1cf5a1c1786bed4475240d}{sampler}} = "{}snooker"{}
+\mbox{\hyperlink{namespacemc3__de__mcmc_a41000f175dc0115080e2a682cc06dbe9}{params}} = np.\+random.\+random(\mbox{\hyperlink{namespacemc3__de__mcmc_a484873c74138512e41bc50d17b7d955a}{ndims}})
 \item 
-int \mbox{\hyperlink{namespacemc3__de__mcmc_a04f48466b9f416804b037da0af47e750}{nsamples}} = 1e6
+bool \mbox{\hyperlink{namespacemc3__de__mcmc_a4e7e74ba5163b07429e0cff22fffe93e}{plots}} = True
 \item 
-int \mbox{\hyperlink{namespacemc3__de__mcmc_ac33acee5ea1f2069e2257788c425b69a}{burnin}} = 0
+list \mbox{\hyperlink{namespacemc3__de__mcmc_a9ef70fcb7c461949595ef21bfb46767a}{pnames}} = \mbox{[}"{}c0"{}, "{}c1"{}, "{}c2"{}\mbox{]}
 \item 
-int \mbox{\hyperlink{namespacemc3__de__mcmc_a5341569b7fe2e9389a433a0a76ee191b}{nchains}} = \mbox{\hyperlink{namespacemc3__de__mcmc_a70043a698e2e3cd0dd0263e7d60e2203}{chains}}
+list \mbox{\hyperlink{namespacemc3__de__mcmc_a81a3a3e620ac63ad46dda3f81db472c6}{prior}} = \mbox{[}np.\+array(\mbox{[}0.\+0, 0.\+0, 0.\+0\mbox{]})\mbox{]}
 \item 
-int \mbox{\hyperlink{namespacemc3__de__mcmc_a24fd194aa99181dd126f2f96412c516c}{ncpu}} = 7
+list \mbox{\hyperlink{namespacemc3__de__mcmc_a74ad46de1451ea876841ed49a7cdb781}{priorlow}} = \mbox{[}np.\+array(\mbox{[}2.\+0, 2.\+0, 2.\+0\mbox{]})\mbox{]}
 \item 
-int \mbox{\hyperlink{namespacemc3__de__mcmc_a7a5fb118920a423ec59e269ff9a17446}{thinning}} = 1
+list \mbox{\hyperlink{namespacemc3__de__mcmc_af8d7102cf9fc76c433b9994ca4ba0974}{priorup}} = \mbox{[}np.\+array(\mbox{[}2.\+0, 2.\+0, 2.\+0\mbox{]})\mbox{]}
 \item 
-str \mbox{\hyperlink{namespacemc3__de__mcmc_a7df9b798b9055b5d0fd8e2a6895aef55}{kickoff}} = "{}normal"{}
+\mbox{\hyperlink{namespacemc3__de__mcmc_a2e878e6631d1d5c32cb8255685fb5873}{pstep}} = np.\+array(\mbox{[}0.\+5, 1.\+0, 1.\+0\mbox{]})
 \item 
-int \mbox{\hyperlink{namespacemc3__de__mcmc_ae3e83d26bafa988822f96ffa8476cf9f}{hsize}} = 10
+bool \mbox{\hyperlink{namespacemc3__de__mcmc_aefa7c995dd1c679dd84f78f4e65454dc}{rms}} = True
 \item 
-bool \mbox{\hyperlink{namespacemc3__de__mcmc_a45291cd235aabc115e79cb71d392bb0c}{grtest}} = True
+str \mbox{\hyperlink{namespacemc3__de__mcmc_a71d9b0b34bf9d29928539ce91402fec7}{sampler}} = "{}snooker"{}
 \item 
-float \mbox{\hyperlink{namespacemc3__de__mcmc_a7a814ced192f38a0d0f7cb1d9c55b151}{grbreak}} = 0.\+0
+str \mbox{\hyperlink{namespacemc3__de__mcmc_ad10ccc06ad4c18693e839c24e23a470d}{savefile}} = \textquotesingle{}de\+\_\+mcmc.\+npz\textquotesingle{}
 \item 
-float \mbox{\hyperlink{namespacemc3__de__mcmc_a5dcb2c816fb567e90e6ef84057b5c8ec}{grnmin}} = 0.\+5
+str \mbox{\hyperlink{namespacemc3__de__mcmc_acd3f668781d1800aea9821a224361718}{statistics}} = \textquotesingle{}med\+\_\+central\textquotesingle{}
 \item 
-float \mbox{\hyperlink{namespacemc3__de__mcmc_a6f3d4c3ba056db7447079ae1af0a88b4}{fgamma}} = 1.\+0
+\mbox{\hyperlink{namespacemc3__de__mcmc_aed39282eeeb6b1970c1ce27485e91afe}{t\+\_\+data}} = \mbox{\hyperlink{namespacemc3__de__mcmc_a511ae0b1c13f95e5f08f1a0dd3da3d93}{data}}\mbox{[}\+:-\/\mbox{\hyperlink{namespacemc3__de__mcmc_a76f11d9a0a47b94f72c2d0e77fb32240}{n}},0\mbox{]}
 \item 
-float \mbox{\hyperlink{namespacemc3__de__mcmc_a867e9553387e6f5cdb84368d8637d992}{fepsilon}} = 0.\+0
+\mbox{\hyperlink{namespacemc3__de__mcmc_a5d751bacdd9e4d26d056f5398ae4246e}{t\+\_\+range}} = np.\+ptp(\mbox{\hyperlink{namespacemc3__de__mcmc_aed39282eeeb6b1970c1ce27485e91afe}{t\+\_\+data}})
 \item 
-str \mbox{\hyperlink{namespacemc3__de__mcmc_a647c4bae7934db6eae01f545bf46afcf}{log}} = "{}de\+\_\+mcmc.\+log"{}
+list \mbox{\hyperlink{namespacemc3__de__mcmc_a24d1a61d55970de3d60e08137eee93c5}{textnames}} = \mbox{[}r"{}c\+\_\+\{0\}"{}, r"{}c\+\_\+\{1\}"{}, r"{}c\+\_\+\{2\}"{}\mbox{]}
 \item 
-str \mbox{\hyperlink{namespacemc3__de__mcmc_a46313bd7de8c6d5fb02cfb7e742f4733}{savefile}} = \textquotesingle{}de\+\_\+mcmc.\+npz\textquotesingle{}
+str \mbox{\hyperlink{namespacemc3__de__mcmc_aed233a7939a79ac9011b5c18e7126e23}{theme}} = \textquotesingle{}indigo\textquotesingle{}
 \item 
-bool \mbox{\hyperlink{namespacemc3__de__mcmc_ad8bef0833b40a9da6dbdc8b37e02d1a8}{plots}} = True
+int \mbox{\hyperlink{namespacemc3__de__mcmc_a73901b89090c7acb9ea14b91fbfc1791}{thinning}} = 1
 \item 
-str \mbox{\hyperlink{namespacemc3__de__mcmc_ae736776cd3781ec213fe4900f76b25cd}{theme}} = \textquotesingle{}indigo\textquotesingle{}
+\mbox{\hyperlink{namespacemc3__de__mcmc_a807c68c44fc6c46d4c215e6ca1fe7803}{uncert}} = np.\+ones\+\_\+like(\mbox{\hyperlink{namespacemc3__de__mcmc_a5637c0fc79271593e595e5f5a28a042e}{x\+\_\+data}})\texorpdfstring{$\ast$}{*}np.\+random.\+normal(0.\+0,0.\+1)
 \item 
-str \mbox{\hyperlink{namespacemc3__de__mcmc_ae472ab5c0936938edf20c751b6c29c01}{statistics}} = \textquotesingle{}med\+\_\+central\textquotesingle{}
+list \mbox{\hyperlink{namespacemc3__de__mcmc_a7bae07f096dd3fd9016a444d18e13045}{x0}} = \mbox{[}0.\+0,0.\+0\mbox{]}
 \item 
-bool \mbox{\hyperlink{namespacemc3__de__mcmc_a1210d3b427f08928e7b317461cec11e1}{rms}} = True
+float \mbox{\hyperlink{namespacemc3__de__mcmc_a5637c0fc79271593e595e5f5a28a042e}{x\+\_\+data}} = 0.\+1\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacemc3__de__mcmc_a511ae0b1c13f95e5f08f1a0dd3da3d93}{data}}\mbox{[}n\+:,1\mbox{]}
 \item 
-str \mbox{\hyperlink{namespacemc3__de__mcmc_a23fa74703bf483e42e6646044663e26e}{dir}} = f"{}de\+\_\+mc\+\_\+out"{}
+\mbox{\hyperlink{namespacemc3__de__mcmc_a5a4e70aef1b59c2077e838835e0ad13c}{x\+\_\+range}} = np.\+ptp(\mbox{\hyperlink{namespacemc3__de__mcmc_a5637c0fc79271593e595e5f5a28a042e}{x\+\_\+data}})
 \item 
-\mbox{\hyperlink{namespacemc3__de__mcmc_a8661ef89a2fa5918774134da7648857a}{output}}
+float \mbox{\hyperlink{namespacemc3__de__mcmc_a39291e1e7c5545a7b8a9c64b89d973f9}{xi}} = \mbox{\hyperlink{namespacemc3__de__mcmc_a5637c0fc79271593e595e5f5a28a042e}{x\+\_\+data}}\mbox{[}0\mbox{]}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{namespacemc3__de__mcmc_a4ffd4bdc634b3a51785fef49a72731c6}\label{namespacemc3__de__mcmc_a4ffd4bdc634b3a51785fef49a72731c6} 
+\Hypertarget{namespacemc3__de__mcmc_a864f85bd9175f281dde1d54106019151}\label{namespacemc3__de__mcmc_a864f85bd9175f281dde1d54106019151} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!ODE\_solution@{ODE\_solution}}
 \index{ODE\_solution@{ODE\_solution}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{ODE\_solution()}{ODE\_solution()}}
-{\footnotesize\ttfamily mc3\+\_\+de\+\_\+mcmc.\+ODE\+\_\+solution (\begin{DoxyParamCaption}\item[{}]{t }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily ODE\+\_\+solution (\begin{DoxyParamCaption}\item[{}]{t }\end{DoxyParamCaption})}
 
 
 
@@ -113,11 +113,11 @@ Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00052}{52}} of fil
 \DoxyCodeLine{00057\ \textcolor{comment}{\#\ Input\ data}}
 
 \end{DoxyCode}
-\Hypertarget{namespacemc3__de__mcmc_ae8b9f64754fb42c7089f4a194badb5e8}\label{namespacemc3__de__mcmc_ae8b9f64754fb42c7089f4a194badb5e8} 
+\Hypertarget{namespacemc3__de__mcmc_ac34dcb7641de37b9f8c47b55f6f8866b}\label{namespacemc3__de__mcmc_ac34dcb7641de37b9f8c47b55f6f8866b} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!x\_derivatives@{x\_derivatives}}
 \index{x\_derivatives@{x\_derivatives}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{x\_derivatives()}{x\_derivatives()}}
-{\footnotesize\ttfamily mc3\+\_\+de\+\_\+mcmc.\+x\+\_\+derivatives (\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{t,  }\item[{}]{c0,  }\item[{}]{c1,  }\item[{}]{c2 }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily x\+\_\+derivatives (\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{t,  }\item[{}]{c0,  }\item[{}]{c1,  }\item[{}]{c2 }\end{DoxyParamCaption})}
 
 \begin{DoxyVerb}x: LHS row vector (dependent variable)
 t: time (the independent variable)
@@ -145,191 +145,191 @@ Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00039}{39}} of fil
 
 
 \doxysubsection{Variable Documentation}
-\Hypertarget{namespacemc3__de__mcmc_ac33acee5ea1f2069e2257788c425b69a}\label{namespacemc3__de__mcmc_ac33acee5ea1f2069e2257788c425b69a} 
+\Hypertarget{namespacemc3__de__mcmc_a57ee564b3180b28884295f579dac6851}\label{namespacemc3__de__mcmc_a57ee564b3180b28884295f579dac6851} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!burnin@{burnin}}
 \index{burnin@{burnin}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{burnin}{burnin}}
-{\footnotesize\ttfamily int mc3\+\_\+de\+\_\+mcmc.\+burnin = 0}
+{\footnotesize\ttfamily int burnin = 0}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00092}{92}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a70043a698e2e3cd0dd0263e7d60e2203}\label{namespacemc3__de__mcmc_a70043a698e2e3cd0dd0263e7d60e2203} 
+\Hypertarget{namespacemc3__de__mcmc_af134adf18c58098d1ed27762f4b5d5b8}\label{namespacemc3__de__mcmc_af134adf18c58098d1ed27762f4b5d5b8} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!chains@{chains}}
 \index{chains@{chains}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{chains}{chains}}
-{\footnotesize\ttfamily int mc3\+\_\+de\+\_\+mcmc.\+chains = 14}
+{\footnotesize\ttfamily int chains = 14}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00013}{13}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a9bed2f42f8e47dfbc2b8ea1af6ac77f2}\label{namespacemc3__de__mcmc_a9bed2f42f8e47dfbc2b8ea1af6ac77f2} 
+\Hypertarget{namespacemc3__de__mcmc_a511ae0b1c13f95e5f08f1a0dd3da3d93}\label{namespacemc3__de__mcmc_a511ae0b1c13f95e5f08f1a0dd3da3d93} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!data@{data}}
 \index{data@{data}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{data}{data}}
-{\footnotesize\ttfamily mc3\+\_\+de\+\_\+mcmc.\+data = np.\+loadtxt("{}perfect\+\_\+pos.\+txt"{})}
+{\footnotesize\ttfamily data = np.\+loadtxt("{}perfect\+\_\+pos.\+txt"{})}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00029}{29}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a23fa74703bf483e42e6646044663e26e}\label{namespacemc3__de__mcmc_a23fa74703bf483e42e6646044663e26e} 
+\Hypertarget{namespacemc3__de__mcmc_a9a8d37e4899f05c230ed788491012e1d}\label{namespacemc3__de__mcmc_a9a8d37e4899f05c230ed788491012e1d} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!dir@{dir}}
 \index{dir@{dir}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{dir}{dir}}
-{\footnotesize\ttfamily str mc3\+\_\+de\+\_\+mcmc.\+dir = f"{}de\+\_\+mc\+\_\+out"{}}
+{\footnotesize\ttfamily str dir = f"{}de\+\_\+mc\+\_\+out"{}}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00122}{122}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a867e9553387e6f5cdb84368d8637d992}\label{namespacemc3__de__mcmc_a867e9553387e6f5cdb84368d8637d992} 
+\Hypertarget{namespacemc3__de__mcmc_aa2914e5636a5b93b5bea95c2badaf7cf}\label{namespacemc3__de__mcmc_aa2914e5636a5b93b5bea95c2badaf7cf} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!fepsilon@{fepsilon}}
 \index{fepsilon@{fepsilon}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{fepsilon}{fepsilon}}
-{\footnotesize\ttfamily float mc3\+\_\+de\+\_\+mcmc.\+fepsilon = 0.\+0}
+{\footnotesize\ttfamily float fepsilon = 0.\+0}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00108}{108}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a6f3d4c3ba056db7447079ae1af0a88b4}\label{namespacemc3__de__mcmc_a6f3d4c3ba056db7447079ae1af0a88b4} 
+\Hypertarget{namespacemc3__de__mcmc_a87f922d1c1d0c26e61fcfaeb408f9a2b}\label{namespacemc3__de__mcmc_a87f922d1c1d0c26e61fcfaeb408f9a2b} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!fgamma@{fgamma}}
 \index{fgamma@{fgamma}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{fgamma}{fgamma}}
-{\footnotesize\ttfamily float mc3\+\_\+de\+\_\+mcmc.\+fgamma = 1.\+0}
+{\footnotesize\ttfamily float fgamma = 1.\+0}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00107}{107}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_aca0b673fd8544384953f567225d55572}\label{namespacemc3__de__mcmc_aca0b673fd8544384953f567225d55572} 
+\Hypertarget{namespacemc3__de__mcmc_a3699148440db7bdde6e95e16092363d1}\label{namespacemc3__de__mcmc_a3699148440db7bdde6e95e16092363d1} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!func@{func}}
 \index{func@{func}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{func}{func}}
-{\footnotesize\ttfamily mc3\+\_\+de\+\_\+mcmc.\+func = \mbox{\hyperlink{namespacemc3__de__mcmc_a4ffd4bdc634b3a51785fef49a72731c6}{ODE\+\_\+solution}}}
+{\footnotesize\ttfamily func = \mbox{\hyperlink{namespacemc3__de__mcmc_a864f85bd9175f281dde1d54106019151}{ODE\+\_\+solution}}}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00062}{62}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a7a814ced192f38a0d0f7cb1d9c55b151}\label{namespacemc3__de__mcmc_a7a814ced192f38a0d0f7cb1d9c55b151} 
+\Hypertarget{namespacemc3__de__mcmc_a2378b5257a2ca3ff99729439ecaa9ba6}\label{namespacemc3__de__mcmc_a2378b5257a2ca3ff99729439ecaa9ba6} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!grbreak@{grbreak}}
 \index{grbreak@{grbreak}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{grbreak}{grbreak}}
-{\footnotesize\ttfamily float mc3\+\_\+de\+\_\+mcmc.\+grbreak = 0.\+0}
+{\footnotesize\ttfamily float grbreak = 0.\+0}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00103}{103}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a5dcb2c816fb567e90e6ef84057b5c8ec}\label{namespacemc3__de__mcmc_a5dcb2c816fb567e90e6ef84057b5c8ec} 
+\Hypertarget{namespacemc3__de__mcmc_a326c3548c6977e9e9efe1cb2fc107c29}\label{namespacemc3__de__mcmc_a326c3548c6977e9e9efe1cb2fc107c29} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!grnmin@{grnmin}}
 \index{grnmin@{grnmin}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{grnmin}{grnmin}}
-{\footnotesize\ttfamily float mc3\+\_\+de\+\_\+mcmc.\+grnmin = 0.\+5}
+{\footnotesize\ttfamily float grnmin = 0.\+5}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00104}{104}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a45291cd235aabc115e79cb71d392bb0c}\label{namespacemc3__de__mcmc_a45291cd235aabc115e79cb71d392bb0c} 
+\Hypertarget{namespacemc3__de__mcmc_a798e8eb818f39a4eb0cf08929403d30e}\label{namespacemc3__de__mcmc_a798e8eb818f39a4eb0cf08929403d30e} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!grtest@{grtest}}
 \index{grtest@{grtest}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{grtest}{grtest}}
-{\footnotesize\ttfamily bool mc3\+\_\+de\+\_\+mcmc.\+grtest = True}
+{\footnotesize\ttfamily bool grtest = True}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00102}{102}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_ae3e83d26bafa988822f96ffa8476cf9f}\label{namespacemc3__de__mcmc_ae3e83d26bafa988822f96ffa8476cf9f} 
+\Hypertarget{namespacemc3__de__mcmc_a318dc897fbcde3d1413b0128a9b0d342}\label{namespacemc3__de__mcmc_a318dc897fbcde3d1413b0128a9b0d342} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!hsize@{hsize}}
 \index{hsize@{hsize}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{hsize}{hsize}}
-{\footnotesize\ttfamily int mc3\+\_\+de\+\_\+mcmc.\+hsize = 10}
+{\footnotesize\ttfamily int hsize = 10}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00099}{99}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a7df9b798b9055b5d0fd8e2a6895aef55}\label{namespacemc3__de__mcmc_a7df9b798b9055b5d0fd8e2a6895aef55} 
+\Hypertarget{namespacemc3__de__mcmc_af214026ac56627508ed619270adc6ccb}\label{namespacemc3__de__mcmc_af214026ac56627508ed619270adc6ccb} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!kickoff@{kickoff}}
 \index{kickoff@{kickoff}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{kickoff}{kickoff}}
-{\footnotesize\ttfamily str mc3\+\_\+de\+\_\+mcmc.\+kickoff = "{}normal"{}}
+{\footnotesize\ttfamily str kickoff = "{}normal"{}}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00098}{98}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a647c4bae7934db6eae01f545bf46afcf}\label{namespacemc3__de__mcmc_a647c4bae7934db6eae01f545bf46afcf} 
+\Hypertarget{namespacemc3__de__mcmc_a0d53916ead8724126518e4b16b78ba0f}\label{namespacemc3__de__mcmc_a0d53916ead8724126518e4b16b78ba0f} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!log@{log}}
 \index{log@{log}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{log}{log}}
-{\footnotesize\ttfamily str mc3\+\_\+de\+\_\+mcmc.\+log = "{}de\+\_\+mcmc.\+log"{}}
+{\footnotesize\ttfamily str log = "{}de\+\_\+mcmc.\+log"{}}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00111}{111}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a03bd4a987e0ea91c91e9f1e9a6d3c300}\label{namespacemc3__de__mcmc_a03bd4a987e0ea91c91e9f1e9a6d3c300} 
+\Hypertarget{namespacemc3__de__mcmc_a76f11d9a0a47b94f72c2d0e77fb32240}\label{namespacemc3__de__mcmc_a76f11d9a0a47b94f72c2d0e77fb32240} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!n@{n}}
 \index{n@{n}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{n}{n}}
-{\footnotesize\ttfamily int mc3\+\_\+de\+\_\+mcmc.\+n = 6}
+{\footnotesize\ttfamily int n = 6}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00027}{27}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a5341569b7fe2e9389a433a0a76ee191b}\label{namespacemc3__de__mcmc_a5341569b7fe2e9389a433a0a76ee191b} 
+\Hypertarget{namespacemc3__de__mcmc_afe756bbb491f1c0b4bba49a3d475a2b2}\label{namespacemc3__de__mcmc_afe756bbb491f1c0b4bba49a3d475a2b2} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!nchains@{nchains}}
 \index{nchains@{nchains}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{nchains}{nchains}}
-{\footnotesize\ttfamily int mc3\+\_\+de\+\_\+mcmc.\+nchains = \mbox{\hyperlink{namespacemc3__de__mcmc_a70043a698e2e3cd0dd0263e7d60e2203}{chains}}}
+{\footnotesize\ttfamily int nchains = \mbox{\hyperlink{namespacemc3__de__mcmc_af134adf18c58098d1ed27762f4b5d5b8}{chains}}}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00093}{93}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a24fd194aa99181dd126f2f96412c516c}\label{namespacemc3__de__mcmc_a24fd194aa99181dd126f2f96412c516c} 
+\Hypertarget{namespacemc3__de__mcmc_a6201a0661c3d5b88df5f63529298eb48}\label{namespacemc3__de__mcmc_a6201a0661c3d5b88df5f63529298eb48} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!ncpu@{ncpu}}
 \index{ncpu@{ncpu}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{ncpu}{ncpu}}
-{\footnotesize\ttfamily int mc3\+\_\+de\+\_\+mcmc.\+ncpu = 7}
+{\footnotesize\ttfamily int ncpu = 7}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00094}{94}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a9ec699d27fefdc35b564f3ac78ba8621}\label{namespacemc3__de__mcmc_a9ec699d27fefdc35b564f3ac78ba8621} 
+\Hypertarget{namespacemc3__de__mcmc_a484873c74138512e41bc50d17b7d955a}\label{namespacemc3__de__mcmc_a484873c74138512e41bc50d17b7d955a} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!ndims@{ndims}}
 \index{ndims@{ndims}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{ndims}{ndims}}
-{\footnotesize\ttfamily int mc3\+\_\+de\+\_\+mcmc.\+ndims = 3}
+{\footnotesize\ttfamily int ndims = 3}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00068}{68}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a04f48466b9f416804b037da0af47e750}\label{namespacemc3__de__mcmc_a04f48466b9f416804b037da0af47e750} 
+\Hypertarget{namespacemc3__de__mcmc_a1d7032fb58a83cdde2d9963a8f76c7d3}\label{namespacemc3__de__mcmc_a1d7032fb58a83cdde2d9963a8f76c7d3} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!nsamples@{nsamples}}
 \index{nsamples@{nsamples}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{nsamples}{nsamples}}
-{\footnotesize\ttfamily int mc3\+\_\+de\+\_\+mcmc.\+nsamples = 1e6}
+{\footnotesize\ttfamily int nsamples = 1e6}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00091}{91}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a8661ef89a2fa5918774134da7648857a}\label{namespacemc3__de__mcmc_a8661ef89a2fa5918774134da7648857a} 
+\Hypertarget{namespacemc3__de__mcmc_ad288825273ed7192429ab0474fb2d4a0}\label{namespacemc3__de__mcmc_ad288825273ed7192429ab0474fb2d4a0} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!output@{output}}
 \index{output@{output}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{output}{output}}
-{\footnotesize\ttfamily mc3\+\_\+de\+\_\+mcmc.\+output}
+{\footnotesize\ttfamily output}
 
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
@@ -351,211 +351,211 @@ Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00091}{91}} of fil
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00126}{126}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a4f5fb215d6e05bc7eb7ec50d0e6b664e}\label{namespacemc3__de__mcmc_a4f5fb215d6e05bc7eb7ec50d0e6b664e} 
+\Hypertarget{namespacemc3__de__mcmc_a41000f175dc0115080e2a682cc06dbe9}\label{namespacemc3__de__mcmc_a41000f175dc0115080e2a682cc06dbe9} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!params@{params}}
 \index{params@{params}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{params}{params}}
-{\footnotesize\ttfamily mc3\+\_\+de\+\_\+mcmc.\+params = np.\+random.\+random(\mbox{\hyperlink{namespacemc3__de__mcmc_a9ec699d27fefdc35b564f3ac78ba8621}{ndims}})}
+{\footnotesize\ttfamily params = np.\+random.\+random(\mbox{\hyperlink{namespacemc3__de__mcmc_a484873c74138512e41bc50d17b7d955a}{ndims}})}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00069}{69}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_ad8bef0833b40a9da6dbdc8b37e02d1a8}\label{namespacemc3__de__mcmc_ad8bef0833b40a9da6dbdc8b37e02d1a8} 
+\Hypertarget{namespacemc3__de__mcmc_a4e7e74ba5163b07429e0cff22fffe93e}\label{namespacemc3__de__mcmc_a4e7e74ba5163b07429e0cff22fffe93e} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!plots@{plots}}
 \index{plots@{plots}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{plots}{plots}}
-{\footnotesize\ttfamily bool mc3\+\_\+de\+\_\+mcmc.\+plots = True}
+{\footnotesize\ttfamily bool plots = True}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00115}{115}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a58ae4fa9b0d3b89ba50ca208a333bb7b}\label{namespacemc3__de__mcmc_a58ae4fa9b0d3b89ba50ca208a333bb7b} 
+\Hypertarget{namespacemc3__de__mcmc_a9ef70fcb7c461949595ef21bfb46767a}\label{namespacemc3__de__mcmc_a9ef70fcb7c461949595ef21bfb46767a} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!pnames@{pnames}}
 \index{pnames@{pnames}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{pnames}{pnames}}
-{\footnotesize\ttfamily list mc3\+\_\+de\+\_\+mcmc.\+pnames = \mbox{[}"{}c0"{}, "{}c1"{}, "{}c2"{}\mbox{]}}
+{\footnotesize\ttfamily list pnames = \mbox{[}"{}c0"{}, "{}c1"{}, "{}c2"{}\mbox{]}}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00084}{84}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a90e22a7e965483443f1b8d52d6777d44}\label{namespacemc3__de__mcmc_a90e22a7e965483443f1b8d52d6777d44} 
+\Hypertarget{namespacemc3__de__mcmc_a81a3a3e620ac63ad46dda3f81db472c6}\label{namespacemc3__de__mcmc_a81a3a3e620ac63ad46dda3f81db472c6} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!prior@{prior}}
 \index{prior@{prior}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{prior}{prior}}
-{\footnotesize\ttfamily list mc3\+\_\+de\+\_\+mcmc.\+prior = \mbox{[}np.\+array(\mbox{[}0.\+0, 0.\+0, 0.\+0\mbox{]})\mbox{]}}
+{\footnotesize\ttfamily list prior = \mbox{[}np.\+array(\mbox{[}0.\+0, 0.\+0, 0.\+0\mbox{]})\mbox{]}}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00015}{15}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_aae23575cd4a8691fa75c87fdd5207fb8}\label{namespacemc3__de__mcmc_aae23575cd4a8691fa75c87fdd5207fb8} 
+\Hypertarget{namespacemc3__de__mcmc_a74ad46de1451ea876841ed49a7cdb781}\label{namespacemc3__de__mcmc_a74ad46de1451ea876841ed49a7cdb781} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!priorlow@{priorlow}}
 \index{priorlow@{priorlow}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{priorlow}{priorlow}}
-{\footnotesize\ttfamily list mc3\+\_\+de\+\_\+mcmc.\+priorlow = \mbox{[}np.\+array(\mbox{[}2.\+0, 2.\+0, 2.\+0\mbox{]})\mbox{]}}
+{\footnotesize\ttfamily list priorlow = \mbox{[}np.\+array(\mbox{[}2.\+0, 2.\+0, 2.\+0\mbox{]})\mbox{]}}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00016}{16}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_ab9e4043c01dfa68d256dd06a34789a85}\label{namespacemc3__de__mcmc_ab9e4043c01dfa68d256dd06a34789a85} 
+\Hypertarget{namespacemc3__de__mcmc_af8d7102cf9fc76c433b9994ca4ba0974}\label{namespacemc3__de__mcmc_af8d7102cf9fc76c433b9994ca4ba0974} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!priorup@{priorup}}
 \index{priorup@{priorup}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{priorup}{priorup}}
-{\footnotesize\ttfamily list mc3\+\_\+de\+\_\+mcmc.\+priorup = \mbox{[}np.\+array(\mbox{[}2.\+0, 2.\+0, 2.\+0\mbox{]})\mbox{]}}
+{\footnotesize\ttfamily list priorup = \mbox{[}np.\+array(\mbox{[}2.\+0, 2.\+0, 2.\+0\mbox{]})\mbox{]}}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00017}{17}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a0b0c58a727ef48b44cf93b4a7418325e}\label{namespacemc3__de__mcmc_a0b0c58a727ef48b44cf93b4a7418325e} 
+\Hypertarget{namespacemc3__de__mcmc_a2e878e6631d1d5c32cb8255685fb5873}\label{namespacemc3__de__mcmc_a2e878e6631d1d5c32cb8255685fb5873} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!pstep@{pstep}}
 \index{pstep@{pstep}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{pstep}{pstep}}
-{\footnotesize\ttfamily mc3\+\_\+de\+\_\+mcmc.\+pstep = np.\+array(\mbox{[}0.\+5, 1.\+0, 1.\+0\mbox{]})}
+{\footnotesize\ttfamily pstep = np.\+array(\mbox{[}0.\+5, 1.\+0, 1.\+0\mbox{]})}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00073}{73}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a1210d3b427f08928e7b317461cec11e1}\label{namespacemc3__de__mcmc_a1210d3b427f08928e7b317461cec11e1} 
+\Hypertarget{namespacemc3__de__mcmc_aefa7c995dd1c679dd84f78f4e65454dc}\label{namespacemc3__de__mcmc_aefa7c995dd1c679dd84f78f4e65454dc} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!rms@{rms}}
 \index{rms@{rms}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{rms}{rms}}
-{\footnotesize\ttfamily bool mc3\+\_\+de\+\_\+mcmc.\+rms = True}
+{\footnotesize\ttfamily bool rms = True}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00118}{118}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_ac919e1e06f1cf5a1c1786bed4475240d}\label{namespacemc3__de__mcmc_ac919e1e06f1cf5a1c1786bed4475240d} 
+\Hypertarget{namespacemc3__de__mcmc_a71d9b0b34bf9d29928539ce91402fec7}\label{namespacemc3__de__mcmc_a71d9b0b34bf9d29928539ce91402fec7} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!sampler@{sampler}}
 \index{sampler@{sampler}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{sampler}{sampler}}
-{\footnotesize\ttfamily str mc3\+\_\+de\+\_\+mcmc.\+sampler = "{}snooker"{}}
+{\footnotesize\ttfamily str sampler = "{}snooker"{}}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00088}{88}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a46313bd7de8c6d5fb02cfb7e742f4733}\label{namespacemc3__de__mcmc_a46313bd7de8c6d5fb02cfb7e742f4733} 
+\Hypertarget{namespacemc3__de__mcmc_ad10ccc06ad4c18693e839c24e23a470d}\label{namespacemc3__de__mcmc_ad10ccc06ad4c18693e839c24e23a470d} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!savefile@{savefile}}
 \index{savefile@{savefile}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{savefile}{savefile}}
-{\footnotesize\ttfamily str mc3\+\_\+de\+\_\+mcmc.\+savefile = \textquotesingle{}de\+\_\+mcmc.\+npz\textquotesingle{}}
+{\footnotesize\ttfamily str savefile = \textquotesingle{}de\+\_\+mcmc.\+npz\textquotesingle{}}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00114}{114}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_ae472ab5c0936938edf20c751b6c29c01}\label{namespacemc3__de__mcmc_ae472ab5c0936938edf20c751b6c29c01} 
+\Hypertarget{namespacemc3__de__mcmc_acd3f668781d1800aea9821a224361718}\label{namespacemc3__de__mcmc_acd3f668781d1800aea9821a224361718} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!statistics@{statistics}}
 \index{statistics@{statistics}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{statistics}{statistics}}
-{\footnotesize\ttfamily str mc3\+\_\+de\+\_\+mcmc.\+statistics = \textquotesingle{}med\+\_\+central\textquotesingle{}}
+{\footnotesize\ttfamily str statistics = \textquotesingle{}med\+\_\+central\textquotesingle{}}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00117}{117}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a930def0ab61245d22d600cd7a5bd38ab}\label{namespacemc3__de__mcmc_a930def0ab61245d22d600cd7a5bd38ab} 
+\Hypertarget{namespacemc3__de__mcmc_aed39282eeeb6b1970c1ce27485e91afe}\label{namespacemc3__de__mcmc_aed39282eeeb6b1970c1ce27485e91afe} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!t\_data@{t\_data}}
 \index{t\_data@{t\_data}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{t\_data}{t\_data}}
-{\footnotesize\ttfamily mc3\+\_\+de\+\_\+mcmc.\+t\+\_\+data = \mbox{\hyperlink{namespacemc3__de__mcmc_a9bed2f42f8e47dfbc2b8ea1af6ac77f2}{data}}\mbox{[}\+:-\/\mbox{\hyperlink{namespacemc3__de__mcmc_a03bd4a987e0ea91c91e9f1e9a6d3c300}{n}},0\mbox{]}}
+{\footnotesize\ttfamily t\+\_\+data = \mbox{\hyperlink{namespacemc3__de__mcmc_a511ae0b1c13f95e5f08f1a0dd3da3d93}{data}}\mbox{[}\+:-\/\mbox{\hyperlink{namespacemc3__de__mcmc_a76f11d9a0a47b94f72c2d0e77fb32240}{n}},0\mbox{]}}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00030}{30}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a848680a84960ee0949d20bea5df14484}\label{namespacemc3__de__mcmc_a848680a84960ee0949d20bea5df14484} 
+\Hypertarget{namespacemc3__de__mcmc_a5d751bacdd9e4d26d056f5398ae4246e}\label{namespacemc3__de__mcmc_a5d751bacdd9e4d26d056f5398ae4246e} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!t\_range@{t\_range}}
 \index{t\_range@{t\_range}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{t\_range}{t\_range}}
-{\footnotesize\ttfamily mc3\+\_\+de\+\_\+mcmc.\+t\+\_\+range = np.\+ptp(\mbox{\hyperlink{namespacemc3__de__mcmc_a930def0ab61245d22d600cd7a5bd38ab}{t\+\_\+data}})}
+{\footnotesize\ttfamily t\+\_\+range = np.\+ptp(\mbox{\hyperlink{namespacemc3__de__mcmc_aed39282eeeb6b1970c1ce27485e91afe}{t\+\_\+data}})}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00031}{31}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_afbd71b7d5bcfc4f51c2f07f1972daea6}\label{namespacemc3__de__mcmc_afbd71b7d5bcfc4f51c2f07f1972daea6} 
+\Hypertarget{namespacemc3__de__mcmc_a24d1a61d55970de3d60e08137eee93c5}\label{namespacemc3__de__mcmc_a24d1a61d55970de3d60e08137eee93c5} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!textnames@{textnames}}
 \index{textnames@{textnames}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{textnames}{textnames}}
-{\footnotesize\ttfamily list mc3\+\_\+de\+\_\+mcmc.\+textnames = \mbox{[}r"{}c\+\_\+\{0\}"{}, r"{}c\+\_\+\{1\}"{}, r"{}c\+\_\+\{2\}"{}\mbox{]}}
+{\footnotesize\ttfamily list textnames = \mbox{[}r"{}c\+\_\+\{0\}"{}, r"{}c\+\_\+\{1\}"{}, r"{}c\+\_\+\{2\}"{}\mbox{]}}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00085}{85}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_ae736776cd3781ec213fe4900f76b25cd}\label{namespacemc3__de__mcmc_ae736776cd3781ec213fe4900f76b25cd} 
+\Hypertarget{namespacemc3__de__mcmc_aed233a7939a79ac9011b5c18e7126e23}\label{namespacemc3__de__mcmc_aed233a7939a79ac9011b5c18e7126e23} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!theme@{theme}}
 \index{theme@{theme}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{theme}{theme}}
-{\footnotesize\ttfamily str mc3\+\_\+de\+\_\+mcmc.\+theme = \textquotesingle{}indigo\textquotesingle{}}
+{\footnotesize\ttfamily str theme = \textquotesingle{}indigo\textquotesingle{}}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00116}{116}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a7a5fb118920a423ec59e269ff9a17446}\label{namespacemc3__de__mcmc_a7a5fb118920a423ec59e269ff9a17446} 
+\Hypertarget{namespacemc3__de__mcmc_a73901b89090c7acb9ea14b91fbfc1791}\label{namespacemc3__de__mcmc_a73901b89090c7acb9ea14b91fbfc1791} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!thinning@{thinning}}
 \index{thinning@{thinning}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{thinning}{thinning}}
-{\footnotesize\ttfamily int mc3\+\_\+de\+\_\+mcmc.\+thinning = 1}
+{\footnotesize\ttfamily int thinning = 1}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00095}{95}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_af5011cd1202e01b051a98daa7c23cb3d}\label{namespacemc3__de__mcmc_af5011cd1202e01b051a98daa7c23cb3d} 
+\Hypertarget{namespacemc3__de__mcmc_a807c68c44fc6c46d4c215e6ca1fe7803}\label{namespacemc3__de__mcmc_a807c68c44fc6c46d4c215e6ca1fe7803} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!uncert@{uncert}}
 \index{uncert@{uncert}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{uncert}{uncert}}
-{\footnotesize\ttfamily mc3\+\_\+de\+\_\+mcmc.\+uncert = np.\+ones\+\_\+like(\mbox{\hyperlink{namespacemc3__de__mcmc_ac1c739c66a6f42b3304eba0e7a4e10ac}{x\+\_\+data}})\texorpdfstring{$\ast$}{*}np.\+random.\+normal(0.\+0,0.\+1)}
+{\footnotesize\ttfamily uncert = np.\+ones\+\_\+like(\mbox{\hyperlink{namespacemc3__de__mcmc_a5637c0fc79271593e595e5f5a28a042e}{x\+\_\+data}})\texorpdfstring{$\ast$}{*}np.\+random.\+normal(0.\+0,0.\+1)}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00059}{59}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a21b63f5a722f864d26221c99dc7f379a}\label{namespacemc3__de__mcmc_a21b63f5a722f864d26221c99dc7f379a} 
+\Hypertarget{namespacemc3__de__mcmc_a7bae07f096dd3fd9016a444d18e13045}\label{namespacemc3__de__mcmc_a7bae07f096dd3fd9016a444d18e13045} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!x0@{x0}}
 \index{x0@{x0}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{x0}{x0}}
-{\footnotesize\ttfamily list mc3\+\_\+de\+\_\+mcmc.\+x0 = \mbox{[}0.\+0,0.\+0\mbox{]}}
+{\footnotesize\ttfamily list x0 = \mbox{[}0.\+0,0.\+0\mbox{]}}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00050}{50}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_ac1c739c66a6f42b3304eba0e7a4e10ac}\label{namespacemc3__de__mcmc_ac1c739c66a6f42b3304eba0e7a4e10ac} 
+\Hypertarget{namespacemc3__de__mcmc_a5637c0fc79271593e595e5f5a28a042e}\label{namespacemc3__de__mcmc_a5637c0fc79271593e595e5f5a28a042e} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!x\_data@{x\_data}}
 \index{x\_data@{x\_data}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{x\_data}{x\_data}}
-{\footnotesize\ttfamily tuple mc3\+\_\+de\+\_\+mcmc.\+x\+\_\+data = 0.\+1\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacemc3__de__mcmc_a9bed2f42f8e47dfbc2b8ea1af6ac77f2}{data}}\mbox{[}n\+:,1\mbox{]}}
+{\footnotesize\ttfamily tuple x\+\_\+data = 0.\+1\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacemc3__de__mcmc_a511ae0b1c13f95e5f08f1a0dd3da3d93}{data}}\mbox{[}n\+:,1\mbox{]}}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00033}{33}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a861305786a43e176db41102cf2886130}\label{namespacemc3__de__mcmc_a861305786a43e176db41102cf2886130} 
+\Hypertarget{namespacemc3__de__mcmc_a5a4e70aef1b59c2077e838835e0ad13c}\label{namespacemc3__de__mcmc_a5a4e70aef1b59c2077e838835e0ad13c} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!x\_range@{x\_range}}
 \index{x\_range@{x\_range}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{x\_range}{x\_range}}
-{\footnotesize\ttfamily mc3\+\_\+de\+\_\+mcmc.\+x\+\_\+range = np.\+ptp(\mbox{\hyperlink{namespacemc3__de__mcmc_ac1c739c66a6f42b3304eba0e7a4e10ac}{x\+\_\+data}})}
+{\footnotesize\ttfamily x\+\_\+range = np.\+ptp(\mbox{\hyperlink{namespacemc3__de__mcmc_a5637c0fc79271593e595e5f5a28a042e}{x\+\_\+data}})}
 
 
 
 Definition at line \mbox{\hyperlink{mc3__de__mcmc_8py_source_l00034}{34}} of file \mbox{\hyperlink{mc3__de__mcmc_8py_source}{mc3\+\_\+de\+\_\+mcmc.\+py}}.
 
-\Hypertarget{namespacemc3__de__mcmc_a6ab88e01d878a4766d4860e5ea269180}\label{namespacemc3__de__mcmc_a6ab88e01d878a4766d4860e5ea269180} 
+\Hypertarget{namespacemc3__de__mcmc_a39291e1e7c5545a7b8a9c64b89d973f9}\label{namespacemc3__de__mcmc_a39291e1e7c5545a7b8a9c64b89d973f9} 
 \index{mc3\_de\_mcmc@{mc3\_de\_mcmc}!xi@{xi}}
 \index{xi@{xi}!mc3\_de\_mcmc@{mc3\_de\_mcmc}}
 \doxysubsubsection{\texorpdfstring{xi}{xi}}
-{\footnotesize\ttfamily float mc3\+\_\+de\+\_\+mcmc.\+xi = \mbox{\hyperlink{namespacemc3__de__mcmc_ac1c739c66a6f42b3304eba0e7a4e10ac}{x\+\_\+data}}\mbox{[}0\mbox{]}}
+{\footnotesize\ttfamily float xi = \mbox{\hyperlink{namespacemc3__de__mcmc_a5637c0fc79271593e595e5f5a28a042e}{x\+\_\+data}}\mbox{[}0\mbox{]}}
 
 
 

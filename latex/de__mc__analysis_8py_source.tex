@@ -15,45 +15,45 @@
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00011}00011\ \textcolor{keyword}{from}\ funcs\ \textcolor{keyword}{import}\ *}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00012}00012\ }
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00013}00013\ \textcolor{comment}{\#\ Number\ of\ points\ to\ discard}}
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00014}\mbox{\hyperlink{namespacede__mc__analysis_ad3ed573e4ef342e6a35a34a71fe5e68f}{00014}}\ n=6}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00014}\mbox{\hyperlink{namespacede__mc__analysis_a76f11d9a0a47b94f72c2d0e77fb32240}{00014}}\ n=6}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00015}00015\ }
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00016}00016\ \textcolor{comment}{\#\ Use\ non-\/dimensionalized\ data}}
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00017}\mbox{\hyperlink{namespacede__mc__analysis_a3b786db1e17759548365b601cfe84cbd}{00017}}\ data\ =\ np.loadtxt(\textcolor{stringliteral}{"{}perfect\_pos.txt"{}})}
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00018}\mbox{\hyperlink{namespacede__mc__analysis_a4250958bfa4dd5377186772367fa42f3}{00018}}\ t\_data\ =\ data[:-\/n,0]}
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00019}\mbox{\hyperlink{namespacede__mc__analysis_a26847e7a385b72dcfc8c1233b77ecd2c}{00019}}\ t\_range\ =\ np.ptp(t\_data)}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00017}\mbox{\hyperlink{namespacede__mc__analysis_a511ae0b1c13f95e5f08f1a0dd3da3d93}{00017}}\ data\ =\ np.loadtxt(\textcolor{stringliteral}{"{}perfect\_pos.txt"{}})}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00018}\mbox{\hyperlink{namespacede__mc__analysis_aed39282eeeb6b1970c1ce27485e91afe}{00018}}\ t\_data\ =\ data[:-\/n,0]}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00019}\mbox{\hyperlink{namespacede__mc__analysis_a5d751bacdd9e4d26d056f5398ae4246e}{00019}}\ t\_range\ =\ np.ptp(t\_data)}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00020}00020\ t\_data\ =\ data[:-\/n,0]/t\_range}
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00021}\mbox{\hyperlink{namespacede__mc__analysis_ac8f7d239c399ea9c51947e46e4668cbd}{00021}}\ x\_data\ =\ 0.1*data[n:,1]\ \ \ \ \ \textcolor{comment}{\#\ Convert\ from\ Angstroms\ to\ nm}}
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00022}\mbox{\hyperlink{namespacede__mc__analysis_a98accda208f7836ad158c0471b2d8c06}{00022}}\ x\_range\ =\ np.ptp(x\_data)}
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00023}\mbox{\hyperlink{namespacede__mc__analysis_a4853b63f2b95e321447512dc3dfaaeeb}{00023}}\ xi\ =\ x\_data[0]}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00021}\mbox{\hyperlink{namespacede__mc__analysis_a5637c0fc79271593e595e5f5a28a042e}{00021}}\ x\_data\ =\ 0.1*data[n:,1]\ \ \ \ \ \textcolor{comment}{\#\ Convert\ from\ Angstroms\ to\ nm}}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00022}\mbox{\hyperlink{namespacede__mc__analysis_a5a4e70aef1b59c2077e838835e0ad13c}{00022}}\ x\_range\ =\ np.ptp(x\_data)}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00023}\mbox{\hyperlink{namespacede__mc__analysis_a39291e1e7c5545a7b8a9c64b89d973f9}{00023}}\ xi\ =\ x\_data[0]}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00024}00024\ x\_data\ =\ (x\_data-\/xi)/x\_range}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00025}00025\ }
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00026}\mbox{\hyperlink{namespacede__mc__analysis_ac7045c9ce36b9bc8ce3e323188fc21e3}{00026}}\ xs\ =\ x\_range\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ nm}}
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00027}\mbox{\hyperlink{namespacede__mc__analysis_a5e6a6c2bffcf5bda71354a637fb04827}{00027}}\ ts\ =\ t\_range\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ ps}}
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00028}\mbox{\hyperlink{namespacede__mc__analysis_a2de0900d36c48da676ce94016a1f29cf}{00028}}\ Fs\ =\ (250.0*1e6*1e12*np.sqrt(2)*0.352)/(2.0*(1e9**2))\ \ \ \ \ \ \textcolor{comment}{\#\ pN/nm}}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00026}\mbox{\hyperlink{namespacede__mc__analysis_ae0f5e82ee31a657ad8312b0ed1851438}{00026}}\ xs\ =\ x\_range\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ nm}}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00027}\mbox{\hyperlink{namespacede__mc__analysis_a6120ebabcd02e35082049723d85f6a08}{00027}}\ ts\ =\ t\_range\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ ps}}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00028}\mbox{\hyperlink{namespacede__mc__analysis_a864fffd21c558dd8b1c4394102d58331}{00028}}\ Fs\ =\ (250.0*1e6*1e12*np.sqrt(2)*0.352)/(2.0*(1e9**2))\ \ \ \ \ \ \textcolor{comment}{\#\ pN/nm}}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00029}00029\ }
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00030}00030\ \textcolor{comment}{\#\ Set\ the\ initial\ conditions}}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00031}00031\ \textcolor{comment}{\#\ initial\ position\ and\ velocity}}
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00032}\mbox{\hyperlink{namespacede__mc__analysis_a5a26b69db245f85f06df6c459a0a5e29}{00032}}\ x0\ =\ [0.0,0.0]\ \ }
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00032}\mbox{\hyperlink{namespacede__mc__analysis_a7bae07f096dd3fd9016a444d18e13045}{00032}}\ x0\ =\ [0.0,0.0]\ \ }
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00033}00033\ }
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00034}00034\ \textcolor{comment}{\#\ DE-\/MCMC\ results}}
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00035}\mbox{\hyperlink{namespacede__mc__analysis_a3963b1f5e2fb5c2fd06ac374896e0bd0}{00035}}\ n\_samples\ =\ int(1e6)}
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00036}\mbox{\hyperlink{namespacede__mc__analysis_a370879e56b3181c700981d382910ebfa}{00036}}\ burn\ =\ int(1e5)}
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00037}\mbox{\hyperlink{namespacede__mc__analysis_ad0aba9ff23fcab84c4ae1e85534b7369}{00037}}\ dims\ =\ 3}
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00038}\mbox{\hyperlink{namespacede__mc__analysis_ab698d17f4e3acbc67b37209a7a485953}{00038}}\ params\ =\ [\textcolor{stringliteral}{r"{}\$c\_\{0\}\$"{}},\ \textcolor{stringliteral}{r"{}\$c\_\{1\}\$"{}},\ \textcolor{stringliteral}{r"{}\$c\_\{2\}\$"{}}]}
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00039}\mbox{\hyperlink{namespacede__mc__analysis_a7e7e0da501d3754c6d974445fd485a02}{00039}}\ log\_params\ =\ [\textcolor{stringliteral}{r"{}ln(\$c\_\{0\}\$)"{}},\ \textcolor{stringliteral}{r"{}ln(\$c\_\{1\}\$)"{}},\ \textcolor{stringliteral}{r"{}ln(\$c\_\{2\}\$)"{}}]}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00035}\mbox{\hyperlink{namespacede__mc__analysis_a640ebad51b0795fbf7b4ec2e44b5ece5}{00035}}\ n\_samples\ =\ int(1e6)}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00036}\mbox{\hyperlink{namespacede__mc__analysis_a3d843ba517b7a9e462deec3861eeafcd}{00036}}\ burn\ =\ int(1e5)}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00037}\mbox{\hyperlink{namespacede__mc__analysis_a426852633d2045ae6b1f25f7efdaac11}{00037}}\ dims\ =\ 3}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00038}\mbox{\hyperlink{namespacede__mc__analysis_ad4a342a882e80fb0b1b0a80df4b9321b}{00038}}\ params\ =\ [\textcolor{stringliteral}{r"{}\$c\_\{0\}\$"{}},\ \textcolor{stringliteral}{r"{}\$c\_\{1\}\$"{}},\ \textcolor{stringliteral}{r"{}\$c\_\{2\}\$"{}}]}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00039}\mbox{\hyperlink{namespacede__mc__analysis_a87a2aca89a725b3ae97f8817e4d1327e}{00039}}\ log\_params\ =\ [\textcolor{stringliteral}{r"{}ln(\$c\_\{0\}\$)"{}},\ \textcolor{stringliteral}{r"{}ln(\$c\_\{1\}\$)"{}},\ \textcolor{stringliteral}{r"{}ln(\$c\_\{2\}\$)"{}}]}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00040}00040\ }
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00041}\mbox{\hyperlink{namespacede__mc__analysis_a3508e222aa24cc41bdf3bfa75656e27e}{00041}}\ prior\ \ \ \ =\ np.array([0.0,\ 0.0,\ 0.0])}
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00042}\mbox{\hyperlink{namespacede__mc__analysis_aff61755f255fec817c56f6b1d818e9f8}{00042}}\ priorlow\ =\ np.array([2.0,\ 2.0,\ 2.0])}
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00043}\mbox{\hyperlink{namespacede__mc__analysis_ab7749656b58f1f5bd5759567947ab812}{00043}}\ priorup\ \ =\ np.array([2.0,\ 2.0,\ 2.0])}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00041}\mbox{\hyperlink{namespacede__mc__analysis_a899d3aff6fc24618b39966171b723bcd}{00041}}\ prior\ \ \ \ =\ np.array([0.0,\ 0.0,\ 0.0])}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00042}\mbox{\hyperlink{namespacede__mc__analysis_a93a86e854a239e6d7bbde96c61637177}{00042}}\ priorlow\ =\ np.array([2.0,\ 2.0,\ 2.0])}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00043}\mbox{\hyperlink{namespacede__mc__analysis_a132873269d56c3eb204d496ae2011110}{00043}}\ priorup\ \ =\ np.array([2.0,\ 2.0,\ 2.0])}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00044}00044\ }
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00045}\mbox{\hyperlink{namespacede__mc__analysis_a6ea40f75b0bd6a2caede2f74f7f20c8c}{00045}}\ dirs\ =\ f\textcolor{stringliteral}{"{}de\_mc\_out"{}}}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00045}\mbox{\hyperlink{namespacede__mc__analysis_a6a1de82247f92a147c1906b36938a647}{00045}}\ dirs\ =\ f\textcolor{stringliteral}{"{}de\_mc\_out"{}}}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00046}00046\ data\ =\ np.load(f\textcolor{stringliteral}{"{}./\{dirs\}/de\_mcmc.npz"{}})}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00047}00047\ }
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00048}00048\ print(f\textcolor{stringliteral}{"{}Remaining\ samples\ =\ \{n\_samples-\/burn\}"{}})}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00049}00049\ }
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00050}00050\ \textcolor{comment}{\#\ Note:\ work\ with\ logs\ of\ data\ -\/\ log(c\_i)\ \string~\ Normal}}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00051}00051\ \textcolor{comment}{\#\ The\ model\ is\ set\ up\ such\ that\ the\ we\ sample\ log(c\_i)}}
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00052}\mbox{\hyperlink{namespacede__mc__analysis_a3881ee1d9277377b98b3d420c54c5b5b}{00052}}\ posterior,\ log\_c,\ log\_c\_mean,\ post\_cov,\ log\_c\_std\ =\ \mbox{\hyperlink{namespacefuncs_a9e798fe6e7fc82bd3708154f1ac42237}{get\_posterior}}(data,\ n\_samples,\ burn,\ dims=3)}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00052}\mbox{\hyperlink{namespacede__mc__analysis_acd9e1b0682bd285ded3d808e850700c8}{00052}}\ posterior,\ log\_c,\ log\_c\_mean,\ post\_cov,\ log\_c\_std\ =\ \mbox{\hyperlink{namespacefuncs_a5737b8a61a3f2ecfbd0e9890fa7bc5c0}{get\_posterior}}(data,\ n\_samples,\ burn,\ dims=3)}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00053}00053\ }
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00054}00054\ print(\textcolor{stringliteral}{"{}Parameter\ Means"{}},\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}},\ log\_c\_mean)}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00055}00055\ print(\textcolor{stringliteral}{"{}Standard\ dev."{}},\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}},\ log\_c\_std)}
@@ -61,16 +61,16 @@
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00057}00057\ }
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00058}00058\ \textcolor{comment}{\#\ Plots}}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00059}00059\ \textcolor{comment}{\#\ Trace\ plots}}
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00060}\mbox{\hyperlink{namespacede__mc__analysis_a1665aee00fd1aea767f5856b46266604}{00060}}\ fig,\ axs\ =\ plt.subplots(1,\ 3,\ figsize=(15,5))}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00060}\mbox{\hyperlink{namespacede__mc__analysis_a5b5398ce3cb5c9b60d8bb20a94dc945b}{00060}}\ fig,\ axs\ =\ plt.subplots(1,\ 3,\ figsize=(15,5))}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00061}00061\ \textcolor{comment}{\#\ fig.suptitle("{}Trace\ plot"{})}}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00062}00062\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(dims):}
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00063}\mbox{\hyperlink{namespacede__mc__analysis_ad9b03e443450cd516e24b45bd59de9e4}{00063}}\ \ \ \ \ axs[i].plot(data[\textcolor{stringliteral}{"{}posterior"{}}][:,i],\ lw=1,\ alpha=0.5)}
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00064}\mbox{\hyperlink{namespacede__mc__analysis_a83bd3073479c9c0d23f8df8f517f68fd}{00064}}\ \ \ \ \ axs[i].axvline(burn,\ c=\textcolor{stringliteral}{"{}tab:red"{}},\ lw=1,\ ls=\textcolor{stringliteral}{"{}-\/-\/"{}},\ label=f\textcolor{stringliteral}{"{}Burned\ Samples\ =\{burn\}"{}})}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00063}\mbox{\hyperlink{namespacede__mc__analysis_a62197192f0fbf4e0675eb37be1c4c175}{00063}}\ \ \ \ \ axs[i].plot(data[\textcolor{stringliteral}{"{}posterior"{}}][:,i],\ lw=1,\ alpha=0.5)}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00064}\mbox{\hyperlink{namespacede__mc__analysis_ae0323a9039add2978bf5b49550572c7c}{00064}}\ \ \ \ \ axs[i].axvline(burn,\ c=\textcolor{stringliteral}{"{}tab:red"{}},\ lw=1,\ ls=\textcolor{stringliteral}{"{}-\/-\/"{}},\ label=f\textcolor{stringliteral}{"{}Burned\ Samples\ =\{burn\}"{}})}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00065}00065\ \ \ \ \ axs[i].set\_ylabel(f\textcolor{stringliteral}{"{}ln(\{params[i]\})"{}})}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00066}00066\ axs[1].set\_xlabel(\textcolor{stringliteral}{"{}Generation"{}})}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00067}00067\ axs[2].legend()}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00068}00068\ plt.show()}
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00069}\mbox{\hyperlink{namespacede__mc__analysis_a612f89bcf4e60eac1ba58ef6076e9b6e}{00069}}\ fig.savefig(\textcolor{stringliteral}{"{}trace.png"{}},\ dpi=350,\ format=\textcolor{stringliteral}{"{}png"{}})}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00069}\mbox{\hyperlink{namespacede__mc__analysis_ab4024db5b48e2ddd9bcd43847f10f016}{00069}}\ fig.savefig(\textcolor{stringliteral}{"{}trace.png"{}},\ dpi=350,\ format=\textcolor{stringliteral}{"{}png"{}})}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00070}00070\ }
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00071}00071\ \textcolor{comment}{\#\ \#\ Pairplot}}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00072}00072\ \textcolor{comment}{\#\ sns.pairplot(pd.DataFrame(log\_c.T,\ columns=log\_params),\ diag\_kind="{}kde"{})}}
@@ -80,10 +80,10 @@
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00076}00076\ \textcolor{comment}{\#\ Plot\ posterior\ distribution\ for\ each\ parameter}}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00077}00077\ \textcolor{comment}{\#\ For\ different\ nchains\ values}}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00078}00078\ fig,\ axs\ =\ plt.subplots(1,3,\ figsize=(15,10))}
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00079}\mbox{\hyperlink{namespacede__mc__analysis_a1595fbf363e38cc56d109c3fc52ec397}{00079}}\ bins\ =\ 100}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00079}\mbox{\hyperlink{namespacede__mc__analysis_ad369a2b2d29cd52a7afa99260922a6b8}{00079}}\ bins\ =\ 100}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00080}00080\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(dims):}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00081}00081\ \ \ \ \ \textcolor{comment}{\#\ Posterior}}
-\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00082}\mbox{\hyperlink{namespacede__mc__analysis_accdaa29347178e4d12caa65773fb9446}{00082}}\ \ \ \ \ axs[i].hist(log\_c[i],\ density=\textcolor{keyword}{True},\ bins=bins,\ color=f\textcolor{stringliteral}{"{}C0"{}},\ alpha=0.5,\ label=\textcolor{stringliteral}{"{}DE-\/MC\ Samples"{}})}
+\DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00082}\mbox{\hyperlink{namespacede__mc__analysis_a37dbdc30935031c05304482e1be89d8f}{00082}}\ \ \ \ \ axs[i].hist(log\_c[i],\ density=\textcolor{keyword}{True},\ bins=bins,\ color=f\textcolor{stringliteral}{"{}C0"{}},\ alpha=0.5,\ label=\textcolor{stringliteral}{"{}DE-\/MC\ Samples"{}})}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00083}00083\ \ \ \ \ axs[i].plot(np.linspace(-\/10.0,\ 10.0,\ 1001),\ st.norm.pdf(np.linspace(-\/10.0,\ 10.0,\ 1001),\ loc=log\_c\_mean[i],\ scale=log\_c\_std[i]),}
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ color=\textcolor{stringliteral}{"{}C0"{}},\ label=\textcolor{stringliteral}{r"{}\$\(\backslash\)mathcal\{N\}(\$"{}}\ +\ f\textcolor{stringliteral}{"{}\{round(log\_c\_mean[i],2)\},\ \{round(log\_c\_std[i],2)\})"{}})\ \ \ \ }
 \DoxyCodeLine{\Hypertarget{de__mc__analysis_8py_source_l00085}00085\ \ \ \ \ \textcolor{comment}{\#\ Prior}}
