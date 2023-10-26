@@ -1,27 +1,38 @@
 import numpy as np
 import math
+import sys
 from collections import defaultdict
 from matplotlib import pyplot as plt
 import seaborn as sns
 
-###################################################################
-#                                                                 #
-#                               General                           #
-#                                                                 #
-###################################################################
+# ################################################################### #
+# #                                                                 # #
+# #                               General                           # #
+# #                                                                 # #
+# ################################################################### #
 
 def read_disloc_data(disloc_file):
     """
-    Function to read in dislocation data
-    and convert into a numpy array for
-    further processing
+    Read in dislocation position data obtained from 
+    processing MD trajectory using OVITO sctript provided.
+
+    Parameters
+    ----------
+    disloc_file : str
+                  Dislocation data file name.
+    
+    Returns
+    -------
+    numpy.ndarray
+                  Dislocation line x, y, and z coordinates.
     """
     with open(disloc_file) as f:
-        ndisloc = int(f.readline())
-        indices = []
-        lens = []
-        dislocations = []
-        # Read in first dislocation data
+        ndisloc = int(f.readline())     # number of dislocations    
+        indices = []                    # indices of dislocations 
+        lens = []                       # lengths of dislocations
+        dislocations = []               # coordinates of dislocations
+
+        # Read dislocation coordinates for each dislocation found
         for i in range(ndisloc):
             disloc_i = []
             index = indices.append(int(f.readline().strip()))
@@ -38,7 +49,21 @@ def read_disloc_data(disloc_file):
 
 def get_cell_lims(dump_file):
     """
-    Function to extract cell extents from dump file
+    Extract simulation cell extents from a LAMMPS dump file.
+
+    Parameters
+    ----------
+    dump_file : str
+                LAMMPS dump file name.
+
+    Returns
+    -------
+    float
+                Simulation cell length in x (Angstroms).
+    float
+                Simulation cell length in y (Angstroms).
+    float
+                Simulation cell length in z (Angstroms).            
     """
     dump = np.loadtxt(f"{dump_file}", skiprows=5, max_rows=3)
     lims = []
@@ -46,51 +71,59 @@ def get_cell_lims(dump_file):
         lims.append(dump[i][1] - dump[i][0])
     return lims[0], lims[1], lims[2]
 
-def wrap_coords_x(dislocation, x_extent):
+def wrap_coords(dislocation, ax, extent):
     """
-    Function to wrap the coordinates of a dislocation line
-    given the dislocation the coordinates of the dislocation line vertices
-    and the cell extents in x
+    Function to wrap the coordinates of a dislocation line along a given axis.
+
+    Parameters
+    ----------
+    dislocation : numpy.ndarray
+                  Dislocation line coordinates.
+    ax          : str
+                  "x", "y", or "z" - direction for wrapping.
+    extent      : float
+                  Cell length (in Angstroms) in direction of wrapping.
+
+    Returns
+    -------
+    numpy.ndarray
+                  Modified dislocation coordinates after wrapping.
     """
+    if ax == "x":
+        j = 0
+    elif ax == "y":
+        j = 1
+    elif ax == "z":
+        j = 2
+    else:
+        print("Error: ax must be set to 'x', 'y', or 'z'")
+        sys.exit()
+
     for i in range(len(dislocation)):
-        if dislocation[i][0] < 0.0:
-            dislocation[i][0] = dislocation[i][0] + x_extent
-        if dislocation[i][0] > x_extent:
-            dislocation[i][0] = dislocation[i][1] - x_extent
-
-    return dislocation
-
-def wrap_coords_y(dislocation, y_extent):
-    """
-    Function to wrap the coordinates of a dislocation line
-    given the dislocation the coordinates of the dislocation line vertices
-    and the cell extents in y
-    """
-    for i in range(len(dislocation)):
-        if dislocation[i][1] < 0.0:
-            dislocation[i][1] = dislocation[i][1] + y_extent
-        if dislocation[i][1] > y_extent:
-            dislocation[i][1] = dislocation[i][1] - y_extent
-
-    return dislocation
-
-def wrap_coords_z(dislocation, z_extent):
-    """
-    Function to wrap the coordinates of a dislocation line
-    given the dislocation the coordinates of the dislocation line vertices
-    and the cell extents in z
-    """
-    for i in range(len(dislocation)):
-        if dislocation[i][2] < 0.0:
-            dislocation[i][2] = dislocation[i][2] + z_extent
-        if dislocation[i][2] > z_extent:
-            dislocation[i][2] = dislocation[i][2] - z_extent
-
+        if dislocation[i][j] < 0.0:
+            dislocation[i][j] = dislocation[i][j] + extent
+        if dislocation[i][j] > extent:
+            dislocation[i][j] = dislocation[i][j] - extent
+    
     return dislocation
 
 def get_disloc_coords(dislocation):
     """
-    Function to get the coordinates of a dislocation line
+    Extract and split coordinates of a dislocation line.
+
+    Parameters
+    ----------
+    dislocation : numpy.ndarray
+                  Dislocation line coordinates.
+    
+    Returns
+    -------
+    numpy.ndarray
+                  Dislocation line x coordinates.
+    numpy.ndarray
+                  Dislocation line y coordinates.
+    numpy.ndarray
+                  Dislocation line z coordinates.                                    
     """
     x_coords = np.array(dislocation, dtype=object)[:,0]
     y_coords = np.array(dislocation, dtype=object)[:,1]
@@ -100,64 +133,114 @@ def get_disloc_coords(dislocation):
 
 def get_avg_pos(dislocation):
     """
-    Function to average positions of a dislocation
-    line given the vertices as input
-    Input must be given as a numpy array
+    Calculate average position of a dislocation line.
+    
+    Parameters
+    ----------
+    dislocation : numpy.ndarray
+                  Dislocation line coordinates.
+    
+    Returns
+    -------
+    numpy.ndarray
+                  Average dislocation line coordinates in x, y, and x.
     """
     x_coords, y_coords, z_coords = get_disloc_coords(dislocation)
     avg_pos = [np.average(x_coords),np.average(y_coords),np.average(z_coords)]
 
-    return avg_pos
+    return np.array(avg_pos)
 
 def perfect_disloc_coords(partial_1, partial_2):
     """
-    Function to calculate the coordinates of a perfect dislocation
-    by averaging the coordinates of two partial dislocations
-    """
-    return [np.average([partial_1[i], partial_2[i]]) for i in range(len(partial_1))]
+    Calculate the x-coordinates of a perfect dislocation 
+    as the average of the x-coordinates of two partial dislocations
+    at every simulation timestep.
 
-def get_velocity(disloc, timestep):
+    Parameters
+    ----------
+    partial_1 : list
+                First partial dislocation x-coordinates timeseries.
+    partial_2 : list
+                Second partial dislocation x-coordinates timeseries.                
+                
+    Returns
+    -------
+    numpy.ndarray
+                Perfect dislocation x-coordinates timeseries.                
     """
-    Function to calculate velocity from position data
-    Works both for partial or perfect dislocation
+    return np.array([np.average([partial_1[i], partial_2[i]]) for i in range(len(partial_1))])
+
+def get_velocity(disloc_x_pos, timestep):
     """
-    return np.gradient(disloc, timestep)
+    Function to calculate a dislocation line's x-component of velocity in Angstroms/ps.
+
+    Parameters
+    ----------
+    disloc_x_pos : list
+                   Dislocation line x-coordinates timeseries.
+    timestep     : float
+                   Simulation timestep in ps.
+
+    """
+    return np.gradient(disloc_x_pos, timestep)
 
 def write_prop(filename, property, time):
     """
-    Function to write out property time series of a dislocation to a text file
+    Function to write out a property time series
+    of a dislocation to a text file.
 
+    Parameters
+    ----------
+    filename : str
+               Output file name.
+    property : numpy.ndarray
+               Property timeseries.
+    time     : numpy.ndarray
+               Timesteps.
     """
     f = open(f"{filename}", "w")
     for i in range(len(property)):
         f.write(f"{round(time[i],1)}     {property[i]} \n")
     f.close()
 
-###################################################################
-#                                                                 #
-#                        Dislocation Tracking                     #
-#                                                                 #
-###################################################################
+# ################################################################### #
+# #                                                                 # #
+# #                        Dislocation Tracking                     # # 
+# #                                                                 # #
+# ################################################################### #
 
-def track_disloc(avg, x_lim, n_frames):
+def track_disloc(avg, x_lim):
 
     """
-    Function to track dislocation lines across multiple using average 
-    positions as input.
-    - For tracking the dislocations, we use a simple object tracking
-    algorithm that checks the change in x coordinates between the
-    current and previous frame to track a dislocation and assign it
-    a unique ID
-    - 
-    - The algorithm is adapted from the approach in:
+    Track dislocation lines across multiple frames.
+    - Dislocations are tracked by checking the minimum distance moved by a dislocation between frames. 
+    
+    - Adapted from the approach in:
     https://pysource.com/2021/10/05/object-tracking-from-scratch-opencv-and-python/
+    
     - Assumptions:
     1. The dislocation only moves in the x direction
-    and that it is therefore sufficient to only use the change in the x
-    coordinates..+
-    2. The number of dislocations is constant across all frames
-    i.e. no dislocations are generated nor lost throughout the
-    trajectory analysed (this will be changed in the future)
+    2. The number of dislocations is constant across all frames 
+    i.e. no dislocations are generated nor lost throughout the analysed trajectory.
+    
+    Parameters
+    ----------
+    avg      : numpy.ndarray
+               Average x, y, and z coordinates of dislocation lines in the analysed trajectory.
+    x_lim    : float
+               Simulation cell length in x (Angstroms).
+    n_frames : int
+               Number of frames in trajectory.
+    
+    Returns
+    -------
+    list
+               Sorted dislocation x-coordinates across trajectory frames.
+    list
+               Sorted coordinates of dislocation line vertices across frames.
+    list
+               Timesteps.
+    
     """
     # Tracking ID
     track_ID = 0
@@ -194,36 +277,25 @@ def track_disloc(avg, x_lim, n_frames):
     # to those of the already existing objects
     for i in range(2,len(avg)):
         for j in range(len(avg[i])):
-            # if avg[i][j][0] > x_lim:
-            #     avg[i][j][0] -= x_lim            
-            # if avg[i][j][0] < 0.0:
-            #     avg[i][j][0] += x_lim                   
-            # print(avg[i][j])
             d_i = []
             for obj_ID, obj in tracking_objects.items():
                 # Calculate the distances between the current avg x position
                 # and the last x position added to each tracking object
                 dist_1 = avg[i][j][0][0] - obj[-1][1][0]
                 dist_2 = avg[i][j][0][0] + x_lim - obj[-1][1][0]
+                dist_3 = avg[i][j][0][0] - x_lim - obj[-1][1][0]
 
                 # Determine whether dislocation has crossed periodic boundary            
-                # For the first i frames the dislocation is allowed to move back
-                # This accounts for the first few frames before the dislocation
-                # starts moving                        
-                if i <= 10:
-                    if dist_2 < abs(dist_1):
-                        dist = dist_2
-                        pbc = True
-                    else:
-                        dist = abs(dist_1)
-                        pbc = False
+                if abs(dist_2) < abs(dist_1) and abs(dist_2) < abs(dist_3):
+                    dist = abs(dist_2)
+                    pbc = 1
+                elif abs(dist_3) < abs(dist_1) and abs(dist_3) < abs(dist_2):
+                    dist = abs(dist_3)
+                    pbc = 3
                 else:
-                    if dist_2 < abs(dist_1) or dist_1 < 0.0:
-                        dist = dist_2
-                        pbc = True
-                    else:
-                        dist = abs(dist_1)
-                        pbc = False
+                    dist = abs(dist_1)
+                    pbc = 0
+
                 d_i.append([avg[i][j][0][0], avg[i][j][0][1], avg[i][j][0][2], obj_ID, dist, pbc])
 
             # Append coordinate to corresponding dislocation
@@ -246,15 +318,23 @@ def track_disloc(avg, x_lim, n_frames):
         for j in range(len(object)):
             pbcs_i.append(object[j][2])
         pbcs.append(np.array(pbcs_i))
-    
+  
     starts = []
+    test = []
     for pbc in pbcs:
         starts.append(np.where(pbc == 1)[0])
+        test.append(np.where(pbc ==3)[0])
+
 
     for i, start in enumerate(starts):
         for s in start:
             for j in range(s,len(pbcs[i])):
                 tracking_objects[i][j][1][0] += x_lim
+
+    for i, start in enumerate(test):
+        for s in start:
+            for j in range(s,len(pbcs[i])):
+                tracking_objects[i][j][1][0] -= x_lim
              
     # Collect position data after tracking
     position = []
@@ -297,10 +377,3 @@ def track_disloc(avg, x_lim, n_frames):
                     disloc[i][j][k][0] += x_lim
 
     return position, disloc, t
-
-
-###################################################################
-#                                                                 #
-#                              Plotting                           #
-#                                                                 #
-###################################################################
