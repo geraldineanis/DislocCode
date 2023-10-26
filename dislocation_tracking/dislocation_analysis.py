@@ -4,7 +4,7 @@ import math
 import sys
 from collections import defaultdict
 
-"""
+"""!
 Dislocation trajectory analysis module.
 
 This module contains functions that are used in the script "dislocation_script.py".
