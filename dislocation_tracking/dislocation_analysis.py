@@ -1,15 +1,8 @@
 import numpy as np
+from matplotlib import pyplot as plt
 import math
 import sys
 from collections import defaultdict
-from matplotlib import pyplot as plt
-import seaborn as sns
-
-# ################################################################### #
-# #                                                                 # #
-# #                               General                           # #
-# #                                                                 # #
-# ################################################################### #
 
 def read_disloc_data(disloc_file):
     """
@@ -202,12 +195,6 @@ def write_prop(filename, property, time):
     for i in range(len(property)):
         f.write(f"{round(time[i],1)}     {property[i]} \n")
     f.close()
-
-# ################################################################### #
-# #                                                                 # #
-# #                        Dislocation Tracking                     # # 
-# #                                                                 # #
-# ################################################################### #
 
 def track_disloc(avg, x_lim):
 
