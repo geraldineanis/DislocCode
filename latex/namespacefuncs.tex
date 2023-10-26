@@ -1,0 +1,274 @@
+\doxysection{funcs Namespace Reference}
+\hypertarget{namespacefuncs}{}\label{namespacefuncs}\index{funcs@{funcs}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacefuncs_a66572a84eec5245067f599ca5a3bc663}{x\+\_\+t}} (t, xi, m, B, F)
+\item 
+\mbox{\hyperlink{namespacefuncs_ae83e83b28431124ae260975b6ecb9bd0}{x\+\_\+derivatives}} (x, t, c0, c1, c2)
+\item 
+\mbox{\hyperlink{namespacefuncs_adf167798b7cf991996456f8aa3e167c9}{ODE\+\_\+solution}} (t, x0, t\+\_\+data)
+\item 
+\mbox{\hyperlink{namespacefuncs_a47c9eb33bb1a803d00dfb120b5fbf222}{x\+\_\+derivatives\+\_\+dim}} (x, t, m, B, F)
+\item 
+\mbox{\hyperlink{namespacefuncs_a221e91ed4cdefcdb446ada2b1ba23b4f}{ODE\+\_\+solution\+\_\+dim}} (t, x0, t\+\_\+data)
+\item 
+\mbox{\hyperlink{namespacefuncs_abedd3552707c3ce9919f3526be43fd81}{c0\+\_\+to\+\_\+m}} (c0, ts, xs, Fs)
+\item 
+\mbox{\hyperlink{namespacefuncs_a0018fbc1d06eaceff83ed3c97323f1d0}{c1\+\_\+to\+\_\+B}} (c1, ts, xs, Fs)
+\item 
+\mbox{\hyperlink{namespacefuncs_ab72c8a905dc2e62d8c44b129dafe8c78}{c2\+\_\+to\+\_\+F}} (c2, Fs)
+\item 
+\mbox{\hyperlink{namespacefuncs_a9e798fe6e7fc82bd3708154f1ac42237}{get\+\_\+posterior}} (data, n\+\_\+samples, burn, dims=3)
+\item 
+\mbox{\hyperlink{namespacefuncs_a2db14a95b7d297f4b144662a4432e564}{stat\+\_\+convergence}} (data, dims)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacefuncs_abedd3552707c3ce9919f3526be43fd81}\label{namespacefuncs_abedd3552707c3ce9919f3526be43fd81} 
+\index{funcs@{funcs}!c0\_to\_m@{c0\_to\_m}}
+\index{c0\_to\_m@{c0\_to\_m}!funcs@{funcs}}
+\doxysubsubsection{\texorpdfstring{c0\_to\_m()}{c0\_to\_m()}}
+{\footnotesize\ttfamily funcs.\+c0\+\_\+to\+\_\+m (\begin{DoxyParamCaption}\item[{}]{c0,  }\item[{}]{ts,  }\item[{}]{xs,  }\item[{}]{Fs }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00051}{51}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00051\ \textcolor{keyword}{def\ }c0\_to\_m(c0,ts,xs,Fs):}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{return}\ ((ts**2)*Fs)/(xs*c0)}
+\DoxyCodeLine{00053\ }
+
+\end{DoxyCode}
+\Hypertarget{namespacefuncs_a0018fbc1d06eaceff83ed3c97323f1d0}\label{namespacefuncs_a0018fbc1d06eaceff83ed3c97323f1d0} 
+\index{funcs@{funcs}!c1\_to\_B@{c1\_to\_B}}
+\index{c1\_to\_B@{c1\_to\_B}!funcs@{funcs}}
+\doxysubsubsection{\texorpdfstring{c1\_to\_B()}{c1\_to\_B()}}
+{\footnotesize\ttfamily funcs.\+c1\+\_\+to\+\_\+B (\begin{DoxyParamCaption}\item[{}]{c1,  }\item[{}]{ts,  }\item[{}]{xs,  }\item[{}]{Fs }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00054}{54}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00054\ \textcolor{keyword}{def\ }c1\_to\_B(c1,ts,xs,Fs):}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ (c1*ts*Fs)/xs}
+\DoxyCodeLine{00056\ }
+
+\end{DoxyCode}
+\Hypertarget{namespacefuncs_ab72c8a905dc2e62d8c44b129dafe8c78}\label{namespacefuncs_ab72c8a905dc2e62d8c44b129dafe8c78} 
+\index{funcs@{funcs}!c2\_to\_F@{c2\_to\_F}}
+\index{c2\_to\_F@{c2\_to\_F}!funcs@{funcs}}
+\doxysubsubsection{\texorpdfstring{c2\_to\_F()}{c2\_to\_F()}}
+{\footnotesize\ttfamily funcs.\+c2\+\_\+to\+\_\+F (\begin{DoxyParamCaption}\item[{}]{c2,  }\item[{}]{Fs }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00057}{57}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00057\ \textcolor{keyword}{def\ }c2\_to\_F(c2,Fs):}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{return}\ Fs*c2}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{comment}{\#\ DE-\/MC\ Analysis}}
+
+\end{DoxyCode}
+\Hypertarget{namespacefuncs_a9e798fe6e7fc82bd3708154f1ac42237}\label{namespacefuncs_a9e798fe6e7fc82bd3708154f1ac42237} 
+\index{funcs@{funcs}!get\_posterior@{get\_posterior}}
+\index{get\_posterior@{get\_posterior}!funcs@{funcs}}
+\doxysubsubsection{\texorpdfstring{get\_posterior()}{get\_posterior()}}
+{\footnotesize\ttfamily funcs.\+get\+\_\+posterior (\begin{DoxyParamCaption}\item[{}]{data,  }\item[{}]{n\+\_\+samples,  }\item[{}]{burn,  }\item[{}]{dims = {\ttfamily 3} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Function to get parameter posterior distributions
+Returns posterior samples for each parameter discarding burn samples
+Also returns the multivariate posterior distribution
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00061}{61}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061\ \textcolor{keyword}{def\ }get\_posterior(data,\ n\_samples,\ burn,\ dims=3):}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00063\ \textcolor{stringliteral}{\ \ \ \ Function\ to\ get\ parameter\ posterior\ distributions}}
+\DoxyCodeLine{00064\ \textcolor{stringliteral}{\ \ \ \ Returns\ posterior\ samples\ for\ each\ parameter\ discarding\ burn\ samples}}
+\DoxyCodeLine{00065\ \textcolor{stringliteral}{\ \ \ \ Also\ returns\ the\ multivariate\ posterior\ distribution}}
+\DoxyCodeLine{00066\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{\#\ All\ posterior\ samples}}
+\DoxyCodeLine{00068\ \ \ \ \ posterior\ =\ np.array(data[\textcolor{stringliteral}{"{}posterior"{}}][burn:n\_samples])}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{\#\ Marginal\ posterior\ samples}}
+\DoxyCodeLine{00070\ \ \ \ \ c\_dist\ =\ np.array([np.array(posterior[:,i])\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(dims)])}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{\#\ Parameter\ means}}
+\DoxyCodeLine{00072\ \ \ \ \ c\_means\ =\ np.array([c\_dist[i].mean()\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(dims)])}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{\#\ Posterior\ covariance\ matrix}}
+\DoxyCodeLine{00074\ \ \ \ \ post\_cov\ =\ np.array(np.cov(posterior,\ rowvar=\textcolor{keyword}{False}))}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{\#\ Parameter\ standard\ deviations}}
+\DoxyCodeLine{00076\ \ \ \ \ c\_std\ =\ np.array([np.sqrt(post\_cov[i][i])\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(dims)])}
+\DoxyCodeLine{00077\ \ \ \ \ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{return}\ posterior,\ c\_dist,\ c\_means,\ post\_cov,\ c\_std}
+\DoxyCodeLine{00079\ }
+
+\end{DoxyCode}
+\Hypertarget{namespacefuncs_adf167798b7cf991996456f8aa3e167c9}\label{namespacefuncs_adf167798b7cf991996456f8aa3e167c9} 
+\index{funcs@{funcs}!ODE\_solution@{ODE\_solution}}
+\index{ODE\_solution@{ODE\_solution}!funcs@{funcs}}
+\doxysubsubsection{\texorpdfstring{ODE\_solution()}{ODE\_solution()}}
+{\footnotesize\ttfamily funcs.\+ODE\+\_\+solution (\begin{DoxyParamCaption}\item[{}]{t,  }\item[{}]{x0,  }\item[{}]{t\+\_\+data }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}x0: vector containing initial position and velocity
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00023}{23}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023\ \textcolor{keyword}{def\ }ODE\_solution(t,x0,t\_data):}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00025\ \textcolor{stringliteral}{\ \ \ \ x0:\ vector\ containing\ initial\ position\ and\ velocity}}
+\DoxyCodeLine{00026\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00027\ \ \ \ \ c0,\ c1,\ c2\ =\ t\ \ \textcolor{comment}{\#\ Unpack\ parameters}}
+\DoxyCodeLine{00028\ \ \ \ \ position,\ velocity\ =\ odeint(x\_derivatives,\ x0,\ t\_data,\ args=(c0,c1,c2)).T}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{return}\ position,\ velocity}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{comment}{\#\ Dimensional\ Model}}
+
+\end{DoxyCode}
+\Hypertarget{namespacefuncs_a221e91ed4cdefcdb446ada2b1ba23b4f}\label{namespacefuncs_a221e91ed4cdefcdb446ada2b1ba23b4f} 
+\index{funcs@{funcs}!ODE\_solution\_dim@{ODE\_solution\_dim}}
+\index{ODE\_solution\_dim@{ODE\_solution\_dim}!funcs@{funcs}}
+\doxysubsubsection{\texorpdfstring{ODE\_solution\_dim()}{ODE\_solution\_dim()}}
+{\footnotesize\ttfamily funcs.\+ODE\+\_\+solution\+\_\+dim (\begin{DoxyParamCaption}\item[{}]{t,  }\item[{}]{x0,  }\item[{}]{t\+\_\+data }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}x0: vector containing initial position and velocity
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00041}{41}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00041\ \textcolor{keyword}{def\ }ODE\_solution\_dim(t,x0,t\_data):}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00043\ \textcolor{stringliteral}{\ \ \ \ x0:\ vector\ containing\ initial\ position\ and\ velocity}}
+\DoxyCodeLine{00044\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00045\ \ \ \ \ m,\ B,\ F\ =\ t\ \ \textcolor{comment}{\#\ Unpack\ parameters}}
+\DoxyCodeLine{00046\ \ \ \ \ position,\ velocity\ =\ odeint(x\_derivatives\_dim,\ x0,\ t\_data,\ args=(m,B,F)).T}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{return}\ position,\ velocity}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{comment}{\#\ Functions\ to\ convert\ from\ non-\/dimensional\ parameters}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\#\ c0,\ c1,\ c2\ to\ m,\ B,\ F}}
+
+\end{DoxyCode}
+\Hypertarget{namespacefuncs_a2db14a95b7d297f4b144662a4432e564}\label{namespacefuncs_a2db14a95b7d297f4b144662a4432e564} 
+\index{funcs@{funcs}!stat\_convergence@{stat\_convergence}}
+\index{stat\_convergence@{stat\_convergence}!funcs@{funcs}}
+\doxysubsubsection{\texorpdfstring{stat\_convergence()}{stat\_convergence()}}
+{\footnotesize\ttfamily funcs.\+stat\+\_\+convergence (\begin{DoxyParamCaption}\item[{}]{data,  }\item[{}]{dims }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Function to calculate the mean and standarde deviation of a parameter dataset
+with increasing sample size
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00080}{80}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00080\ \textcolor{keyword}{def\ }stat\_convergence(data,\ dims):}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00082\ \textcolor{stringliteral}{\ \ \ \ Function\ to\ calculate\ the\ mean\ and\ standarde\ deviation\ of\ a\ parameter\ dataset}}
+\DoxyCodeLine{00083\ \textcolor{stringliteral}{\ \ \ \ with\ increasing\ sample\ size}}
+\DoxyCodeLine{00084\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00085\ \ \ \ \ means\ \ \ \ =\ np.array([[data[i][:N].mean()\ \textcolor{keywordflow}{for}\ N\ \textcolor{keywordflow}{in}\ range(1,len(data[i]))]\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(dims)])}
+\DoxyCodeLine{00086\ \ \ \ \ std\_devs\ =\ np.array([[data[i][:N].std()\ \textcolor{keywordflow}{for}\ N\ \textcolor{keywordflow}{in}\ range(1,len(data[i]))]\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(dims)])}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{return}\ means,\ std\_devs}
+
+\end{DoxyCode}
+\Hypertarget{namespacefuncs_ae83e83b28431124ae260975b6ecb9bd0}\label{namespacefuncs_ae83e83b28431124ae260975b6ecb9bd0} 
+\index{funcs@{funcs}!x\_derivatives@{x\_derivatives}}
+\index{x\_derivatives@{x\_derivatives}!funcs@{funcs}}
+\doxysubsubsection{\texorpdfstring{x\_derivatives()}{x\_derivatives()}}
+{\footnotesize\ttfamily funcs.\+x\+\_\+derivatives (\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{t,  }\item[{}]{c0,  }\item[{}]{c1,  }\item[{}]{c2 }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}x: LHS row vector (dependent variable)
+t: time (the independent variable)
+m, B, F: constants
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00014}{14}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00014\ \textcolor{keyword}{def\ }x\_derivatives(x,t,c0,c1,c2):}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00016\ \textcolor{stringliteral}{\ \ \ \ x:\ LHS\ row\ vector\ (dependent\ variable)}}
+\DoxyCodeLine{00017\ \textcolor{stringliteral}{\ \ \ \ t:\ time\ (the\ independent\ variable)}}
+\DoxyCodeLine{00018\ \textcolor{stringliteral}{\ \ \ \ m,\ B,\ F:\ constants}}
+\DoxyCodeLine{00019\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00020\ \ \ \ \ dxdt\ =\ [x[1],\ np.exp(c0)*(np.exp(c2)\ -\/\ np.exp(c1)*x[1])]}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{return}\ dxdt}
+\DoxyCodeLine{00022\ }
+
+\end{DoxyCode}
+\Hypertarget{namespacefuncs_a47c9eb33bb1a803d00dfb120b5fbf222}\label{namespacefuncs_a47c9eb33bb1a803d00dfb120b5fbf222} 
+\index{funcs@{funcs}!x\_derivatives\_dim@{x\_derivatives\_dim}}
+\index{x\_derivatives\_dim@{x\_derivatives\_dim}!funcs@{funcs}}
+\doxysubsubsection{\texorpdfstring{x\_derivatives\_dim()}{x\_derivatives\_dim()}}
+{\footnotesize\ttfamily funcs.\+x\+\_\+derivatives\+\_\+dim (\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{t,  }\item[{}]{m,  }\item[{}]{B,  }\item[{}]{F }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}x: LHS row vector (dependent variable)
+t: time (the independent variable)
+m, B, F: constants
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00032}{32}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032\ \textcolor{keyword}{def\ }x\_derivatives\_dim(x,t,m,B,F):}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00034\ \textcolor{stringliteral}{\ \ \ \ x:\ LHS\ row\ vector\ (dependent\ variable)}}
+\DoxyCodeLine{00035\ \textcolor{stringliteral}{\ \ \ \ t:\ time\ (the\ independent\ variable)}}
+\DoxyCodeLine{00036\ \textcolor{stringliteral}{\ \ \ \ m,\ B,\ F:\ constants}}
+\DoxyCodeLine{00037\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00038\ \ \ \ \ dxdt\ =\ [x[1],\ (1/m)*(F\ -\/\ B*x[1])]}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{return}\ dxdt}
+\DoxyCodeLine{00040\ }
+
+\end{DoxyCode}
+\Hypertarget{namespacefuncs_a66572a84eec5245067f599ca5a3bc663}\label{namespacefuncs_a66572a84eec5245067f599ca5a3bc663} 
+\index{funcs@{funcs}!x\_t@{x\_t}}
+\index{x\_t@{x\_t}!funcs@{funcs}}
+\doxysubsubsection{\texorpdfstring{x\_t()}{x\_t()}}
+{\footnotesize\ttfamily funcs.\+x\+\_\+t (\begin{DoxyParamCaption}\item[{}]{t,  }\item[{}]{xi,  }\item[{}]{m,  }\item[{}]{B,  }\item[{}]{F }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Analytic solution to the equation of motion mx" + Bx' = F
+Full dimensional equation
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00005}{5}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00005\ \textcolor{keyword}{def\ }x\_t(t,xi,m,\ B,\ F):}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00007\ \textcolor{stringliteral}{\ \ \ \ Analytic\ solution\ to\ the\ equation\ of\ motion\ mx"{}\ +\ Bx'\ =\ F}}
+\DoxyCodeLine{00008\ \textcolor{stringliteral}{\ \ \ \ Full\ dimensional\ equation}}
+\DoxyCodeLine{00009\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordflow}{return}\ xi\ +\ ((F/B)*(t\ +\ (m/B)*(np.exp(-\/(B/m)*t)\ -\/\ 1.0)))}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{\#\ Non-\/dimensional\ Model}}
+
+\end{DoxyCode}

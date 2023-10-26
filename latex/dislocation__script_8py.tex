@@ -1,0 +1,86 @@
+\doxysection{dislocation\+\_\+tracking/dislocation\+\_\+script.py File Reference}
+\hypertarget{dislocation__script_8py}{}\label{dislocation__script_8py}\index{dislocation\_tracking/dislocation\_script.py@{dislocation\_tracking/dislocation\_script.py}}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacedislocation__script}{dislocation\+\_\+script}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a96bba6f400dc94de95dbff513a1420a9}{dislocation\+\_\+script.\+disloc\+\_\+frames}} = natsorted(glob.\+glob("{}./Ni\+\_\+disloc/disloc\+\_\+data\+\_\+\texorpdfstring{$\ast$}{*}.txt"{}))
+\item 
+int \mbox{\hyperlink{namespacedislocation__script_a1098f79dc28172319a10c53fe2316424}{dislocation\+\_\+script.\+step}} = 500\texorpdfstring{$\ast$}{*}0.\+001
+\item 
+list \mbox{\hyperlink{namespacedislocation__script_ae86b8be9b80189b8c981cfd3e972a757}{dislocation\+\_\+script.\+x\+\_\+coords}} = \mbox{[}$\,$\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacedislocation__script_abea80a044a85771e4e25b5fc0a934505}{dislocation\+\_\+script.\+y\+\_\+coords}} = \mbox{[}$\,$\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacedislocation__script_a21f68ee2ec006005f75e1048367ebb44}{dislocation\+\_\+script.\+z\+\_\+coords}} = \mbox{[}$\,$\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacedislocation__script_af2d678f005ab88e1f787c9704e8065ea}{dislocation\+\_\+script.\+time}} = \mbox{[}$\,$\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacedislocation__script_a711f87415665cafc982c086f34cbd839}{dislocation\+\_\+script.\+avg}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_aca9f33c8ffc66c66d823514f22ee5937}{dislocation\+\_\+script.\+x\+\_\+lim}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_ace2d97426c544bbd83ae06e1b230197d}{dislocation\+\_\+script.\+y\+\_\+lim}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_ad8f9c165d24b9315452e6d23f360b3e9}{dislocation\+\_\+script.\+z\+\_\+lim}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a25593ec0a686b24776a88c73b37a55c5}{dislocation\+\_\+script.\+dislocations}} = \mbox{\hyperlink{namespacedislocation__analysis_a513cfd8fa21b58d68ab6e500985171ad}{read\+\_\+disloc\+\_\+data}}(frame)
+\item 
+list \mbox{\hyperlink{namespacedislocation__script_a4e49d181a9d9c4f6c34cb15cea5b8bd3}{dislocation\+\_\+script.\+x\+\_\+coords\+\_\+i}} = \mbox{[}$\,$\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacedislocation__script_a494f606737804f9b8853b24fa62bd879}{dislocation\+\_\+script.\+y\+\_\+coords\+\_\+i}} = \mbox{[}$\,$\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacedislocation__script_ae15f5732d37e8f43c06167ee03f5eb06}{dislocation\+\_\+script.\+z\+\_\+coords\+\_\+i}} = \mbox{[}$\,$\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacedislocation__script_a55b10b241a2ba4d64dd1948e53c89c5f}{dislocation\+\_\+script.\+avg\+\_\+pos}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a70d12ae27b05fa2a8cb49d3984e571a2}{dislocation\+\_\+script.\+dislocation}} = \mbox{\hyperlink{namespacedislocation__analysis_a2046904742a5b354cdc88c1ed03a37c1}{wrap\+\_\+coords}}(dislocation,"{}y"{},\mbox{\hyperlink{namespacedislocation__script_ace2d97426c544bbd83ae06e1b230197d}{y\+\_\+lim}})
+\item 
+\mbox{\hyperlink{namespacedislocation__script_acdb9d6586aebcfb091ecb13aeb337f39}{dislocation\+\_\+script.\+x}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a40d02aec72bb537d6ffa3dda6aca5be4}{dislocation\+\_\+script.\+y}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a3ae58e0e683ef2db7a80f0b900262185}{dislocation\+\_\+script.\+z}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_ade56666105e23c5af5197417f3751137}{dislocation\+\_\+script.\+n\+\_\+frames}} = len(\mbox{\hyperlink{namespacedislocation__script_a96bba6f400dc94de95dbff513a1420a9}{disloc\+\_\+frames}})
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a9edd750276def37b478564d74c9de2ae}{dislocation\+\_\+script.\+position}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a6f3ac9008a98e1a38ba4c5446a10c847}{dislocation\+\_\+script.\+vertices}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a056f5eb82796982c9407699be612356e}{dislocation\+\_\+script.\+t}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a1680c1f0d8660bb78a0e79acba43789d}{dislocation\+\_\+script.\+partial\+\_\+1}} = \mbox{\hyperlink{namespacedislocation__script_a9edd750276def37b478564d74c9de2ae}{position}}\mbox{[}0\mbox{]}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_ada203a0e7d9e898705699cafeba1f3ef}{dislocation\+\_\+script.\+partial\+\_\+2}} = \mbox{\hyperlink{namespacedislocation__script_a9edd750276def37b478564d74c9de2ae}{position}}\mbox{[}1\mbox{]}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a1de29d78a7e889a59af7e353d2a27323}{dislocation\+\_\+script.\+partial\+\_\+1\+\_\+vel}} = \mbox{\hyperlink{namespacedislocation__analysis_af22d170b46ff4cf5ec39d4fd2b550674}{get\+\_\+velocity}}(\mbox{\hyperlink{namespacedislocation__script_a1680c1f0d8660bb78a0e79acba43789d}{partial\+\_\+1}}, \mbox{\hyperlink{namespacedislocation__script_a1098f79dc28172319a10c53fe2316424}{step}})
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a91fba7b157ed8ba52b019a7dbab94ea4}{dislocation\+\_\+script.\+partial\+\_\+2\+\_\+vel}} = \mbox{\hyperlink{namespacedislocation__analysis_af22d170b46ff4cf5ec39d4fd2b550674}{get\+\_\+velocity}}(\mbox{\hyperlink{namespacedislocation__script_ada203a0e7d9e898705699cafeba1f3ef}{partial\+\_\+2}}, \mbox{\hyperlink{namespacedislocation__script_a1098f79dc28172319a10c53fe2316424}{step}})
+\item 
+list \mbox{\hyperlink{namespacedislocation__script_a0ae6a2fd1f4482fcbd06eb4298b97c31}{dislocation\+\_\+script.\+labels}} = \mbox{[}"{}Partial 1"{}, "{}Partial 2"{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a82b8288d16c12eb2405d737bcd9dda8e}{dislocation\+\_\+script.\+fig}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a87cf35062b57434092a54eda562d2e0c}{dislocation\+\_\+script.\+axs}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a440e8d8bccc990a754097b3a9fe37005}{dislocation\+\_\+script.\+figsize}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_ab41c03a25388e0e0daa9923b89b62933}{dislocation\+\_\+script.\+label}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a82d76aa11604529ac19326c5b83c4f31}{dislocation\+\_\+script.\+dpi}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_ab5f9ae77fc95cf55352cc9749006a6d1}{dislocation\+\_\+script.\+format}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a42fb3420cea25d75586959aa5a142fd1}{dislocation\+\_\+script.\+perfect\+\_\+disloc}} = \mbox{\hyperlink{namespacedislocation__analysis_a2a3e2d7a1c8307eb0036b9189ade83b9}{perfect\+\_\+disloc\+\_\+coords}}(\mbox{\hyperlink{namespacedislocation__script_a1680c1f0d8660bb78a0e79acba43789d}{partial\+\_\+1}}, \mbox{\hyperlink{namespacedislocation__script_ada203a0e7d9e898705699cafeba1f3ef}{partial\+\_\+2}})
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a491edcd113a47d13c15672fecccae16f}{dislocation\+\_\+script.\+velocity}} = \mbox{\hyperlink{namespacedislocation__analysis_af22d170b46ff4cf5ec39d4fd2b550674}{get\+\_\+velocity}}(\mbox{\hyperlink{namespacedislocation__script_a42fb3420cea25d75586959aa5a142fd1}{perfect\+\_\+disloc}}, \mbox{\hyperlink{namespacedislocation__script_a1098f79dc28172319a10c53fe2316424}{step}})
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a51f1d8e4a10cc09d6b22734779894862}{dislocation\+\_\+script.\+fig1}}
+\item 
+str \mbox{\hyperlink{namespacedislocation__script_a16f183174a26dd8be058aeccfb43fc0f}{dislocation\+\_\+script.\+filename}} = "{}perfect\+\_\+pos.\+txt"{}
+\end{DoxyCompactItemize}

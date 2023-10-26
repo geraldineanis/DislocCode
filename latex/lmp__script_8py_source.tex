@@ -1,0 +1,375 @@
+\doxysection{lmp\+\_\+script.\+py}
+\hypertarget{lmp__script_8py_source}{}\label{lmp__script_8py_source}\index{lammps\_scripts/lmp\_script.py@{lammps\_scripts/lmp\_script.py}}
+\mbox{\hyperlink{lmp__script_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00001}\mbox{\hyperlink{namespacelmp__script}{00001}}\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00013}00013\ \textcolor{keyword}{from}\ lammps\ \textcolor{keyword}{import}\ lammps}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00014}00014\ \textcolor{keyword}{from}\ lammps.formats\ \textcolor{keyword}{import}\ LogFile\ \textcolor{keyword}{as}\ lmp\_log}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00015}00015\ \textcolor{keyword}{import}\ numpy\ \textcolor{keyword}{as}\ np}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00016}00016\ \textcolor{keyword}{import}\ os}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00017}00017\ \textcolor{keyword}{import}\ sys}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00018}00018\ \textcolor{keyword}{from}\ matplotlib\ \textcolor{keyword}{import}\ pyplot\ \textcolor{keyword}{as}\ plt}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00019}00019\ \textcolor{keyword}{from}\ mpi4py\ \textcolor{keyword}{import}\ MPI}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00021}00021\ \textcolor{comment}{\#\ Select\ "{}Ni"{}\ or\ "{}Ni3Al"{}\ }}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00022}\mbox{\hyperlink{namespacelmp__script_aa1d5221b2e673059420a5b761be958d8}{00022}}\ sys\_type\ =\ \textcolor{stringliteral}{"{}Ni"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00024}00024\ \textcolor{comment}{\#\ Set\ lattice\ parameter}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00025}00025\ \textcolor{keywordflow}{if}\ sys\_type\ ==\ \textcolor{stringliteral}{"{}Ni"{}}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00026}\mbox{\hyperlink{namespacelmp__script_a2e50bd5a93840e3557d1003036954507}{00026}}\ \ \ \ \ gamma\_latt\ =\ 3.52\ \ \ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00027}00027\ \textcolor{keywordflow}{elif}\ sys\_type\ ==\ \textcolor{stringliteral}{"{}Ni3Al"{}}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00028}00028\ \ \ \ \ gamma\_latt\ =\ 3.57}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00029}00029\ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00030}00030\ \ \ \ \ print(\textcolor{stringliteral}{"{}Error:\ sys\_type\ should\ be\ to\ 'Ni'\ or\ 'Ni3Al'"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00031}00031\ \ \ \ \ sys.exit()}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00033}00033\ \textcolor{comment}{\#\ Set\ simulation\ type}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00034}00034\ \textcolor{comment}{\#\ if\ sim\_type\ =\ "{}new"{}\ do\ structural\ relaxation\ and\ equilibration}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00035}00035\ \textcolor{comment}{\#\ if\ sim\_type\ =\ "{}continue"{}\ skip\ to\ production}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00036}00036\ \textcolor{comment}{\#\ give\ last\ timestep\ to\ be\ read\ from\ dump\ file\ -\/\ later\ change\ to\ binary\ file\ for\ precision}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00037}\mbox{\hyperlink{namespacelmp__script_a618d3b5ba80f2372a6db574052f5c07b}{00037}}\ sim\_type\ =\ \textcolor{stringliteral}{"{}new"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00039}00039\ \textcolor{comment}{\#\ Only\ change\ this\ if\ doing\ a\ restart\ }}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00040}00040\ \textcolor{comment}{\#\ i.e.\ sim\_type\ =\ "{}continue"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00041}\mbox{\hyperlink{namespacelmp__script_a52c6e0e464cae1cd1380ffa4350e1597}{00041}}\ restart\_file\ =\ \textcolor{stringliteral}{"{}md\_restart.30000"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00042}\mbox{\hyperlink{namespacelmp__script_a33889d94b8fc5f4f9cb50f8a301c7092}{00042}}\ last\_timestep\ =\ 30000}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00044}00044\ \textcolor{comment}{\#\ Set\ problem\ type}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00045}00045\ \textcolor{comment}{\#\ if\ problem\ =\ "{}relax"{}\ perform\ an\ energy\ minimization}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00046}00046\ \textcolor{comment}{\#\ if\ problem\ =\ "{}single"{}\ calculate\ energy\ of\ struc.\ only}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00047}\mbox{\hyperlink{namespacelmp__script_a4d044118ec4f3a4d4babfa76444604c4}{00047}}\ problem\ =\ \textcolor{stringliteral}{"{}relax"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00049}00049\ \textcolor{comment}{\#\ Ensemble}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00050}00050\ \textcolor{comment}{\#\ options:\ "{}NVE"{},\ "{}NVT"{},\ or\ "{}NPT"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00051}\mbox{\hyperlink{namespacelmp__script_a2748450bcfc54f19257a0941bfe2b0ed}{00051}}\ thermo\_ensemble\ =\ \textcolor{stringliteral}{"{}NVT"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00052}\mbox{\hyperlink{namespacelmp__script_a5485d21946fa9843b2532960f21fe4b0}{00052}}\ timestep\ =\ 0.001\ \textcolor{comment}{\#\ timestep\ (ps)}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00054}00054\ \textcolor{comment}{\#\ User-\/set\ parameters}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00055}\mbox{\hyperlink{namespacelmp__script_a0cd0bb3c6267a8635fd8bfc42ec0d5a4}{00055}}\ temperature\ =\ 300\ \ \ \ \ \ \ \textcolor{comment}{\#\ Temperature\ (K)}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00056}\mbox{\hyperlink{namespacelmp__script_afb583a2c86b67e9161f87bb251c54208}{00056}}\ pressure\ =\ 1\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Pressure\ (bar)}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00058}\mbox{\hyperlink{namespacelmp__script_a517f3769f510948a0f72a74b01e3ab46}{00058}}\ sigma\ =\ 500\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Shear\ stress\ (bar)\ -\/\ 250\ MPa}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00059}\mbox{\hyperlink{namespacelmp__script_ab2edb54061e9fb14ec6e858a67fa90aa}{00059}}\ loading\_type\ =\ \textcolor{stringliteral}{"{}sym"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00061}00061\ \textcolor{comment}{\#\ Run\ times\ (ps)}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00062}\mbox{\hyperlink{namespacelmp__script_adff3fc8a8484701d6c5cf7bc0ff08840}{00062}}\ equil\_run\ =\ 10000}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00063}\mbox{\hyperlink{namespacelmp__script_aa5b019c76251318ab580e437ed07b10b}{00063}}\ MD\_run\ =\ 50000}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00065}00065\ \textcolor{keywordflow}{if}\ sim\_type\ ==\ \textcolor{stringliteral}{"{}continue"{}}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00066}00066\ \ \ \ \ MD\_run\ =\ MD\_run\ -\/\ last\_timestep}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00068}00068\ \textcolor{comment}{\#\ Energy\ conversion}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00069}\mbox{\hyperlink{namespacelmp__script_ab918ad229b06955e568cc83956ef6557}{00069}}\ eV\_to\_J\ =\ 1602191.7}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00071}00071\ \textcolor{comment}{\#\ Block\ sizes\ to\ set\ offset\ in\ x\ for\ different\ layers}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00072}00072\ \textcolor{comment}{\#\ and\ simulation\ box\ dimensions}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00073}\mbox{\hyperlink{namespacelmp__script_a1bd13a6e49da2998eefc80ec636b7d32}{00073}}\ x1\ =\ 10}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00074}\mbox{\hyperlink{namespacelmp__script_a56e261433aca72c3f8b882d1b78c14f0}{00074}}\ x2\ =\ 21}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00075}\mbox{\hyperlink{namespacelmp__script_afdf25bade859dc63e6d7fee6516f7233}{00075}}\ x3\ =\ 40}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00077}\mbox{\hyperlink{namespacelmp__script_a29e674e6bfb47e9cc72ee793baf17f7f}{00077}}\ y1\ =\ 40}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00078}\mbox{\hyperlink{namespacelmp__script_a0fddbaa506b8ca67cbb69946d16a8b05}{00078}}\ z1\ =\ 40}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00080}00080\ \textcolor{comment}{\#\ Additional\ options}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00081}\mbox{\hyperlink{namespacelmp__script_a7ae941ff658ad920b218576cc66f8ef3}{00081}}\ check\_overlap\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00087}\mbox{\hyperlink{namespacelmp__script_a743f1118121d80c92f676183b59e4af3}{00087}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacelmp__script_a743f1118121d80c92f676183b59e4af3}{thermo\_type}}(thermo\_ensemble):}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00088}00088\ \ \ \ \ \textcolor{keywordflow}{if}\ thermo\_ensemble\ ==\ \textcolor{stringliteral}{"{}NVE"{}}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00089}00089\ \ \ \ \ \ \ \ \ block\ =\ f\textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00090}00090\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ fix\ 1\ mobile\ nve}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00091}00091\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ fix\ 2\ mobile\ temp/rescale\ 1\ \{temperature\}\ \{temperature\}\ 1.0\ 0.5}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00092}00092\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ fix\_modify\ 2\ temp\ temp1}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00093}00093\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ thermo\_modify\ temp\ temp1}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00094}00094\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00095}00095\ \ \ \ \ \textcolor{keywordflow}{elif}\ thermo\_ensemble\ ==\ \textcolor{stringliteral}{"{}NVT"{}}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00096}00096\ \ \ \ \ \ \ \ \ block\ =\ f\textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00097}00097\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ fix\ 1\ mobile\ nvt\ temp\ \{temperature\}\ \{temperature\}\ \{100.0*timestep\}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00098}00098\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ fix\_modify\ 1\ temp\ temp1}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00099}00099\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ thermo\_modify\ temp\ temp1}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00100}00100\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00101}00101\ \ \ \ \ \textcolor{keywordflow}{elif}\ thermo\_ensemble\ ==\ \textcolor{stringliteral}{"{}NPT"{}}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00102}00102\ \ \ \ \ \ \ \ \ block\ =\ f\textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00103}00103\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \#\ cannot\ apply\ barostat\ to\ a\ non-\/periodic\ dimension}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00104}00104\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ fix\ 1\ mobile\ npt\ temp\ \{temperature\}\ \{temperature\}\ \{100.0*timestep\}\ \&}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00105}00105\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ \{pressure\}\ \{pressure\}\ \{1000.0*timestep\}\ \&}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00106}00106\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\ \{pressure\}\ \{pressure\}\ \{1000.0*timestep\}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00107}00107\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ fix\_modify\ 1\ temp\ temp1}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00108}00108\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ thermo\_modify\ temp\ temp1}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00109}00109\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00110}00110\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00111}00111\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}Error:\ thermo\_ensemble\ should\ be\ set\ to\ 'NVE',\ 'NVT',\ or\ 'NPT'"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00112}00112\ \ \ \ \ \ \ \ \ sys.exit()}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00114}00114\ \ \ \ \ lmp.commands\_string(block)}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00119}00119\ \textcolor{comment}{\#\ create\ a\ LAMMPS\ instance}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00120}\mbox{\hyperlink{namespacelmp__script_ab22aa203cba600d97dfcb1328eddcb79}{00120}}\ lmp\ =\ lammps()}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00121}00121\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00122}00122\ \textcolor{keywordflow}{if}\ sim\_type\ ==\ \textcolor{stringliteral}{"{}new"{}}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00124}\mbox{\hyperlink{namespacelmp__script_aa42e5715024976818cf4c73edda11088}{00124}}\ \ \ \ \ units\ =\ \textcolor{stringliteral}{"{}metal"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00126}\mbox{\hyperlink{namespacelmp__script_aa1a6aaf1294fe4b78e01d1f77aaf8b21}{00126}}\ \ \ \ \ block\ =\ f\textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00127}00127\ \textcolor{stringliteral}{\ \ \ \ clear}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00128}00128\ \textcolor{stringliteral}{\ \ \ \ units\ \{units\}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00129}00129\ \textcolor{stringliteral}{\ \ \ \ dimension\ 3}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00130}00130\ \textcolor{stringliteral}{\ \ \ \ boundary\ p\ p\ s}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00131}00131\ \textcolor{stringliteral}{\ \ \ \ atom\_style\ atomic}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00132}00132\ \textcolor{stringliteral}{\ \ \ \ atom\_modify\ map\ array}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00133}00133\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00134}00134\ \ \ \ \ lmp.commands\_string(block)}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00136}00136\ \ \ \ \ \textcolor{comment}{\#\ define\ a\ simulation\ box}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00137}00137\ \ \ \ \ \textcolor{comment}{\#\ Create\ lattice\ to\ setup\ simulation\ box}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00138}00138\ \ \ \ \ lmp.command(f\textcolor{stringliteral}{"{}lattice\ none\ \{gamma\_latt\}"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00139}00139\ \ \ \ \ \textcolor{comment}{\#\ Simulation\ box\ parameters}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00140}\mbox{\hyperlink{namespacelmp__script_af1a3702c7f3040ceab2ccfaaec9e13f5}{00140}}\ \ \ \ \ box\_name\ =\ \textcolor{stringliteral}{"{}sim\_box"{}}\ \textcolor{comment}{\#\ region-\/ID}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00141}\mbox{\hyperlink{namespacelmp__script_ab16a557dd4ddc63d2551e093c551cc40}{00141}}\ \ \ \ \ box\_dim\ =\ [(x1+x2+x3)*np.sqrt(2)/2.0,\ y1*np.sqrt(6)/2.0,\ z1*np.sqrt(3)]}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00142}\mbox{\hyperlink{namespacelmp__script_a1cb548098342123d34bab492818158cb}{00142}}\ \ \ \ \ species\ =\ 1\ \ \textcolor{comment}{\#\ number\ of\ atom\ types\ to\ use\ in\ simulation}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00143}00143\ \ \ \ \ \textcolor{comment}{\#\ Define\ simulation\ box}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00144}00144\ \ \ \ \ lmp.command(f\textcolor{stringliteral}{"{}region\ \{box\_name\}\ block\ 0\ \{box\_dim[0]\}\ 0\ \{box\_dim[1]\}\ 0\ \{box\_dim[2]\}"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00145}00145\ \ \ \ \ lmp.command(f\textcolor{stringliteral}{"{}create\_box\ \{species\}\ \{box\_name\}"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00147}00147\ \ \ \ \ \textcolor{comment}{\#\ read\ in\ structure\ from\ data\ file}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00148}00148\ \ \ \ \ \textcolor{comment}{\#\ 1st\ padding\ layer}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00149}00149\ \ \ \ \ lmp.command(f\textcolor{stringliteral}{"{}read\_data\ Ni\_start.data\ group\ pad\_1\ add\ append"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00150}00150\ \ \ \ \ \textcolor{comment}{\#\ Cell\ containing\ dislocation(s)}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00151}\mbox{\hyperlink{namespacelmp__script_a27a75f58d55c180e3d739a1a5190ad88}{00151}}\ \ \ \ \ x\_shift\ \ =\ x1*gamma\_latt*np.sqrt(2)}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00152}00152\ \ \ \ \ lmp.command(f\textcolor{stringliteral}{"{}read\_data\ disloc\_Ni.data\ group\ disloc\ shift\ \{x\_shift\}\ 0.\ 0.\ add\ append"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00153}00153\ \ \ \ \ \textcolor{comment}{\#\ 2nd\ padding\ layer}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00154}00154\ \ \ \ \ x\_shift\ \ =\ (x1+x2)*gamma\_latt*np.sqrt(2)}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00155}00155\ \ \ \ \ lmp.command(f\textcolor{stringliteral}{"{}read\_data\ Ni\_end.data\ group\ pad\_2\ shift\ \{x\_shift\}\ 0.\ 0.\ add\ append"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00157}00157\ \textcolor{keywordflow}{elif}\ sim\_type\ ==\ \textcolor{stringliteral}{"{}continue"{}}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00158}00158\ \ \ \ \ \textcolor{comment}{\#\ read\ in\ structure\ from\ restart\ file}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00159}00159\ \ \ \ \ lmp.command(f\textcolor{stringliteral}{"{}read\_restart\ \{restart\_file\}"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00160}00160\ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00161}00161\ \ \ \ \ print(\textcolor{stringliteral}{"{}Error:\ sim\_type\ should\ be\ set\ to\ 'new'\ or\ 'continue'"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00162}00162\ \ \ \ \ sys.exit()\ \ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00166}\mbox{\hyperlink{namespacelmp__script_a091915bca32c44c57015affd15ebc7b0}{00166}}\ potential\ =\ \textcolor{stringliteral}{"{}./NiAl\_Mishin\_2004.eam.alloy"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00167}\mbox{\hyperlink{namespacelmp__script_a0d3671f0890db61ab502b6a40e68b9a4}{00167}}\ elements\ =\ [\textcolor{stringliteral}{"{}Ni"{}},\ \textcolor{stringliteral}{"{}Al"{}}]}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00169}00169\ lmp.command(\textcolor{stringliteral}{"{}pair\_style\ eam/alloy"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00171}00171\ \textcolor{keywordflow}{if}\ sys\_type\ ==\ \textcolor{stringliteral}{"{}Ni"{}}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00172}00172\ \ \ \ \ lmp.command(f\textcolor{stringliteral}{"{}pair\_coeff\ *\ *\ \{potential\}\ \{elements[0]\}"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00173}00173\ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00174}00174\ \ \ \ \ lmp.command(f\textcolor{stringliteral}{"{}pair\_coeff\ *\ *\ \{potential\}\ \{elements[0]\}\ \{elements[1]\}"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00176}00176\ lmp.command(\textcolor{stringliteral}{"{}neighbor\ 2.0\ bin"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00177}00177\ lmp.command(f\textcolor{stringliteral}{"{}neigh\_modify\ delay\ 10\ check\ yes"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00182}00182\ \textcolor{keywordflow}{if}\ check\_overlap\ \textcolor{keywordflow}{and}\ (sim\_type\ ==\ \textcolor{stringliteral}{"{}new"{}}):}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00183}00183\ \ \ \ \ lmp.command(\textcolor{stringliteral}{"{}delete\_atoms\ overlap\ 0.3\ all\ all"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00191}00191\ \textcolor{keywordflow}{if}\ sim\_type\ ==\ \textcolor{stringliteral}{"{}new"{}}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00192}\mbox{\hyperlink{namespacelmp__script_aecfc2ca543ecd04985f9e30570cb19af}{00192}}\ \ \ \ \ upper\_lim\ =\ lmp.extract\_box()[1][2]\ -\/\ (7.5*gamma\_latt*np.sqrt(3))}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00193}\mbox{\hyperlink{namespacelmp__script_a7449c01309ebafb825b3111737c6dced}{00193}}\ \ \ \ \ lower\_lim\ =\ lmp.extract\_box()[0][2]\ +\ (7.5*gamma\_latt*np.sqrt(3))}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00195}00195\ \ \ \ \ lmp.command(f\textcolor{stringliteral}{"{}region\ upper\ block\ INF\ INF\ INF\ INF\ \{upper\_lim\}\ INF\ units\ box"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00196}00196\ \ \ \ \ lmp.command(f\textcolor{stringliteral}{"{}region\ lower\ block\ INF\ INF\ INF\ INF\ INF\ \{lower\_lim\}\ units\ box"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00197}00197\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00198}00198\ \ \ \ \ \textcolor{comment}{\#\ definition\ of\ groups}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00199}00199\ \ \ \ \ block\ =\ f\textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00200}00200\ \textcolor{stringliteral}{\ \ \ \ group\ upper\ region\ upper}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00201}00201\ \textcolor{stringliteral}{\ \ \ \ group\ lower\ region\ lower}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00202}00202\ \textcolor{stringliteral}{\ \ \ \ group\ mobile\ subtract\ all\ upper\ lower}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00203}00203\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00204}00204\ \ \ \ \ lmp.commands\_string(block)\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00206}00206\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00210}00210\ \textcolor{comment}{\#\ Calculate\ energy\ per\ atom}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00211}00211\ lmp.command(\textcolor{stringliteral}{"{}compute\ eng\ mobile\ pe/atom"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00212}00212\ lmp.command(\textcolor{stringliteral}{"{}compute\ pe\_mobile\ mobile\ reduce\ sum\ c\_eng"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00217}00217\ \textcolor{keywordflow}{if}\ sim\_type\ ==\ \textcolor{stringliteral}{"{}new"{}}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00218}00218\ \ \ \ \ \textcolor{comment}{\#\ Fix\ upper\ and\ lower\ regions}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00219}00219\ \ \ \ \ lmp.command(f\textcolor{stringliteral}{"{}fix\ 1\ lower\ setforce\ NULL\ 0.0\ 0.0"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00220}00220\ \ \ \ \ lmp.command(f\textcolor{stringliteral}{"{}fix\ 2\ upper\ setforce\ NULL\ 0.0\ 0.0"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00221}00221\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00222}00222\ \ \ \ \ \textcolor{comment}{\#\ Define\ dumps}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00223}00223\ \ \ \ \ lmp.command(\textcolor{stringliteral}{"{}dump\ 1\ all\ custom\ 10\ dump.minim.*\ id\ type\ xs\ ys\ zs\ fx\ fy\ fz\ c\_eng"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00224}00224\ \ \ \ \ lmp.command(\textcolor{stringliteral}{"{}dump\_modify\ 1\ first\ yes"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00226}00226\ \ \ \ \ \textcolor{comment}{\#\ Run\ minimization}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00227}00227\ \ \ \ \ \textcolor{keywordflow}{if}\ (problem\ ==\ \textcolor{stringliteral}{"{}relax"{}}):}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00228}00228\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Perform\ an\ energy\ minimization}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00229}00229\ \ \ \ \ \ \ \ \ block\ =\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00230}00230\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ reset\_timestep\ 0}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00231}00231\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ thermo\ 1\ }}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00232}00232\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ thermo\_style\ custom\ step\ pe\ lx\ ly\ lz\ press}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00233}00233\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ min\_style\ cg}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00234}00234\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ minimize\ 1e-\/12\ 1e-\/12\ 5000\ 10000\ }}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00235}00235\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00236}00236\ \ \ \ \ \textcolor{keywordflow}{elif}\ (problem\ ==\ \textcolor{stringliteral}{"{}single"{}}):}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00237}00237\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Calculate\ energy\ of\ structure}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00238}00238\ \ \ \ \ \ \ \ \ block\ =\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00239}00239\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ thermo\_style\ custom\ step\ pe\ lx\ ly\ lz\ press\ }}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00240}00240\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ run\ 0}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00241}00241\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00242}00242\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00243}00243\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}Error:\ problem\ should\ be\ set\ to\ 'single'\ or\ 'relax'"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00244}00244\ \ \ \ \ \ \ \ \ sys.exit()}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00245}00245\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00246}00246\ \ \ \ \ lmp.commands\_string(block)}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00247}00247\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00251}00251\ \textcolor{keywordflow}{if}\ sim\_type\ ==\ \textcolor{stringliteral}{"{}new"{}}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00252}00252\ \ \ \ \ \textcolor{comment}{\#\ Unfix/undump/uncompute\ previous\ fixes,\ dumps,\ and\ computes}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00253}00253\ \ \ \ \ block\ =\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00254}00254\ \textcolor{stringliteral}{\ \ \ \ unfix\ 1}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00255}00255\ \textcolor{stringliteral}{\ \ \ \ unfix\ 2}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00256}00256\ \textcolor{stringliteral}{\ \ \ \ undump\ 1}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00257}00257\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00258}00258\ \ \ \ \ lmp.commands\_string(block)}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00259}00259\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00260}00260\ \ \ \ \ \textcolor{comment}{\#\ Thermo\ outputs\ and\ dumps}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00261}00261\ \ \ \ \ lmp.command(\textcolor{stringliteral}{"{}thermo\ 1"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00262}00262\ \ \ \ \ lmp.command(\textcolor{stringliteral}{"{}thermo\_style\ custom\ step\ pe\ ke\ lx\ ly\ lz\ pxx\ pyy\ pzz\ pxy\ pyz\ pxz\ temp"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00263}00263\ \ \ \ \ lmp.command(\textcolor{stringliteral}{"{}dump\ 1\ all\ custom\ 500\ dump.equilibration.*\ id\ type\ x\ y\ z\ vx\ vy\ vz\ fx\ fy\ fz\ c\_eng"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00264}00264\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00265}00265\ \ \ \ \ block\ =\ f\textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00266}00266\ \textcolor{stringliteral}{\ \ \ \ timestep\ \{timestep\}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00267}00267\ \textcolor{stringliteral}{\ \ \ \ reset\_timestep\ 0}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00268}00268\ \textcolor{stringliteral}{\ \ \ \ compute\ temp1\ mobile\ temp\ \#\ Define\ temperature\ as\ that\ of\ mobile\ atoms"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00269}00269\ \ \ \ \ lmp.commands\_string(block)}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00270}00270\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00271}00271\ \ \ \ \ \textcolor{comment}{\#\ Initialize\ velocities}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00272}00272\ \ \ \ \ block\ =\ f\textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00273}00273\ \textcolor{stringliteral}{\ \ \ \ velocity\ mobile\ create\ \{temperature\}\ 12345\ units\ box}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00274}00274\ \textcolor{stringliteral}{\ \ \ \ velocity\ mobile\ zero\ linear}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00275}00275\ \textcolor{stringliteral}{\ \ \ \ velocity\ mobile\ zero\ angular}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00276}00276\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00277}00277\ \ \ \ \ lmp.commands\_string(block)}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00278}00278\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00279}00279\ \ \ \ \ \textcolor{comment}{\#\ Temperature/Pressure\ control}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00280}00280\ \ \ \ \ \textcolor{comment}{\#\ Ensemble\ chosen\ by\ setting\ thermo\_ensemble\ variable\ at\ beginning}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00281}00281\ \ \ \ \ \textcolor{comment}{\#\ of\ script}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00282}00282\ \ \ \ \ \mbox{\hyperlink{namespacelmp__script_a743f1118121d80c92f676183b59e4af3}{thermo\_type}}(thermo\_ensemble)}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00283}00283\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00284}00284\ \ \ \ \ \textcolor{comment}{\#\ Boundary\ conditions}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00285}00285\ \ \ \ \ block\ =\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00286}00286\ \textcolor{stringliteral}{\ \ \ \ fix\ 3\ lower\ setforce\ NULL\ 0.0\ 0.0}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00287}00287\ \textcolor{stringliteral}{\ \ \ \ fix\ 4\ upper\ setforce\ NULL\ 0.0\ 0.0}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00288}00288\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00289}00289\ \ \ \ \ lmp.commands\_string(block)}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00290}00290\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00291}00291\ \ \ \ \ \textcolor{comment}{\#\ Run\ equilibration}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00292}00292\ \ \ \ \ lmp.command(f\textcolor{stringliteral}{"{}restart\ 1000\ equil\_restart"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00293}00293\ \ \ \ \ lmp.command(f\textcolor{stringliteral}{"{}run\ \{equil\_run\}"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00294}00294\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00295}00295\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00300}00300\ \textcolor{keywordflow}{if}\ sim\_type\ ==\ \textcolor{stringliteral}{"{}new"{}}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00301}00301\ \ \ \ \ \textcolor{keywordflow}{if}\ thermo\_ensemble\ ==\ \textcolor{stringliteral}{"{}NVE"{}}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00302}00302\ \ \ \ \ \ \ \ \ block\ =\ f\textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00303}00303\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ unfix\ 1}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00304}00304\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ unfix\ 2}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00305}00305\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ unfix\ 3}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00306}00306\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ unfix\ 4}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00307}00307\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ undump\ 1}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00308}00308\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ uncompute\ temp1}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00309}00309\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00310}00310\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00311}00311\ \ \ \ \ \ \ \ \ block\ =\ f\textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00312}00312\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ unfix\ 1}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00313}00313\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ unfix\ 3}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00314}00314\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ unfix\ 4}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00315}00315\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ undump\ 1}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00316}00316\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ uncompute\ temp1}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00317}00317\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00318}00318\ \ \ \ \ lmp.commands\_string(block)}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00319}00319\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00320}00320\ \textcolor{comment}{\#\ Thermo\ outputs\ and\ dumps}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00321}00321\ lmp.command(\textcolor{stringliteral}{"{}thermo\ 1"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00322}00322\ lmp.command(\textcolor{stringliteral}{"{}thermo\_style\ custom\ step\ pe\ ke\ lx\ ly\ lz\ pxx\ pyy\ pzz\ pxy\ pyz\ pxz\ temp\ c\_pe\_mobile"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00323}00323\ lmp.command(\textcolor{stringliteral}{"{}dump\ 1\ all\ custom\ 5000\ dump.shear.*\ id\ type\ x\ y\ z\ vx\ vy\ vz\ fx\ fy\ fz\ c\_eng"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00324}00324\ lmp.command(\textcolor{stringliteral}{"{}dump\ 2\ all\ custom\ 500\ dump.shear\_unwrap.*\ id\ type\ xu\ yu\ zu\ vx\ vy\ vz\ fx\ fy\ fz\ c\_eng"{}})\ \textcolor{comment}{\#\ Unwrapped\ coordinates}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00325}00325\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00326}00326\ block\ =\ f\textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00327}00327\ \textcolor{stringliteral}{timestep\ \{timestep\}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00328}00328\ \textcolor{stringliteral}{compute\ temp1\ mobile\ temp\ \#\ Define\ temperature\ as\ that\ of\ mobile\ atoms}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00329}00329\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00330}00330\ lmp.commands\_string(block)}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00331}00331\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00332}00332\ \textcolor{comment}{\#\ Calculate\ shear\ force}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00333}00333\ block\ =\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00334}00334\ \textcolor{stringliteral}{variable\ nupper\ equal\ count(upper)}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00335}00335\ \textcolor{stringliteral}{variable\ nlower\ equal\ count(lower)}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00336}00336\ \textcolor{stringliteral}{variable\ length\_x\ equal\ "{}lx"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00337}00337\ \textcolor{stringliteral}{variable\ length\_y\ equal\ "{}ly"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00338}00338\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00339}00339\ lmp.commands\_string(block)}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00340}00340\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00341}\mbox{\hyperlink{namespacelmp__script_a8a86c7ef2e11ba3fe779a9cc8de149fe}{00341}}\ nupper\ =\ lmp.extract\_variable(\textcolor{stringliteral}{"{}nupper"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00342}\mbox{\hyperlink{namespacelmp__script_a968afc4216762ba21cf54fe117e033ba}{00342}}\ nlower\ =\ lmp.extract\_variable(\textcolor{stringliteral}{"{}nlower"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00343}\mbox{\hyperlink{namespacelmp__script_af9a68d54037c1546121d4a902f2a479d}{00343}}\ lx\ =\ lmp.extract\_variable(\textcolor{stringliteral}{"{}length\_x"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00344}\mbox{\hyperlink{namespacelmp__script_a0cd872fc1319c3f52f8ad121b394acc4}{00344}}\ ly\ =\ lmp.extract\_variable(\textcolor{stringliteral}{"{}length\_y"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00345}00345\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00346}\mbox{\hyperlink{namespacelmp__script_aed2dc3eee849d4cd085a79eb3ba5d93a}{00346}}\ app\_force\_upper\ =\ (lx*ly)/nupper*sigma/eV\_to\_J}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00347}\mbox{\hyperlink{namespacelmp__script_ab8e024a1024b0913f565b9ccee3b8269}{00347}}\ app\_force\_lower\ =\ (lx*ly)/nlower*sigma/eV\_to\_J}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00348}00348\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00349}00349\ \textcolor{comment}{\#\ Boundaries}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00350}00350\ \textcolor{comment}{\#\ Velocity\ at\ boundaries}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00351}00351\ block\ =\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00352}00352\ \textcolor{stringliteral}{velocity\ upper\ set\ 0.0\ 0.0\ 0.0\ units\ box}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00353}00353\ \textcolor{stringliteral}{velocity\ lower\ set\ 0.0\ 0.0\ 0.0\ units\ box}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00354}00354\ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00355}00355\ lmp.commands\_string(block)}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00356}00356\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00357}00357\ \textcolor{comment}{\#\ Boundary\ conditions}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00358}00358\ \textcolor{comment}{\#\ Rigid\ fixes\ must\ come\ before\ any\ box\ changing\ fix}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00359}00359\ \textcolor{keywordflow}{if}\ loading\_type\ ==\ \textcolor{stringliteral}{"{}asymm"{}}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00360}00360\ \ \ \ \ block\ =\ f\textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00361}00361\ \textcolor{stringliteral}{\ \ \ \ fix\ 3\ upper\ setforce\ NULL\ 0.0\ 0.0}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00362}00362\ \textcolor{stringliteral}{\ \ \ \ fix\ 4\ lower\ setforce\ NULL\ 0.0\ 0.0}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00363}00363\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00364}00364\ \textcolor{stringliteral}{\ \ \ \ fix\ 5\ upper\ aveforce\ \{app\_force\_upper\}\ 0.0\ 0.0\ }}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00365}00365\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00366}00366\ \textcolor{stringliteral}{\ \ \ \ fix\ 6\ upper\ rigid\ group\ 1\ upper}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00367}00367\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00368}00368\ \ \ \ \ lmp.commands\_string(block)}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00369}00369\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00370}00370\ \textcolor{keywordflow}{elif}\ loading\_type\ ==\ \textcolor{stringliteral}{"{}sym"{}}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00371}00371\ \ \ \ \ block\ =\ f\textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00372}00372\ \textcolor{stringliteral}{\ \ \ \ fix\ 3\ upper\ setforce\ NULL\ 0.0\ 0.0}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00373}00373\ \textcolor{stringliteral}{\ \ \ \ fix\ 4\ lower\ setforce\ NULL\ 0.0\ 0.0}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00374}00374\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00375}00375\ \textcolor{stringliteral}{\ \ \ \ fix\ 5\ upper\ aveforce\ \{app\_force\_upper\}\ 0.0\ 0.0\ }}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00376}00376\ \textcolor{stringliteral}{\ \ \ \ fix\ 6\ lower\ aveforce\ \{-\/app\_force\_lower\}\ 0.0\ 0.0\ }}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00377}00377\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00378}00378\ \textcolor{stringliteral}{\ \ \ \ fix\ 7\ upper\ rigid\ group\ 1\ upper}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00379}00379\ \textcolor{stringliteral}{\ \ \ \ fix\ 8\ lower\ rigid\ group\ 1\ lower}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00380}00380\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00381}00381\ \ \ \ \ lmp.commands\_string(block)}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00382}00382\ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00383}00383\ \ \ \ \ print(\textcolor{stringliteral}{"{}Error:\ loading\_type\ should\ be\ set\ to\ 'sym'\ or\ 'asymm'"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00384}00384\ \ \ \ \ sys.exit()}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00385}00385\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00386}00386\ \textcolor{comment}{\#\ Temperature/Pressure\ control}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00387}00387\ \textcolor{comment}{\#\ Ensemble\ chosen\ by\ setting\ thermo\_ensemble\ variable\ at\ beginning}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00388}00388\ \textcolor{comment}{\#\ of\ script}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00389}00389\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00390}00390\ \mbox{\hyperlink{namespacelmp__script_a743f1118121d80c92f676183b59e4af3}{thermo\_type}}(thermo\_ensemble)}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00391}00391\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00392}00392\ \textcolor{comment}{\#\ Run\ MD}}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00393}00393\ \textcolor{keywordflow}{if}\ sim\_type\ ==\ \textcolor{stringliteral}{"{}new"{}}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00394}00394\ \ \ \ \ lmp.command(\textcolor{stringliteral}{"{}reset\_timestep\ 0"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00395}00395\ \textcolor{keywordflow}{elif}\ sim\_type\ ==\ \textcolor{stringliteral}{"{}continue"{}}:}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00396}00396\ \ \ \ \ lmp.command(f\textcolor{stringliteral}{"{}reset\_timestep\ \{last\_timestep\}"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00397}00397\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00398}00398\ lmp.command(f\textcolor{stringliteral}{"{}restart\ 1000\ md\_restart"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00399}00399\ lmp.command(f\textcolor{stringliteral}{"{}run\ \{MD\_run\}"{}})}
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00400}00400\ }
+\DoxyCodeLine{\Hypertarget{lmp__script_8py_source_l00403}00403\ MPI.Finalize()}
+
+\end{DoxyCode}

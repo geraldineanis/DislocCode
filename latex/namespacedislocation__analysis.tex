@@ -1,0 +1,649 @@
+\doxysection{dislocation\+\_\+analysis Namespace Reference}
+\hypertarget{namespacedislocation__analysis}{}\label{namespacedislocation__analysis}\index{dislocation\_analysis@{dislocation\_analysis}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacedislocation__analysis_a513cfd8fa21b58d68ab6e500985171ad}{read\+\_\+disloc\+\_\+data}} (disloc\+\_\+file)
+\item 
+\mbox{\hyperlink{namespacedislocation__analysis_afc6236d57db58545f87c377bd756a155}{get\+\_\+cell\+\_\+lims}} (dump\+\_\+file)
+\item 
+\mbox{\hyperlink{namespacedislocation__analysis_a2046904742a5b354cdc88c1ed03a37c1}{wrap\+\_\+coords}} (dislocation, ax, extent)
+\item 
+\mbox{\hyperlink{namespacedislocation__analysis_abd86598650d2ab1ec7262a3ed52c42fa}{get\+\_\+disloc\+\_\+coords}} (dislocation)
+\item 
+\mbox{\hyperlink{namespacedislocation__analysis_a38253d544efe9c62e04436e69baad4d5}{get\+\_\+avg\+\_\+pos}} (dislocation)
+\item 
+\mbox{\hyperlink{namespacedislocation__analysis_a2a3e2d7a1c8307eb0036b9189ade83b9}{perfect\+\_\+disloc\+\_\+coords}} (partial\+\_\+1, partial\+\_\+2)
+\item 
+\mbox{\hyperlink{namespacedislocation__analysis_af22d170b46ff4cf5ec39d4fd2b550674}{get\+\_\+velocity}} (disloc\+\_\+x\+\_\+pos, timestep)
+\item 
+\mbox{\hyperlink{namespacedislocation__analysis_a16f3d5592ca2ac107c1022d45c502b90}{write\+\_\+prop}} (filename, property, time)
+\item 
+\mbox{\hyperlink{namespacedislocation__analysis_a01385d32951f36802f7d0e6320207bb2}{track\+\_\+disloc}} (avg, x\+\_\+lim)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacedislocation__analysis_a38253d544efe9c62e04436e69baad4d5}\label{namespacedislocation__analysis_a38253d544efe9c62e04436e69baad4d5} 
+\index{dislocation\_analysis@{dislocation\_analysis}!get\_avg\_pos@{get\_avg\_pos}}
+\index{get\_avg\_pos@{get\_avg\_pos}!dislocation\_analysis@{dislocation\_analysis}}
+\doxysubsubsection{\texorpdfstring{get\_avg\_pos()}{get\_avg\_pos()}}
+{\footnotesize\ttfamily dislocation\+\_\+analysis.\+get\+\_\+avg\+\_\+pos (\begin{DoxyParamCaption}\item[{}]{dislocation }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Calculate average position of a dislocation line.
+
+Parameters
+----------
+dislocation : numpy.ndarray
+              Dislocation line coordinates.
+
+Returns
+-------
+numpy.ndarray
+              Average dislocation line coordinates in x, y, and x.
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{dislocation__analysis_8py_source_l00127}{127}} of file \mbox{\hyperlink{dislocation__analysis_8py_source}{dislocation\+\_\+analysis.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00127\ \textcolor{keyword}{def\ }get\_avg\_pos(dislocation):}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00129\ \textcolor{stringliteral}{\ \ \ \ Calculate\ average\ position\ of\ a\ dislocation\ line.}}
+\DoxyCodeLine{00130\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00131\ \textcolor{stringliteral}{\ \ \ \ Parameters}}
+\DoxyCodeLine{00132\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00133\ \textcolor{stringliteral}{\ \ \ \ dislocation\ :\ numpy.ndarray}}
+\DoxyCodeLine{00134\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Dislocation\ line\ coordinates.}}
+\DoxyCodeLine{00135\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00136\ \textcolor{stringliteral}{\ \ \ \ Returns}}
+\DoxyCodeLine{00137\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00138\ \textcolor{stringliteral}{\ \ \ \ numpy.ndarray}}
+\DoxyCodeLine{00139\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Average\ dislocation\ line\ coordinates\ in\ x,\ y,\ and\ x.}}
+\DoxyCodeLine{00140\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00141\ \ \ \ \ x\_coords,\ y\_coords,\ z\_coords\ =\ get\_disloc\_coords(dislocation)}
+\DoxyCodeLine{00142\ \ \ \ \ avg\_pos\ =\ [np.average(x\_coords),np.average(y\_coords),np.average(z\_coords)]}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{return}\ np.array(avg\_pos)}
+\DoxyCodeLine{00145\ }
+
+\end{DoxyCode}
+\Hypertarget{namespacedislocation__analysis_afc6236d57db58545f87c377bd756a155}\label{namespacedislocation__analysis_afc6236d57db58545f87c377bd756a155} 
+\index{dislocation\_analysis@{dislocation\_analysis}!get\_cell\_lims@{get\_cell\_lims}}
+\index{get\_cell\_lims@{get\_cell\_lims}!dislocation\_analysis@{dislocation\_analysis}}
+\doxysubsubsection{\texorpdfstring{get\_cell\_lims()}{get\_cell\_lims()}}
+{\footnotesize\ttfamily dislocation\+\_\+analysis.\+get\+\_\+cell\+\_\+lims (\begin{DoxyParamCaption}\item[{}]{dump\+\_\+file }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Extract simulation cell extents from a LAMMPS dump file.
+
+Parameters
+----------
+dump_file : str
+            LAMMPS dump file name.
+
+Returns
+-------
+float
+            Simulation cell length in x (Angstroms).
+float
+            Simulation cell length in y (Angstroms).
+float
+            Simulation cell length in z (Angstroms).            
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{dislocation__analysis_8py_source_l00043}{43}} of file \mbox{\hyperlink{dislocation__analysis_8py_source}{dislocation\+\_\+analysis.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043\ \textcolor{keyword}{def\ }get\_cell\_lims(dump\_file):}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00045\ \textcolor{stringliteral}{\ \ \ \ Extract\ simulation\ cell\ extents\ from\ a\ LAMMPS\ dump\ file.}}
+\DoxyCodeLine{00046\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00047\ \textcolor{stringliteral}{\ \ \ \ Parameters}}
+\DoxyCodeLine{00048\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00049\ \textcolor{stringliteral}{\ \ \ \ dump\_file\ :\ str}}
+\DoxyCodeLine{00050\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LAMMPS\ dump\ file\ name.}}
+\DoxyCodeLine{00051\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00052\ \textcolor{stringliteral}{\ \ \ \ Returns}}
+\DoxyCodeLine{00053\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00054\ \textcolor{stringliteral}{\ \ \ \ float}}
+\DoxyCodeLine{00055\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Simulation\ cell\ length\ in\ x\ (Angstroms).}}
+\DoxyCodeLine{00056\ \textcolor{stringliteral}{\ \ \ \ float}}
+\DoxyCodeLine{00057\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Simulation\ cell\ length\ in\ y\ (Angstroms).}}
+\DoxyCodeLine{00058\ \textcolor{stringliteral}{\ \ \ \ float}}
+\DoxyCodeLine{00059\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Simulation\ cell\ length\ in\ z\ (Angstroms).\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00060\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00061\ \ \ \ \ dump\ =\ np.loadtxt(f\textcolor{stringliteral}{"{}\{dump\_file\}"{}},\ skiprows=5,\ max\_rows=3)}
+\DoxyCodeLine{00062\ \ \ \ \ lims\ =\ []}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(3):}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ lims.append(dump[i][1]\ -\/\ dump[i][0])}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{return}\ lims[0],\ lims[1],\ lims[2]}
+\DoxyCodeLine{00066\ }
+
+\end{DoxyCode}
+\Hypertarget{namespacedislocation__analysis_abd86598650d2ab1ec7262a3ed52c42fa}\label{namespacedislocation__analysis_abd86598650d2ab1ec7262a3ed52c42fa} 
+\index{dislocation\_analysis@{dislocation\_analysis}!get\_disloc\_coords@{get\_disloc\_coords}}
+\index{get\_disloc\_coords@{get\_disloc\_coords}!dislocation\_analysis@{dislocation\_analysis}}
+\doxysubsubsection{\texorpdfstring{get\_disloc\_coords()}{get\_disloc\_coords()}}
+{\footnotesize\ttfamily dislocation\+\_\+analysis.\+get\+\_\+disloc\+\_\+coords (\begin{DoxyParamCaption}\item[{}]{dislocation }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Extract and split coordinates of a dislocation line.
+
+Parameters
+----------
+dislocation : numpy.ndarray
+              Dislocation line coordinates.
+
+Returns
+-------
+numpy.ndarray
+              Dislocation line x coordinates.
+numpy.ndarray
+              Dislocation line y coordinates.
+numpy.ndarray
+              Dislocation line z coordinates.                                    
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{dislocation__analysis_8py_source_l00103}{103}} of file \mbox{\hyperlink{dislocation__analysis_8py_source}{dislocation\+\_\+analysis.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00103\ \textcolor{keyword}{def\ }get\_disloc\_coords(dislocation):}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00105\ \textcolor{stringliteral}{\ \ \ \ Extract\ and\ split\ coordinates\ of\ a\ dislocation\ line.}}
+\DoxyCodeLine{00106\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00107\ \textcolor{stringliteral}{\ \ \ \ Parameters}}
+\DoxyCodeLine{00108\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00109\ \textcolor{stringliteral}{\ \ \ \ dislocation\ :\ numpy.ndarray}}
+\DoxyCodeLine{00110\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Dislocation\ line\ coordinates.}}
+\DoxyCodeLine{00111\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00112\ \textcolor{stringliteral}{\ \ \ \ Returns}}
+\DoxyCodeLine{00113\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00114\ \textcolor{stringliteral}{\ \ \ \ numpy.ndarray}}
+\DoxyCodeLine{00115\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Dislocation\ line\ x\ coordinates.}}
+\DoxyCodeLine{00116\ \textcolor{stringliteral}{\ \ \ \ numpy.ndarray}}
+\DoxyCodeLine{00117\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Dislocation\ line\ y\ coordinates.}}
+\DoxyCodeLine{00118\ \textcolor{stringliteral}{\ \ \ \ numpy.ndarray}}
+\DoxyCodeLine{00119\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Dislocation\ line\ z\ coordinates.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00120\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00121\ \ \ \ \ x\_coords\ =\ np.array(dislocation,\ dtype=object)[:,0]}
+\DoxyCodeLine{00122\ \ \ \ \ y\_coords\ =\ np.array(dislocation,\ dtype=object)[:,1]}
+\DoxyCodeLine{00123\ \ \ \ \ z\_coords\ =\ np.array(dislocation,\ dtype=object)[:,2]}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{return}\ x\_coords,\ y\_coords,\ z\_coords}
+\DoxyCodeLine{00126\ }
+
+\end{DoxyCode}
+\Hypertarget{namespacedislocation__analysis_af22d170b46ff4cf5ec39d4fd2b550674}\label{namespacedislocation__analysis_af22d170b46ff4cf5ec39d4fd2b550674} 
+\index{dislocation\_analysis@{dislocation\_analysis}!get\_velocity@{get\_velocity}}
+\index{get\_velocity@{get\_velocity}!dislocation\_analysis@{dislocation\_analysis}}
+\doxysubsubsection{\texorpdfstring{get\_velocity()}{get\_velocity()}}
+{\footnotesize\ttfamily dislocation\+\_\+analysis.\+get\+\_\+velocity (\begin{DoxyParamCaption}\item[{}]{disloc\+\_\+x\+\_\+pos,  }\item[{}]{timestep }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Function to calculate a dislocation line's x-component of velocity in Angstroms/ps.
+
+Parameters
+----------
+disloc_x_pos : list
+               Dislocation line x-coordinates timeseries.
+timestep     : float
+               Simulation timestep in ps.\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{dislocation__analysis_8py_source_l00166}{166}} of file \mbox{\hyperlink{dislocation__analysis_8py_source}{dislocation\+\_\+analysis.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00166\ \textcolor{keyword}{def\ }get\_velocity(disloc\_x\_pos,\ timestep):}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00168\ \textcolor{stringliteral}{\ \ \ \ Function\ to\ calculate\ a\ dislocation\ line's\ x-\/component\ of\ velocity\ in\ Angstroms/ps.}}
+\DoxyCodeLine{00169\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00170\ \textcolor{stringliteral}{\ \ \ \ Parameters}}
+\DoxyCodeLine{00171\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00172\ \textcolor{stringliteral}{\ \ \ \ disloc\_x\_pos\ :\ list}}
+\DoxyCodeLine{00173\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Dislocation\ line\ x-\/coordinates\ timeseries.}}
+\DoxyCodeLine{00174\ \textcolor{stringliteral}{\ \ \ \ timestep\ \ \ \ \ :\ float}}
+\DoxyCodeLine{00175\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Simulation\ timestep\ in\ ps.}}
+\DoxyCodeLine{00176\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00177\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keywordflow}{return}\ np.gradient(disloc\_x\_pos,\ timestep)}
+\DoxyCodeLine{00179\ }
+
+\end{DoxyCode}
+\Hypertarget{namespacedislocation__analysis_a2a3e2d7a1c8307eb0036b9189ade83b9}\label{namespacedislocation__analysis_a2a3e2d7a1c8307eb0036b9189ade83b9} 
+\index{dislocation\_analysis@{dislocation\_analysis}!perfect\_disloc\_coords@{perfect\_disloc\_coords}}
+\index{perfect\_disloc\_coords@{perfect\_disloc\_coords}!dislocation\_analysis@{dislocation\_analysis}}
+\doxysubsubsection{\texorpdfstring{perfect\_disloc\_coords()}{perfect\_disloc\_coords()}}
+{\footnotesize\ttfamily dislocation\+\_\+analysis.\+perfect\+\_\+disloc\+\_\+coords (\begin{DoxyParamCaption}\item[{}]{partial\+\_\+1,  }\item[{}]{partial\+\_\+2 }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Calculate the x-coordinates of a perfect dislocation 
+as the average of the x-coordinates of two partial dislocations
+at every simulation timestep.
+
+Parameters
+----------
+partial_1 : list
+            First partial dislocation x-coordinates timeseries.
+partial_2 : list
+            Second partial dislocation x-coordinates timeseries.                
+            
+Returns
+-------
+numpy.ndarray
+            Perfect dislocation x-coordinates timeseries.                
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{dislocation__analysis_8py_source_l00146}{146}} of file \mbox{\hyperlink{dislocation__analysis_8py_source}{dislocation\+\_\+analysis.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00146\ \textcolor{keyword}{def\ }perfect\_disloc\_coords(partial\_1,\ partial\_2):}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00148\ \textcolor{stringliteral}{\ \ \ \ Calculate\ the\ x-\/coordinates\ of\ a\ perfect\ dislocation\ }}
+\DoxyCodeLine{00149\ \textcolor{stringliteral}{\ \ \ \ as\ the\ average\ of\ the\ x-\/coordinates\ of\ two\ partial\ dislocations}}
+\DoxyCodeLine{00150\ \textcolor{stringliteral}{\ \ \ \ at\ every\ simulation\ timestep.}}
+\DoxyCodeLine{00151\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00152\ \textcolor{stringliteral}{\ \ \ \ Parameters}}
+\DoxyCodeLine{00153\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00154\ \textcolor{stringliteral}{\ \ \ \ partial\_1\ :\ list}}
+\DoxyCodeLine{00155\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ First\ partial\ dislocation\ x-\/coordinates\ timeseries.}}
+\DoxyCodeLine{00156\ \textcolor{stringliteral}{\ \ \ \ partial\_2\ :\ list}}
+\DoxyCodeLine{00157\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Second\ partial\ dislocation\ x-\/coordinates\ timeseries.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00158\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00159\ \textcolor{stringliteral}{\ \ \ \ Returns}}
+\DoxyCodeLine{00160\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00161\ \textcolor{stringliteral}{\ \ \ \ numpy.ndarray}}
+\DoxyCodeLine{00162\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Perfect\ dislocation\ x-\/coordinates\ timeseries.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00163\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordflow}{return}\ np.array([np.average([partial\_1[i],\ partial\_2[i]])\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(len(partial\_1))])}
+\DoxyCodeLine{00165\ }
+
+\end{DoxyCode}
+\Hypertarget{namespacedislocation__analysis_a513cfd8fa21b58d68ab6e500985171ad}\label{namespacedislocation__analysis_a513cfd8fa21b58d68ab6e500985171ad} 
+\index{dislocation\_analysis@{dislocation\_analysis}!read\_disloc\_data@{read\_disloc\_data}}
+\index{read\_disloc\_data@{read\_disloc\_data}!dislocation\_analysis@{dislocation\_analysis}}
+\doxysubsubsection{\texorpdfstring{read\_disloc\_data()}{read\_disloc\_data()}}
+{\footnotesize\ttfamily dislocation\+\_\+analysis.\+read\+\_\+disloc\+\_\+data (\begin{DoxyParamCaption}\item[{}]{disloc\+\_\+file }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Read in dislocation position data obtained from 
+processing MD trajectory using OVITO sctript provided.
+
+Parameters
+----------
+disloc_file : str
+              Dislocation data file name.
+
+Returns
+-------
+numpy.ndarray
+              Dislocation line x, y, and z coordinates.
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{dislocation__analysis_8py_source_l00007}{7}} of file \mbox{\hyperlink{dislocation__analysis_8py_source}{dislocation\+\_\+analysis.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007\ \textcolor{keyword}{def\ }read\_disloc\_data(disloc\_file):}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00009\ \textcolor{stringliteral}{\ \ \ \ Read\ in\ dislocation\ position\ data\ obtained\ from\ }}
+\DoxyCodeLine{00010\ \textcolor{stringliteral}{\ \ \ \ processing\ MD\ trajectory\ using\ OVITO\ sctript\ provided.}}
+\DoxyCodeLine{00011\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00012\ \textcolor{stringliteral}{\ \ \ \ Parameters}}
+\DoxyCodeLine{00013\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00014\ \textcolor{stringliteral}{\ \ \ \ disloc\_file\ :\ str}}
+\DoxyCodeLine{00015\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Dislocation\ data\ file\ name.}}
+\DoxyCodeLine{00016\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00017\ \textcolor{stringliteral}{\ \ \ \ Returns}}
+\DoxyCodeLine{00018\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00019\ \textcolor{stringliteral}{\ \ \ \ numpy.ndarray}}
+\DoxyCodeLine{00020\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Dislocation\ line\ x,\ y,\ and\ z\ coordinates.}}
+\DoxyCodeLine{00021\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{with}\ open(disloc\_file)\ \textcolor{keyword}{as}\ f:}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ ndisloc\ =\ int(f.readline())\ \ \ \ \ \textcolor{comment}{\#\ number\ of\ dislocations\ \ \ \ }}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ indices\ =\ []\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ indices\ of\ dislocations\ }}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ lens\ =\ []\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ lengths\ of\ dislocations}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ dislocations\ =\ []\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ coordinates\ of\ dislocations}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Read\ dislocation\ coordinates\ for\ each\ dislocation\ found}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(ndisloc):}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ disloc\_i\ =\ []}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ index\ =\ indices.append(int(f.readline().strip()))}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ length\ =\ int(f.readline().strip())}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ lens.append(length)}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(length):}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ coords\ =\ f.readline().strip()}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ coords\ =\ np.array(coords.split())}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ coords\ =\ coords.astype(np.float64)}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ disloc\_i.append(coords)}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ dislocations.append(disloc\_i)}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ np.array(dislocations,\ dtype=object)}
+\DoxyCodeLine{00042\ }
+
+\end{DoxyCode}
+\Hypertarget{namespacedislocation__analysis_a01385d32951f36802f7d0e6320207bb2}\label{namespacedislocation__analysis_a01385d32951f36802f7d0e6320207bb2} 
+\index{dislocation\_analysis@{dislocation\_analysis}!track\_disloc@{track\_disloc}}
+\index{track\_disloc@{track\_disloc}!dislocation\_analysis@{dislocation\_analysis}}
+\doxysubsubsection{\texorpdfstring{track\_disloc()}{track\_disloc()}}
+{\footnotesize\ttfamily dislocation\+\_\+analysis.\+track\+\_\+disloc (\begin{DoxyParamCaption}\item[{}]{avg,  }\item[{}]{x\+\_\+lim }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Track dislocation lines across multiple frames.
+- Dislocations are tracked by checking the minimum distance moved by a dislocation between frames. 
+
+- Adapted from the approach in:
+https://pysource.com/2021/10/05/object-tracking-from-scratch-opencv-and-python/
+
+- Assumptions:
+1. The dislocation only moves in the x direction
+2. The number of dislocations is constant across all frames 
+i.e. no dislocations are generated nor lost throughout the analysed trajectory.
+
+Parameters
+----------
+avg      : numpy.ndarray
+           Average x, y, and z coordinates of dislocation lines in the analysed trajectory.
+x_lim    : float
+           Simulation cell length in x (Angstroms).
+n_frames : int
+           Number of frames in trajectory.
+
+Returns
+-------
+list
+           Sorted dislocation x-coordinates across trajectory frames.
+list
+           Sorted coordinates of dislocation line vertices across frames.
+list
+           Timesteps.\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{dislocation__analysis_8py_source_l00199}{199}} of file \mbox{\hyperlink{dislocation__analysis_8py_source}{dislocation\+\_\+analysis.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00199\ \textcolor{keyword}{def\ }track\_disloc(avg,\ x\_lim):}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00202\ \textcolor{stringliteral}{\ \ \ \ Track\ dislocation\ lines\ across\ multiple\ frames.}}
+\DoxyCodeLine{00203\ \textcolor{stringliteral}{\ \ \ \ -\/\ Dislocations\ are\ tracked\ by\ checking\ the\ minimum\ distance\ moved\ by\ a\ dislocation\ between\ frames.\ }}
+\DoxyCodeLine{00204\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00205\ \textcolor{stringliteral}{\ \ \ \ -\/\ Adapted\ from\ the\ approach\ in:}}
+\DoxyCodeLine{00206\ \textcolor{stringliteral}{\ \ \ \ https://pysource.com/2021/10/05/object-\/tracking-\/from-\/scratch-\/opencv-\/and-\/python/}}
+\DoxyCodeLine{00207\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00208\ \textcolor{stringliteral}{\ \ \ \ -\/\ Assumptions:}}
+\DoxyCodeLine{00209\ \textcolor{stringliteral}{\ \ \ \ 1.\ The\ dislocation\ only\ moves\ in\ the\ x\ direction}}
+\DoxyCodeLine{00210\ \textcolor{stringliteral}{\ \ \ \ 2.\ The\ number\ of\ dislocations\ is\ constant\ across\ all\ frames\ }}
+\DoxyCodeLine{00211\ \textcolor{stringliteral}{\ \ \ \ i.e.\ no\ dislocations\ are\ generated\ nor\ lost\ throughout\ the\ analysed\ trajectory.}}
+\DoxyCodeLine{00212\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00213\ \textcolor{stringliteral}{\ \ \ \ Parameters}}
+\DoxyCodeLine{00214\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00215\ \textcolor{stringliteral}{\ \ \ \ avg\ \ \ \ \ \ :\ numpy.ndarray}}
+\DoxyCodeLine{00216\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Average\ x,\ y,\ and\ z\ coordinates\ of\ dislocation\ lines\ in\ the\ analysed\ trajectory.}}
+\DoxyCodeLine{00217\ \textcolor{stringliteral}{\ \ \ \ x\_lim\ \ \ \ :\ float}}
+\DoxyCodeLine{00218\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Simulation\ cell\ length\ in\ x\ (Angstroms).}}
+\DoxyCodeLine{00219\ \textcolor{stringliteral}{\ \ \ \ n\_frames\ :\ int}}
+\DoxyCodeLine{00220\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Number\ of\ frames\ in\ trajectory.}}
+\DoxyCodeLine{00221\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00222\ \textcolor{stringliteral}{\ \ \ \ Returns}}
+\DoxyCodeLine{00223\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00224\ \textcolor{stringliteral}{\ \ \ \ list}}
+\DoxyCodeLine{00225\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Sorted\ dislocation\ x-\/coordinates\ across\ trajectory\ frames.}}
+\DoxyCodeLine{00226\ \textcolor{stringliteral}{\ \ \ \ list}}
+\DoxyCodeLine{00227\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Sorted\ coordinates\ of\ dislocation\ line\ vertices\ across\ frames.}}
+\DoxyCodeLine{00228\ \textcolor{stringliteral}{\ \ \ \ list}}
+\DoxyCodeLine{00229\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Timesteps.}}
+\DoxyCodeLine{00230\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00231\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{comment}{\#\ Tracking\ ID}}
+\DoxyCodeLine{00233\ \ \ \ \ track\_ID\ =\ 0}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{comment}{\#\ Dictionary\ to\ store\ dislocations}}
+\DoxyCodeLine{00236\ \ \ \ \ tracking\_objects\ =\ defaultdict(list)}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{comment}{\#\ Compare\ x\ coordinate\ of\ average\ position}}
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{comment}{\#\ first\ we\ only\ compare\ the\ first\ and\ second\ frames}}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{comment}{\#\ to\ determine\ object\ id\ at\ beginning}}
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{comment}{\#\ This\ sorts\ the\ first\ two\ points\ well}}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{comment}{\#\ Cutoff\ distance}}
+\DoxyCodeLine{00244\ \ \ \ \ d\_cutoff\ =\ 5.0\ \textcolor{comment}{\#\ Angstroms}}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(1,2):}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ j\ \textcolor{keywordflow}{in}\ range(len(avg[i])):}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ k\ \textcolor{keywordflow}{in}\ range(len(avg[i])):}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ displacement\ =\ avg[i][j][0][0]\ -\/\ avg[i-\/1][k][0][0]}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ abs(displacement)\ <\ d\_cutoff:}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pbc\ =\ \textcolor{keyword}{False}}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tracking\_objects[track\_ID].append([i-\/1,np.array([avg[i-\/1][k][0][0],\ avg[i-\/1][k][0][1],\ avg[i-\/1][k][0][2]]),int(pbc),avg[i-\/1][k][1]])\ \textcolor{comment}{\#\ first\ frame\ coordinates}}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tracking\_objects[track\_ID].append([i,np.array([avg[i][j][0][0],\ avg[i][j][0][1],\ avg[i][j][0][2]]),int(pbc),avg[i][j][1]])\ \ \ \textcolor{comment}{\#\ second\ frame\ coordinates}}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ track\_ID\ +=\ 1\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ displacement\ =\ avg[i][j][0][0]\ +\ x\_lim\ -\/\ avg[i-\/1][k][0][0]}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ abs(displacement)\ <\ d\_cutoff:}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pbc\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tracking\_objects[track\_ID].append([i-\/1,np.array([avg[i-\/1][k][0][0],\ avg[i-\/1][k][0][1],\ avg[i-\/1][k][0][2]]),int(pbc),avg[i-\/1][k][1]])\ \textcolor{comment}{\#\ first\ frame\ coordinates}}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tracking\_objects[track\_ID].append([i,np.array([avg[i][j][0][0],\ avg[i][j][0][1],\ avg[i][j][0][2]]),int(pbc),avg[i][j][1]])\ \ \ \textcolor{comment}{\#\ second\ frame\ coordinates}}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ track\_ID\ +=\ 1}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{comment}{\#\ For\ the\ remaining\ frames\ we\ compare\ the\ current\ x\ coordinate}}
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{comment}{\#\ to\ those\ of\ the\ already\ existing\ objects}}
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(2,len(avg)):}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ j\ \textcolor{keywordflow}{in}\ range(len(avg[i])):}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ d\_i\ =\ []}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ obj\_ID,\ obj\ \textcolor{keywordflow}{in}\ tracking\_objects.items():}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Calculate\ the\ distances\ between\ the\ current\ avg\ x\ position}}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ and\ the\ last\ x\ position\ added\ to\ each\ tracking\ object}}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dist\_1\ =\ avg[i][j][0][0]\ -\/\ obj[-\/1][1][0]}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dist\_2\ =\ avg[i][j][0][0]\ +\ x\_lim\ -\/\ obj[-\/1][1][0]}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dist\_3\ =\ avg[i][j][0][0]\ -\/\ x\_lim\ -\/\ obj[-\/1][1][0]}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Determine\ whether\ dislocation\ has\ crossed\ periodic\ boundary\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ abs(dist\_2)\ <\ abs(dist\_1)\ \textcolor{keywordflow}{and}\ abs(dist\_2)\ <\ abs(dist\_3):}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dist\ =\ abs(dist\_2)}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pbc\ =\ 1}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{elif}\ abs(dist\_3)\ <\ abs(dist\_1)\ \textcolor{keywordflow}{and}\ abs(dist\_3)\ <\ abs(dist\_2):}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dist\ =\ abs(dist\_3)}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pbc\ =\ 3}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dist\ =\ abs(dist\_1)}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pbc\ =\ 0}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\_i.append([avg[i][j][0][0],\ avg[i][j][0][1],\ avg[i][j][0][2],\ obj\_ID,\ dist,\ pbc])}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Append\ coordinate\ to\ corresponding\ dislocation}}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Find\ the\ minimum\ distance\ between\ the\ current\ average\ position}}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ and\ the\ average\ position\ in\ each\ dislocation\ in\ the\ previous\ frame}}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ d\_i\ =\ np.array(d\_i)}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ min\_dist\ =\ np.amin(d\_i,\ axis=0)[4]}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ indx\ =\ np.where(d\_i\ ==\ min\_dist)[0][0]}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ x\ =\ d\_i[indx][0]}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ y\ =\ d\_i[indx][1]}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ z\ =\ d\_i[indx][2]}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ pbc\ =\ int(d\_i[indx][5])}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ tracking\_objects[indx].append([i,\ np.array([x,y,z]),\ pbc,\ avg[i][j][1]])}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \ \ \ \ \textcolor{comment}{\#\ Correct\ for\ PBCs}}
+\DoxyCodeLine{00302\ \ \ \ \ pbcs\ =\ []}
+\DoxyCodeLine{00303\ \ \ \ \ \textcolor{keywordflow}{for}\ i,\ object\ \textcolor{keywordflow}{in}\ tracking\_objects.items():}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ pbcs\_i\ =\ []}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ j\ \textcolor{keywordflow}{in}\ range(len(object)):}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ pbcs\_i.append(object[j][2])}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ pbcs.append(np.array(pbcs\_i))}
+\DoxyCodeLine{00308\ \ \ }
+\DoxyCodeLine{00309\ \ \ \ \ starts\ =\ []}
+\DoxyCodeLine{00310\ \ \ \ \ test\ =\ []}
+\DoxyCodeLine{00311\ \ \ \ \ \textcolor{keywordflow}{for}\ pbc\ \textcolor{keywordflow}{in}\ pbcs:}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ starts.append(np.where(pbc\ ==\ 1)[0])}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ test.append(np.where(pbc\ ==3)[0])}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{keywordflow}{for}\ i,\ start\ \textcolor{keywordflow}{in}\ enumerate(starts):}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ s\ \textcolor{keywordflow}{in}\ start:}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ j\ \textcolor{keywordflow}{in}\ range(s,len(pbcs[i])):}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tracking\_objects[i][j][1][0]\ +=\ x\_lim}
+\DoxyCodeLine{00320\ }
+\DoxyCodeLine{00321\ \ \ \ \ \textcolor{keywordflow}{for}\ i,\ start\ \textcolor{keywordflow}{in}\ enumerate(test):}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ s\ \textcolor{keywordflow}{in}\ start:}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ j\ \textcolor{keywordflow}{in}\ range(s,len(pbcs[i])):}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tracking\_objects[i][j][1][0]\ -\/=\ x\_lim}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00326\ \ \ \ \ \textcolor{comment}{\#\ Collect\ position\ data\ after\ tracking}}
+\DoxyCodeLine{00327\ \ \ \ \ position\ =\ []}
+\DoxyCodeLine{00328\ \ \ \ \ vertices\ =\ []}
+\DoxyCodeLine{00329\ \ \ \ \ t\ =\ []}
+\DoxyCodeLine{00330\ \ \ \ \ \textcolor{keywordflow}{for}\ i,\ object\ \textcolor{keywordflow}{in}\ tracking\_objects.items():}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ position\_i\ =\ []}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ vertices\_i\ =\ []}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ t\_i\ =\ []}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ j\ \textcolor{keywordflow}{in}\ range(len(object)):}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ position\_i.append(math.hypot(object[j][1][0]))}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ vertices\_i.append(object[j][3])}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ t\_i.append(object[j][0]*0.001*500)}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ position.append(position\_i)}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ vertices.append(vertices\_i)}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ t.append(t\_i)}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00342\ \ \ \ \ \textcolor{comment}{\#\ Change\ vertices\ from\ tuples\ to\ arrays\ for\ easier\ handling}}
+\DoxyCodeLine{00343\ \ \ \ \ \textcolor{comment}{\#\ Sort\ vertices\ along\ y\ coords}}
+\DoxyCodeLine{00344\ \ \ \ \ disloc\ =\ []}
+\DoxyCodeLine{00345\ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(len(vertices)):}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ frames\ =\ []}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ j\ \textcolor{keywordflow}{in}\ range(len(vertices[i])):}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ vertex\ =\ []}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ k\ \textcolor{keywordflow}{in}\ range(len(vertices[i][j])):}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Wrap\ y}}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v\_x\ =\ vertices[i][j][k][0]}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v\_y\ =\ vertices[i][j][k][1]}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v\_z\ =\ vertices[i][j][k][2]\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertex.append([v\_x,\ v\_y,\ v\_z])}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ frames.append(sorted(vertex,\ key=\textcolor{keyword}{lambda}\ v:\ v[1]))}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ disloc.append(frames)}
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00358\ \ \ \ \ \textcolor{comment}{\#\ Unwrap\ x\ to\ be\ consistent\ with\ average\ position\ data}}
+\DoxyCodeLine{00359\ \ \ \ \ \textcolor{keywordflow}{for}\ i,\ start\ \textcolor{keywordflow}{in}\ enumerate(starts):}
+\DoxyCodeLine{00360\ }
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ s\ \textcolor{keywordflow}{in}\ start:}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ j\ \textcolor{keywordflow}{in}\ range(s,len(pbcs[i])):}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ k\ \textcolor{keywordflow}{in}\ range(len(disloc[i][j])):}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ disloc[i][j][k][0]\ +=\ x\_lim}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \ \ \ \ \textcolor{keywordflow}{return}\ position,\ disloc,\ t}
+
+\end{DoxyCode}
+\Hypertarget{namespacedislocation__analysis_a2046904742a5b354cdc88c1ed03a37c1}\label{namespacedislocation__analysis_a2046904742a5b354cdc88c1ed03a37c1} 
+\index{dislocation\_analysis@{dislocation\_analysis}!wrap\_coords@{wrap\_coords}}
+\index{wrap\_coords@{wrap\_coords}!dislocation\_analysis@{dislocation\_analysis}}
+\doxysubsubsection{\texorpdfstring{wrap\_coords()}{wrap\_coords()}}
+{\footnotesize\ttfamily dislocation\+\_\+analysis.\+wrap\+\_\+coords (\begin{DoxyParamCaption}\item[{}]{dislocation,  }\item[{}]{ax,  }\item[{}]{extent }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Function to wrap the coordinates of a dislocation line along a given axis.
+
+Parameters
+----------
+dislocation : numpy.ndarray
+              Dislocation line coordinates.
+ax          : str
+              "x", "y", or "z" - direction for wrapping.
+extent      : float
+              Cell length (in Angstroms) in direction of wrapping.
+
+Returns
+-------
+numpy.ndarray
+              Modified dislocation coordinates after wrapping.
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{dislocation__analysis_8py_source_l00067}{67}} of file \mbox{\hyperlink{dislocation__analysis_8py_source}{dislocation\+\_\+analysis.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \textcolor{keyword}{def\ }wrap\_coords(dislocation,\ ax,\ extent):}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00069\ \textcolor{stringliteral}{\ \ \ \ Function\ to\ wrap\ the\ coordinates\ of\ a\ dislocation\ line\ along\ a\ given\ axis.}}
+\DoxyCodeLine{00070\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00071\ \textcolor{stringliteral}{\ \ \ \ Parameters}}
+\DoxyCodeLine{00072\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00073\ \textcolor{stringliteral}{\ \ \ \ dislocation\ :\ numpy.ndarray}}
+\DoxyCodeLine{00074\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Dislocation\ line\ coordinates.}}
+\DoxyCodeLine{00075\ \textcolor{stringliteral}{\ \ \ \ ax\ \ \ \ \ \ \ \ \ \ :\ str}}
+\DoxyCodeLine{00076\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}x"{},\ "{}y"{},\ or\ "{}z"{}\ -\/\ direction\ for\ wrapping.}}
+\DoxyCodeLine{00077\ \textcolor{stringliteral}{\ \ \ \ extent\ \ \ \ \ \ :\ float}}
+\DoxyCodeLine{00078\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Cell\ length\ (in\ Angstroms)\ in\ direction\ of\ wrapping.}}
+\DoxyCodeLine{00079\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00080\ \textcolor{stringliteral}{\ \ \ \ Returns}}
+\DoxyCodeLine{00081\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00082\ \textcolor{stringliteral}{\ \ \ \ numpy.ndarray}}
+\DoxyCodeLine{00083\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Modified\ dislocation\ coordinates\ after\ wrapping.}}
+\DoxyCodeLine{00084\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{if}\ ax\ ==\ \textcolor{stringliteral}{"{}x"{}}:}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ j\ =\ 0}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{elif}\ ax\ ==\ \textcolor{stringliteral}{"{}y"{}}:}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ j\ =\ 1}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordflow}{elif}\ ax\ ==\ \textcolor{stringliteral}{"{}z"{}}:}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ j\ =\ 2}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}Error:\ ax\ must\ be\ set\ to\ 'x',\ 'y',\ or\ 'z'"{}})}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ sys.exit()}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(len(dislocation)):}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ dislocation[i][j]\ <\ 0.0:}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ dislocation[i][j]\ =\ dislocation[i][j]\ +\ extent}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ dislocation[i][j]\ >\ extent:}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ dislocation[i][j]\ =\ dislocation[i][j]\ -\/\ extent}
+\DoxyCodeLine{00100\ \ \ \ \ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{return}\ dislocation}
+\DoxyCodeLine{00102\ }
+
+\end{DoxyCode}
+\Hypertarget{namespacedislocation__analysis_a16f3d5592ca2ac107c1022d45c502b90}\label{namespacedislocation__analysis_a16f3d5592ca2ac107c1022d45c502b90} 
+\index{dislocation\_analysis@{dislocation\_analysis}!write\_prop@{write\_prop}}
+\index{write\_prop@{write\_prop}!dislocation\_analysis@{dislocation\_analysis}}
+\doxysubsubsection{\texorpdfstring{write\_prop()}{write\_prop()}}
+{\footnotesize\ttfamily dislocation\+\_\+analysis.\+write\+\_\+prop (\begin{DoxyParamCaption}\item[{}]{filename,  }\item[{}]{property,  }\item[{}]{time }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Function to write out a property time series
+of a dislocation to a text file.
+
+Parameters
+----------
+filename : str
+           Output file name.
+property : numpy.ndarray
+           Property timeseries.
+time     : numpy.ndarray
+           Timesteps.
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{dislocation__analysis_8py_source_l00180}{180}} of file \mbox{\hyperlink{dislocation__analysis_8py_source}{dislocation\+\_\+analysis.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00180\ \textcolor{keyword}{def\ }write\_prop(filename,\ property,\ time):}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00182\ \textcolor{stringliteral}{\ \ \ \ Function\ to\ write\ out\ a\ property\ time\ series}}
+\DoxyCodeLine{00183\ \textcolor{stringliteral}{\ \ \ \ of\ a\ dislocation\ to\ a\ text\ file.}}
+\DoxyCodeLine{00184\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00185\ \textcolor{stringliteral}{\ \ \ \ Parameters}}
+\DoxyCodeLine{00186\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00187\ \textcolor{stringliteral}{\ \ \ \ filename\ :\ str}}
+\DoxyCodeLine{00188\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Output\ file\ name.}}
+\DoxyCodeLine{00189\ \textcolor{stringliteral}{\ \ \ \ property\ :\ numpy.ndarray}}
+\DoxyCodeLine{00190\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Property\ timeseries.}}
+\DoxyCodeLine{00191\ \textcolor{stringliteral}{\ \ \ \ time\ \ \ \ \ :\ numpy.ndarray}}
+\DoxyCodeLine{00192\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Timesteps.}}
+\DoxyCodeLine{00193\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00194\ \ \ \ \ f\ =\ open(f\textcolor{stringliteral}{"{}\{filename\}"{}},\ \textcolor{stringliteral}{"{}w"{}})}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(len(property)):}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ f.write(f\textcolor{stringliteral}{"{}\{round(time[i],1)\}\ \ \ \ \ \{property[i]\}\ \(\backslash\)n"{}})}
+\DoxyCodeLine{00197\ \ \ \ \ f.close()}
+\DoxyCodeLine{00198\ }
+
+\end{DoxyCode}

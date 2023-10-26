@@ -1,0 +1,886 @@
+\doxysection{m\+BF\+\_\+analysis Namespace Reference}
+\hypertarget{namespacemBF__analysis}{}\label{namespacemBF__analysis}\index{mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_aa2ed92db06f39fec16bc15e9304002d8}{get\+\_\+ellipse}} (cov, mean, \mbox{\hyperlink{namespacemBF__analysis_a8946445572095e9527f2ca52adc7f9b8}{color}}, label)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacemBF__analysis_a20ecaac97c087562c31e7fad1b987c9e}{n}} = 6
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a23cbfeb8696576e267ecae2f63d77401}{data}} = np.\+loadtxt("{}perfect\+\_\+pos.\+txt"{})
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_ab59351dd1990d7507d5c00db51f33041}{t\+\_\+data\+\_\+dim}} = \mbox{\hyperlink{namespacemBF__analysis_a23cbfeb8696576e267ecae2f63d77401}{data}}\mbox{[}\+:-\/\mbox{\hyperlink{namespacemBF__analysis_a20ecaac97c087562c31e7fad1b987c9e}{n}},0\mbox{]}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_aafa3d9f8cde2fdbf2feb889072bddbc5}{t\+\_\+range}} = np.\+ptp(\mbox{\hyperlink{namespacemBF__analysis_ab59351dd1990d7507d5c00db51f33041}{t\+\_\+data\+\_\+dim}})
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a2c0c772979a6ab28bd8cced83c17522d}{t\+\_\+data}} = \mbox{\hyperlink{namespacemBF__analysis_a23cbfeb8696576e267ecae2f63d77401}{data}}\mbox{[}\+:-\/\mbox{\hyperlink{namespacemBF__analysis_a20ecaac97c087562c31e7fad1b987c9e}{n}},0\mbox{]}/\mbox{\hyperlink{namespacemBF__analysis_aafa3d9f8cde2fdbf2feb889072bddbc5}{t\+\_\+range}}
+\item 
+float \mbox{\hyperlink{namespacemBF__analysis_a6356585664e152e3dc51994a4a1c1288}{x\+\_\+data}} = 0.\+1\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacemBF__analysis_a23cbfeb8696576e267ecae2f63d77401}{data}}\mbox{[}n\+:,1\mbox{]}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a6e2415e2e0d6e551d5636ddbe8ba346e}{x\+\_\+range}} = np.\+ptp(\mbox{\hyperlink{namespacemBF__analysis_a6356585664e152e3dc51994a4a1c1288}{x\+\_\+data}})
+\item 
+float \mbox{\hyperlink{namespacemBF__analysis_a208bc933a10606a3379b5b33b843fb1e}{xi}} = \mbox{\hyperlink{namespacemBF__analysis_a6356585664e152e3dc51994a4a1c1288}{x\+\_\+data}}\mbox{[}0\mbox{]}
+\item 
+float \mbox{\hyperlink{namespacemBF__analysis_adb90979efc43c1f4d6f28b948cb92269}{x\+\_\+data\+\_\+dim}} = \mbox{\hyperlink{namespacemBF__analysis_a6356585664e152e3dc51994a4a1c1288}{x\+\_\+data}} -\/ \mbox{\hyperlink{namespacemBF__analysis_a208bc933a10606a3379b5b33b843fb1e}{xi}}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a8bf9ffe995668dab77362bf9507af263}{xs}} = \mbox{\hyperlink{namespacemBF__analysis_a6e2415e2e0d6e551d5636ddbe8ba346e}{x\+\_\+range}}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a41cf174ba513efbd0c198b416fcaf1ff}{ts}} = \mbox{\hyperlink{namespacemBF__analysis_aafa3d9f8cde2fdbf2feb889072bddbc5}{t\+\_\+range}}
+\item 
+tuple \mbox{\hyperlink{namespacemBF__analysis_a5e419ff54aff8185b1b32ed4af7c46b3}{Fs}} = (250.\+0\texorpdfstring{$\ast$}{*}1e6\texorpdfstring{$\ast$}{*}1e12\texorpdfstring{$\ast$}{*}np.\+sqrt(2)\texorpdfstring{$\ast$}{*}0.\+352)/(2.\+0\texorpdfstring{$\ast$}{*}(1e9\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}2))
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a52b4a327c0f5b2b89d66c237d44914d6}{n\+\_\+samples}} = int(1e6)
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_ad7f93e8d119fd0d202252376e0477a7d}{burn}} = int(1e5)
+\item 
+int \mbox{\hyperlink{namespacemBF__analysis_ae812693618ed555ed096bb7f3926d85d}{dims}} = 3
+\item 
+list \mbox{\hyperlink{namespacemBF__analysis_aedf8af9c06eca845539eb37c4501322e}{params}} = \mbox{[}r"{}\$c\+\_\+\{0\}\$"{}, r"{}\$c\+\_\+\{1\}\$"{}, r"{}\$c\+\_\+\{2\}\$"{}\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacemBF__analysis_a15c81d1361008fd784984dce3b050c89}{log\+\_\+params}} = \mbox{[}r"{}ln(\$c\+\_\+\{0\}\$)"{}, r"{}ln(\$c\+\_\+\{1\}\$)"{}, r"{}ln(\$c\+\_\+\{2\}\$)"{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a0146591cf47ac89ef74733ca1f959c95}{prior}} = np.\+array(\mbox{[}0.\+0, 0.\+0, 0.\+0\mbox{]})
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a2a09894d04ab41e5e63712ad58ddc104}{priorlow}} = np.\+array(\mbox{[}2.\+0, 2.\+0, 2.\+0\mbox{]})
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_ae16a8db1d371656fac3ccf404245345c}{priorup}} = np.\+array(\mbox{[}2.\+0, 2.\+0, 2.\+0\mbox{]})
+\item 
+str \mbox{\hyperlink{namespacemBF__analysis_a58fe8eb701b976a892fd31a3692b311b}{dirs}} = f"{}de\+\_\+mc\+\_\+out"{}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a81ac22371a60462faa8386019dfe1455}{posterior}}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a42f389fa48e8dc3ca2accff3cc3d75e1}{log\+\_\+c}}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a0555b0ba24190472e58639d9f824c86f}{log\+\_\+c\+\_\+mean}}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_ac0fe4ae4f6c69c08b87d96c9877513b9}{post\+\_\+cov}}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_ad2409dbe47eb84082e72191a91ff53e1}{log\+\_\+c\+\_\+std}}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a1c3429db65ae1375e6f9ae2b9a1c88c0}{c\+\_\+mean}} = np.\+exp(\mbox{\hyperlink{namespacemBF__analysis_a0555b0ba24190472e58639d9f824c86f}{log\+\_\+c\+\_\+mean}})
+\item 
+list \mbox{\hyperlink{namespacemBF__analysis_a084994f329a84acbffd5617996406464}{mean\+\_\+params}} = \mbox{[}\mbox{\hyperlink{namespacefuncs_abedd3552707c3ce9919f3526be43fd81}{c0\+\_\+to\+\_\+m}}(\mbox{\hyperlink{namespacemBF__analysis_a1c3429db65ae1375e6f9ae2b9a1c88c0}{c\+\_\+mean}}\mbox{[}0\mbox{]},\mbox{\hyperlink{namespacemBF__analysis_a41cf174ba513efbd0c198b416fcaf1ff}{ts}},\mbox{\hyperlink{namespacemBF__analysis_a8bf9ffe995668dab77362bf9507af263}{xs}},\mbox{\hyperlink{namespacemBF__analysis_a5e419ff54aff8185b1b32ed4af7c46b3}{Fs}}), \mbox{\hyperlink{namespacefuncs_a0018fbc1d06eaceff83ed3c97323f1d0}{c1\+\_\+to\+\_\+B}}(\mbox{\hyperlink{namespacemBF__analysis_a1c3429db65ae1375e6f9ae2b9a1c88c0}{c\+\_\+mean}}\mbox{[}1\mbox{]},\mbox{\hyperlink{namespacemBF__analysis_a41cf174ba513efbd0c198b416fcaf1ff}{ts}},\mbox{\hyperlink{namespacemBF__analysis_a8bf9ffe995668dab77362bf9507af263}{xs}},\mbox{\hyperlink{namespacemBF__analysis_a5e419ff54aff8185b1b32ed4af7c46b3}{Fs}}), \mbox{\hyperlink{namespacefuncs_ab72c8a905dc2e62d8c44b129dafe8c78}{c2\+\_\+to\+\_\+F}}(\mbox{\hyperlink{namespacemBF__analysis_a1c3429db65ae1375e6f9ae2b9a1c88c0}{c\+\_\+mean}}\mbox{[}2\mbox{]},\mbox{\hyperlink{namespacemBF__analysis_a5e419ff54aff8185b1b32ed4af7c46b3}{Fs}})\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacemBF__analysis_a598775bffe5b772a8f0369119bf0ccc7}{x0}} = \mbox{[}0.\+0,0.\+0\mbox{]}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_adcbf1a67ad51039c5dc8295141f4cdc7}{x\+\_\+mean}}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_ab68bb97803d7f1c43835c14505153540}{v\+\_\+mean}}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_acb701c4e2c15dc1a9d41d8896ebbdf9d}{rmse}} = np.\+sqrt((np.\+sum((\mbox{\hyperlink{namespacemBF__analysis_adcbf1a67ad51039c5dc8295141f4cdc7}{x\+\_\+mean}} -\/ \mbox{\hyperlink{namespacemBF__analysis_adb90979efc43c1f4d6f28b948cb92269}{x\+\_\+data\+\_\+dim}})\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}2))/len(\mbox{\hyperlink{namespacemBF__analysis_a6356585664e152e3dc51994a4a1c1288}{x\+\_\+data}}))
+\item 
+int \mbox{\hyperlink{namespacemBF__analysis_a5579254de323c87114a3a2fcdd4ede82}{N}} = 10000
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}} = st.\+multivariate\+\_\+normal.\+rvs(mean=\mbox{\hyperlink{namespacemBF__analysis_a0555b0ba24190472e58639d9f824c86f}{log\+\_\+c\+\_\+mean}}, cov=\mbox{\hyperlink{namespacemBF__analysis_ac0fe4ae4f6c69c08b87d96c9877513b9}{post\+\_\+cov}}, size=\mbox{\hyperlink{namespacemBF__analysis_a5579254de323c87114a3a2fcdd4ede82}{N}})
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a76584014cb939d9d28021ba66792770c}{samples\+\_\+dim}} = np.\+exp(\mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}})
+\item 
+list \mbox{\hyperlink{namespacemBF__analysis_af64f13ac02c889f0222cd942635c7fa5}{model\+\_\+dim}} = \mbox{[}\mbox{\hyperlink{namespacefuncs_a221e91ed4cdefcdb446ada2b1ba23b4f}{ODE\+\_\+solution\+\_\+dim}}(s,\mbox{\hyperlink{namespacemBF__analysis_a598775bffe5b772a8f0369119bf0ccc7}{x0}},\mbox{\hyperlink{namespacemBF__analysis_ab59351dd1990d7507d5c00db51f33041}{t\+\_\+data\+\_\+dim}}) for s in \mbox{\hyperlink{namespacemBF__analysis_a76584014cb939d9d28021ba66792770c}{samples\+\_\+dim}}\mbox{]}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a640ae74ca5799b20c6cf990e4fdee957}{model\+\_\+dim\+\_\+pos}} = np.\+array(\mbox{[}\mbox{\hyperlink{namespacemBF__analysis_af64f13ac02c889f0222cd942635c7fa5}{model\+\_\+dim}}\mbox{[}i\mbox{]}\mbox{[}0\mbox{]} for i in range(len(\mbox{\hyperlink{namespacemBF__analysis_af64f13ac02c889f0222cd942635c7fa5}{model\+\_\+dim}}))\mbox{]})
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a45e8d66313755caa48ba7f7158475e6a}{model\+\_\+dim\+\_\+vel}} = np.\+array(\mbox{[}\mbox{\hyperlink{namespacemBF__analysis_af64f13ac02c889f0222cd942635c7fa5}{model\+\_\+dim}}\mbox{[}i\mbox{]}\mbox{[}1\mbox{]} for i in range(len(\mbox{\hyperlink{namespacemBF__analysis_af64f13ac02c889f0222cd942635c7fa5}{model\+\_\+dim}}))\mbox{]})
+\item 
+list \mbox{\hyperlink{namespacemBF__analysis_a9997e6c126815fb13fc47cc1559d91f5}{pos\+\_\+dim\+\_\+mean}} = \mbox{[}\mbox{\hyperlink{namespacemBF__analysis_a640ae74ca5799b20c6cf990e4fdee957}{model\+\_\+dim\+\_\+pos}}\mbox{[}\+:,i\mbox{]}.mean() for i in range(len(\mbox{\hyperlink{namespacemBF__analysis_a2c0c772979a6ab28bd8cced83c17522d}{t\+\_\+data}}))\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacemBF__analysis_aa7b6cdaea7575b8291a52f06bb652bca}{vel\+\_\+dim\+\_\+mean}} = \mbox{[}\mbox{\hyperlink{namespacemBF__analysis_a45e8d66313755caa48ba7f7158475e6a}{model\+\_\+dim\+\_\+vel}}\mbox{[}\+:,i\mbox{]}.mean() for i in range(len(\mbox{\hyperlink{namespacemBF__analysis_a2c0c772979a6ab28bd8cced83c17522d}{t\+\_\+data}}))\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacemBF__analysis_a659b06b0425e0f1d897805b2c75f5a06}{pos\+\_\+dim\+\_\+error}} = \mbox{[}2.\+0\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacemBF__analysis_a640ae74ca5799b20c6cf990e4fdee957}{model\+\_\+dim\+\_\+pos}}\mbox{[}\+:,i\mbox{]}.std() for i in range(len(\mbox{\hyperlink{namespacemBF__analysis_a2c0c772979a6ab28bd8cced83c17522d}{t\+\_\+data}}))\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacemBF__analysis_a17fe66cf084bfa11e02b044981e1a6a3}{vel\+\_\+dim\+\_\+error}} = \mbox{[}2.\+0\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacemBF__analysis_a45e8d66313755caa48ba7f7158475e6a}{model\+\_\+dim\+\_\+vel}}\mbox{[}\+:,i\mbox{]}.std() for i in range(len(\mbox{\hyperlink{namespacemBF__analysis_a2c0c772979a6ab28bd8cced83c17522d}{t\+\_\+data}}))\mbox{]}
+\item 
+float \mbox{\hyperlink{namespacemBF__analysis_ab7a8550d4d41954700acb259a1e9bef8}{c0\+\_\+lower}} = \mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}}\mbox{[}\+:,0\mbox{]}.mean() -\/ 2.\+0\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}}\mbox{[}\+:,0\mbox{]}.std()
+\item 
+float \mbox{\hyperlink{namespacemBF__analysis_ad66caffa29b2f4e80ab9aac7741ada6e}{c0\+\_\+upper}} = \mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}}\mbox{[}\+:,0\mbox{]}.mean() + 2.\+0\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}}\mbox{[}\+:,0\mbox{]}.std()
+\item 
+float \mbox{\hyperlink{namespacemBF__analysis_a67f53a0e01426d60eec979044630140b}{c1\+\_\+lower}} = \mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}}\mbox{[}\+:,1\mbox{]}.mean() -\/ 2.\+0\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}}\mbox{[}\+:,1\mbox{]}.std()
+\item 
+float \mbox{\hyperlink{namespacemBF__analysis_a61f7189801ca7aa7ccb993e858a76d58}{c1\+\_\+upper}} = \mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}}\mbox{[}\+:,1\mbox{]}.mean() + 2.\+0\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}}\mbox{[}\+:,1\mbox{]}.std()
+\item 
+float \mbox{\hyperlink{namespacemBF__analysis_a9430cad05d395f844bbb306c29855bde}{c2\+\_\+lower}} = \mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}}\mbox{[}\+:,2\mbox{]}.mean() -\/ 2.\+0\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}}\mbox{[}\+:,2\mbox{]}.std()
+\item 
+float \mbox{\hyperlink{namespacemBF__analysis_acb51f84bc691da1e0987f96bf7f50804}{c2\+\_\+upper}} = \mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}}\mbox{[}\+:,2\mbox{]}.mean() + 2.\+0\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}}\mbox{[}\+:,2\mbox{]}.std()
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a11f18bcaea151a08dfad42eccebc89bf}{mean\+\_\+01}} = np.\+array(\mbox{[}\mbox{\hyperlink{namespacemBF__analysis_a0555b0ba24190472e58639d9f824c86f}{log\+\_\+c\+\_\+mean}}\mbox{[}0\mbox{]}, \mbox{\hyperlink{namespacemBF__analysis_a0555b0ba24190472e58639d9f824c86f}{log\+\_\+c\+\_\+mean}}\mbox{[}1\mbox{]}\mbox{]})
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a4afe54268a2cf92ab660a1795f906790}{cov\+\_\+01}}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_acef7f46a78e20e088337531d81319d15}{ellip\+\_\+01}} = \mbox{\hyperlink{namespacemBF__analysis_aa2ed92db06f39fec16bc15e9304002d8}{get\+\_\+ellipse}}(\mbox{\hyperlink{namespacemBF__analysis_a4afe54268a2cf92ab660a1795f906790}{cov\+\_\+01}},\mbox{\hyperlink{namespacemBF__analysis_a11f18bcaea151a08dfad42eccebc89bf}{mean\+\_\+01}}, \mbox{\hyperlink{namespacemBF__analysis_a8946445572095e9527f2ca52adc7f9b8}{color}}="{}tab\+:red"{}, label="{}95\% Confidence Ellipse"{})
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a02b15548c924720fe8973c4f50e3c6ff}{mean\+\_\+02}} = np.\+array(\mbox{[}\mbox{\hyperlink{namespacemBF__analysis_a0555b0ba24190472e58639d9f824c86f}{log\+\_\+c\+\_\+mean}}\mbox{[}0\mbox{]}, \mbox{\hyperlink{namespacemBF__analysis_a0555b0ba24190472e58639d9f824c86f}{log\+\_\+c\+\_\+mean}}\mbox{[}2\mbox{]}\mbox{]})
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a3e85d67891fd2df0acfdeea05777a4d7}{cov\+\_\+02}}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a189834733deb6f6624cb96b39c1ad113}{ellip\+\_\+02}} = \mbox{\hyperlink{namespacemBF__analysis_aa2ed92db06f39fec16bc15e9304002d8}{get\+\_\+ellipse}}(\mbox{\hyperlink{namespacemBF__analysis_a3e85d67891fd2df0acfdeea05777a4d7}{cov\+\_\+02}},\mbox{\hyperlink{namespacemBF__analysis_a02b15548c924720fe8973c4f50e3c6ff}{mean\+\_\+02}}, \mbox{\hyperlink{namespacemBF__analysis_a8946445572095e9527f2ca52adc7f9b8}{color}}="{}tab\+:red"{}, label="{}95\% Confidence Ellipse"{})
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_ae79c013c06bb2998e4948d1a131d6860}{mean\+\_\+12}} = np.\+array(\mbox{[}\mbox{\hyperlink{namespacemBF__analysis_a0555b0ba24190472e58639d9f824c86f}{log\+\_\+c\+\_\+mean}}\mbox{[}1\mbox{]}, \mbox{\hyperlink{namespacemBF__analysis_a0555b0ba24190472e58639d9f824c86f}{log\+\_\+c\+\_\+mean}}\mbox{[}2\mbox{]}\mbox{]})
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_aafd8c645025ace122680ca17c591a23f}{cov\+\_\+12}}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a217c746549cabd4ddaca8714af2e4d53}{ellip\+\_\+12}} = \mbox{\hyperlink{namespacemBF__analysis_aa2ed92db06f39fec16bc15e9304002d8}{get\+\_\+ellipse}}(\mbox{\hyperlink{namespacemBF__analysis_aafd8c645025ace122680ca17c591a23f}{cov\+\_\+12}},\mbox{\hyperlink{namespacemBF__analysis_ae79c013c06bb2998e4948d1a131d6860}{mean\+\_\+12}}, \mbox{\hyperlink{namespacemBF__analysis_a8946445572095e9527f2ca52adc7f9b8}{color}}="{}tab\+:red"{}, label="{}95\% Confidence Ellipse"{})
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a2d939967fb0d9a25e99c5ce83fb0e3c7}{x}} = np.\+linspace(-\/3.\+5, 5 , 1000)
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_ac31648f4de22765f852ac3b87a4c58cd}{y}} = np.\+linspace(-\/3.\+5, 3.\+5, 1000)
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a9dcef31b8c568b9f09371bbf96df2b98}{X}}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a3943fa889d5cd6aa7b4477c8929630a6}{Y}}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a067369257b570622b64103051955b9d6}{pos}} = np.\+dstack((\mbox{\hyperlink{namespacemBF__analysis_a9dcef31b8c568b9f09371bbf96df2b98}{X}},\mbox{\hyperlink{namespacemBF__analysis_a3943fa889d5cd6aa7b4477c8929630a6}{Y}}))
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a9884f69e237fe23888b89d4abc2f3c3b}{fig}}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a4e6cd68a126fe14650db40fc0f935b30}{axs}}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a36daefa1f888668f53b30b33778358f8}{sharex}}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_ae969216b23318f0fdf73741d2a6031c2}{figsize}}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a0dd669025820d9602a2047b688f7a6ec}{lw}}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_aea7782179c939cf98dedbcb71374bd2a}{ls}}
+\item 
+\mbox{\hyperlink{namespacemBF__analysis_a8946445572095e9527f2ca52adc7f9b8}{color}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacemBF__analysis_aa2ed92db06f39fec16bc15e9304002d8}\label{namespacemBF__analysis_aa2ed92db06f39fec16bc15e9304002d8} 
+\index{mBF\_analysis@{mBF\_analysis}!get\_ellipse@{get\_ellipse}}
+\index{get\_ellipse@{get\_ellipse}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{get\_ellipse()}{get\_ellipse()}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+get\+\_\+ellipse (\begin{DoxyParamCaption}\item[{}]{cov,  }\item[{}]{mean,  }\item[{}]{color,  }\item[{}]{label }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00188}{188}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00188\ \textcolor{keyword}{def\ }get\_ellipse(cov,\ mean,\ color,\ label):}
+\DoxyCodeLine{00189\ \ \ \ \ r2\ =\ st.chi2.ppf(2*st.norm.cdf(2)\ -\/\ 1\ ,2)}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ val,\ vec\ =\ np.linalg.eigh(cov)}
+\DoxyCodeLine{00192\ \ \ \ \ width,\ height\ \ =\ 2*np.sqrt(val[:,\textcolor{keywordtype}{None}]*r2)}
+\DoxyCodeLine{00193\ \ \ \ \ rotation\ =\ np.degrees(np.arctan2(*vec[::-\/1,0]))}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordflow}{return}\ Ellipse(xy=mean,\ width=width,\ height=height,\ fill=\textcolor{keyword}{False},\ color=color,\ label=label,\ zorder=3\ ,angle=rotation)}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \textcolor{comment}{\#\ c0\ \&\ c1}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespacemBF__analysis_a4e6cd68a126fe14650db40fc0f935b30}\label{namespacemBF__analysis_a4e6cd68a126fe14650db40fc0f935b30} 
+\index{mBF\_analysis@{mBF\_analysis}!axs@{axs}}
+\index{axs@{axs}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{axs}{axs}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+axs}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00330}{330}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_ad7f93e8d119fd0d202252376e0477a7d}\label{namespacemBF__analysis_ad7f93e8d119fd0d202252376e0477a7d} 
+\index{mBF\_analysis@{mBF\_analysis}!burn@{burn}}
+\index{burn@{burn}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{burn}{burn}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+burn = int(1e5)}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00041}{41}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_ab7a8550d4d41954700acb259a1e9bef8}\label{namespacemBF__analysis_ab7a8550d4d41954700acb259a1e9bef8} 
+\index{mBF\_analysis@{mBF\_analysis}!c0\_lower@{c0\_lower}}
+\index{c0\_lower@{c0\_lower}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{c0\_lower}{c0\_lower}}
+{\footnotesize\ttfamily float m\+BF\+\_\+analysis.\+c0\+\_\+lower = \mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}}\mbox{[}\+:,0\mbox{]}.mean() -\/ 2.\+0\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}}\mbox{[}\+:,0\mbox{]}.std()}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00179}{179}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_ad66caffa29b2f4e80ab9aac7741ada6e}\label{namespacemBF__analysis_ad66caffa29b2f4e80ab9aac7741ada6e} 
+\index{mBF\_analysis@{mBF\_analysis}!c0\_upper@{c0\_upper}}
+\index{c0\_upper@{c0\_upper}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{c0\_upper}{c0\_upper}}
+{\footnotesize\ttfamily float m\+BF\+\_\+analysis.\+c0\+\_\+upper = \mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}}\mbox{[}\+:,0\mbox{]}.mean() + 2.\+0\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}}\mbox{[}\+:,0\mbox{]}.std()}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00180}{180}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a67f53a0e01426d60eec979044630140b}\label{namespacemBF__analysis_a67f53a0e01426d60eec979044630140b} 
+\index{mBF\_analysis@{mBF\_analysis}!c1\_lower@{c1\_lower}}
+\index{c1\_lower@{c1\_lower}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{c1\_lower}{c1\_lower}}
+{\footnotesize\ttfamily float m\+BF\+\_\+analysis.\+c1\+\_\+lower = \mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}}\mbox{[}\+:,1\mbox{]}.mean() -\/ 2.\+0\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}}\mbox{[}\+:,1\mbox{]}.std()}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00182}{182}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a61f7189801ca7aa7ccb993e858a76d58}\label{namespacemBF__analysis_a61f7189801ca7aa7ccb993e858a76d58} 
+\index{mBF\_analysis@{mBF\_analysis}!c1\_upper@{c1\_upper}}
+\index{c1\_upper@{c1\_upper}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{c1\_upper}{c1\_upper}}
+{\footnotesize\ttfamily float m\+BF\+\_\+analysis.\+c1\+\_\+upper = \mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}}\mbox{[}\+:,1\mbox{]}.mean() + 2.\+0\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}}\mbox{[}\+:,1\mbox{]}.std()}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00183}{183}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a9430cad05d395f844bbb306c29855bde}\label{namespacemBF__analysis_a9430cad05d395f844bbb306c29855bde} 
+\index{mBF\_analysis@{mBF\_analysis}!c2\_lower@{c2\_lower}}
+\index{c2\_lower@{c2\_lower}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{c2\_lower}{c2\_lower}}
+{\footnotesize\ttfamily float m\+BF\+\_\+analysis.\+c2\+\_\+lower = \mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}}\mbox{[}\+:,2\mbox{]}.mean() -\/ 2.\+0\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}}\mbox{[}\+:,2\mbox{]}.std()}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00185}{185}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_acb51f84bc691da1e0987f96bf7f50804}\label{namespacemBF__analysis_acb51f84bc691da1e0987f96bf7f50804} 
+\index{mBF\_analysis@{mBF\_analysis}!c2\_upper@{c2\_upper}}
+\index{c2\_upper@{c2\_upper}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{c2\_upper}{c2\_upper}}
+{\footnotesize\ttfamily float m\+BF\+\_\+analysis.\+c2\+\_\+upper = \mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}}\mbox{[}\+:,2\mbox{]}.mean() + 2.\+0\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}}\mbox{[}\+:,2\mbox{]}.std()}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00186}{186}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a1c3429db65ae1375e6f9ae2b9a1c88c0}\label{namespacemBF__analysis_a1c3429db65ae1375e6f9ae2b9a1c88c0} 
+\index{mBF\_analysis@{mBF\_analysis}!c\_mean@{c\_mean}}
+\index{c\_mean@{c\_mean}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{c\_mean}{c\_mean}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+c\+\_\+mean = np.\+exp(\mbox{\hyperlink{namespacemBF__analysis_a0555b0ba24190472e58639d9f824c86f}{log\+\_\+c\+\_\+mean}})}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00064}{64}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a8946445572095e9527f2ca52adc7f9b8}\label{namespacemBF__analysis_a8946445572095e9527f2ca52adc7f9b8} 
+\index{mBF\_analysis@{mBF\_analysis}!color@{color}}
+\index{color@{color}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{color}{color}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+color}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00337}{337}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a4afe54268a2cf92ab660a1795f906790}\label{namespacemBF__analysis_a4afe54268a2cf92ab660a1795f906790} 
+\index{mBF\_analysis@{mBF\_analysis}!cov\_01@{cov\_01}}
+\index{cov\_01@{cov\_01}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{cov\_01}{cov\_01}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+cov\+\_\+01}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ np.array([[post\_cov[0,0],\ post\_cov[0,1]],}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [post\_cov[1,0],\ post\_cov[0,0]]])}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00199}{199}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a3e85d67891fd2df0acfdeea05777a4d7}\label{namespacemBF__analysis_a3e85d67891fd2df0acfdeea05777a4d7} 
+\index{mBF\_analysis@{mBF\_analysis}!cov\_02@{cov\_02}}
+\index{cov\_02@{cov\_02}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{cov\_02}{cov\_02}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+cov\+\_\+02}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ np.array([[post\_cov[0,0],\ post\_cov[0,2]],}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [post\_cov[2,0],\ post\_cov[0,0]]])}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00206}{206}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_aafd8c645025ace122680ca17c591a23f}\label{namespacemBF__analysis_aafd8c645025ace122680ca17c591a23f} 
+\index{mBF\_analysis@{mBF\_analysis}!cov\_12@{cov\_12}}
+\index{cov\_12@{cov\_12}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{cov\_12}{cov\_12}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+cov\+\_\+12}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ =\ \ np.array([[post\_cov[1,1],\ post\_cov[1,2]],}
+\DoxyCodeLine{00002\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [post\_cov[2,1],\ post\_cov[1,1]]])}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00213}{213}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a23cbfeb8696576e267ecae2f63d77401}\label{namespacemBF__analysis_a23cbfeb8696576e267ecae2f63d77401} 
+\index{mBF\_analysis@{mBF\_analysis}!data@{data}}
+\index{data@{data}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+data = np.\+loadtxt("{}perfect\+\_\+pos.\+txt"{})}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00021}{21}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_ae812693618ed555ed096bb7f3926d85d}\label{namespacemBF__analysis_ae812693618ed555ed096bb7f3926d85d} 
+\index{mBF\_analysis@{mBF\_analysis}!dims@{dims}}
+\index{dims@{dims}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{dims}{dims}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+dims = 3}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00042}{42}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a58fe8eb701b976a892fd31a3692b311b}\label{namespacemBF__analysis_a58fe8eb701b976a892fd31a3692b311b} 
+\index{mBF\_analysis@{mBF\_analysis}!dirs@{dirs}}
+\index{dirs@{dirs}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{dirs}{dirs}}
+{\footnotesize\ttfamily str m\+BF\+\_\+analysis.\+dirs = f"{}de\+\_\+mc\+\_\+out"{}}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00050}{50}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_acef7f46a78e20e088337531d81319d15}\label{namespacemBF__analysis_acef7f46a78e20e088337531d81319d15} 
+\index{mBF\_analysis@{mBF\_analysis}!ellip\_01@{ellip\_01}}
+\index{ellip\_01@{ellip\_01}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{ellip\_01}{ellip\_01}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+ellip\+\_\+01 = \mbox{\hyperlink{namespacemBF__analysis_aa2ed92db06f39fec16bc15e9304002d8}{get\+\_\+ellipse}}(\mbox{\hyperlink{namespacemBF__analysis_a4afe54268a2cf92ab660a1795f906790}{cov\+\_\+01}},\mbox{\hyperlink{namespacemBF__analysis_a11f18bcaea151a08dfad42eccebc89bf}{mean\+\_\+01}}, \mbox{\hyperlink{namespacemBF__analysis_a8946445572095e9527f2ca52adc7f9b8}{color}}="{}tab\+:red"{}, label="{}95\% Confidence Ellipse"{})}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00202}{202}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a189834733deb6f6624cb96b39c1ad113}\label{namespacemBF__analysis_a189834733deb6f6624cb96b39c1ad113} 
+\index{mBF\_analysis@{mBF\_analysis}!ellip\_02@{ellip\_02}}
+\index{ellip\_02@{ellip\_02}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{ellip\_02}{ellip\_02}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+ellip\+\_\+02 = \mbox{\hyperlink{namespacemBF__analysis_aa2ed92db06f39fec16bc15e9304002d8}{get\+\_\+ellipse}}(\mbox{\hyperlink{namespacemBF__analysis_a3e85d67891fd2df0acfdeea05777a4d7}{cov\+\_\+02}},\mbox{\hyperlink{namespacemBF__analysis_a02b15548c924720fe8973c4f50e3c6ff}{mean\+\_\+02}}, \mbox{\hyperlink{namespacemBF__analysis_a8946445572095e9527f2ca52adc7f9b8}{color}}="{}tab\+:red"{}, label="{}95\% Confidence Ellipse"{})}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00209}{209}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a217c746549cabd4ddaca8714af2e4d53}\label{namespacemBF__analysis_a217c746549cabd4ddaca8714af2e4d53} 
+\index{mBF\_analysis@{mBF\_analysis}!ellip\_12@{ellip\_12}}
+\index{ellip\_12@{ellip\_12}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{ellip\_12}{ellip\_12}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+ellip\+\_\+12 = \mbox{\hyperlink{namespacemBF__analysis_aa2ed92db06f39fec16bc15e9304002d8}{get\+\_\+ellipse}}(\mbox{\hyperlink{namespacemBF__analysis_aafd8c645025ace122680ca17c591a23f}{cov\+\_\+12}},\mbox{\hyperlink{namespacemBF__analysis_ae79c013c06bb2998e4948d1a131d6860}{mean\+\_\+12}}, \mbox{\hyperlink{namespacemBF__analysis_a8946445572095e9527f2ca52adc7f9b8}{color}}="{}tab\+:red"{}, label="{}95\% Confidence Ellipse"{})}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00216}{216}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a9884f69e237fe23888b89d4abc2f3c3b}\label{namespacemBF__analysis_a9884f69e237fe23888b89d4abc2f3c3b} 
+\index{mBF\_analysis@{mBF\_analysis}!fig@{fig}}
+\index{fig@{fig}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{fig}{fig}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+fig}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00330}{330}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_ae969216b23318f0fdf73741d2a6031c2}\label{namespacemBF__analysis_ae969216b23318f0fdf73741d2a6031c2} 
+\index{mBF\_analysis@{mBF\_analysis}!figsize@{figsize}}
+\index{figsize@{figsize}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{figsize}{figsize}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+figsize}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00330}{330}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a5e419ff54aff8185b1b32ed4af7c46b3}\label{namespacemBF__analysis_a5e419ff54aff8185b1b32ed4af7c46b3} 
+\index{mBF\_analysis@{mBF\_analysis}!Fs@{Fs}}
+\index{Fs@{Fs}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{Fs}{Fs}}
+{\footnotesize\ttfamily tuple m\+BF\+\_\+analysis.\+Fs = (250.\+0\texorpdfstring{$\ast$}{*}1e6\texorpdfstring{$\ast$}{*}1e12\texorpdfstring{$\ast$}{*}np.\+sqrt(2)\texorpdfstring{$\ast$}{*}0.\+352)/(2.\+0\texorpdfstring{$\ast$}{*}(1e9\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}2))}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00034}{34}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a42f389fa48e8dc3ca2accff3cc3d75e1}\label{namespacemBF__analysis_a42f389fa48e8dc3ca2accff3cc3d75e1} 
+\index{mBF\_analysis@{mBF\_analysis}!log\_c@{log\_c}}
+\index{log\_c@{log\_c}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{log\_c}{log\_c}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+log\+\_\+c}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00057}{57}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a0555b0ba24190472e58639d9f824c86f}\label{namespacemBF__analysis_a0555b0ba24190472e58639d9f824c86f} 
+\index{mBF\_analysis@{mBF\_analysis}!log\_c\_mean@{log\_c\_mean}}
+\index{log\_c\_mean@{log\_c\_mean}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{log\_c\_mean}{log\_c\_mean}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+log\+\_\+c\+\_\+mean}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00057}{57}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_ad2409dbe47eb84082e72191a91ff53e1}\label{namespacemBF__analysis_ad2409dbe47eb84082e72191a91ff53e1} 
+\index{mBF\_analysis@{mBF\_analysis}!log\_c\_std@{log\_c\_std}}
+\index{log\_c\_std@{log\_c\_std}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{log\_c\_std}{log\_c\_std}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+log\+\_\+c\+\_\+std}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00057}{57}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a15c81d1361008fd784984dce3b050c89}\label{namespacemBF__analysis_a15c81d1361008fd784984dce3b050c89} 
+\index{mBF\_analysis@{mBF\_analysis}!log\_params@{log\_params}}
+\index{log\_params@{log\_params}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{log\_params}{log\_params}}
+{\footnotesize\ttfamily list m\+BF\+\_\+analysis.\+log\+\_\+params = \mbox{[}r"{}ln(\$c\+\_\+\{0\}\$)"{}, r"{}ln(\$c\+\_\+\{1\}\$)"{}, r"{}ln(\$c\+\_\+\{2\}\$)"{}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00044}{44}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_aea7782179c939cf98dedbcb71374bd2a}\label{namespacemBF__analysis_aea7782179c939cf98dedbcb71374bd2a} 
+\index{mBF\_analysis@{mBF\_analysis}!ls@{ls}}
+\index{ls@{ls}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{ls}{ls}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+ls}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00337}{337}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a0dd669025820d9602a2047b688f7a6ec}\label{namespacemBF__analysis_a0dd669025820d9602a2047b688f7a6ec} 
+\index{mBF\_analysis@{mBF\_analysis}!lw@{lw}}
+\index{lw@{lw}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{lw}{lw}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+lw}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00337}{337}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a11f18bcaea151a08dfad42eccebc89bf}\label{namespacemBF__analysis_a11f18bcaea151a08dfad42eccebc89bf} 
+\index{mBF\_analysis@{mBF\_analysis}!mean\_01@{mean\_01}}
+\index{mean\_01@{mean\_01}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{mean\_01}{mean\_01}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+mean\+\_\+01 = np.\+array(\mbox{[}\mbox{\hyperlink{namespacemBF__analysis_a0555b0ba24190472e58639d9f824c86f}{log\+\_\+c\+\_\+mean}}\mbox{[}0\mbox{]}, \mbox{\hyperlink{namespacemBF__analysis_a0555b0ba24190472e58639d9f824c86f}{log\+\_\+c\+\_\+mean}}\mbox{[}1\mbox{]}\mbox{]})}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00198}{198}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a02b15548c924720fe8973c4f50e3c6ff}\label{namespacemBF__analysis_a02b15548c924720fe8973c4f50e3c6ff} 
+\index{mBF\_analysis@{mBF\_analysis}!mean\_02@{mean\_02}}
+\index{mean\_02@{mean\_02}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{mean\_02}{mean\_02}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+mean\+\_\+02 = np.\+array(\mbox{[}\mbox{\hyperlink{namespacemBF__analysis_a0555b0ba24190472e58639d9f824c86f}{log\+\_\+c\+\_\+mean}}\mbox{[}0\mbox{]}, \mbox{\hyperlink{namespacemBF__analysis_a0555b0ba24190472e58639d9f824c86f}{log\+\_\+c\+\_\+mean}}\mbox{[}2\mbox{]}\mbox{]})}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00205}{205}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_ae79c013c06bb2998e4948d1a131d6860}\label{namespacemBF__analysis_ae79c013c06bb2998e4948d1a131d6860} 
+\index{mBF\_analysis@{mBF\_analysis}!mean\_12@{mean\_12}}
+\index{mean\_12@{mean\_12}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{mean\_12}{mean\_12}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+mean\+\_\+12 = np.\+array(\mbox{[}\mbox{\hyperlink{namespacemBF__analysis_a0555b0ba24190472e58639d9f824c86f}{log\+\_\+c\+\_\+mean}}\mbox{[}1\mbox{]}, \mbox{\hyperlink{namespacemBF__analysis_a0555b0ba24190472e58639d9f824c86f}{log\+\_\+c\+\_\+mean}}\mbox{[}2\mbox{]}\mbox{]})}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00212}{212}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a084994f329a84acbffd5617996406464}\label{namespacemBF__analysis_a084994f329a84acbffd5617996406464} 
+\index{mBF\_analysis@{mBF\_analysis}!mean\_params@{mean\_params}}
+\index{mean\_params@{mean\_params}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{mean\_params}{mean\_params}}
+{\footnotesize\ttfamily list m\+BF\+\_\+analysis.\+mean\+\_\+params = \mbox{[}\mbox{\hyperlink{namespacefuncs_abedd3552707c3ce9919f3526be43fd81}{c0\+\_\+to\+\_\+m}}(\mbox{\hyperlink{namespacemBF__analysis_a1c3429db65ae1375e6f9ae2b9a1c88c0}{c\+\_\+mean}}\mbox{[}0\mbox{]},\mbox{\hyperlink{namespacemBF__analysis_a41cf174ba513efbd0c198b416fcaf1ff}{ts}},\mbox{\hyperlink{namespacemBF__analysis_a8bf9ffe995668dab77362bf9507af263}{xs}},\mbox{\hyperlink{namespacemBF__analysis_a5e419ff54aff8185b1b32ed4af7c46b3}{Fs}}), \mbox{\hyperlink{namespacefuncs_a0018fbc1d06eaceff83ed3c97323f1d0}{c1\+\_\+to\+\_\+B}}(\mbox{\hyperlink{namespacemBF__analysis_a1c3429db65ae1375e6f9ae2b9a1c88c0}{c\+\_\+mean}}\mbox{[}1\mbox{]},\mbox{\hyperlink{namespacemBF__analysis_a41cf174ba513efbd0c198b416fcaf1ff}{ts}},\mbox{\hyperlink{namespacemBF__analysis_a8bf9ffe995668dab77362bf9507af263}{xs}},\mbox{\hyperlink{namespacemBF__analysis_a5e419ff54aff8185b1b32ed4af7c46b3}{Fs}}), \mbox{\hyperlink{namespacefuncs_ab72c8a905dc2e62d8c44b129dafe8c78}{c2\+\_\+to\+\_\+F}}(\mbox{\hyperlink{namespacemBF__analysis_a1c3429db65ae1375e6f9ae2b9a1c88c0}{c\+\_\+mean}}\mbox{[}2\mbox{]},\mbox{\hyperlink{namespacemBF__analysis_a5e419ff54aff8185b1b32ed4af7c46b3}{Fs}})\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00066}{66}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_af64f13ac02c889f0222cd942635c7fa5}\label{namespacemBF__analysis_af64f13ac02c889f0222cd942635c7fa5} 
+\index{mBF\_analysis@{mBF\_analysis}!model\_dim@{model\_dim}}
+\index{model\_dim@{model\_dim}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{model\_dim}{model\_dim}}
+{\footnotesize\ttfamily list m\+BF\+\_\+analysis.\+model\+\_\+dim = \mbox{[}\mbox{\hyperlink{namespacefuncs_a221e91ed4cdefcdb446ada2b1ba23b4f}{ODE\+\_\+solution\+\_\+dim}}(s,\mbox{\hyperlink{namespacemBF__analysis_a598775bffe5b772a8f0369119bf0ccc7}{x0}},\mbox{\hyperlink{namespacemBF__analysis_ab59351dd1990d7507d5c00db51f33041}{t\+\_\+data\+\_\+dim}}) for s in \mbox{\hyperlink{namespacemBF__analysis_a76584014cb939d9d28021ba66792770c}{samples\+\_\+dim}}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00143}{143}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a640ae74ca5799b20c6cf990e4fdee957}\label{namespacemBF__analysis_a640ae74ca5799b20c6cf990e4fdee957} 
+\index{mBF\_analysis@{mBF\_analysis}!model\_dim\_pos@{model\_dim\_pos}}
+\index{model\_dim\_pos@{model\_dim\_pos}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{model\_dim\_pos}{model\_dim\_pos}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+model\+\_\+dim\+\_\+pos = np.\+array(\mbox{[}\mbox{\hyperlink{namespacemBF__analysis_af64f13ac02c889f0222cd942635c7fa5}{model\+\_\+dim}}\mbox{[}i\mbox{]}\mbox{[}0\mbox{]} for i in range(len(\mbox{\hyperlink{namespacemBF__analysis_af64f13ac02c889f0222cd942635c7fa5}{model\+\_\+dim}}))\mbox{]})}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00145}{145}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a45e8d66313755caa48ba7f7158475e6a}\label{namespacemBF__analysis_a45e8d66313755caa48ba7f7158475e6a} 
+\index{mBF\_analysis@{mBF\_analysis}!model\_dim\_vel@{model\_dim\_vel}}
+\index{model\_dim\_vel@{model\_dim\_vel}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{model\_dim\_vel}{model\_dim\_vel}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+model\+\_\+dim\+\_\+vel = np.\+array(\mbox{[}\mbox{\hyperlink{namespacemBF__analysis_af64f13ac02c889f0222cd942635c7fa5}{model\+\_\+dim}}\mbox{[}i\mbox{]}\mbox{[}1\mbox{]} for i in range(len(\mbox{\hyperlink{namespacemBF__analysis_af64f13ac02c889f0222cd942635c7fa5}{model\+\_\+dim}}))\mbox{]})}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00146}{146}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a20ecaac97c087562c31e7fad1b987c9e}\label{namespacemBF__analysis_a20ecaac97c087562c31e7fad1b987c9e} 
+\index{mBF\_analysis@{mBF\_analysis}!n@{n}}
+\index{n@{n}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{n}{n}}
+{\footnotesize\ttfamily int m\+BF\+\_\+analysis.\+n = 6}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00017}{17}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a5579254de323c87114a3a2fcdd4ede82}\label{namespacemBF__analysis_a5579254de323c87114a3a2fcdd4ede82} 
+\index{mBF\_analysis@{mBF\_analysis}!N@{N}}
+\index{N@{N}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{N}{N}}
+{\footnotesize\ttfamily int m\+BF\+\_\+analysis.\+N = 10000}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00084}{84}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a52b4a327c0f5b2b89d66c237d44914d6}\label{namespacemBF__analysis_a52b4a327c0f5b2b89d66c237d44914d6} 
+\index{mBF\_analysis@{mBF\_analysis}!n\_samples@{n\_samples}}
+\index{n\_samples@{n\_samples}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{n\_samples}{n\_samples}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+n\+\_\+samples = int(1e6)}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00040}{40}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_aedf8af9c06eca845539eb37c4501322e}\label{namespacemBF__analysis_aedf8af9c06eca845539eb37c4501322e} 
+\index{mBF\_analysis@{mBF\_analysis}!params@{params}}
+\index{params@{params}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{params}{params}}
+{\footnotesize\ttfamily list m\+BF\+\_\+analysis.\+params = \mbox{[}r"{}\$c\+\_\+\{0\}\$"{}, r"{}\$c\+\_\+\{1\}\$"{}, r"{}\$c\+\_\+\{2\}\$"{}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00043}{43}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a067369257b570622b64103051955b9d6}\label{namespacemBF__analysis_a067369257b570622b64103051955b9d6} 
+\index{mBF\_analysis@{mBF\_analysis}!pos@{pos}}
+\index{pos@{pos}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{pos}{pos}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+pos = np.\+dstack((\mbox{\hyperlink{namespacemBF__analysis_a9dcef31b8c568b9f09371bbf96df2b98}{X}},\mbox{\hyperlink{namespacemBF__analysis_a3943fa889d5cd6aa7b4477c8929630a6}{Y}}))}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00222}{222}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a659b06b0425e0f1d897805b2c75f5a06}\label{namespacemBF__analysis_a659b06b0425e0f1d897805b2c75f5a06} 
+\index{mBF\_analysis@{mBF\_analysis}!pos\_dim\_error@{pos\_dim\_error}}
+\index{pos\_dim\_error@{pos\_dim\_error}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{pos\_dim\_error}{pos\_dim\_error}}
+{\footnotesize\ttfamily list m\+BF\+\_\+analysis.\+pos\+\_\+dim\+\_\+error = \mbox{[}2.\+0\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacemBF__analysis_a640ae74ca5799b20c6cf990e4fdee957}{model\+\_\+dim\+\_\+pos}}\mbox{[}\+:,i\mbox{]}.std() for i in range(len(\mbox{\hyperlink{namespacemBF__analysis_a2c0c772979a6ab28bd8cced83c17522d}{t\+\_\+data}}))\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00153}{153}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a9997e6c126815fb13fc47cc1559d91f5}\label{namespacemBF__analysis_a9997e6c126815fb13fc47cc1559d91f5} 
+\index{mBF\_analysis@{mBF\_analysis}!pos\_dim\_mean@{pos\_dim\_mean}}
+\index{pos\_dim\_mean@{pos\_dim\_mean}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{pos\_dim\_mean}{pos\_dim\_mean}}
+{\footnotesize\ttfamily list m\+BF\+\_\+analysis.\+pos\+\_\+dim\+\_\+mean = \mbox{[}\mbox{\hyperlink{namespacemBF__analysis_a640ae74ca5799b20c6cf990e4fdee957}{model\+\_\+dim\+\_\+pos}}\mbox{[}\+:,i\mbox{]}.mean() for i in range(len(\mbox{\hyperlink{namespacemBF__analysis_a2c0c772979a6ab28bd8cced83c17522d}{t\+\_\+data}}))\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00150}{150}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_ac0fe4ae4f6c69c08b87d96c9877513b9}\label{namespacemBF__analysis_ac0fe4ae4f6c69c08b87d96c9877513b9} 
+\index{mBF\_analysis@{mBF\_analysis}!post\_cov@{post\_cov}}
+\index{post\_cov@{post\_cov}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{post\_cov}{post\_cov}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+post\+\_\+cov}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00057}{57}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a81ac22371a60462faa8386019dfe1455}\label{namespacemBF__analysis_a81ac22371a60462faa8386019dfe1455} 
+\index{mBF\_analysis@{mBF\_analysis}!posterior@{posterior}}
+\index{posterior@{posterior}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{posterior}{posterior}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+posterior}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00057}{57}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a0146591cf47ac89ef74733ca1f959c95}\label{namespacemBF__analysis_a0146591cf47ac89ef74733ca1f959c95} 
+\index{mBF\_analysis@{mBF\_analysis}!prior@{prior}}
+\index{prior@{prior}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{prior}{prior}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+prior = np.\+array(\mbox{[}0.\+0, 0.\+0, 0.\+0\mbox{]})}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00046}{46}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a2a09894d04ab41e5e63712ad58ddc104}\label{namespacemBF__analysis_a2a09894d04ab41e5e63712ad58ddc104} 
+\index{mBF\_analysis@{mBF\_analysis}!priorlow@{priorlow}}
+\index{priorlow@{priorlow}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{priorlow}{priorlow}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+priorlow = np.\+array(\mbox{[}2.\+0, 2.\+0, 2.\+0\mbox{]})}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00047}{47}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_ae16a8db1d371656fac3ccf404245345c}\label{namespacemBF__analysis_ae16a8db1d371656fac3ccf404245345c} 
+\index{mBF\_analysis@{mBF\_analysis}!priorup@{priorup}}
+\index{priorup@{priorup}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{priorup}{priorup}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+priorup = np.\+array(\mbox{[}2.\+0, 2.\+0, 2.\+0\mbox{]})}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00048}{48}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_acb701c4e2c15dc1a9d41d8896ebbdf9d}\label{namespacemBF__analysis_acb701c4e2c15dc1a9d41d8896ebbdf9d} 
+\index{mBF\_analysis@{mBF\_analysis}!rmse@{rmse}}
+\index{rmse@{rmse}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{rmse}{rmse}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+rmse = np.\+sqrt((np.\+sum((\mbox{\hyperlink{namespacemBF__analysis_adcbf1a67ad51039c5dc8295141f4cdc7}{x\+\_\+mean}} -\/ \mbox{\hyperlink{namespacemBF__analysis_adb90979efc43c1f4d6f28b948cb92269}{x\+\_\+data\+\_\+dim}})\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}2))/len(\mbox{\hyperlink{namespacemBF__analysis_a6356585664e152e3dc51994a4a1c1288}{x\+\_\+data}}))}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00076}{76}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}\label{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec} 
+\index{mBF\_analysis@{mBF\_analysis}!samples@{samples}}
+\index{samples@{samples}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{samples}{samples}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+samples = st.\+multivariate\+\_\+normal.\+rvs(mean=\mbox{\hyperlink{namespacemBF__analysis_a0555b0ba24190472e58639d9f824c86f}{log\+\_\+c\+\_\+mean}}, cov=\mbox{\hyperlink{namespacemBF__analysis_ac0fe4ae4f6c69c08b87d96c9877513b9}{post\+\_\+cov}}, size=\mbox{\hyperlink{namespacemBF__analysis_a5579254de323c87114a3a2fcdd4ede82}{N}})}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00089}{89}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a76584014cb939d9d28021ba66792770c}\label{namespacemBF__analysis_a76584014cb939d9d28021ba66792770c} 
+\index{mBF\_analysis@{mBF\_analysis}!samples\_dim@{samples\_dim}}
+\index{samples\_dim@{samples\_dim}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{samples\_dim}{samples\_dim}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+samples\+\_\+dim = np.\+exp(\mbox{\hyperlink{namespacemBF__analysis_ad1121b608a1717b35a6f3a73d4c4c6ec}{samples}})}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00139}{139}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a36daefa1f888668f53b30b33778358f8}\label{namespacemBF__analysis_a36daefa1f888668f53b30b33778358f8} 
+\index{mBF\_analysis@{mBF\_analysis}!sharex@{sharex}}
+\index{sharex@{sharex}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{sharex}{sharex}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+sharex}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00330}{330}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a2c0c772979a6ab28bd8cced83c17522d}\label{namespacemBF__analysis_a2c0c772979a6ab28bd8cced83c17522d} 
+\index{mBF\_analysis@{mBF\_analysis}!t\_data@{t\_data}}
+\index{t\_data@{t\_data}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{t\_data}{t\_data}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+t\+\_\+data = \mbox{\hyperlink{namespacemBF__analysis_a23cbfeb8696576e267ecae2f63d77401}{data}}\mbox{[}\+:-\/\mbox{\hyperlink{namespacemBF__analysis_a20ecaac97c087562c31e7fad1b987c9e}{n}},0\mbox{]}/\mbox{\hyperlink{namespacemBF__analysis_aafa3d9f8cde2fdbf2feb889072bddbc5}{t\+\_\+range}}}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00024}{24}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_ab59351dd1990d7507d5c00db51f33041}\label{namespacemBF__analysis_ab59351dd1990d7507d5c00db51f33041} 
+\index{mBF\_analysis@{mBF\_analysis}!t\_data\_dim@{t\_data\_dim}}
+\index{t\_data\_dim@{t\_data\_dim}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{t\_data\_dim}{t\_data\_dim}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+t\+\_\+data\+\_\+dim = \mbox{\hyperlink{namespacemBF__analysis_a23cbfeb8696576e267ecae2f63d77401}{data}}\mbox{[}\+:-\/\mbox{\hyperlink{namespacemBF__analysis_a20ecaac97c087562c31e7fad1b987c9e}{n}},0\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00022}{22}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_aafa3d9f8cde2fdbf2feb889072bddbc5}\label{namespacemBF__analysis_aafa3d9f8cde2fdbf2feb889072bddbc5} 
+\index{mBF\_analysis@{mBF\_analysis}!t\_range@{t\_range}}
+\index{t\_range@{t\_range}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{t\_range}{t\_range}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+t\+\_\+range = np.\+ptp(\mbox{\hyperlink{namespacemBF__analysis_ab59351dd1990d7507d5c00db51f33041}{t\+\_\+data\+\_\+dim}})}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00023}{23}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a41cf174ba513efbd0c198b416fcaf1ff}\label{namespacemBF__analysis_a41cf174ba513efbd0c198b416fcaf1ff} 
+\index{mBF\_analysis@{mBF\_analysis}!ts@{ts}}
+\index{ts@{ts}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{ts}{ts}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+ts = \mbox{\hyperlink{namespacemBF__analysis_aafa3d9f8cde2fdbf2feb889072bddbc5}{t\+\_\+range}}}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00033}{33}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_ab68bb97803d7f1c43835c14505153540}\label{namespacemBF__analysis_ab68bb97803d7f1c43835c14505153540} 
+\index{mBF\_analysis@{mBF\_analysis}!v\_mean@{v\_mean}}
+\index{v\_mean@{v\_mean}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{v\_mean}{v\_mean}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+v\+\_\+mean}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00075}{75}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a17fe66cf084bfa11e02b044981e1a6a3}\label{namespacemBF__analysis_a17fe66cf084bfa11e02b044981e1a6a3} 
+\index{mBF\_analysis@{mBF\_analysis}!vel\_dim\_error@{vel\_dim\_error}}
+\index{vel\_dim\_error@{vel\_dim\_error}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{vel\_dim\_error}{vel\_dim\_error}}
+{\footnotesize\ttfamily list m\+BF\+\_\+analysis.\+vel\+\_\+dim\+\_\+error = \mbox{[}2.\+0\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacemBF__analysis_a45e8d66313755caa48ba7f7158475e6a}{model\+\_\+dim\+\_\+vel}}\mbox{[}\+:,i\mbox{]}.std() for i in range(len(\mbox{\hyperlink{namespacemBF__analysis_a2c0c772979a6ab28bd8cced83c17522d}{t\+\_\+data}}))\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00154}{154}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_aa7b6cdaea7575b8291a52f06bb652bca}\label{namespacemBF__analysis_aa7b6cdaea7575b8291a52f06bb652bca} 
+\index{mBF\_analysis@{mBF\_analysis}!vel\_dim\_mean@{vel\_dim\_mean}}
+\index{vel\_dim\_mean@{vel\_dim\_mean}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{vel\_dim\_mean}{vel\_dim\_mean}}
+{\footnotesize\ttfamily list m\+BF\+\_\+analysis.\+vel\+\_\+dim\+\_\+mean = \mbox{[}\mbox{\hyperlink{namespacemBF__analysis_a45e8d66313755caa48ba7f7158475e6a}{model\+\_\+dim\+\_\+vel}}\mbox{[}\+:,i\mbox{]}.mean() for i in range(len(\mbox{\hyperlink{namespacemBF__analysis_a2c0c772979a6ab28bd8cced83c17522d}{t\+\_\+data}}))\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00151}{151}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a2d939967fb0d9a25e99c5ce83fb0e3c7}\label{namespacemBF__analysis_a2d939967fb0d9a25e99c5ce83fb0e3c7} 
+\index{mBF\_analysis@{mBF\_analysis}!x@{x}}
+\index{x@{x}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+x = np.\+linspace(-\/3.\+5, 5 , 1000)}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00218}{218}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a9dcef31b8c568b9f09371bbf96df2b98}\label{namespacemBF__analysis_a9dcef31b8c568b9f09371bbf96df2b98} 
+\index{mBF\_analysis@{mBF\_analysis}!X@{X}}
+\index{X@{X}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{X}{X}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+X}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00221}{221}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a598775bffe5b772a8f0369119bf0ccc7}\label{namespacemBF__analysis_a598775bffe5b772a8f0369119bf0ccc7} 
+\index{mBF\_analysis@{mBF\_analysis}!x0@{x0}}
+\index{x0@{x0}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{x0}{x0}}
+{\footnotesize\ttfamily list m\+BF\+\_\+analysis.\+x0 = \mbox{[}0.\+0,0.\+0\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00074}{74}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a6356585664e152e3dc51994a4a1c1288}\label{namespacemBF__analysis_a6356585664e152e3dc51994a4a1c1288} 
+\index{mBF\_analysis@{mBF\_analysis}!x\_data@{x\_data}}
+\index{x\_data@{x\_data}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{x\_data}{x\_data}}
+{\footnotesize\ttfamily tuple m\+BF\+\_\+analysis.\+x\+\_\+data = 0.\+1\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacemBF__analysis_a23cbfeb8696576e267ecae2f63d77401}{data}}\mbox{[}n\+:,1\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00026}{26}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_adb90979efc43c1f4d6f28b948cb92269}\label{namespacemBF__analysis_adb90979efc43c1f4d6f28b948cb92269} 
+\index{mBF\_analysis@{mBF\_analysis}!x\_data\_dim@{x\_data\_dim}}
+\index{x\_data\_dim@{x\_data\_dim}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{x\_data\_dim}{x\_data\_dim}}
+{\footnotesize\ttfamily float m\+BF\+\_\+analysis.\+x\+\_\+data\+\_\+dim = \mbox{\hyperlink{namespacemBF__analysis_a6356585664e152e3dc51994a4a1c1288}{x\+\_\+data}} -\/ \mbox{\hyperlink{namespacemBF__analysis_a208bc933a10606a3379b5b33b843fb1e}{xi}}}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00029}{29}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_adcbf1a67ad51039c5dc8295141f4cdc7}\label{namespacemBF__analysis_adcbf1a67ad51039c5dc8295141f4cdc7} 
+\index{mBF\_analysis@{mBF\_analysis}!x\_mean@{x\_mean}}
+\index{x\_mean@{x\_mean}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{x\_mean}{x\_mean}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+x\+\_\+mean}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00075}{75}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a6e2415e2e0d6e551d5636ddbe8ba346e}\label{namespacemBF__analysis_a6e2415e2e0d6e551d5636ddbe8ba346e} 
+\index{mBF\_analysis@{mBF\_analysis}!x\_range@{x\_range}}
+\index{x\_range@{x\_range}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{x\_range}{x\_range}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+x\+\_\+range = np.\+ptp(\mbox{\hyperlink{namespacemBF__analysis_a6356585664e152e3dc51994a4a1c1288}{x\+\_\+data}})}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00027}{27}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a208bc933a10606a3379b5b33b843fb1e}\label{namespacemBF__analysis_a208bc933a10606a3379b5b33b843fb1e} 
+\index{mBF\_analysis@{mBF\_analysis}!xi@{xi}}
+\index{xi@{xi}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{xi}{xi}}
+{\footnotesize\ttfamily float m\+BF\+\_\+analysis.\+xi = \mbox{\hyperlink{namespacemBF__analysis_a6356585664e152e3dc51994a4a1c1288}{x\+\_\+data}}\mbox{[}0\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00028}{28}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a8bf9ffe995668dab77362bf9507af263}\label{namespacemBF__analysis_a8bf9ffe995668dab77362bf9507af263} 
+\index{mBF\_analysis@{mBF\_analysis}!xs@{xs}}
+\index{xs@{xs}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{xs}{xs}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+xs = \mbox{\hyperlink{namespacemBF__analysis_a6e2415e2e0d6e551d5636ddbe8ba346e}{x\+\_\+range}}}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00032}{32}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_ac31648f4de22765f852ac3b87a4c58cd}\label{namespacemBF__analysis_ac31648f4de22765f852ac3b87a4c58cd} 
+\index{mBF\_analysis@{mBF\_analysis}!y@{y}}
+\index{y@{y}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+y = np.\+linspace(-\/3.\+5, 3.\+5, 1000)}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00219}{219}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+
+\Hypertarget{namespacemBF__analysis_a3943fa889d5cd6aa7b4477c8929630a6}\label{namespacemBF__analysis_a3943fa889d5cd6aa7b4477c8929630a6} 
+\index{mBF\_analysis@{mBF\_analysis}!Y@{Y}}
+\index{Y@{Y}!mBF\_analysis@{mBF\_analysis}}
+\doxysubsubsection{\texorpdfstring{Y}{Y}}
+{\footnotesize\ttfamily m\+BF\+\_\+analysis.\+Y}
+
+
+
+Definition at line \mbox{\hyperlink{mBF__analysis_8py_source_l00221}{221}} of file \mbox{\hyperlink{mBF__analysis_8py_source}{m\+BF\+\_\+analysis.\+py}}.
+

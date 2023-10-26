@@ -1,0 +1,145 @@
+\doxysection{mc3\+\_\+de\+\_\+mcmc.\+py}
+\hypertarget{mc3__de__mcmc_8py_source}{}\label{mc3__de__mcmc_8py_source}\index{de\_mcmc/mc3\_de\_mcmc.py@{de\_mcmc/mc3\_de\_mcmc.py}}
+\mbox{\hyperlink{mc3__de__mcmc_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00001}\mbox{\hyperlink{namespacemc3__de__mcmc}{00001}}\ \textcolor{keyword}{import}\ numpy\ \textcolor{keyword}{as}\ np}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00002}00002\ \textcolor{keyword}{import}\ seaborn\ \textcolor{keyword}{as}\ sns}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00003}00003\ \textcolor{keyword}{from}\ scipy.integrate\ \textcolor{keyword}{import}\ odeint}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00004}00004\ \textcolor{keyword}{from}\ scipy.optimize\ \textcolor{keyword}{import}\ minimize}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00005}00005\ \textcolor{keyword}{import}\ scipy.stats\ \textcolor{keyword}{as}\ st}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00006}00006\ \textcolor{keyword}{from}\ matplotlib\ \textcolor{keyword}{import}\ pyplot\ \textcolor{keyword}{as}\ plt}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00007}00007\ \textcolor{keyword}{import}\ pandas\ \textcolor{keyword}{as}\ pd}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00008}00008\ \textcolor{keyword}{import}\ mc3}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00009}00009\ \textcolor{keyword}{import}\ os}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00011}00011\ \textcolor{comment}{\#\ Test\ effect\ of\ changing\ prior\ distribution}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00012}00012\ \textcolor{comment}{\#\ Setting\ nchains\ to\ 14\ chains}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00013}\mbox{\hyperlink{namespacemc3__de__mcmc_a70043a698e2e3cd0dd0263e7d60e2203}{00013}}\ chains\ =\ 14}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00015}\mbox{\hyperlink{namespacemc3__de__mcmc_a90e22a7e965483443f1b8d52d6777d44}{00015}}\ prior\ =\ \ \ \ [np.array([0.0,\ 0.0,\ 0.0])]}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00016}\mbox{\hyperlink{namespacemc3__de__mcmc_aae23575cd4a8691fa75c87fdd5207fb8}{00016}}\ priorlow\ =\ [np.array([2.0,\ 2.0,\ 2.0])]}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00017}\mbox{\hyperlink{namespacemc3__de__mcmc_ab9e4043c01dfa68d256dd06a34789a85}{00017}}\ priorup\ =\ \ [np.array([2.0,\ 2.0,\ 2.0])]}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00019}00019\ \textcolor{comment}{\#\ Calibration\ parameters\ for\ model\ are\ c0,\ c1,\ and\ c2}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00020}00020\ \textcolor{comment}{\#\ See\ notes\ for\ non-\/dimensionalising\ equation\ of\ motion}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00022}00022\ \textcolor{comment}{\#\ Read\ in\ and\ non-\/dimnesionalise\ dislocation\ position-\/time\ data}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00024}00024\ \textcolor{comment}{\#\ Number\ of\ points\ to\ throw\ away}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00025}00025\ \textcolor{comment}{\#\ Later\ modify\ the\ model\ to\ account\ for\ lag}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00026}00026\ \textcolor{comment}{\#\ (time\ needed\ for\ correct\ strain\ field\ to\ develop)}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00027}\mbox{\hyperlink{namespacemc3__de__mcmc_a03bd4a987e0ea91c91e9f1e9a6d3c300}{00027}}\ n\ =\ 6}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00029}\mbox{\hyperlink{namespacemc3__de__mcmc_a9bed2f42f8e47dfbc2b8ea1af6ac77f2}{00029}}\ data\ =\ np.loadtxt(\textcolor{stringliteral}{"{}perfect\_pos.txt"{}})}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00030}\mbox{\hyperlink{namespacemc3__de__mcmc_a930def0ab61245d22d600cd7a5bd38ab}{00030}}\ t\_data\ =\ data[:-\/n,0]}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00031}\mbox{\hyperlink{namespacemc3__de__mcmc_a848680a84960ee0949d20bea5df14484}{00031}}\ t\_range\ =\ np.ptp(t\_data)}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00032}00032\ t\_data\ =\ data[:-\/n,0]/t\_range}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00033}\mbox{\hyperlink{namespacemc3__de__mcmc_ac1c739c66a6f42b3304eba0e7a4e10ac}{00033}}\ x\_data\ =\ 0.1*data[n:,1]\ \ \ \ \ \textcolor{comment}{\#\ Convert\ from\ Angstroms\ to\ nm}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00034}\mbox{\hyperlink{namespacemc3__de__mcmc_a861305786a43e176db41102cf2886130}{00034}}\ x\_range\ =\ np.ptp(x\_data)}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00035}\mbox{\hyperlink{namespacemc3__de__mcmc_a6ab88e01d878a4766d4860e5ea269180}{00035}}\ xi\ =\ x\_data[0]}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00036}00036\ x\_data\ =\ (x\_data-\/xi)/x\_range}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00038}00038\ \textcolor{comment}{\#\ Model\ (non-\/dimensional\ equation\ of\ motion)}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00039}\mbox{\hyperlink{namespacemc3__de__mcmc_ae8b9f64754fb42c7089f4a194badb5e8}{00039}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacemc3__de__mcmc_ae8b9f64754fb42c7089f4a194badb5e8}{x\_derivatives}}(x,t,c0,c1,c2):}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00040}00040\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00041}00041\ \textcolor{stringliteral}{\ \ \ \ x:\ LHS\ row\ vector\ (dependent\ variable)}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00042}00042\ \textcolor{stringliteral}{\ \ \ \ t:\ time\ (the\ independent\ variable)}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00043}00043\ \textcolor{stringliteral}{\ \ \ \ m,\ B,\ F:\ constants}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00044}00044\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00045}00045\ \ \ \ \ dxdt\ =\ [x[1],\ np.exp(c0)*(np.exp(c2)\ -\/\ np.exp(c1)*x[1])]}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00046}00046\ \ \ \ \ \textcolor{keywordflow}{return}\ dxdt}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00048}00048\ \textcolor{comment}{\#\ Set\ the\ initial\ conditions}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00049}00049\ \textcolor{comment}{\#\ initial\ position\ and\ velocity}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00050}\mbox{\hyperlink{namespacemc3__de__mcmc_a21b63f5a722f864d26221c99dc7f379a}{00050}}\ x0\ =\ [0.0,0.0]\ \ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00052}\mbox{\hyperlink{namespacemc3__de__mcmc_a4ffd4bdc634b3a51785fef49a72731c6}{00052}}\ \textcolor{keyword}{def\ }\mbox{\hyperlink{namespacemc3__de__mcmc_a4ffd4bdc634b3a51785fef49a72731c6}{ODE\_solution}}(t):}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00053}00053\ \ \ \ \ c0,\ c1,\ c2\ =\ t\ \ \textcolor{comment}{\#\ Unpack\ parameters}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00054}00054\ \ \ \ \ position,\ velocity\ =\ odeint(x\_derivatives,\ x0,\ t\_data,\ args=(c0,c1,c2)).T}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00055}00055\ \ \ \ \ \textcolor{keywordflow}{return}\ position}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00057}00057\ \textcolor{comment}{\#\ Input\ data}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00058}00058\ data\ =\ np.array(x\_data)}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00059}\mbox{\hyperlink{namespacemc3__de__mcmc_af5011cd1202e01b051a98daa7c23cb3d}{00059}}\ uncert\ =\ np.ones\_like(x\_data)*np.random.normal(0.0,0.1)}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00061}00061\ \textcolor{comment}{\#\ Modelling\ function}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00062}\mbox{\hyperlink{namespacemc3__de__mcmc_aca0b673fd8544384953f567225d55572}{00062}}\ func\ =\ ODE\_solution}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00064}00064\ \textcolor{comment}{\#\ indparams\ =\ [x]}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00066}00066\ \textcolor{comment}{\#\ Fitting\ Parameters}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00067}00067\ \textcolor{comment}{\#\ Initial\ guess}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00068}\mbox{\hyperlink{namespacemc3__de__mcmc_a9ec699d27fefdc35b564f3ac78ba8621}{00068}}\ ndims\ =\ 3}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00069}\mbox{\hyperlink{namespacemc3__de__mcmc_a4f5fb215d6e05bc7eb7ec50d0e6b664e}{00069}}\ params\ =\ np.random.random(ndims)}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00071}00071\ \textcolor{comment}{\#\ Parameters\ stepping\ behavior}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00072}00072\ \textcolor{comment}{\#\ ADJUST}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00073}\mbox{\hyperlink{namespacemc3__de__mcmc_a0b0c58a727ef48b44cf93b4a7418325e}{00073}}\ pstep\ =\ np.array([0.5,\ 1.0,\ 1.0])}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00075}00075\ \textcolor{comment}{\#\ Parameter\ priors}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00076}00076\ \textcolor{comment}{\#\ Set\ Gaussian\ priors\ on\ all\ parameters}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00077}00077\ \textcolor{comment}{\#\ Set\ above}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00079}00079\ \textcolor{comment}{\#\ prior\ =\ np.array([0.0,\ 0.0,\ 0.0])}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00080}00080\ \textcolor{comment}{\#\ priorlow\ =\ np.array([1.0,\ 1.0,\ 1.0])}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00081}00081\ \textcolor{comment}{\#\ priorup\ =\ np.array([1.0,\ 1.0,\ 1.0])}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00083}00083\ \textcolor{comment}{\#\ Parameter\ names}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00084}\mbox{\hyperlink{namespacemc3__de__mcmc_a58ae4fa9b0d3b89ba50ca208a333bb7b}{00084}}\ pnames\ =\ [\textcolor{stringliteral}{"{}c0"{}},\ \textcolor{stringliteral}{"{}c1"{}},\ \textcolor{stringliteral}{"{}c2"{}}]}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00085}\mbox{\hyperlink{namespacemc3__de__mcmc_afbd71b7d5bcfc4f51c2f07f1972daea6}{00085}}\ textnames\ =\ [\textcolor{stringliteral}{r"{}c\_\{0\}"{}},\ \textcolor{stringliteral}{r"{}c\_\{1\}"{}},\ \textcolor{stringliteral}{r"{}c\_\{2\}"{}}]}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00087}00087\ \textcolor{comment}{\#\ Sampler\ algorithm}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00088}\mbox{\hyperlink{namespacemc3__de__mcmc_ac919e1e06f1cf5a1c1786bed4475240d}{00088}}\ sampler\ =\ \textcolor{stringliteral}{"{}snooker"{}}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00090}00090\ \textcolor{comment}{\#\ MCMC\ Configuration}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00091}\mbox{\hyperlink{namespacemc3__de__mcmc_a04f48466b9f416804b037da0af47e750}{00091}}\ nsamples\ =\ 1e6}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00092}\mbox{\hyperlink{namespacemc3__de__mcmc_ac33acee5ea1f2069e2257788c425b69a}{00092}}\ burnin\ =\ 0}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00093}\mbox{\hyperlink{namespacemc3__de__mcmc_a5341569b7fe2e9389a433a0a76ee191b}{00093}}\ nchains\ =\ chains}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00094}\mbox{\hyperlink{namespacemc3__de__mcmc_a24fd194aa99181dd126f2f96412c516c}{00094}}\ ncpu\ =\ 7}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00095}\mbox{\hyperlink{namespacemc3__de__mcmc_a7a5fb118920a423ec59e269ff9a17446}{00095}}\ thinning\ =\ 1}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00097}00097\ \textcolor{comment}{\#\ Pre-\/MCMC\ setup}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00098}\mbox{\hyperlink{namespacemc3__de__mcmc_a7df9b798b9055b5d0fd8e2a6895aef55}{00098}}\ kickoff\ =\ \textcolor{stringliteral}{"{}normal"{}}\ \ \ \ \ \ \textcolor{comment}{\#\ MCMC\ initial\ draw\ -\/\ can\ also\ be\ "{}uniform"{}}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00099}\mbox{\hyperlink{namespacemc3__de__mcmc_ae3e83d26bafa988822f96ffa8476cf9f}{00099}}\ hsize\ =\ 10\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ DEMC\ snooker\ pre-\/MCMC\ sample\ size}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00101}00101\ \textcolor{comment}{\#\ Convergence}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00102}\mbox{\hyperlink{namespacemc3__de__mcmc_a45291cd235aabc115e79cb71d392bb0c}{00102}}\ grtest\ =\ \textcolor{keyword}{True}\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Run\ Gelman-\/Rubin\ convergence\ test}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00103}\mbox{\hyperlink{namespacemc3__de__mcmc_a7a814ced192f38a0d0f7cb1d9c55b151}{00103}}\ grbreak\ =\ 0.0\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Convergence\ threshold\ to\ stop\ MCMC\ -\/\ 0.0\ is\ no\ break}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00104}\mbox{\hyperlink{namespacemc3__de__mcmc_a5dcb2c816fb567e90e6ef84057b5c8ec}{00104}}\ grnmin\ =\ 0.5}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00106}00106\ \textcolor{comment}{\#\ Fine-\/tuning}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00107}\mbox{\hyperlink{namespacemc3__de__mcmc_a6f3d4c3ba056db7447079ae1af0a88b4}{00107}}\ fgamma\ =\ 1.0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Scale\ factor\ for\ DEMC's\ gamma\ jump}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00108}\mbox{\hyperlink{namespacemc3__de__mcmc_a867e9553387e6f5cdb84368d8637d992}{00108}}\ fepsilon\ =\ 0.0\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Jump\ scale\ factor\ for\ DEMC's\ "{}e"{}\ distribution}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00110}00110\ \textcolor{comment}{\#\ Logging}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00111}\mbox{\hyperlink{namespacemc3__de__mcmc_a647c4bae7934db6eae01f545bf46afcf}{00111}}\ log\ =\ \textcolor{stringliteral}{"{}de\_mcmc.log"{}}\ \ \ \ \ \ \ \textcolor{comment}{\#\ Store\ screen\ output\ into\ a\ log\ file}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00113}00113\ \textcolor{comment}{\#\ Outputs}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00114}\mbox{\hyperlink{namespacemc3__de__mcmc_a46313bd7de8c6d5fb02cfb7e742f4733}{00114}}\ savefile\ =\ \textcolor{stringliteral}{'de\_mcmc.npz'}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00115}\mbox{\hyperlink{namespacemc3__de__mcmc_ad8bef0833b40a9da6dbdc8b37e02d1a8}{00115}}\ plots\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00116}\mbox{\hyperlink{namespacemc3__de__mcmc_ae736776cd3781ec213fe4900f76b25cd}{00116}}\ theme\ =\ \textcolor{stringliteral}{'indigo'}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00117}\mbox{\hyperlink{namespacemc3__de__mcmc_ae472ab5c0936938edf20c751b6c29c01}{00117}}\ statistics\ =\ \textcolor{stringliteral}{'med\_central'}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00118}\mbox{\hyperlink{namespacemc3__de__mcmc_a1210d3b427f08928e7b317461cec11e1}{00118}}\ rms\ =\ \textcolor{keyword}{True}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00120}00120\ \textcolor{comment}{\#\ MCMC\ run}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00121}00121\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(len(prior)):}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00122}\mbox{\hyperlink{namespacemc3__de__mcmc_a23fa74703bf483e42e6646044663e26e}{00122}}\ \ \ \ \ dir\ =\ f\textcolor{stringliteral}{"{}de\_mc\_out"{}}}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00123}00123\ \ \ \ \ os.mkdir(dir)}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00124}00124\ \ \ \ \ os.chdir(dir)}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00126}\mbox{\hyperlink{namespacemc3__de__mcmc_a8661ef89a2fa5918774134da7648857a}{00126}}\ \ \ \ \ output\ =\ mc3.sample(}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00127}00127\ \ \ \ \ \ \ \ \ data=data,\ uncert=uncert,\ func=func,\ params=params,\ pstep=pstep,}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00128}00128\ \ \ \ \ \ \ \ \ pnames=pnames,\ texnames=textnames,}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00129}00129\ \ \ \ \ \ \ \ \ prior=prior[i],\ priorlow=priorlow[i],\ priorup=priorup[i],}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00130}00130\ \ \ \ \ \ \ \ \ sampler=sampler,\ nsamples=nsamples,\ \ nchains=nchains,}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00131}00131\ \ \ \ \ \ \ \ \ ncpu=ncpu,\ burnin=burnin,\ thinning=thinning,}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00132}00132\ \ \ \ \ \ \ \ \ leastsq=\textcolor{keywordtype}{None},\ chisqscale=\textcolor{keyword}{False},}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00133}00133\ \ \ \ \ \ \ \ \ grtest=grtest,\ grbreak=grbreak,\ grnmin=grnmin,}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00134}00134\ \ \ \ \ \ \ \ \ hsize=hsize,\ kickoff=kickoff,\ log=log,}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00135}00135\ \ \ \ \ \ \ \ \ plots=plots,\ theme=theme,\ statistics=statistics,}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00136}00136\ \ \ \ \ \ \ \ \ savefile=savefile,\ rms=rms}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00137}00137\ \ \ \ \ )}
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{mc3__de__mcmc_8py_source_l00139}00139\ \ \ \ \ os.chdir(\textcolor{stringliteral}{"{}../"{}})}
+
+\end{DoxyCode}

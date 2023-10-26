@@ -1,0 +1,88 @@
+\doxysection{de\+\_\+mcmc/de\+\_\+mc\+\_\+analysis.py File Reference}
+\hypertarget{de__mc__analysis_8py}{}\label{de__mc__analysis_8py}\index{de\_mcmc/de\_mc\_analysis.py@{de\_mcmc/de\_mc\_analysis.py}}
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacede__mc__analysis}{de\+\_\+mc\+\_\+analysis}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacede__mc__analysis_ad3ed573e4ef342e6a35a34a71fe5e68f}{de\+\_\+mc\+\_\+analysis.\+n}} = 6
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_a3b786db1e17759548365b601cfe84cbd}{de\+\_\+mc\+\_\+analysis.\+data}} = np.\+loadtxt("{}perfect\+\_\+pos.\+txt"{})
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_a4250958bfa4dd5377186772367fa42f3}{de\+\_\+mc\+\_\+analysis.\+t\+\_\+data}} = \mbox{\hyperlink{namespacede__mc__analysis_a3b786db1e17759548365b601cfe84cbd}{data}}\mbox{[}\+:-\/\mbox{\hyperlink{namespacede__mc__analysis_ad3ed573e4ef342e6a35a34a71fe5e68f}{n}},0\mbox{]}
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_a26847e7a385b72dcfc8c1233b77ecd2c}{de\+\_\+mc\+\_\+analysis.\+t\+\_\+range}} = np.\+ptp(\mbox{\hyperlink{namespacede__mc__analysis_a4250958bfa4dd5377186772367fa42f3}{t\+\_\+data}})
+\item 
+float \mbox{\hyperlink{namespacede__mc__analysis_ac8f7d239c399ea9c51947e46e4668cbd}{de\+\_\+mc\+\_\+analysis.\+x\+\_\+data}} = 0.\+1\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacede__mc__analysis_a3b786db1e17759548365b601cfe84cbd}{data}}\mbox{[}n\+:,1\mbox{]}
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_a98accda208f7836ad158c0471b2d8c06}{de\+\_\+mc\+\_\+analysis.\+x\+\_\+range}} = np.\+ptp(\mbox{\hyperlink{namespacede__mc__analysis_ac8f7d239c399ea9c51947e46e4668cbd}{x\+\_\+data}})
+\item 
+float \mbox{\hyperlink{namespacede__mc__analysis_a4853b63f2b95e321447512dc3dfaaeeb}{de\+\_\+mc\+\_\+analysis.\+xi}} = \mbox{\hyperlink{namespacede__mc__analysis_ac8f7d239c399ea9c51947e46e4668cbd}{x\+\_\+data}}\mbox{[}0\mbox{]}
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_ac7045c9ce36b9bc8ce3e323188fc21e3}{de\+\_\+mc\+\_\+analysis.\+xs}} = \mbox{\hyperlink{namespacede__mc__analysis_a98accda208f7836ad158c0471b2d8c06}{x\+\_\+range}}
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_a5e6a6c2bffcf5bda71354a637fb04827}{de\+\_\+mc\+\_\+analysis.\+ts}} = \mbox{\hyperlink{namespacede__mc__analysis_a26847e7a385b72dcfc8c1233b77ecd2c}{t\+\_\+range}}
+\item 
+tuple \mbox{\hyperlink{namespacede__mc__analysis_a2de0900d36c48da676ce94016a1f29cf}{de\+\_\+mc\+\_\+analysis.\+Fs}} = (250.\+0\texorpdfstring{$\ast$}{*}1e6\texorpdfstring{$\ast$}{*}1e12\texorpdfstring{$\ast$}{*}np.\+sqrt(2)\texorpdfstring{$\ast$}{*}0.\+352)/(2.\+0\texorpdfstring{$\ast$}{*}(1e9\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}2))
+\item 
+list \mbox{\hyperlink{namespacede__mc__analysis_a5a26b69db245f85f06df6c459a0a5e29}{de\+\_\+mc\+\_\+analysis.\+x0}} = \mbox{[}0.\+0,0.\+0\mbox{]}
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_a3963b1f5e2fb5c2fd06ac374896e0bd0}{de\+\_\+mc\+\_\+analysis.\+n\+\_\+samples}} = int(1e6)
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_a370879e56b3181c700981d382910ebfa}{de\+\_\+mc\+\_\+analysis.\+burn}} = int(1e5)
+\item 
+int \mbox{\hyperlink{namespacede__mc__analysis_ad0aba9ff23fcab84c4ae1e85534b7369}{de\+\_\+mc\+\_\+analysis.\+dims}} = 3
+\item 
+list \mbox{\hyperlink{namespacede__mc__analysis_ab698d17f4e3acbc67b37209a7a485953}{de\+\_\+mc\+\_\+analysis.\+params}} = \mbox{[}r"{}\$c\+\_\+\{0\}\$"{}, r"{}\$c\+\_\+\{1\}\$"{}, r"{}\$c\+\_\+\{2\}\$"{}\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacede__mc__analysis_a7e7e0da501d3754c6d974445fd485a02}{de\+\_\+mc\+\_\+analysis.\+log\+\_\+params}} = \mbox{[}r"{}ln(\$c\+\_\+\{0\}\$)"{}, r"{}ln(\$c\+\_\+\{1\}\$)"{}, r"{}ln(\$c\+\_\+\{2\}\$)"{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_a3508e222aa24cc41bdf3bfa75656e27e}{de\+\_\+mc\+\_\+analysis.\+prior}} = np.\+array(\mbox{[}0.\+0, 0.\+0, 0.\+0\mbox{]})
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_aff61755f255fec817c56f6b1d818e9f8}{de\+\_\+mc\+\_\+analysis.\+priorlow}} = np.\+array(\mbox{[}2.\+0, 2.\+0, 2.\+0\mbox{]})
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_ab7749656b58f1f5bd5759567947ab812}{de\+\_\+mc\+\_\+analysis.\+priorup}} = np.\+array(\mbox{[}2.\+0, 2.\+0, 2.\+0\mbox{]})
+\item 
+str \mbox{\hyperlink{namespacede__mc__analysis_a6ea40f75b0bd6a2caede2f74f7f20c8c}{de\+\_\+mc\+\_\+analysis.\+dirs}} = f"{}de\+\_\+mc\+\_\+out"{}
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_ae47b49a04997b768daad60afc6a953d2}{de\+\_\+mc\+\_\+analysis.\+posterior}}
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_a3881ee1d9277377b98b3d420c54c5b5b}{de\+\_\+mc\+\_\+analysis.\+log\+\_\+c}}
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_a14b32592892f5126f9432003dbeaaee8}{de\+\_\+mc\+\_\+analysis.\+log\+\_\+c\+\_\+mean}}
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_a20655d36e621246dd384cbd634658481}{de\+\_\+mc\+\_\+analysis.\+post\+\_\+cov}}
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_a0bc789661b98516021d779ee9afd9337}{de\+\_\+mc\+\_\+analysis.\+log\+\_\+c\+\_\+std}}
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_a24d8d4f88ef3632d783e425aa196814e}{de\+\_\+mc\+\_\+analysis.\+fig}}
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_a1665aee00fd1aea767f5856b46266604}{de\+\_\+mc\+\_\+analysis.\+axs}}
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_a12c22b3427923b1239a4afead2feb8a4}{de\+\_\+mc\+\_\+analysis.\+figsize}}
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_aabaf6edaf6ee5925c75996b7700ebdad}{de\+\_\+mc\+\_\+analysis.\+lw}}
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_ad9b03e443450cd516e24b45bd59de9e4}{de\+\_\+mc\+\_\+analysis.\+alpha}}
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_a83bd3073479c9c0d23f8df8f517f68fd}{de\+\_\+mc\+\_\+analysis.\+c}}
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_a2b8fa4da4355d63ec51459ca0dc11c76}{de\+\_\+mc\+\_\+analysis.\+ls}}
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_af0a44e5f37ad6febd5689c94d4d429d8}{de\+\_\+mc\+\_\+analysis.\+label}}
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_a612f89bcf4e60eac1ba58ef6076e9b6e}{de\+\_\+mc\+\_\+analysis.\+dpi}}
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_a66ca361f113c89bbff2704f06edc690f}{de\+\_\+mc\+\_\+analysis.\+format}}
+\item 
+int \mbox{\hyperlink{namespacede__mc__analysis_a1595fbf363e38cc56d109c3fc52ec397}{de\+\_\+mc\+\_\+analysis.\+bins}} = 100
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_a1b892d4e63e447df671ba9188891810b}{de\+\_\+mc\+\_\+analysis.\+density}}
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_aeafceccb266783c5d28ca38bec3c4fa0}{de\+\_\+mc\+\_\+analysis.\+True}}
+\item 
+\mbox{\hyperlink{namespacede__mc__analysis_accdaa29347178e4d12caa65773fb9446}{de\+\_\+mc\+\_\+analysis.\+color}}
+\end{DoxyCompactItemize}

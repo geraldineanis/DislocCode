@@ -1,0 +1,470 @@
+\doxysection{dislocation\+\_\+script Namespace Reference}
+\hypertarget{namespacedislocation__script}{}\label{namespacedislocation__script}\index{dislocation\_script@{dislocation\_script}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a96bba6f400dc94de95dbff513a1420a9}{disloc\+\_\+frames}} = natsorted(glob.\+glob("{}./Ni\+\_\+disloc/disloc\+\_\+data\+\_\+\texorpdfstring{$\ast$}{*}.txt"{}))
+\item 
+int \mbox{\hyperlink{namespacedislocation__script_a1098f79dc28172319a10c53fe2316424}{step}} = 500\texorpdfstring{$\ast$}{*}0.\+001
+\item 
+list \mbox{\hyperlink{namespacedislocation__script_ae86b8be9b80189b8c981cfd3e972a757}{x\+\_\+coords}} = \mbox{[}$\,$\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacedislocation__script_abea80a044a85771e4e25b5fc0a934505}{y\+\_\+coords}} = \mbox{[}$\,$\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacedislocation__script_a21f68ee2ec006005f75e1048367ebb44}{z\+\_\+coords}} = \mbox{[}$\,$\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacedislocation__script_af2d678f005ab88e1f787c9704e8065ea}{time}} = \mbox{[}$\,$\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacedislocation__script_a711f87415665cafc982c086f34cbd839}{avg}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_aca9f33c8ffc66c66d823514f22ee5937}{x\+\_\+lim}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_ace2d97426c544bbd83ae06e1b230197d}{y\+\_\+lim}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_ad8f9c165d24b9315452e6d23f360b3e9}{z\+\_\+lim}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a25593ec0a686b24776a88c73b37a55c5}{dislocations}} = \mbox{\hyperlink{namespacedislocation__analysis_a513cfd8fa21b58d68ab6e500985171ad}{read\+\_\+disloc\+\_\+data}}(frame)
+\item 
+list \mbox{\hyperlink{namespacedislocation__script_a4e49d181a9d9c4f6c34cb15cea5b8bd3}{x\+\_\+coords\+\_\+i}} = \mbox{[}$\,$\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacedislocation__script_a494f606737804f9b8853b24fa62bd879}{y\+\_\+coords\+\_\+i}} = \mbox{[}$\,$\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacedislocation__script_ae15f5732d37e8f43c06167ee03f5eb06}{z\+\_\+coords\+\_\+i}} = \mbox{[}$\,$\mbox{]}
+\item 
+list \mbox{\hyperlink{namespacedislocation__script_a55b10b241a2ba4d64dd1948e53c89c5f}{avg\+\_\+pos}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a70d12ae27b05fa2a8cb49d3984e571a2}{dislocation}} = \mbox{\hyperlink{namespacedislocation__analysis_a2046904742a5b354cdc88c1ed03a37c1}{wrap\+\_\+coords}}(dislocation,"{}y"{},\mbox{\hyperlink{namespacedislocation__script_ace2d97426c544bbd83ae06e1b230197d}{y\+\_\+lim}})
+\item 
+\mbox{\hyperlink{namespacedislocation__script_acdb9d6586aebcfb091ecb13aeb337f39}{x}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a40d02aec72bb537d6ffa3dda6aca5be4}{y}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a3ae58e0e683ef2db7a80f0b900262185}{z}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_ade56666105e23c5af5197417f3751137}{n\+\_\+frames}} = len(\mbox{\hyperlink{namespacedislocation__script_a96bba6f400dc94de95dbff513a1420a9}{disloc\+\_\+frames}})
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a9edd750276def37b478564d74c9de2ae}{position}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a6f3ac9008a98e1a38ba4c5446a10c847}{vertices}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a056f5eb82796982c9407699be612356e}{t}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a1680c1f0d8660bb78a0e79acba43789d}{partial\+\_\+1}} = \mbox{\hyperlink{namespacedislocation__script_a9edd750276def37b478564d74c9de2ae}{position}}\mbox{[}0\mbox{]}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_ada203a0e7d9e898705699cafeba1f3ef}{partial\+\_\+2}} = \mbox{\hyperlink{namespacedislocation__script_a9edd750276def37b478564d74c9de2ae}{position}}\mbox{[}1\mbox{]}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a1de29d78a7e889a59af7e353d2a27323}{partial\+\_\+1\+\_\+vel}} = \mbox{\hyperlink{namespacedislocation__analysis_af22d170b46ff4cf5ec39d4fd2b550674}{get\+\_\+velocity}}(\mbox{\hyperlink{namespacedislocation__script_a1680c1f0d8660bb78a0e79acba43789d}{partial\+\_\+1}}, \mbox{\hyperlink{namespacedislocation__script_a1098f79dc28172319a10c53fe2316424}{step}})
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a91fba7b157ed8ba52b019a7dbab94ea4}{partial\+\_\+2\+\_\+vel}} = \mbox{\hyperlink{namespacedislocation__analysis_af22d170b46ff4cf5ec39d4fd2b550674}{get\+\_\+velocity}}(\mbox{\hyperlink{namespacedislocation__script_ada203a0e7d9e898705699cafeba1f3ef}{partial\+\_\+2}}, \mbox{\hyperlink{namespacedislocation__script_a1098f79dc28172319a10c53fe2316424}{step}})
+\item 
+list \mbox{\hyperlink{namespacedislocation__script_a0ae6a2fd1f4482fcbd06eb4298b97c31}{labels}} = \mbox{[}"{}Partial 1"{}, "{}Partial 2"{}\mbox{]}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a82b8288d16c12eb2405d737bcd9dda8e}{fig}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a87cf35062b57434092a54eda562d2e0c}{axs}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a440e8d8bccc990a754097b3a9fe37005}{figsize}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_ab41c03a25388e0e0daa9923b89b62933}{label}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a82d76aa11604529ac19326c5b83c4f31}{dpi}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_ab5f9ae77fc95cf55352cc9749006a6d1}{format}}
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a42fb3420cea25d75586959aa5a142fd1}{perfect\+\_\+disloc}} = \mbox{\hyperlink{namespacedislocation__analysis_a2a3e2d7a1c8307eb0036b9189ade83b9}{perfect\+\_\+disloc\+\_\+coords}}(\mbox{\hyperlink{namespacedislocation__script_a1680c1f0d8660bb78a0e79acba43789d}{partial\+\_\+1}}, \mbox{\hyperlink{namespacedislocation__script_ada203a0e7d9e898705699cafeba1f3ef}{partial\+\_\+2}})
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a491edcd113a47d13c15672fecccae16f}{velocity}} = \mbox{\hyperlink{namespacedislocation__analysis_af22d170b46ff4cf5ec39d4fd2b550674}{get\+\_\+velocity}}(\mbox{\hyperlink{namespacedislocation__script_a42fb3420cea25d75586959aa5a142fd1}{perfect\+\_\+disloc}}, \mbox{\hyperlink{namespacedislocation__script_a1098f79dc28172319a10c53fe2316424}{step}})
+\item 
+\mbox{\hyperlink{namespacedislocation__script_a51f1d8e4a10cc09d6b22734779894862}{fig1}}
+\item 
+str \mbox{\hyperlink{namespacedislocation__script_a16f183174a26dd8be058aeccfb43fc0f}{filename}} = "{}perfect\+\_\+pos.\+txt"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{namespacedislocation__script_a711f87415665cafc982c086f34cbd839}\label{namespacedislocation__script_a711f87415665cafc982c086f34cbd839} 
+\index{dislocation\_script@{dislocation\_script}!avg@{avg}}
+\index{avg@{avg}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{avg}{avg}}
+{\footnotesize\ttfamily list dislocation\+\_\+script.\+avg = \mbox{[}$\,$\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00032}{32}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a55b10b241a2ba4d64dd1948e53c89c5f}\label{namespacedislocation__script_a55b10b241a2ba4d64dd1948e53c89c5f} 
+\index{dislocation\_script@{dislocation\_script}!avg\_pos@{avg\_pos}}
+\index{avg\_pos@{avg\_pos}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{avg\_pos}{avg\_pos}}
+{\footnotesize\ttfamily list dislocation\+\_\+script.\+avg\+\_\+pos = \mbox{[}$\,$\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00047}{47}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a87cf35062b57434092a54eda562d2e0c}\label{namespacedislocation__script_a87cf35062b57434092a54eda562d2e0c} 
+\index{dislocation\_script@{dislocation\_script}!axs@{axs}}
+\index{axs@{axs}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{axs}{axs}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+axs}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00097}{97}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a96bba6f400dc94de95dbff513a1420a9}\label{namespacedislocation__script_a96bba6f400dc94de95dbff513a1420a9} 
+\index{dislocation\_script@{dislocation\_script}!disloc\_frames@{disloc\_frames}}
+\index{disloc\_frames@{disloc\_frames}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{disloc\_frames}{disloc\_frames}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+disloc\+\_\+frames = natsorted(glob.\+glob("{}./Ni\+\_\+disloc/disloc\+\_\+data\+\_\+\texorpdfstring{$\ast$}{*}.txt"{}))}
+
+\begin{DoxyVerb}                               #
+\end{DoxyVerb}
+ Analysis \# \# 
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00017}{17}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a70d12ae27b05fa2a8cb49d3984e571a2}\label{namespacedislocation__script_a70d12ae27b05fa2a8cb49d3984e571a2} 
+\index{dislocation\_script@{dislocation\_script}!dislocation@{dislocation}}
+\index{dislocation@{dislocation}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{dislocation}{dislocation}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+dislocation = \mbox{\hyperlink{namespacedislocation__analysis_a2046904742a5b354cdc88c1ed03a37c1}{wrap\+\_\+coords}}(dislocation,"{}y"{},\mbox{\hyperlink{namespacedislocation__script_ace2d97426c544bbd83ae06e1b230197d}{y\+\_\+lim}})}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00052}{52}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a25593ec0a686b24776a88c73b37a55c5}\label{namespacedislocation__script_a25593ec0a686b24776a88c73b37a55c5} 
+\index{dislocation\_script@{dislocation\_script}!dislocations@{dislocations}}
+\index{dislocations@{dislocations}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{dislocations}{dislocations}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+dislocations = \mbox{\hyperlink{namespacedislocation__analysis_a513cfd8fa21b58d68ab6e500985171ad}{read\+\_\+disloc\+\_\+data}}(frame)}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00040}{40}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a82d76aa11604529ac19326c5b83c4f31}\label{namespacedislocation__script_a82d76aa11604529ac19326c5b83c4f31} 
+\index{dislocation\_script@{dislocation\_script}!dpi@{dpi}}
+\index{dpi@{dpi}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{dpi}{dpi}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+dpi}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00116}{116}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a82b8288d16c12eb2405d737bcd9dda8e}\label{namespacedislocation__script_a82b8288d16c12eb2405d737bcd9dda8e} 
+\index{dislocation\_script@{dislocation\_script}!fig@{fig}}
+\index{fig@{fig}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{fig}{fig}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+fig}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00097}{97}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a51f1d8e4a10cc09d6b22734779894862}\label{namespacedislocation__script_a51f1d8e4a10cc09d6b22734779894862} 
+\index{dislocation\_script@{dislocation\_script}!fig1@{fig1}}
+\index{fig1@{fig1}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{fig1}{fig1}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+fig1}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00125}{125}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a440e8d8bccc990a754097b3a9fe37005}\label{namespacedislocation__script_a440e8d8bccc990a754097b3a9fe37005} 
+\index{dislocation\_script@{dislocation\_script}!figsize@{figsize}}
+\index{figsize@{figsize}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{figsize}{figsize}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+figsize}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00097}{97}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a16f183174a26dd8be058aeccfb43fc0f}\label{namespacedislocation__script_a16f183174a26dd8be058aeccfb43fc0f} 
+\index{dislocation\_script@{dislocation\_script}!filename@{filename}}
+\index{filename@{filename}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{filename}{filename}}
+{\footnotesize\ttfamily str dislocation\+\_\+script.\+filename = "{}perfect\+\_\+pos.\+txt"{}}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00145}{145}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_ab5f9ae77fc95cf55352cc9749006a6d1}\label{namespacedislocation__script_ab5f9ae77fc95cf55352cc9749006a6d1} 
+\index{dislocation\_script@{dislocation\_script}!format@{format}}
+\index{format@{format}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{format}{format}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+format}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00116}{116}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_ab41c03a25388e0e0daa9923b89b62933}\label{namespacedislocation__script_ab41c03a25388e0e0daa9923b89b62933} 
+\index{dislocation\_script@{dislocation\_script}!label@{label}}
+\index{label@{label}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{label}{label}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+label}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00101}{101}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a0ae6a2fd1f4482fcbd06eb4298b97c31}\label{namespacedislocation__script_a0ae6a2fd1f4482fcbd06eb4298b97c31} 
+\index{dislocation\_script@{dislocation\_script}!labels@{labels}}
+\index{labels@{labels}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{labels}{labels}}
+{\footnotesize\ttfamily list dislocation\+\_\+script.\+labels = \mbox{[}"{}Partial 1"{}, "{}Partial 2"{}\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00095}{95}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_ade56666105e23c5af5197417f3751137}\label{namespacedislocation__script_ade56666105e23c5af5197417f3751137} 
+\index{dislocation\_script@{dislocation\_script}!n\_frames@{n\_frames}}
+\index{n\_frames@{n\_frames}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{n\_frames}{n\_frames}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+n\+\_\+frames = len(\mbox{\hyperlink{namespacedislocation__script_a96bba6f400dc94de95dbff513a1420a9}{disloc\+\_\+frames}})}
+
+\begin{DoxyVerb}                                       #
+\end{DoxyVerb}
+ Dislocation Tracking \# \# 
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00078}{78}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a1680c1f0d8660bb78a0e79acba43789d}\label{namespacedislocation__script_a1680c1f0d8660bb78a0e79acba43789d} 
+\index{dislocation\_script@{dislocation\_script}!partial\_1@{partial\_1}}
+\index{partial\_1@{partial\_1}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{partial\_1}{partial\_1}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+partial\+\_\+1 = \mbox{\hyperlink{namespacedislocation__script_a9edd750276def37b478564d74c9de2ae}{position}}\mbox{[}0\mbox{]}}
+
+\begin{DoxyVerb}                               #
+\end{DoxyVerb}
+ Plots \# \# 
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00089}{89}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a1de29d78a7e889a59af7e353d2a27323}\label{namespacedislocation__script_a1de29d78a7e889a59af7e353d2a27323} 
+\index{dislocation\_script@{dislocation\_script}!partial\_1\_vel@{partial\_1\_vel}}
+\index{partial\_1\_vel@{partial\_1\_vel}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{partial\_1\_vel}{partial\_1\_vel}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+partial\+\_\+1\+\_\+vel = \mbox{\hyperlink{namespacedislocation__analysis_af22d170b46ff4cf5ec39d4fd2b550674}{get\+\_\+velocity}}(\mbox{\hyperlink{namespacedislocation__script_a1680c1f0d8660bb78a0e79acba43789d}{partial\+\_\+1}}, \mbox{\hyperlink{namespacedislocation__script_a1098f79dc28172319a10c53fe2316424}{step}})}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00092}{92}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_ada203a0e7d9e898705699cafeba1f3ef}\label{namespacedislocation__script_ada203a0e7d9e898705699cafeba1f3ef} 
+\index{dislocation\_script@{dislocation\_script}!partial\_2@{partial\_2}}
+\index{partial\_2@{partial\_2}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{partial\_2}{partial\_2}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+partial\+\_\+2 = \mbox{\hyperlink{namespacedislocation__script_a9edd750276def37b478564d74c9de2ae}{position}}\mbox{[}1\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00090}{90}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a91fba7b157ed8ba52b019a7dbab94ea4}\label{namespacedislocation__script_a91fba7b157ed8ba52b019a7dbab94ea4} 
+\index{dislocation\_script@{dislocation\_script}!partial\_2\_vel@{partial\_2\_vel}}
+\index{partial\_2\_vel@{partial\_2\_vel}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{partial\_2\_vel}{partial\_2\_vel}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+partial\+\_\+2\+\_\+vel = \mbox{\hyperlink{namespacedislocation__analysis_af22d170b46ff4cf5ec39d4fd2b550674}{get\+\_\+velocity}}(\mbox{\hyperlink{namespacedislocation__script_ada203a0e7d9e898705699cafeba1f3ef}{partial\+\_\+2}}, \mbox{\hyperlink{namespacedislocation__script_a1098f79dc28172319a10c53fe2316424}{step}})}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00093}{93}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a42fb3420cea25d75586959aa5a142fd1}\label{namespacedislocation__script_a42fb3420cea25d75586959aa5a142fd1} 
+\index{dislocation\_script@{dislocation\_script}!perfect\_disloc@{perfect\_disloc}}
+\index{perfect\_disloc@{perfect\_disloc}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{perfect\_disloc}{perfect\_disloc}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+perfect\+\_\+disloc = \mbox{\hyperlink{namespacedislocation__analysis_a2a3e2d7a1c8307eb0036b9189ade83b9}{perfect\+\_\+disloc\+\_\+coords}}(\mbox{\hyperlink{namespacedislocation__script_a1680c1f0d8660bb78a0e79acba43789d}{partial\+\_\+1}}, \mbox{\hyperlink{namespacedislocation__script_ada203a0e7d9e898705699cafeba1f3ef}{partial\+\_\+2}})}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00120}{120}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a9edd750276def37b478564d74c9de2ae}\label{namespacedislocation__script_a9edd750276def37b478564d74c9de2ae} 
+\index{dislocation\_script@{dislocation\_script}!position@{position}}
+\index{position@{position}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+position}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00080}{80}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a1098f79dc28172319a10c53fe2316424}\label{namespacedislocation__script_a1098f79dc28172319a10c53fe2316424} 
+\index{dislocation\_script@{dislocation\_script}!step@{step}}
+\index{step@{step}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{step}{step}}
+{\footnotesize\ttfamily int dislocation\+\_\+script.\+step = 500\texorpdfstring{$\ast$}{*}0.\+001}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00019}{19}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a056f5eb82796982c9407699be612356e}\label{namespacedislocation__script_a056f5eb82796982c9407699be612356e} 
+\index{dislocation\_script@{dislocation\_script}!t@{t}}
+\index{t@{t}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{t}{t}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+t}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00080}{80}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_af2d678f005ab88e1f787c9704e8065ea}\label{namespacedislocation__script_af2d678f005ab88e1f787c9704e8065ea} 
+\index{dislocation\_script@{dislocation\_script}!time@{time}}
+\index{time@{time}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{time}{time}}
+{\footnotesize\ttfamily list dislocation\+\_\+script.\+time = \mbox{[}$\,$\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00027}{27}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a491edcd113a47d13c15672fecccae16f}\label{namespacedislocation__script_a491edcd113a47d13c15672fecccae16f} 
+\index{dislocation\_script@{dislocation\_script}!velocity@{velocity}}
+\index{velocity@{velocity}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{velocity}{velocity}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+velocity = \mbox{\hyperlink{namespacedislocation__analysis_af22d170b46ff4cf5ec39d4fd2b550674}{get\+\_\+velocity}}(\mbox{\hyperlink{namespacedislocation__script_a42fb3420cea25d75586959aa5a142fd1}{perfect\+\_\+disloc}}, \mbox{\hyperlink{namespacedislocation__script_a1098f79dc28172319a10c53fe2316424}{step}})}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00123}{123}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a6f3ac9008a98e1a38ba4c5446a10c847}\label{namespacedislocation__script_a6f3ac9008a98e1a38ba4c5446a10c847} 
+\index{dislocation\_script@{dislocation\_script}!vertices@{vertices}}
+\index{vertices@{vertices}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{vertices}{vertices}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+vertices}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00080}{80}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_acdb9d6586aebcfb091ecb13aeb337f39}\label{namespacedislocation__script_acdb9d6586aebcfb091ecb13aeb337f39} 
+\index{dislocation\_script@{dislocation\_script}!x@{x}}
+\index{x@{x}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+x}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00056}{56}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_ae86b8be9b80189b8c981cfd3e972a757}\label{namespacedislocation__script_ae86b8be9b80189b8c981cfd3e972a757} 
+\index{dislocation\_script@{dislocation\_script}!x\_coords@{x\_coords}}
+\index{x\_coords@{x\_coords}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{x\_coords}{x\_coords}}
+{\footnotesize\ttfamily list dislocation\+\_\+script.\+x\+\_\+coords = \mbox{[}$\,$\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00022}{22}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a4e49d181a9d9c4f6c34cb15cea5b8bd3}\label{namespacedislocation__script_a4e49d181a9d9c4f6c34cb15cea5b8bd3} 
+\index{dislocation\_script@{dislocation\_script}!x\_coords\_i@{x\_coords\_i}}
+\index{x\_coords\_i@{x\_coords\_i}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{x\_coords\_i}{x\_coords\_i}}
+{\footnotesize\ttfamily list dislocation\+\_\+script.\+x\+\_\+coords\+\_\+i = \mbox{[}$\,$\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00043}{43}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_aca9f33c8ffc66c66d823514f22ee5937}\label{namespacedislocation__script_aca9f33c8ffc66c66d823514f22ee5937} 
+\index{dislocation\_script@{dislocation\_script}!x\_lim@{x\_lim}}
+\index{x\_lim@{x\_lim}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{x\_lim}{x\_lim}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+x\+\_\+lim}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00035}{35}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a40d02aec72bb537d6ffa3dda6aca5be4}\label{namespacedislocation__script_a40d02aec72bb537d6ffa3dda6aca5be4} 
+\index{dislocation\_script@{dislocation\_script}!y@{y}}
+\index{y@{y}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+y}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00056}{56}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_abea80a044a85771e4e25b5fc0a934505}\label{namespacedislocation__script_abea80a044a85771e4e25b5fc0a934505} 
+\index{dislocation\_script@{dislocation\_script}!y\_coords@{y\_coords}}
+\index{y\_coords@{y\_coords}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{y\_coords}{y\_coords}}
+{\footnotesize\ttfamily list dislocation\+\_\+script.\+y\+\_\+coords = \mbox{[}$\,$\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00023}{23}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a494f606737804f9b8853b24fa62bd879}\label{namespacedislocation__script_a494f606737804f9b8853b24fa62bd879} 
+\index{dislocation\_script@{dislocation\_script}!y\_coords\_i@{y\_coords\_i}}
+\index{y\_coords\_i@{y\_coords\_i}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{y\_coords\_i}{y\_coords\_i}}
+{\footnotesize\ttfamily list dislocation\+\_\+script.\+y\+\_\+coords\+\_\+i = \mbox{[}$\,$\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00044}{44}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_ace2d97426c544bbd83ae06e1b230197d}\label{namespacedislocation__script_ace2d97426c544bbd83ae06e1b230197d} 
+\index{dislocation\_script@{dislocation\_script}!y\_lim@{y\_lim}}
+\index{y\_lim@{y\_lim}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{y\_lim}{y\_lim}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+y\+\_\+lim}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00035}{35}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a3ae58e0e683ef2db7a80f0b900262185}\label{namespacedislocation__script_a3ae58e0e683ef2db7a80f0b900262185} 
+\index{dislocation\_script@{dislocation\_script}!z@{z}}
+\index{z@{z}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{z}{z}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+z}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00056}{56}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_a21f68ee2ec006005f75e1048367ebb44}\label{namespacedislocation__script_a21f68ee2ec006005f75e1048367ebb44} 
+\index{dislocation\_script@{dislocation\_script}!z\_coords@{z\_coords}}
+\index{z\_coords@{z\_coords}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{z\_coords}{z\_coords}}
+{\footnotesize\ttfamily list dislocation\+\_\+script.\+z\+\_\+coords = \mbox{[}$\,$\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00024}{24}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_ae15f5732d37e8f43c06167ee03f5eb06}\label{namespacedislocation__script_ae15f5732d37e8f43c06167ee03f5eb06} 
+\index{dislocation\_script@{dislocation\_script}!z\_coords\_i@{z\_coords\_i}}
+\index{z\_coords\_i@{z\_coords\_i}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{z\_coords\_i}{z\_coords\_i}}
+{\footnotesize\ttfamily list dislocation\+\_\+script.\+z\+\_\+coords\+\_\+i = \mbox{[}$\,$\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00045}{45}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+
+\Hypertarget{namespacedislocation__script_ad8f9c165d24b9315452e6d23f360b3e9}\label{namespacedislocation__script_ad8f9c165d24b9315452e6d23f360b3e9} 
+\index{dislocation\_script@{dislocation\_script}!z\_lim@{z\_lim}}
+\index{z\_lim@{z\_lim}!dislocation\_script@{dislocation\_script}}
+\doxysubsubsection{\texorpdfstring{z\_lim}{z\_lim}}
+{\footnotesize\ttfamily dislocation\+\_\+script.\+z\+\_\+lim}
+
+
+
+Definition at line \mbox{\hyperlink{dislocation__script_8py_source_l00035}{35}} of file \mbox{\hyperlink{dislocation__script_8py_source}{dislocation\+\_\+script.\+py}}.
+

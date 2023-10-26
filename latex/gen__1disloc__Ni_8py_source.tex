@@ -1,0 +1,152 @@
+\doxysection{gen\+\_\+1disloc\+\_\+\+Ni.\+py}
+\hypertarget{gen__1disloc__Ni_8py_source}{}\label{gen__1disloc__Ni_8py_source}\index{structure\_gen/gen\_1disloc\_Ni.py@{structure\_gen/gen\_1disloc\_Ni.py}}
+\mbox{\hyperlink{gen__1disloc__Ni_8py}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00001}\mbox{\hyperlink{namespacegen__1disloc__Ni}{00001}}\ \textcolor{keyword}{from}\ ase.lattice.compounds\ \textcolor{keyword}{import}\ L1\_2}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00002}00002\ \textcolor{keyword}{from}\ ase.lattice.cubic\ \textcolor{keyword}{import}\ FaceCenteredCubic}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00003}00003\ \textcolor{keyword}{from}\ ase.build\ \textcolor{keyword}{import}\ fcc111,\ fcc110,\ surface,\ bulk,\ rotate,\ cut}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00004}00004\ \textcolor{keyword}{from}\ ase.visualize\ \textcolor{keyword}{import}\ view}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00005}00005\ \textcolor{keyword}{from}\ ase\ \textcolor{keyword}{import}\ Atoms}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00006}00006\ \textcolor{keyword}{import}\ numpy\ \textcolor{keyword}{as}\ np}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00008}00008\ \textcolor{comment}{\#\ Lattice\ parameters}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00009}\mbox{\hyperlink{namespacegen__1disloc__Ni_af8d9657452ec5dbec59f5efca9c0a859}{00009}}\ gamma\_latt\ =\ 3.52}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00011}00011\ \textcolor{comment}{\#\ Directions\ for\ (111)}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00012}\mbox{\hyperlink{namespacegen__1disloc__Ni_ae169f2000e3c45f81ab0c4ca35c77e97}{00012}}\ directions\ =\ np.array([[1,-\/1,0],}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00013}00013\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [1,1,-\/2],}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ [1,1,1]])}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00016}00016\ \textcolor{comment}{\#\ Layer\ sizes}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00017}00017\ \textcolor{comment}{\#\ Lower\ gamma}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00018}\mbox{\hyperlink{namespacegen__1disloc__Ni_a1a58df757097ed32ed2480178680984a}{00018}}\ x1\ =\ int(20.5*2)}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00019}\mbox{\hyperlink{namespacegen__1disloc__Ni_acca23b9e580ea10476e0191287c9064e}{00019}}\ y1\ =\ int(10*2)}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00020}\mbox{\hyperlink{namespacegen__1disloc__Ni_afbc5f9297d658297cb4fce492f348c62}{00020}}\ z1\ =\ 20}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00022}00022\ \textcolor{comment}{\#\ Upper\ gamma}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00023}\mbox{\hyperlink{namespacegen__1disloc__Ni_a5191e2660424ceb9b306121eebf7c7fe}{00023}}\ x2\ =\ int(21*2)}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00024}\mbox{\hyperlink{namespacegen__1disloc__Ni_a6351473d70fe2cbfa805d850304bd6ec}{00024}}\ y2\ =\ int(10*2)}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00025}\mbox{\hyperlink{namespacegen__1disloc__Ni_a8c1bffb98c7e8c8c5ac5790743e2a601}{00025}}\ z2\ =\ 20}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00027}00027\ \textcolor{comment}{\#\ Box\ dimensions}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00028}\mbox{\hyperlink{namespacegen__1disloc__Ni_a270b758bfd9526b44ec5cc80d04e9290}{00028}}\ cell\_x\ =\ x2*gamma\_latt*np.sqrt(2)/2.0}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00029}\mbox{\hyperlink{namespacegen__1disloc__Ni_a94b21c10db6ef80c2f498f9d41f57fef}{00029}}\ cell\_y\ =\ y1*gamma\_latt*np.sqrt(6)/2.0}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00030}\mbox{\hyperlink{namespacegen__1disloc__Ni_a600cc864faacf70e7e84c016dcabb4c8}{00030}}\ cell\_z\ =\ (z1+z2)*gamma\_latt*np.sqrt(3)}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00031}\mbox{\hyperlink{namespacegen__1disloc__Ni_ae53cf441e409151ed40bfda89c8433e9}{00031}}\ box\_dim\ =\ [cell\_x,cell\_y,cell\_z]}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00037}\mbox{\hyperlink{namespacegen__1disloc__Ni_acc070832507fb20239e68a25b13930f9}{00037}}\ gamma\_1\ =\ FaceCenteredCubic(directions=directions,\ size=(x1,y1,z1),\ symbol=\textcolor{stringliteral}{"{}Ni"{}},\ pbc=(1,1,1),\ latticeconstant=gamma\_latt)}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00040}\mbox{\hyperlink{namespacegen__1disloc__Ni_a6da61f7b614c52bfa80ecdfab5180678}{00040}}\ gamma\_1\_atoms\ =\ gamma\_1.get\_positions()}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00041}\mbox{\hyperlink{namespacegen__1disloc__Ni_a2fbaebac5adf4de4ec9eb96509cd5265}{00041}}\ gamma\_1\_atom\_types\ =\ gamma\_1.get\_chemical\_symbols()}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00043}00043\ gamma\_1\ =\ list(zip(gamma\_1\_atom\_types,\ gamma\_1\_atoms))}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00045}00045\ \textcolor{comment}{\#\ Modify\ atom\ positions\ to\ get\ correct\ structure}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00046}\mbox{\hyperlink{namespacegen__1disloc__Ni_aceab6f5a0f0e5d749981663d7444e0c7}{00046}}\ k\ =\ 1.0+(1.0/x1)}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00047}00047\ \textcolor{comment}{\#\ k\ =\ 1.0}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00048}00048\ \textcolor{keywordflow}{for}\ atom\ \textcolor{keywordflow}{in}\ gamma\_1:}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00049}00049\ \ \ \ \ \textcolor{comment}{\#\ \#\ Wrap\ atoms\ in\ x}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00050}00050\ \ \ \ \ \textcolor{comment}{\#\ if\ atom[1][0]\ <\ 0.0:}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00051}00051\ \ \ \ \ \textcolor{comment}{\#\ \ \ \ \ atom[1][0]\ =\ atom[1][0]\ +\ x1*gamma\_latt*np.sqrt(2)/2.0\ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00052}00052\ \ \ \ \ \textcolor{comment}{\#\ \#\ Wrap\ atoms\ in\ y}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00053}00053\ \ \ \ \ \textcolor{comment}{\#\ if\ atom[1][1]\ <\ 0.0:}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00054}00054\ \ \ \ \ \textcolor{comment}{\#\ \ \ \ \ atom[1][1]\ =\ atom[1][1]\ +\ y1*gamma\_latt*np.sqrt(6)/2.0}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00055}00055\ \ \ \ \ \textcolor{comment}{\#\ Wrap\ atoms\ in\ z}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00056}00056\ \ \ \ \ \textcolor{keywordflow}{if}\ atom[1][2]\ >=\ z1*gamma\_latt*np.sqrt(3):}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00057}00057\ \ \ \ \ \ \ \ \ atom[1][2]\ =\ atom[1][2]\ -\/\ z1*gamma\_latt*np.sqrt(3)}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00058}00058\ \ \ \ \ \textcolor{comment}{\#\ Elongate\ atoms\ in\ the\ x\ direction}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00059}00059\ \ \ \ \ \textcolor{keywordflow}{if}\ atom[1][0]\ >\ 0.5*gamma\_latt*np.sqrt(2)/2.0:}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00060}00060\ \ \ \ \ \ \ \ \ atom[1][0]\ =\ atom[1][0]*k}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00062}00062\ \textcolor{comment}{\#\ Check\ number\ of\ atoms}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00063}00063\ print(\textcolor{stringliteral}{"{}Lower\ gamma\ layer"{}})}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00065}\mbox{\hyperlink{namespacegen__1disloc__Ni_aa188d50d7e4dd69ea5661563a717bf9c}{00065}}\ lx\ =\ np.sqrt(2)/2.0}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00066}\mbox{\hyperlink{namespacegen__1disloc__Ni_a2ae629fc7ba2edc8a748beafafec5209}{00066}}\ ly\ =\ np.sqrt(6)/2.0}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00067}\mbox{\hyperlink{namespacegen__1disloc__Ni_aa805423e6713cd44c6ea06a489cca1f1}{00067}}\ lz=\ np.sqrt(3)}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00069}00069\ \textcolor{comment}{\#\ Expected\ number\ of\ atoms}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00070}\mbox{\hyperlink{namespacegen__1disloc__Ni_a32fc8ab492dcc5f08d2f574a0e01516a}{00070}}\ natoms\_th\ =\ x1*lx*y1*ly*z1*lz*4}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00071}00071\ print(\textcolor{stringliteral}{"{}Expected\ number\ of\ atoms:"{}},\ natoms\_th)}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00073}\mbox{\hyperlink{namespacegen__1disloc__Ni_aaa33c25bf6677b32468ff9424907b79f}{00073}}\ natoms\ =\ len(gamma\_1)}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00074}00074\ print(\textcolor{stringliteral}{"{}Actual\ number\ of\ atoms:"{}},\ natoms)}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00079}\mbox{\hyperlink{namespacegen__1disloc__Ni_aea11872dd489f5b8e704374e06c0c92d}{00079}}\ gamma\_2\ =\ FaceCenteredCubic(directions=directions,\ size=(x2,y2,z2),\ symbol=\textcolor{stringliteral}{"{}Ni"{}},\ pbc=(1,1,1),\ latticeconstant=gamma\_latt)}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00081}\mbox{\hyperlink{namespacegen__1disloc__Ni_ad5aac1940d0d9d1133a7537b0adfcb1b}{00081}}\ gamma\_2\_atoms\ =\ gamma\_2.get\_positions()}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00082}\mbox{\hyperlink{namespacegen__1disloc__Ni_a4993d49801afecc7f5ab0356b62cad3b}{00082}}\ gamma\_2\_atom\_types\ =\ gamma\_2.get\_chemical\_symbols()}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00084}00084\ gamma\_2\ =\ list(zip(gamma\_2\_atom\_types,\ gamma\_2\_atoms))}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00086}00086\ \textcolor{comment}{\#\ Modify\ atom\ positions\ to\ get\ correct\ structure}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00087}00087\ \textcolor{comment}{\#\ k\ =\ 1.0-\/(1.0/(x1+x2))}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00088}00088\ k\ =\ 1.0}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00089}00089\ \textcolor{keywordflow}{for}\ atom\ \textcolor{keywordflow}{in}\ gamma\_2:}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00090}00090\ \ \ \ \ \textcolor{comment}{\#\ \#\ Wrap\ atoms\ in\ x}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00091}00091\ \ \ \ \ \textcolor{comment}{\#\ if\ atom[1][0]\ <\ 0.0:}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00092}00092\ \ \ \ \ \textcolor{comment}{\#\ \ \ \ \ atom[1][0]\ =\ atom[1][0]\ +\ x2*gamma\_latt*np.sqrt(2)/2.0}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00093}00093\ \ \ \ \ \textcolor{comment}{\#\ \#\ Wrap\ atoms\ in\ y}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00094}00094\ \ \ \ \ \textcolor{comment}{\#\ if\ atom[1][1]\ <\ 0.0:}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00095}00095\ \ \ \ \ \textcolor{comment}{\#\ \ \ \ \ atom[1][1]\ =\ atom[1][1]\ +\ y2*gamma\_latt*np.sqrt(6)/2.0\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00096}00096\ \ \ \ \ \textcolor{comment}{\#\ Wrap\ atoms\ in\ z}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00097}00097\ \ \ \ \ \textcolor{keywordflow}{if}\ atom[1][2]\ >=\ z2*gamma\_latt*np.sqrt(3):}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00098}00098\ \ \ \ \ \ \ \ \ atom[1][2]\ =\ atom[1][2]\ -\/\ z2*gamma\_latt*np.sqrt(3)\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00099}00099\ \ \ \ \ \textcolor{comment}{\#\ Shift\ atoms\ in\ z\ direction}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00100}00100\ \ \ \ \ atom[1][2]\ =\ atom[1][2]\ +\ z1*gamma\_latt*np.sqrt(3)}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00101}00101\ \ \ \ \ \textcolor{comment}{\#\ Compress\ atoms\ in\ the\ x\ direction}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00102}00102\ \ \ \ \ \textcolor{keywordflow}{if}\ atom[1][0]\ >\ 0.5*gamma\_latt*np.sqrt(2)/2.0:}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00103}00103\ \ \ \ \ \ \ \ \ atom[1][0]\ =\ atom[1][0]*k}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00105}00105\ \textcolor{comment}{\#\ del\_atom\ =\ [i\ for\ i\ in\ range(len(gamma\_2))\ if\ (gamma\_2[i][1][0]\ >\ cell\_x-\/(0.5*gamma\_latt*np.sqrt(2)/2.0))]}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00106}00106\ \textcolor{comment}{\#\ gamma\_2\ =\ np.delete(gamma\_2,\ del\_atom,\ 0)}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00109}00109\ \textcolor{comment}{\#\ Check\ number\ of\ atoms}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00110}00110\ print(\textcolor{stringliteral}{"{}Upper\ gamma\ layer"{}})}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00112}00112\ \textcolor{comment}{\#\ Expected\ number\ of\ atoms}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00113}00113\ natoms\_th\ =\ x2*lx*y2*ly*z2*lz*4}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00114}00114\ print(\textcolor{stringliteral}{"{}Expected\ number\ of\ atoms:"{}},\ natoms\_th)}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00116}00116\ natoms\ =\ len(gamma\_2)}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00117}00117\ print(\textcolor{stringliteral}{"{}Actual\ number\ of\ atoms:"{}},\ natoms)}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00123}00123\ \textcolor{keyword}{with}\ open(\textcolor{stringliteral}{"{}disloc\_Ni.data"{}},\ \textcolor{stringliteral}{"{}w"{}})\ \textcolor{keyword}{as}\ fdata:}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00125}00125\ \ \ \ \ \textcolor{comment}{\#\ Comment\ line}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00126}00126\ \ \ \ \ fdata.write(\textcolor{stringliteral}{"{}This\ is\ a\ test\ to\ generate\ atoms\ for\ LAMMPS\(\backslash\)n\(\backslash\)n"{}})}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00128}\mbox{\hyperlink{namespacegen__1disloc__Ni_afc7b17525335d48b3e7054e25c2073dd}{00128}}\ \ \ \ \ ntypes\ =\ 1}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00130}00130\ \ \ \ \ \textcolor{comment}{\#\ Header}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00131}00131\ \ \ \ \ \textcolor{comment}{\#\ Number\ of\ atoms\ and\ atom\ types}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00132}00132\ \ \ \ \ fdata.write(f\textcolor{stringliteral}{"{}\{len(gamma\_1)+len(gamma\_2)\}\ atoms\(\backslash\)n"{}})}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00133}00133\ \ \ \ \ fdata.write(f\textcolor{stringliteral}{"{}\{ntypes\}\ atom\ types\(\backslash\)n"{}})}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00135}00135\ \ \ \ \ \textcolor{comment}{\#\ Box\ dimensions}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00136}00136\ \ \ \ \ fdata.write(f\textcolor{stringliteral}{"{}\{0.0\}\ \{box\_dim[0]\}\ xlo\ xhi\(\backslash\)n"{}})}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00137}00137\ \ \ \ \ fdata.write(f\textcolor{stringliteral}{"{}\{0.0\}\ \{box\_dim[1]\}\ ylo\ yhi\(\backslash\)n"{}})}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00138}00138\ \ \ \ \ fdata.write(f\textcolor{stringliteral}{"{}\{0.0\}\ \{box\_dim[2]\}\ zlo\ zhi\(\backslash\)n"{}})}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00139}00139\ \ \ \ \ fdata.write(\textcolor{stringliteral}{"{}\(\backslash\)n"{}})}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00141}00141\ \ \ \ \ \textcolor{comment}{\#\ Atoms\ section}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00142}00142\ \ \ \ \ fdata.write(f\textcolor{stringliteral}{"{}Atoms\(\backslash\)n\(\backslash\)n"{}})}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00144}00144\ \ \ \ \ \textcolor{comment}{\#\ Write\ each\ position}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00145}00145\ \ \ \ \ \textcolor{comment}{\#\ gamma\_1}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00146}\mbox{\hyperlink{namespacegen__1disloc__Ni_a9a9238fc9e91432e3fe898ceaa0186fd}{00146}}\ \ \ \ \ atype=1}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00147}00147\ \ \ \ \ \textcolor{keywordflow}{for}\ i,atom\ \textcolor{keywordflow}{in}\ enumerate(gamma\_1):}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00148}00148\ \ \ \ \ \ \ \ \ fdata.write(f\textcolor{stringliteral}{"{}\{i+1\}\ \{atype\}\ \{atom[1][0]\}\ \{atom[1][1]\}\ \{atom[1][2]\}\(\backslash\)n"{}})\ \textcolor{comment}{\#\ atom-\/ID\ atom-\/type\ x\ y\ z}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00150}00150\ \ \ \ \ \textcolor{comment}{\#\ gamma\_2}}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00151}00151\ \ \ \ \ \textcolor{keywordflow}{for}\ i,atom\ \textcolor{keywordflow}{in}\ enumerate(gamma\_2):}
+\DoxyCodeLine{\Hypertarget{gen__1disloc__Ni_8py_source_l00152}00152\ \ \ \ \ \ \ \ \ fdata.write(f\textcolor{stringliteral}{"{}\{i+1+len(gamma\_1)\}\ \{atype\}\ \{atom[1][0]\}\ \{atom[1][1]\}\ \{atom[1][2]\}\(\backslash\)n"{}})\ \textcolor{comment}{\#\ atom-\/ID\ atom-\/type\ x\ y\ z}}
+
+\end{DoxyCode}
