@@ -1,5 +1,4 @@
 import numpy as np
-import math
 from matplotlib import pyplot as plt
 from matplotlib import animation
 from mpl_toolkits import mplot3d
@@ -49,7 +48,9 @@ for i, frame in enumerate(disloc_frames):
 
     for dislocation in dislocations:
         # Wrap coordinates
-        dislocation = wrap_coords_y(dislocation,y_lim)
+        # dislocation = wrap_coords_y(dislocation,y_lim)
+        dislocation = wrap_coords(dislocation,"y",y_lim)
+
 
         # Get coordinates of dislocation line vertices
         x, y, z = get_disloc_coords(dislocation)
@@ -69,96 +70,80 @@ for i, frame in enumerate(disloc_frames):
     # Append average positions
     avg.append(np.array(avg_pos, dtype=object))
 
-# for i in range(len(avg)):
-#     for j in range(len(avg[i])):
-#         if avg[i][j][0] > x_lim:
-#             avg[i][j][0] -= x_lim            
-#         if avg[i][j][0] < 0.0:
-#             avg[i][j][0] += x_lim
-
-# avg_x_pos = [avg[i][j][0][0] for i in range(len(avg)) for j in range(len(avg[i]))]
-
-# for i in range(len(avg_x_pos)):
-#     if i <= 30 and avg_x_pos[i] > 0.9*x_lim:
-#         avg_x_pos[i] -= x_lim
-
-# plt.plot(avg_x_pos, "o")
-# plt.show()
-
-# # Fix for part of dislocation starting beyond pbc
-# for i in range(len(avg)):
-#     for j in range(len(avg[i])):
-#         if i <= 30 and avg[i][j][0][0] > 0.9*x_lim:
-#             avg[i][j][0][0] -= x_lim
-
-
 ###################################################################
 #                                                                 #
-#                        Dislocation Tracking                     #
+#                      Dislocation Tracking                       #
 #                                                                 #
 ###################################################################
 n_frames = len(disloc_frames)
 
-position, vertices, t = track_disloc(avg, x_lim, n_frames)
+position, vertices, t = track_disloc(avg, x_lim)
 
-# ###################################################################
-# #                                                                 #
-# #                       Calculations and Plots                    #
-# #                                                                 #
-# ###################################################################
-# for i in range(len(position)):
-#     plt.scatter(t[i], position[i], label=f"{i}")
-# plt.legend()
-# plt.show()
+###################################################################
+#                                                                 #
+#                              Plots                              #
+#                                                                 #
+###################################################################
 
-# Average coordinates of partials
-# Leading dislocation
-leading_disloc = perfect_disloc_coords(position[0], position[1])
-# # Trailing dislocation
-# trailing_disloc = perfect_disloc_coords(position[2], position[3])
+# Partial Dislocations
+partial_1 = position[0]
+partial_2 = position[1]
 
-perfect_disloc = [leading_disloc]
-labels=["Perfect dislocation"]
+partial_1_vel = get_velocity(partial_1, step)
+partial_2_vel = get_velocity(partial_2, step)
 
-# Calculate perfect dislocation velocities
-velocities = [get_velocity(disloc, step) for disloc in perfect_disloc]
+labels = ["Partial 1", "Partial 2"]
 
-# Plot perfect dislocation position against time
-plt.figure(figsize=(7,5))
-for i in range(len(perfect_disloc)):
-    plt.scatter(t[0][:24], perfect_disloc[i][:24], label=labels[i], s=2)
-# plt.title("Dislocation Trajectory")
-plt.xlabel("t (ps)")
-plt.ylabel(r"x $(\mathring A)$")
-plt.legend()
-plt.savefig("disloc_pos.png", dpi=350, format="png")
-plt.show()
+fig, axs = plt.subplots(1, 2 , figsize=(11,5))
+fig.suptitle("Partial Dislocations")
+
+axs[0].set_title("Position")
+axs[0].plot(t[0], partial_1, label=labels[0])
+axs[0].plot(t[1], partial_2, label=labels[1])
+
+axs[0].set_ylabel(r"$x$ $(\mathring A)$")
 
 # Plot perfect dislocation velocity against time
-plt.figure(figsize=(7,5))
-for i in range(len(velocities)):
-    plt.plot(t[0], velocities[i], label=labels[i])
-# plt.axvline(19.0, ls="--", lw=1, c="tab:red")
-# plt.title("Dislocation Velocity")
-plt.xlabel("t (ps)")
-plt.ylabel(r"$v_{x}$ $(\mathring A/ps)$")
-plt.legend()
-plt.savefig("disloc_vel.png", dpi=350, format="png")
+axs[1].set_title("Velocity")
+axs[1].plot(t[0], partial_1_vel, label=labels[0])
+axs[1].plot(t[1], partial_2_vel, label=labels[1])
+axs[1].set_ylabel(r"$v_{x}$ ($\mathring A$/ps)")
+
+for ax in axs:
+    ax.set_xlabel(r"$t$ (ps)")
+    ax.legend()
 plt.show()
+fig.savefig("partials_pos_vel.png", dpi=350, format="png")
 
-# # Write coordinates for each dislocation
-# Leading dislocation
-# filename = "perfect_pos.txt"
-# write_prop(filename, perfect_disloc[0], time)
-# Trailing dislocation
-# filename = "trailing_pos.txt"
-# write_prop(filename, perfect_disloc[1], time)
+# Perfect Dislocation
+# Average coordinates of partials
+perfect_disloc = perfect_disloc_coords(partial_1, partial_2)
 
-# Write velocities for each dislocation
-# Leading dislocation
-# filename = "perfect_vel.txt"
-# write_prop(filename, velocities[0], time)
-# Trailing dislocation
-# filename = "trailing_pos.txt"
-# write_prop(filename, perfect_disloc[1], time)
+# Calculate perfect dislocation velocities
+velocity = get_velocity(perfect_disloc, step)
 
+fig1, axs = plt.subplots(1, 2 , figsize=(11,5))
+fig1.suptitle("Perfect Dislocation")
+
+axs[0].set_title("Position")
+axs[0].plot(t[0], perfect_disloc)
+axs[0].set_ylabel(r"$x$ $(\mathring A)$")
+
+
+# Plot perfect dislocation velocity against time
+axs[1].set_title("Velocity")
+axs[1].plot(t[0], velocity)
+axs[1].set_ylabel(r"$v_{x}$ ($\mathring A$/ps)")
+
+for ax in axs:
+    ax.set_xlabel(r"$t$ (ps)")
+
+plt.show()
+fig1.savefig("perfect_pos_vel.png", dpi=350, format="png")
+
+# Write coordinates and velocity of perfect dislocation
+filename = "perfect_pos.txt"
+write_prop(filename, perfect_disloc, time)
+
+filename = "perfect_vel.txt"
+write_prop(filename, velocity, time)
