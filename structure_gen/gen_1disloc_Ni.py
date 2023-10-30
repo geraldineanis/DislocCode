@@ -1,3 +1,19 @@
+"""! @ref
+Script to generate a single a/2<110>{111} edge dislocation in a pure FCC Ni cell.
+
+To construct the dislocation, two slabs of pure Ni are created, where one of the slabs has an extra plane (half-plane) of atoms. On relaxing this structure (see lmp_pre_strain.py) 
+the correct dislocation core structure, where the dislocation dissociates into two a/6<112> partial dislocations should form.
+
+It is recommended that the cell dimensions here are kept unchanged and creating a bigger cell can be achieved by adding padding using gen_111_atoms.py.
+
+@sa 
+
+lmp_pre_strain.py
+
+gen_111_atoms.py
+"""
+
+
 from ase.lattice.compounds import L1_2
 from ase.lattice.cubic import FaceCenteredCubic
 from ase.build import fcc111, fcc110, surface, bulk, rotate, cut
