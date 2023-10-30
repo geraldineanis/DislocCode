@@ -1,3 +1,13 @@
+"""! @ref
+Script to generate a slab of pure FCC Ni.
+
+The structure is oriented such that the xy plane is parallel to the {111} crystalographic plane, where the x-axis is parallel to [1-10], the y-axis is parallel to [11-2], and 
+the z-axis is parallel to [111].
+
+The cell dimensions can be changed to generate slabs of different sizes.
+"""
+
+
 from ase.lattice.compounds import L1_2
 from ase.lattice.cubic import FaceCenteredCubic
 from ase.build import fcc111, fcc110, surface, bulk, rotate, cut
