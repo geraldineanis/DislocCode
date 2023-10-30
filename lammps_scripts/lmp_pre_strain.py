@@ -1,14 +1,33 @@
-###############################################################
-# LAMMPS input script                        		          #
-# MD simulation to move a/2<1-10>{111} dislocations in        #
-# pure Ni/Ni3Al                                               #
-# Requires 3 input structure files:                           #
-#  - 1st padding layer                                        #  
-#  - Cell containing dislocation(s)                           #
-#  - 2nd padding layer                                        #
-# OR can read a LAMMPS restart file                           #  
-# Potential: NiAl_Mishin_2004.eam.alloy                       #
-###############################################################        
+"""! @ref
+An example LAMMPS python script to set up and run a dislocation MD simulation in pure Ni.
+
+This script shows an example of how to set up and run an MD dislocation simulation using the LAMMPS Python library. The script sets up a simulation of a single  
+in a pure Ni cell, where a shear stress of 10 MPa is applied to the simulation cell in order to move the dislocation. Periodic boundary conditions are applied along x and y, and a shrink 
+boundary condition (non-periodic) in z, such that the dislocations are infinitely long. The dislocations lie in the (111) plane and the applied shear stress is applied perpendicular to the 
+dislocation such that it moves in the [110] (x) direction.
+
+
+The starting structure is constructed by reading in three .data files: Ni_start.data (1st padding layer); disloc_Ni.data (cell with dislocation); and Ni_end.data (2nd padding layer).
+Once the starting structure is constructed, the script runs the following simulation steps:
+- Energy minimization I - for the a/2<110>{111} edge dislocation considered here, this is where the expected dissociation into two partial dislocations occurs
+- Pre-straining the simulation cell by slightly displacing atoms - this is in order to prevent any waves being set up due to the applied load
+- Energy minimization II
+- Equilibration (NVT ensemble)
+- MD - Shearing of simulation cell and dislocation dynamics (also NVT)
+
+The user can adjust some additional simulation settings listed at the beginning of the script, which include:
+- Running a new simulation or continuing a simulation from a LAMMPS restart file (only for MD stage).
+- Temperature and pressure
+- Applied shear stress
+- Number of equilibration and MD timesteps
+- loading type - Symmetric or assymetric loading. In the symmetric loading case, both the top few and bottom few layers of the simulation box are fixed and the shear force is applied to each 
+in opposite directions. In the assymetric loading case, only the bottom few layers are fixed and the shear force is applied to the top few layers of the simulation box.
+
+The interatomic potential used is the Mishin 2004 potential, which can be changed.
+
+This script can be run in parallel using the following command, where X is replaced by the number of processors:
+@code mpirun -np <X> python3 lmp_pre_strain.py
+"""
 
 from lammps import lammps
 from lammps.formats import LogFile as lmp_log
@@ -54,13 +73,13 @@ timestep = 0.001 # timestep (ps)
 # User-set parameters
 temperature = 300   # Temperature (K)
 pressure = 1        # Pressure (bar)
-sigma = 500         # Shear stress (bar) - 250 MPa
+sigma = 100         # Shear stress (bar) - 10 MPa
 loading_type = "sym"
 pre_strain = np.sqrt(2)*gamma_latt/4.0
 
-# Run times (ps)
-equil_run = 2
-MD_run = 2
+# Run times timesteps
+equil_run = 10000
+MD_run = 100000
 
 if sim_type == "continue":
     MD_run = MD_run - last_timestep
