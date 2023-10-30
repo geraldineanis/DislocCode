@@ -5,6 +5,8 @@ The structure is oriented such that the xy plane is parallel to the {111} crysta
 the z-axis is parallel to [111].
 
 The cell dimensions can be changed to generate slabs of different sizes.
+
+The output structure is written to a .data file, which can then be read be used as an input to LAMMPS.
 """
 
 

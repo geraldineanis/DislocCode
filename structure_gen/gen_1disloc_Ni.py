@@ -6,6 +6,8 @@ the correct dislocation core structure, where the dislocation dissociates into t
 
 It is recommended that the cell dimensions here are kept unchanged and creating a bigger cell can be achieved by adding padding using gen_111_atoms.py.
 
+The output structure is written to a .data file, which can then be read be used as an input to LAMMPS.
+
 @sa 
 
 lmp_pre_strain.py
