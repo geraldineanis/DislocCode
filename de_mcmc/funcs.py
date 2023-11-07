@@ -12,6 +12,62 @@ import seaborn as sns
 import pandas as pd
 import scipy.stats as st
 
+# General
+def get_nondim_data(filename, discard=0):
+    """
+    Non-dimensionalise time and position data.
+    The user should make sure that the same dislocation data and the number of discareded points
+    are used across different analyses tools.
+
+    Parameters
+    ----------
+    filename : str
+               Dislocation data file name.
+    discard  : int
+               Number of points to discard at beginning of trajectory.
+    
+    Returns
+    -------
+    numpy.ndarray
+               Original (dimimensional) time data.    
+    numpy.ndarray
+               Non-dimensional time data.
+    numpy.ndarray
+               Original (dimimensional) postition data.                   
+    numpy.ndarray
+               Non-dimensional position data.
+    float
+               Range of time data.
+    float      
+               Range of position data.               
+    """
+    data = np.loadtxt(filename)   
+
+    if discard == 0:
+        # time
+        t_dim = data[:,0]
+        t_range = np.ptp(t_dim)
+        t_nondim = t_dim/t_range
+        # position data
+        x_dim = 0.1*data[:,1]          
+        x_range = np.ptp(x_dim)
+        xi = x_dim[0]
+        x_nondim = (x_dim-xi)/x_range
+    else:
+        # time
+        t_dim = data[:-discard,0]
+        t_range = np.ptp(t_dim)
+        t_nondim = t_dim/t_range
+        # position data
+        x_dim = 0.1*data[discard:,1]
+        x_range = np.ptp(x_dim)
+        xi = x_dim[0]
+        x_dim = x_dim-xi
+        x_nondim = x_dim/x_range
+    
+    return t_dim, t_nondim, x_dim, x_nondim, t_range, x_range
+
+# Model
 def x_t(t,xi,m, B, F):
     """    
     Analytic solution to the equation of motion mx" + Bx' = F
