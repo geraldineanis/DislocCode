@@ -30,10 +30,10 @@ from matplotlib import pyplot as plt
 import pandas as pd
 import mc3
 import os
+from funcs import *
 
 # Set directory to store DE-MC ouput files
 out_dir = "de_mc_out"
-
 
 # Set number of DE-MC chains
 chains = 12
@@ -45,30 +45,11 @@ priorlow = np.array([2.0, 2.0])     # parameters -1*sigma
 priorup =  np.array([2.0, 2.0])     # parameters +1*sigma
 
 # Read in and non-dimnesionalise dislocation position-time data
-data = np.loadtxt("perfect_pos.txt")   
 # Number of points to discard at beginning of trajectory
+filename = "perfect_pos.txt"
 n = 7
 
-if n == 0:
-    # time
-    t_data = data[:,0]
-    t_range = np.ptp(t_data)
-    t_data = data[:,0]/t_range
-    # position data
-    x_data = 0.1*data[:,1]          # Convert from Angstroms to nm
-    x_range = np.ptp(x_data)
-    xi = x_data[0]
-    x_data = (x_data-xi)/x_range
-else:
-    # time
-    t_data = data[:-n,0]
-    t_range = np.ptp(t_data)
-    t_data = data[:-n,0]/t_range
-    # position data
-    x_data = 0.1*data[n:,1]         # Convert from Angstroms to nm
-    x_range = np.ptp(x_data)
-    xi = x_data[0]
-    x_data = (x_data-xi)/x_range
+t_dim, t_nondim, x_dim, x_nondim, ts, xs = get_nondim_data(filename, discard=n)
 
 # Non-dimensional Model
 def x_derivatives(x,t,c0,c1):
@@ -106,14 +87,14 @@ def ODE_solution(t):
         Vector of fitting parameters
     """
     c0, c1 = t  # Unpack parameters
-    position, velocity = odeint(x_derivatives, x0, t_data, args=(c0,c1)).T
+    position, velocity = odeint(x_derivatives, x0, t_nondim, args=(c0,c1)).T
     return position
 
 # MC3 settings
 
 # Input data
-data = np.array(x_data)
-uncert = [np.sqrt(0.025) for i in range(len(x_data))]
+data = np.array(x_nondim)
+uncert = [np.sqrt(0.025) for i in range(len(x_nondim))]
 
 # Modelling function
 func = ODE_solution
@@ -179,3 +160,4 @@ output = mc3.sample(
     plots=plots, theme=theme, statistics=statistics,
     savefile=savefile, rms=rms
 )
+
