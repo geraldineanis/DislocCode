@@ -66,9 +66,9 @@ for frame in range(pipeline.source.num_frames):
                 fdata.write(f"{coords[0]} {coords[1]} {coords[2]} \n")
         fdata.close()
 
-        print(f"Written disloc_data_{frame*step}.txt")
+        print(f"Written disloc_data_{start_frame+(frame*step)}.txt")
 
     # Export dislocation lines to a CA file:
-    export_file(data, f"./Ni_disloc/dislocations_{frame*step}.ca", "ca")
+    export_file(data, f"./Ni_disloc/dislocations_{start_frame+(frame*step)}.ca", "ca")
 end = time.time()
 print(f"Execution time = {round(end-start,2)}")
