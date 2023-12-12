@@ -4,7 +4,7 @@
 \begin{DoxyCompactItemize}
 \item 
 namespace \mbox{\hyperlink{namespacelmp__pre__strain}{lmp\+\_\+pre\+\_\+strain}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em An example LAMMPS python script to set up and run a dislocation MD simulation in pure Ni. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -13,85 +13,85 @@ namespace \mbox{\hyperlink{namespacelmp__pre__strain}{lmp\+\_\+pre\+\_\+strain}}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-tuple \mbox{\hyperlink{namespacelmp__pre__strain_a5a820f2c23ea594534330561c620ea98}{app\+\_\+force\+\_\+lower}} = (\mbox{\hyperlink{namespacelmp__pre__strain_af7c2dc72bb970fef4e6313293cadfe95}{lx}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__pre__strain_a6d5d22bdb3cf920dd706c9a1f94f376c}{ly}})/\mbox{\hyperlink{namespacelmp__pre__strain_aed8ad95a596ff8ea1efa3b85ea51ba1e}{nlower}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__pre__strain_a64cddb1ad704ff5cc78b012010314024}{sigma}}/\mbox{\hyperlink{namespacelmp__pre__strain_ad95fb03238f547447c8eb79ac6ea1fa3}{e\+V\+\_\+to\+\_\+J}}
+tuple \mbox{\hyperlink{namespacelmp__pre__strain_a5a820f2c23ea594534330561c620ea98}{app\+\_\+force\+\_\+lower}}
 \item 
-tuple \mbox{\hyperlink{namespacelmp__pre__strain_a96b94c283374078d5e9fd204c5acda83}{app\+\_\+force\+\_\+upper}} = (\mbox{\hyperlink{namespacelmp__pre__strain_af7c2dc72bb970fef4e6313293cadfe95}{lx}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__pre__strain_a6d5d22bdb3cf920dd706c9a1f94f376c}{ly}})/\mbox{\hyperlink{namespacelmp__pre__strain_addad1d6bcd26b64827081caea9091048}{nupper}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__pre__strain_a64cddb1ad704ff5cc78b012010314024}{sigma}}/\mbox{\hyperlink{namespacelmp__pre__strain_ad95fb03238f547447c8eb79ac6ea1fa3}{e\+V\+\_\+to\+\_\+J}}
+tuple \mbox{\hyperlink{namespacelmp__pre__strain_a96b94c283374078d5e9fd204c5acda83}{app\+\_\+force\+\_\+upper}}
 \item 
 str \mbox{\hyperlink{namespacelmp__pre__strain_a76bcce3ead38fc192860a18230a72002}{block}}
 \item 
-list \mbox{\hyperlink{namespacelmp__pre__strain_a01fc441b4d74aa997465a8eddad21cc9}{box\+\_\+dim}} = \mbox{[}(\mbox{\hyperlink{namespacelmp__pre__strain_a97fcb0e1731b36905e90757f211b1340}{x1}}+\mbox{\hyperlink{namespacelmp__pre__strain_ad660c90589efbb535c7d55dc032c1b09}{x2}}+\mbox{\hyperlink{namespacelmp__pre__strain_ae067fb8a14696066b62593d8adf469cd}{x3}})\texorpdfstring{$\ast$}{*}np.\+sqrt(2)/2.\+0, \mbox{\hyperlink{namespacelmp__pre__strain_a886daa12d11655f342168e87c7c0b1cb}{y1}}\texorpdfstring{$\ast$}{*}np.\+sqrt(6)/2.\+0, \mbox{\hyperlink{namespacelmp__pre__strain_a5f1285c04e47d67d87125b6653c68562}{z1}}\texorpdfstring{$\ast$}{*}np.\+sqrt(3)\mbox{]}
+list \mbox{\hyperlink{namespacelmp__pre__strain_a01fc441b4d74aa997465a8eddad21cc9}{box\+\_\+dim}}
 \item 
-str \mbox{\hyperlink{namespacelmp__pre__strain_a6011ea35234b3073111d25753f715643}{box\+\_\+name}} = "{}sim\+\_\+box"{}
+str \mbox{\hyperlink{namespacelmp__pre__strain_a6011ea35234b3073111d25753f715643}{box\+\_\+name}}
 \item 
-\mbox{\hyperlink{namespacelmp__pre__strain_a9b142544026b640e49a88445490d9fc1}{cell\+\_\+extents}} = lmp.\+extract\+\_\+box()
+\mbox{\hyperlink{namespacelmp__pre__strain_a9b142544026b640e49a88445490d9fc1}{cell\+\_\+extents}}
 \item 
-bool \mbox{\hyperlink{namespacelmp__pre__strain_aa79f3f854f59cfd74086c89e25a0f55f}{check\+\_\+overlap}} = False
+bool \mbox{\hyperlink{namespacelmp__pre__strain_aa79f3f854f59cfd74086c89e25a0f55f}{check\+\_\+overlap}}
 \item 
-list \mbox{\hyperlink{namespacelmp__pre__strain_a7c47321fae78722b8f29ac89125e15a8}{elements}} = \mbox{[}"{}Ni"{}, "{}Al"{}\mbox{]}
+list \mbox{\hyperlink{namespacelmp__pre__strain_a7c47321fae78722b8f29ac89125e15a8}{elements}}
 \item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_afb36f83be68f340092b318ed7c189a6c}{equil\+\_\+run}} = 2
+int \mbox{\hyperlink{namespacelmp__pre__strain_afb36f83be68f340092b318ed7c189a6c}{equil\+\_\+run}}
 \item 
-float \mbox{\hyperlink{namespacelmp__pre__strain_ad95fb03238f547447c8eb79ac6ea1fa3}{e\+V\+\_\+to\+\_\+J}} = 1602191.\+7
+float \mbox{\hyperlink{namespacelmp__pre__strain_ad95fb03238f547447c8eb79ac6ea1fa3}{e\+V\+\_\+to\+\_\+J}}
 \item 
-float \mbox{\hyperlink{namespacelmp__pre__strain_a9b27874ba7d145bc1250fc9179cc308c}{gamma\+\_\+latt}} = 3.\+52
+float \mbox{\hyperlink{namespacelmp__pre__strain_a9b27874ba7d145bc1250fc9179cc308c}{gamma\+\_\+latt}}
 \item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_a384c3d971a2c23a7b5d687535cd4d870}{last\+\_\+timestep}} = 30000
+int \mbox{\hyperlink{namespacelmp__pre__strain_a384c3d971a2c23a7b5d687535cd4d870}{last\+\_\+timestep}}
 \item 
-\mbox{\hyperlink{namespacelmp__pre__strain_ab124f7285006b751c3f603fcd4b80a47}{lmp}} = lammps()
+\mbox{\hyperlink{namespacelmp__pre__strain_ab124f7285006b751c3f603fcd4b80a47}{lmp}}
 \begin{DoxyCompactList}\small\item\em System initialization \#. \end{DoxyCompactList}\item 
-str \mbox{\hyperlink{namespacelmp__pre__strain_a9242f629ea2e29adf5bdea1ac0a2c1de}{loading\+\_\+type}} = "{}sym"{}
+str \mbox{\hyperlink{namespacelmp__pre__strain_a9242f629ea2e29adf5bdea1ac0a2c1de}{loading\+\_\+type}}
 \item 
-\mbox{\hyperlink{namespacelmp__pre__strain_a14c2d6545f4ded26c9f86c71c85bd5c4}{lower\+\_\+lim}} = lmp.\+extract\+\_\+box()\mbox{[}0\mbox{]}\mbox{[}2\mbox{]} + (3.\+0\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__pre__strain_a9b27874ba7d145bc1250fc9179cc308c}{gamma\+\_\+latt}}\texorpdfstring{$\ast$}{*}np.\+sqrt(3))
+\mbox{\hyperlink{namespacelmp__pre__strain_a14c2d6545f4ded26c9f86c71c85bd5c4}{lower\+\_\+lim}}
 \item 
-\mbox{\hyperlink{namespacelmp__pre__strain_af7c2dc72bb970fef4e6313293cadfe95}{lx}} = lmp.\+extract\+\_\+variable("{}length\+\_\+x"{})
+\mbox{\hyperlink{namespacelmp__pre__strain_af7c2dc72bb970fef4e6313293cadfe95}{lx}}
 \item 
-\mbox{\hyperlink{namespacelmp__pre__strain_a6d5d22bdb3cf920dd706c9a1f94f376c}{ly}} = lmp.\+extract\+\_\+variable("{}length\+\_\+y"{})
+\mbox{\hyperlink{namespacelmp__pre__strain_a6d5d22bdb3cf920dd706c9a1f94f376c}{ly}}
 \item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_a16106246b4cae2c0caff572f31dc716e}{MD\+\_\+run}} = 2
+int \mbox{\hyperlink{namespacelmp__pre__strain_a16106246b4cae2c0caff572f31dc716e}{MD\+\_\+run}}
 \item 
-\mbox{\hyperlink{namespacelmp__pre__strain_aed8ad95a596ff8ea1efa3b85ea51ba1e}{nlower}} = lmp.\+extract\+\_\+variable("{}nlower"{})
+\mbox{\hyperlink{namespacelmp__pre__strain_aed8ad95a596ff8ea1efa3b85ea51ba1e}{nlower}}
 \item 
-\mbox{\hyperlink{namespacelmp__pre__strain_addad1d6bcd26b64827081caea9091048}{nupper}} = lmp.\+extract\+\_\+variable("{}nupper"{})
+\mbox{\hyperlink{namespacelmp__pre__strain_addad1d6bcd26b64827081caea9091048}{nupper}}
 \item 
-str \mbox{\hyperlink{namespacelmp__pre__strain_a2284450a7e0fc8239d572deb7609c49e}{potential}} = "{}./Ni\+Al\+\_\+\+Mishin\+\_\+2004.\+eam.\+alloy"{}
+str \mbox{\hyperlink{namespacelmp__pre__strain_a2284450a7e0fc8239d572deb7609c49e}{potential}}
 \begin{DoxyCompactList}\small\item\em Define Interatomic Potential \#. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{namespacelmp__pre__strain_ae7cda6ca83719293f0a225786c5b744e}{pre\+\_\+strain}} = np.\+sqrt(2)\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__pre__strain_a9b27874ba7d145bc1250fc9179cc308c}{gamma\+\_\+latt}}/4.\+0
+float \mbox{\hyperlink{namespacelmp__pre__strain_ae7cda6ca83719293f0a225786c5b744e}{pre\+\_\+strain}}
 \item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_ad19429a485400193c6dfc8c71b151c06}{pressure}} = 1
+int \mbox{\hyperlink{namespacelmp__pre__strain_ad19429a485400193c6dfc8c71b151c06}{pressure}}
 \item 
-str \mbox{\hyperlink{namespacelmp__pre__strain_ab351eda9f100d89986f3490815569740}{problem}} = "{}relax"{}
+str \mbox{\hyperlink{namespacelmp__pre__strain_ab351eda9f100d89986f3490815569740}{problem}}
 \item 
-str \mbox{\hyperlink{namespacelmp__pre__strain_a173b5dda013af94c6c3e397545212c77}{restart\+\_\+file}} = "{}md\+\_\+restart.\+30000"{}
+str \mbox{\hyperlink{namespacelmp__pre__strain_a173b5dda013af94c6c3e397545212c77}{restart\+\_\+file}}
 \item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_a64cddb1ad704ff5cc78b012010314024}{sigma}} = 500
+int \mbox{\hyperlink{namespacelmp__pre__strain_a64cddb1ad704ff5cc78b012010314024}{sigma}}
 \item 
-str \mbox{\hyperlink{namespacelmp__pre__strain_a0cc3f74bbf11904047904ba2858f06bf}{sim\+\_\+type}} = "{}new"{}
+str \mbox{\hyperlink{namespacelmp__pre__strain_a0cc3f74bbf11904047904ba2858f06bf}{sim\+\_\+type}}
 \item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_aeb0b627a85488d9be1a7632200c41cfe}{species}} = 1
+int \mbox{\hyperlink{namespacelmp__pre__strain_aeb0b627a85488d9be1a7632200c41cfe}{species}}
 \item 
-str \mbox{\hyperlink{namespacelmp__pre__strain_a47a6a162aaaec8deeb946d93afc43640}{sys\+\_\+type}} = "{}Ni"{}
+str \mbox{\hyperlink{namespacelmp__pre__strain_a47a6a162aaaec8deeb946d93afc43640}{sys\+\_\+type}}
 \item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_a0ac2a299549fcca3cd14e4c1ac2087d2}{temperature}} = 300
+int \mbox{\hyperlink{namespacelmp__pre__strain_a0ac2a299549fcca3cd14e4c1ac2087d2}{temperature}}
 \item 
-str \mbox{\hyperlink{namespacelmp__pre__strain_a0d1ba6853502d541ca10c5de7959fb62}{thermo\+\_\+ensemble}} = "{}NVT"{}
+str \mbox{\hyperlink{namespacelmp__pre__strain_a0d1ba6853502d541ca10c5de7959fb62}{thermo\+\_\+ensemble}}
 \item 
-float \mbox{\hyperlink{namespacelmp__pre__strain_ab9edcc09985767509bf717e25ac80ab7}{timestep}} = 0.\+001
+float \mbox{\hyperlink{namespacelmp__pre__strain_ab9edcc09985767509bf717e25ac80ab7}{timestep}}
 \item 
-str \mbox{\hyperlink{namespacelmp__pre__strain_ab4a60aabe529e19e17b4e27692988e55}{units}} = "{}metal"{}
+str \mbox{\hyperlink{namespacelmp__pre__strain_ab4a60aabe529e19e17b4e27692988e55}{units}}
 \item 
-\mbox{\hyperlink{namespacelmp__pre__strain_ac43304e147bd7f78311c61442fa2dff8}{upper\+\_\+lim}} = lmp.\+extract\+\_\+box()\mbox{[}1\mbox{]}\mbox{[}2\mbox{]} -\/ (3.\+0\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__pre__strain_a9b27874ba7d145bc1250fc9179cc308c}{gamma\+\_\+latt}}\texorpdfstring{$\ast$}{*}np.\+sqrt(3))
+\mbox{\hyperlink{namespacelmp__pre__strain_ac43304e147bd7f78311c61442fa2dff8}{upper\+\_\+lim}}
 \item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_a97fcb0e1731b36905e90757f211b1340}{x1}} = 10
+int \mbox{\hyperlink{namespacelmp__pre__strain_a97fcb0e1731b36905e90757f211b1340}{x1}}
 \item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_ad660c90589efbb535c7d55dc032c1b09}{x2}} = 21
+int \mbox{\hyperlink{namespacelmp__pre__strain_ad660c90589efbb535c7d55dc032c1b09}{x2}}
 \item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_ae067fb8a14696066b62593d8adf469cd}{x3}} = 40
+int \mbox{\hyperlink{namespacelmp__pre__strain_ae067fb8a14696066b62593d8adf469cd}{x3}}
 \item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_a46326c15278ffc091dac92438f16af68}{x\+\_\+shift}} = \mbox{\hyperlink{namespacelmp__pre__strain_a97fcb0e1731b36905e90757f211b1340}{x1}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__pre__strain_a9b27874ba7d145bc1250fc9179cc308c}{gamma\+\_\+latt}}\texorpdfstring{$\ast$}{*}np.\+sqrt(2)
+int \mbox{\hyperlink{namespacelmp__pre__strain_a46326c15278ffc091dac92438f16af68}{x\+\_\+shift}}
 \item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_a886daa12d11655f342168e87c7c0b1cb}{y1}} = 20
+int \mbox{\hyperlink{namespacelmp__pre__strain_a886daa12d11655f342168e87c7c0b1cb}{y1}}
 \item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_a5f1285c04e47d67d87125b6653c68562}{z1}} = 40
+int \mbox{\hyperlink{namespacelmp__pre__strain_a5f1285c04e47d67d87125b6653c68562}{z1}}
 \item 
-tuple \mbox{\hyperlink{namespacelmp__pre__strain_afff0b63b39a7ba8af9780f575aa11e2e}{z\+\_\+mid}} = ((\mbox{\hyperlink{namespacelmp__pre__strain_a9b142544026b640e49a88445490d9fc1}{cell\+\_\+extents}}\mbox{[}1\mbox{]}\mbox{[}2\mbox{]})/2.\+0)
+tuple \mbox{\hyperlink{namespacelmp__pre__strain_afff0b63b39a7ba8af9780f575aa11e2e}{z\+\_\+mid}}
 \end{DoxyCompactItemize}

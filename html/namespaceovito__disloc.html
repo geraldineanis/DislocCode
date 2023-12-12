@@ -13,6 +13,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -70,215 +77,17 @@ $(function() {
 
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">ovito_disloc Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a511ae0b1c13f95e5f08f1a0dd3da3d93" id="r_a511ae0b1c13f95e5f08f1a0dd3da3d93"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a511ae0b1c13f95e5f08f1a0dd3da3d93">data</a> = pipeline.compute()</td></tr>
-<tr class="separator:a511ae0b1c13f95e5f08f1a0dd3da3d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb358f48b1646c750fb9da6c6585be2b" id="r_afb358f48b1646c750fb9da6c6585be2b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb358f48b1646c750fb9da6c6585be2b">end</a> = time.time()</td></tr>
-<tr class="separator:afb358f48b1646c750fb9da6c6585be2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a961a715d3a56868755d9d823693db49a" id="r_a961a715d3a56868755d9d823693db49a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a961a715d3a56868755d9d823693db49a">input_crystal_structure</a></td></tr>
-<tr class="separator:a961a715d3a56868755d9d823693db49a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a818eb20de7c947175f387d0aa3efdba0" id="r_a818eb20de7c947175f387d0aa3efdba0"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a818eb20de7c947175f387d0aa3efdba0">lens</a> = []</td></tr>
-<tr class="separator:a818eb20de7c947175f387d0aa3efdba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecb3dec591663cb6c8db856eb53e7c15" id="r_aecb3dec591663cb6c8db856eb53e7c15"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecb3dec591663cb6c8db856eb53e7c15">modifier</a> = DislocationAnalysisModifier()</td></tr>
-<tr class="separator:aecb3dec591663cb6c8db856eb53e7c15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90e037bb66e6611a70b17ddf4369bcc5" id="r_a90e037bb66e6611a70b17ddf4369bcc5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90e037bb66e6611a70b17ddf4369bcc5">ndisloc</a> = len(data.dislocations.segments)</td></tr>
-<tr class="separator:a90e037bb66e6611a70b17ddf4369bcc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2320134bb04bbea3b4d6ff0569d3a746" id="r_a2320134bb04bbea3b4d6ff0569d3a746"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2320134bb04bbea3b4d6ff0569d3a746">pipeline</a> = import_file(&quot;./dumps/dump.shear_unwrap.*&quot;)</td></tr>
-<tr class="separator:a2320134bb04bbea3b4d6ff0569d3a746"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a550769bbd4e7537ff90a656f5b0c23b2" id="r_a550769bbd4e7537ff90a656f5b0c23b2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a550769bbd4e7537ff90a656f5b0c23b2">start</a> = time.time()</td></tr>
-<tr class="separator:a550769bbd4e7537ff90a656f5b0c23b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92255abb174a4e9185f563d840598300" id="r_a92255abb174a4e9185f563d840598300"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92255abb174a4e9185f563d840598300">start_frame</a> = 0</td></tr>
-<tr class="separator:a92255abb174a4e9185f563d840598300"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc16e65f240ed0c8f3e876e8732c0a33" id="r_abc16e65f240ed0c8f3e876e8732c0a33"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc16e65f240ed0c8f3e876e8732c0a33">step</a> = 500</td></tr>
-<tr class="separator:abc16e65f240ed0c8f3e876e8732c0a33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21135b307d83bdd5f280f8bb9540aec7" id="r_a21135b307d83bdd5f280f8bb9540aec7"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21135b307d83bdd5f280f8bb9540aec7">vertices</a> = []</td></tr>
-<tr class="separator:a21135b307d83bdd5f280f8bb9540aec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a511ae0b1c13f95e5f08f1a0dd3da3d93" name="a511ae0b1c13f95e5f08f1a0dd3da3d93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a511ae0b1c13f95e5f08f1a0dd3da3d93">&#9670;&#160;</a></span>data</h2>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">data = pipeline.compute()</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ovito__disloc_8py_source.html#l00020">20</a> of file <a class="el" href="ovito__disloc_8py_source.html">ovito_disloc.py</a>.</p>
-
-</div>
-</div>
-<a id="afb358f48b1646c750fb9da6c6585be2b" name="afb358f48b1646c750fb9da6c6585be2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb358f48b1646c750fb9da6c6585be2b">&#9670;&#160;</a></span>end</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">end = time.time()</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ovito__disloc_8py_source.html#l00063">63</a> of file <a class="el" href="ovito__disloc_8py_source.html">ovito_disloc.py</a>.</p>
-
-</div>
-</div>
-<a id="a961a715d3a56868755d9d823693db49a" name="a961a715d3a56868755d9d823693db49a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a961a715d3a56868755d9d823693db49a">&#9670;&#160;</a></span>input_crystal_structure</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">input_crystal_structure</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ovito__disloc_8py_source.html#l00024">24</a> of file <a class="el" href="ovito__disloc_8py_source.html">ovito_disloc.py</a>.</p>
-
-</div>
-</div>
-<a id="a818eb20de7c947175f387d0aa3efdba0" name="a818eb20de7c947175f387d0aa3efdba0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a818eb20de7c947175f387d0aa3efdba0">&#9670;&#160;</a></span>lens</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">list lens = []</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ovito__disloc_8py_source.html#l00038">38</a> of file <a class="el" href="ovito__disloc_8py_source.html">ovito_disloc.py</a>.</p>
-
-</div>
-</div>
-<a id="aecb3dec591663cb6c8db856eb53e7c15" name="aecb3dec591663cb6c8db856eb53e7c15"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aecb3dec591663cb6c8db856eb53e7c15">&#9670;&#160;</a></span>modifier</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">modifier = DislocationAnalysisModifier()</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ovito__disloc_8py_source.html#l00023">23</a> of file <a class="el" href="ovito__disloc_8py_source.html">ovito_disloc.py</a>.</p>
-
-</div>
-</div>
-<a id="a90e037bb66e6611a70b17ddf4369bcc5" name="a90e037bb66e6611a70b17ddf4369bcc5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90e037bb66e6611a70b17ddf4369bcc5">&#9670;&#160;</a></span>ndisloc</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">ndisloc = len(data.dislocations.segments)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ovito__disloc_8py_source.html#l00035">35</a> of file <a class="el" href="ovito__disloc_8py_source.html">ovito_disloc.py</a>.</p>
-
-</div>
-</div>
-<a id="a2320134bb04bbea3b4d6ff0569d3a746" name="a2320134bb04bbea3b4d6ff0569d3a746"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2320134bb04bbea3b4d6ff0569d3a746">&#9670;&#160;</a></span>pipeline</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">pipeline = import_file(&quot;./dumps/dump.shear_unwrap.*&quot;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ovito__disloc_8py_source.html#l00019">19</a> of file <a class="el" href="ovito__disloc_8py_source.html">ovito_disloc.py</a>.</p>
-
-</div>
-</div>
-<a id="a550769bbd4e7537ff90a656f5b0c23b2" name="a550769bbd4e7537ff90a656f5b0c23b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a550769bbd4e7537ff90a656f5b0c23b2">&#9670;&#160;</a></span>start</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">start = time.time()</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ovito__disloc_8py_source.html#l00029">29</a> of file <a class="el" href="ovito__disloc_8py_source.html">ovito_disloc.py</a>.</p>
-
-</div>
-</div>
-<a id="a92255abb174a4e9185f563d840598300" name="a92255abb174a4e9185f563d840598300"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92255abb174a4e9185f563d840598300">&#9670;&#160;</a></span>start_frame</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int start_frame = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ovito__disloc_8py_source.html#l00013">13</a> of file <a class="el" href="ovito__disloc_8py_source.html">ovito_disloc.py</a>.</p>
-
-</div>
-</div>
-<a id="abc16e65f240ed0c8f3e876e8732c0a33" name="abc16e65f240ed0c8f3e876e8732c0a33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc16e65f240ed0c8f3e876e8732c0a33">&#9670;&#160;</a></span>step</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int step = 500</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ovito__disloc_8py_source.html#l00016">16</a> of file <a class="el" href="ovito__disloc_8py_source.html">ovito_disloc.py</a>.</p>
-
-</div>
-</div>
-<a id="a21135b307d83bdd5f280f8bb9540aec7" name="a21135b307d83bdd5f280f8bb9540aec7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21135b307d83bdd5f280f8bb9540aec7">&#9670;&#160;</a></span>vertices</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">list vertices = []</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ovito__disloc_8py_source.html#l00039">39</a> of file <a class="el" href="ovito__disloc_8py_source.html">ovito_disloc.py</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+<p>Post-proceesing of dislocation MD trajectories.  
+<a href="#details">More...</a></p>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Post-proceesing of dislocation MD trajectories. </p>
+<p>This script reads in a series of LAMMPS dump files containing unwrapped atom coordinates and uses OVITO's Dislocation Analysis (DXA) tool to detect edge dislocations. The script outputs a series of text files (one for each frame in the trajectory) containing the following: the number of dislocations detected; the dislocation index; the number of vertices in a detected dislocation line; the x, y, and z cooridnates of each vertex.</p>
+<p>The dislocations are not consistently indexed across the trajectory, which makes it difficult to track a given dislocation and analyse it. This is taken care of in the script <a class="el" href="dislocation__script_8py.html">dislocation_script.py</a>, which reads in and processes the text files generated by this script and outputs a given dislocation's position as a timeseries for further analysis. </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0

@@ -13,6 +13,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -82,120 +89,100 @@ $(document).ready(function() { init_codefold(0); });
   <div class="headertitle"><div class="title">de_mc_analysis.py</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="de__mc__analysis_8py.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html">    1</a></span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="keyword">import</span> scipy.stats <span class="keyword">as</span> st</div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="keyword">from</span> scipy.integrate <span class="keyword">import</span> odeint</div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">import</span> os</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">import</span> glob</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">import</span> time</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">from</span> funcs <span class="keyword">import</span> *</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"># Number of points to discard</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a76f11d9a0a47b94f72c2d0e77fb32240">   14</a></span>n=6</div>
+<a href="de__mc__analysis_8py.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html">    1</a></span><span class="stringliteral">&quot;&quot;&quot;! @ref</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="stringliteral">Script to analyse the ouput from the parameter fitting using DE-MC.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="stringliteral">This script uses the functions contained in the funcs.py module to:</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="stringliteral">- Calculate relevant parameter statistics using accepted samples obtained from fitting using DE-MC.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="stringliteral">- Visualise the DE-MC output as well as the marginal and joint parameter posterior distributions.</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="stringliteral">- Produce a trace plot and parameter mean and convergence with DE-MC generation (iteration) to guage the convergence</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="stringliteral">  of the DE-MC.</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="stringliteral"></span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="stringliteral">The function, stat_convergence, takes a long time to run. Accordingly, it is recommended that it is run only once, </span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="stringliteral">and its output can be written to a text file by setting write_out=True in the function argument for further analysis.</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="stringliteral">&quot;&quot;&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">from</span> funcs <span class="keyword">import</span> *</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"># Use non-dimensionalized data</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a511ae0b1c13f95e5f08f1a0dd3da3d93">   17</a></span>data = np.loadtxt(<span class="stringliteral">&quot;perfect_pos.txt&quot;</span>)</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#aed39282eeeb6b1970c1ce27485e91afe">   18</a></span>t_data = data[:-n,0]</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a5d751bacdd9e4d26d056f5398ae4246e">   19</a></span>t_range = np.ptp(t_data)</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>t_data = data[:-n,0]/t_range</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a5637c0fc79271593e595e5f5a28a042e">   21</a></span>x_data = 0.1*data[n:,1]     <span class="comment"># Convert from Angstroms to nm</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a5a4e70aef1b59c2077e838835e0ad13c">   22</a></span>x_range = np.ptp(x_data)</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a39291e1e7c5545a7b8a9c64b89d973f9">   23</a></span>xi = x_data[0]</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>x_data = (x_data-xi)/x_range</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#ae0f5e82ee31a657ad8312b0ed1851438">   26</a></span>xs = x_range                                               <span class="comment"># nm</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a6120ebabcd02e35082049723d85f6a08">   27</a></span>ts = t_range                                               <span class="comment"># ps</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a864fffd21c558dd8b1c4394102d58331">   28</a></span>Fs = (250.0*1e6*1e12*np.sqrt(2)*0.352)/(2.0*(1e9**2))      <span class="comment"># pN/nm</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"># Set the initial conditions</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"># initial position and velocity</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a7bae07f096dd3fd9016a444d18e13045">   32</a></span>x0 = [0.0,0.0]  </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"># DE-MCMC results</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a640ebad51b0795fbf7b4ec2e44b5ece5">   35</a></span>n_samples = int(1e6)</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a3d843ba517b7a9e462deec3861eeafcd">   36</a></span>burn = int(1e5)</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a426852633d2045ae6b1f25f7efdaac11">   37</a></span>dims = 3</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#ad4a342a882e80fb0b1b0a80df4b9321b">   38</a></span>params = [<span class="stringliteral">r&quot;$c_{0}$&quot;</span>, <span class="stringliteral">r&quot;$c_{1}$&quot;</span>, <span class="stringliteral">r&quot;$c_{2}$&quot;</span>]</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a87a2aca89a725b3ae97f8817e4d1327e">   39</a></span>log_params = [<span class="stringliteral">r&quot;ln($c_{0}$)&quot;</span>, <span class="stringliteral">r&quot;ln($c_{1}$)&quot;</span>, <span class="stringliteral">r&quot;ln($c_{2}$)&quot;</span>]</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a899d3aff6fc24618b39966171b723bcd">   41</a></span>prior    = np.array([0.0, 0.0, 0.0])</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a93a86e854a239e6d7bbde96c61637177">   42</a></span>priorlow = np.array([2.0, 2.0, 2.0])</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a132873269d56c3eb204d496ae2011110">   43</a></span>priorup  = np.array([2.0, 2.0, 2.0])</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a6a1de82247f92a147c1906b36938a647">   45</a></span>dirs = f<span class="stringliteral">&quot;de_mc_out&quot;</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>data = np.load(f<span class="stringliteral">&quot;./{dirs}/de_mcmc.npz&quot;</span>)</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>print(f<span class="stringliteral">&quot;Remaining samples = {n_samples-burn}&quot;</span>)</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"># Note: work with logs of data - log(c_i) ~ Normal</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"># The model is set up such that the we sample log(c_i)</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#acd9e1b0682bd285ded3d808e850700c8">   52</a></span>posterior, log_c, log_c_mean, post_cov, log_c_std = <a class="code hl_function" href="namespacefuncs.html#a5737b8a61a3f2ecfbd0e9890fa7bc5c0">get_posterior</a>(data, n_samples, burn, dims=3)</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>print(<span class="stringliteral">&quot;Parameter Means&quot;</span>, <span class="stringliteral">&quot;\n&quot;</span>, log_c_mean)</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>print(<span class="stringliteral">&quot;Standard dev.&quot;</span>, <span class="stringliteral">&quot;\n&quot;</span>, log_c_std)</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>print(<span class="stringliteral">&quot;Posterior Covariance Matrix&quot;</span>, <span class="stringliteral">&quot;\n&quot;</span>, post_cov)</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"># Plots</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"># Trace plots</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a5b5398ce3cb5c9b60d8bb20a94dc945b">   60</a></span>fig, axs = plt.subplots(1, 3, figsize=(15,5))</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"># fig.suptitle(&quot;Trace plot&quot;)</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(dims):</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a62197192f0fbf4e0675eb37be1c4c175">   63</a></span>    axs[i].plot(data[<span class="stringliteral">&quot;posterior&quot;</span>][:,i], lw=1, alpha=0.5)</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#ae0323a9039add2978bf5b49550572c7c">   64</a></span>    axs[i].axvline(burn, c=<span class="stringliteral">&quot;tab:red&quot;</span>, lw=1, ls=<span class="stringliteral">&quot;--&quot;</span>, label=f<span class="stringliteral">&quot;Burned Samples ={burn}&quot;</span>)</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    axs[i].set_ylabel(f<span class="stringliteral">&quot;ln({params[i]})&quot;</span>)</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>axs[1].set_xlabel(<span class="stringliteral">&quot;Generation&quot;</span>)</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>axs[2].legend()</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>plt.show()</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#ab4024db5b48e2ddd9bcd43847f10f016">   69</a></span>fig.savefig(<span class="stringliteral">&quot;trace.png&quot;</span>, dpi=350, format=<span class="stringliteral">&quot;png&quot;</span>)</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"># Read in and non-dimnesionalise dislocation position-time data</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a511ae0b1c13f95e5f08f1a0dd3da3d93">   17</a></span>data = np.loadtxt(<span class="stringliteral">&quot;perfect_pos.txt&quot;</span>)   </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"># Number of points to discard at beginning of trajectory</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"># Make sure this matches the number that was given in the mc3_de_mcmc.py script</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a76f11d9a0a47b94f72c2d0e77fb32240">   20</a></span>n = 7</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keywordflow">if</span> n == 0:</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="comment"># time</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#aed39282eeeb6b1970c1ce27485e91afe">   24</a></span>    t_data = data[:,0]</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a5d751bacdd9e4d26d056f5398ae4246e">   25</a></span>    t_range = np.ptp(t_data)</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    t_data = data[:,0]/t_range</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="comment"># position data</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a5637c0fc79271593e595e5f5a28a042e">   28</a></span>    x_data = 0.1*data[:,1]          <span class="comment"># Convert from Angstroms to nm</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a5a4e70aef1b59c2077e838835e0ad13c">   29</a></span>    x_range = np.ptp(x_data)</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a39291e1e7c5545a7b8a9c64b89d973f9">   30</a></span>    xi = x_data[0]</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    x_data = (x_data-xi)/x_range</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keywordflow">else</span>:</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="comment"># time</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    t_data = data[:-n,0]</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    t_range = np.ptp(t_data)</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    t_data = data[:-n,0]/t_range</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="comment"># position data</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    x_data = 0.1*data[n:,1]                    <span class="comment"># Convert from Angstroms to nm</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    x_range = np.ptp(x_data)</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    xi = x_data[0]</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    x_data = (x_data-xi)/x_range</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"># DE-MCMC results</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a640ebad51b0795fbf7b4ec2e44b5ece5">   44</a></span>n_samples = int(1e6)                           <span class="comment"># Number of DE-MC iterations</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"># Number of accepted samples to discard</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"># Run this script once and determine based on trace plot</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a3d843ba517b7a9e462deec3861eeafcd">   47</a></span>burn = int(1e5)</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"># Fitting parameters                               </span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a426852633d2045ae6b1f25f7efdaac11">   49</a></span>dims = 2</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a41000f175dc0115080e2a682cc06dbe9">   50</a></span>params = [<span class="stringliteral">r&quot;$c_{0}$&quot;</span>, <span class="stringliteral">r&quot;$c_{1}$&quot;</span>]</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#ac7d442f1eb09e22e9442a4a02ac9ac21">   51</a></span>log_params = [<span class="stringliteral">r&quot;ln($c_{0}$)&quot;</span>, <span class="stringliteral">r&quot;ln($c_{1}$)&quot;</span>]</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a899d3aff6fc24618b39966171b723bcd">   53</a></span>prior =    np.array([0.0, 0.0])                <span class="comment"># parameters mean vector</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a93a86e854a239e6d7bbde96c61637177">   54</a></span>priorlow = np.array([2.0, 2.0])                <span class="comment"># parameters -1*sigma </span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a132873269d56c3eb204d496ae2011110">   55</a></span>priorup =  np.array([2.0, 2.0])                <span class="comment"># parameters +1*sigma</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment"># Set the directory where the DE-MC output files are stored</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#af3c2c270199fd3662cdaa096853aae60">   58</a></span>out_dir = f<span class="stringliteral">&quot;de_mc_out&quot;</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>data = np.load(f<span class="stringliteral">&quot;./{out_dir}/de_mcmc.npz&quot;</span>)</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>print(f<span class="stringliteral">&quot;Remaining samples = {n_samples-burn}&quot;</span>)</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment"># Note: work with logs of data - log(c_i) ~ Normal</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"># The model is set up such that the we sample log(c_i)</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#acd9e1b0682bd285ded3d808e850700c8">   65</a></span>log_c, log_c_mean, post_cov, log_c_std = <a class="code hl_function" href="namespacefuncs.html#a5737b8a61a3f2ecfbd0e9890fa7bc5c0">get_posterior</a>(data, n_samples, burn, dims)</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>print(<span class="stringliteral">&quot;Parameter Means&quot;</span>, <span class="stringliteral">&quot;\n&quot;</span>, log_c_mean)</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>print(<span class="stringliteral">&quot;Standard dev.&quot;</span>, <span class="stringliteral">&quot;\n&quot;</span>, log_c_std)</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>print(<span class="stringliteral">&quot;Posterior Covariance Matrix&quot;</span>, <span class="stringliteral">&quot;\n&quot;</span>, post_cov)</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"># # Pairplot</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"># sns.pairplot(pd.DataFrame(log_c.T, columns=log_params), diag_kind=&quot;kde&quot;)</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment"># plt.savefig(&quot;pairplot.png&quot;, dpi=350, format=&quot;png&quot;)</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"># plt.show()</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"># Plot posterior distribution for each parameter</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment"># For different nchains values</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>fig, axs = plt.subplots(1,3, figsize=(15,10))</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#ad369a2b2d29cd52a7afa99260922a6b8">   79</a></span>bins = 100</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="keywordflow">for</span> i <span class="keywordflow">in</span> range(dims):</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="comment"># Posterior</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a37dbdc30935031c05304482e1be89d8f">   82</a></span>    axs[i].hist(log_c[i], density=<span class="keyword">True</span>, bins=bins, color=f<span class="stringliteral">&quot;C0&quot;</span>, alpha=0.5, label=<span class="stringliteral">&quot;DE-MC Samples&quot;</span>)</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    axs[i].plot(np.linspace(-10.0, 10.0, 1001), st.norm.pdf(np.linspace(-10.0, 10.0, 1001), loc=log_c_mean[i], scale=log_c_std[i]),</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                color=<span class="stringliteral">&quot;C0&quot;</span>, label=<span class="stringliteral">r&quot;$\mathcal{N}($&quot;</span> + f<span class="stringliteral">&quot;{round(log_c_mean[i],2)}, {round(log_c_std[i],2)})&quot;</span>)    </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="comment"># Prior</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    axs[i].plot(np.linspace(-10.0, 10.0, 1001), st.norm.pdf(np.linspace(-10.0, 10.0, 1001), loc=prior[i], scale=priorlow[i]),</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                color=<span class="stringliteral">&quot;C3&quot;</span>, label=<span class="stringliteral">r&quot;Prior - $\mathcal{N}($&quot;</span> + f<span class="stringliteral">&quot;{prior[i]}, {priorlow[i]})&quot;</span>)</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    axs[i].set_xlabel(f<span class="stringliteral">&quot;ln({params[i]})&quot;</span>)</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    axs[i].legend()</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>axs[0].set_ylabel(<span class="stringliteral">&quot;Density&quot;</span>)</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>plt.show()</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>fig.savefig(<span class="stringliteral">&quot;param_posterior.png&quot;</span>, dpi=350, format=<span class="stringliteral">&quot;png&quot;</span>)</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment"># # Convergence of mean and standard devs with generation</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment"># # This takes a very long time to run</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment"># means, std_devs = stat_convergence(log_c, dims)</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment"># fig, axs = plt.subplots(1,2, figsize=(10,5))</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment"># for i in range(dims):</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">#     # means</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">#     axs[0].plot(means[i], label=log_params[i])</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">#     axs[0].set_ylabel(&quot;Parameter mean&quot;)</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">#     # std. devs</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">#     axs[1].plot(std_devs[i], label=log_params[i])</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">#     axs[1].set_ylabel(&quot;Parameter Std. Dev.&quot;)</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment"># fig.text(0.5, 0.01, &quot;generation&quot;, ha=&quot;center&quot;)  # Common x-axis label</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment"># fig.legend(labels=log_params, loc=&quot;upper right&quot;)</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment"># plt.show()</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment"># fig.savefig(&quot;convergence.png&quot;, dpi=350, format=&quot;png&quot;)</span></div>
-<div class="ttc" id="anamespacefuncs_html_a5737b8a61a3f2ecfbd0e9890fa7bc5c0"><div class="ttname"><a href="namespacefuncs.html#a5737b8a61a3f2ecfbd0e9890fa7bc5c0">funcs.get_posterior</a></div><div class="ttdeci">get_posterior(data, n_samples, burn, dims=3)</div><div class="ttdef"><b>Definition</b> <a href="funcs_8py_source.html#l00061">funcs.py:61</a></div></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"># Write summary</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a0a9e9c5c3eae62014f8951f1c926fd22">   72</a></span>filename = <span class="stringliteral">&quot;de_mc_summary.txt&quot;</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><a class="code hl_function" href="namespacefuncs.html#a74b5578dcc03f31a7cd7fe1d9ac74305">write_demc_summary</a>(filename, n_samples, burn, log_c_mean, log_c_std, post_cov)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"># Plots</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"># Trace plots</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#a53a9b7aa07c149779cad676cdf07b4f7">   77</a></span><a class="code hl_function" href="namespacefuncs.html#a395964f7cb35a51200f65747977f5128">plot_trace</a>(dims,burn,log_c,params,save_plt=<span class="keyword">True</span>,show_plt=<span class="keyword">True</span>)</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment"># Pairplot</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><a class="code hl_function" href="namespacefuncs.html#ac0b38e88d85e3ed558efd8d03c8d6b8c">plot_pairplot</a>(log_c,log_params,save_plt=<span class="keyword">True</span>,show_plt=<span class="keyword">True</span>)</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment"># Marginal parameter posterior disributions</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="namespacede__mc__analysis.html#aa3b7b7485467046f9ac6f242bb6280d4">   83</a></span>d_range = np.linspace(-10.0, 10.0, 1001)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><a class="code hl_function" href="namespacefuncs.html#a9a683cda2e20b739f342badfc963b018">plot_marginal</a>(dims,log_c,log_c_mean,log_c_std,prior,priorlow,d_range,log_params,save_plt=<span class="keyword">True</span>,show_plt=<span class="keyword">True</span>)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment"># Convergence of mean and standard devs with generation</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment"># This takes a very long time to run (for 1e6 iterations ~ 1h)</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"># To run, uncomment the following line</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment"># means, std_devs = stat_convergence(log_c, dims, write_out=True)</span></div>
+<div class="ttc" id="anamespacefuncs_html_a395964f7cb35a51200f65747977f5128"><div class="ttname"><a href="namespacefuncs.html#a395964f7cb35a51200f65747977f5128">funcs.plot_trace</a></div><div class="ttdeci">plot_trace(dims, burn, c_dist, params, save_plt=False, show_plt=True)</div><div class="ttdef"><b>Definition</b> <a href="funcs_8py_source.html#l00282">funcs.py:282</a></div></div>
+<div class="ttc" id="anamespacefuncs_html_a5737b8a61a3f2ecfbd0e9890fa7bc5c0"><div class="ttname"><a href="namespacefuncs.html#a5737b8a61a3f2ecfbd0e9890fa7bc5c0">funcs.get_posterior</a></div><div class="ttdeci">get_posterior(data, n_samples, burn, dims=3)</div><div class="ttdef"><b>Definition</b> <a href="funcs_8py_source.html#l00193">funcs.py:193</a></div></div>
+<div class="ttc" id="anamespacefuncs_html_a74b5578dcc03f31a7cd7fe1d9ac74305"><div class="ttname"><a href="namespacefuncs.html#a74b5578dcc03f31a7cd7fe1d9ac74305">funcs.write_demc_summary</a></div><div class="ttdeci">write_demc_summary(filename, n_samples, burn, c_mean, c_std, post_cov)</div><div class="ttdef"><b>Definition</b> <a href="funcs_8py_source.html#l00263">funcs.py:263</a></div></div>
+<div class="ttc" id="anamespacefuncs_html_a9a683cda2e20b739f342badfc963b018"><div class="ttname"><a href="namespacefuncs.html#a9a683cda2e20b739f342badfc963b018">funcs.plot_marginal</a></div><div class="ttdeci">plot_marginal(dims, c_dist, c_mean, c_std, prior_mean, prior_std, d_range, params, save_plt=False, show_plt=True)</div><div class="ttdef"><b>Definition</b> <a href="funcs_8py_source.html#l00341">funcs.py:341</a></div></div>
+<div class="ttc" id="anamespacefuncs_html_ac0b38e88d85e3ed558efd8d03c8d6b8c"><div class="ttname"><a href="namespacefuncs.html#ac0b38e88d85e3ed558efd8d03c8d6b8c">funcs.plot_pairplot</a></div><div class="ttdeci">plot_pairplot(c_dist, params, save_plt=False, show_plt=True)</div><div class="ttdef"><b>Definition</b> <a href="funcs_8py_source.html#l00317">funcs.py:317</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

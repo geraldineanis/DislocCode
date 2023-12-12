@@ -1,5 +1,10 @@
 \doxysection{funcs Namespace Reference}
 \hypertarget{namespacefuncs}{}\label{namespacefuncs}\index{funcs@{funcs}}
+
+
+DE-\/\+MC analysis module.  
+
+
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -15,7 +20,17 @@
 \item 
 \mbox{\hyperlink{namespacefuncs_a543157c31e20837d8dd6891bd93e867b}{ODE\+\_\+solution\+\_\+dim}} (t, x0, t\+\_\+data)
 \item 
-\mbox{\hyperlink{namespacefuncs_a1f4d59a8b841f2e76b6da40ed5b7afc9}{stat\+\_\+convergence}} (data, dims)
+\mbox{\hyperlink{namespacefuncs_a5dfd15c2e5395faaf20456ba0a4ff39c}{plot\+\_\+convg}} (dims, means, std\+\_\+devs, params, save\+\_\+plt=False, show\+\_\+plt=True)
+\item 
+\mbox{\hyperlink{namespacefuncs_a9a683cda2e20b739f342badfc963b018}{plot\+\_\+marginal}} (dims, c\+\_\+dist, c\+\_\+mean, c\+\_\+std, prior\+\_\+mean, prior\+\_\+std, d\+\_\+range, params, save\+\_\+plt=False, show\+\_\+plt=True)
+\item 
+\mbox{\hyperlink{namespacefuncs_ac0b38e88d85e3ed558efd8d03c8d6b8c}{plot\+\_\+pairplot}} (c\+\_\+dist, params, save\+\_\+plt=False, show\+\_\+plt=True)
+\item 
+\mbox{\hyperlink{namespacefuncs_a395964f7cb35a51200f65747977f5128}{plot\+\_\+trace}} (dims, burn, c\+\_\+dist, params, save\+\_\+plt=False, show\+\_\+plt=True)
+\item 
+\mbox{\hyperlink{namespacefuncs_af4ecab27fe6b9adbd8d1a9b3a00ddef0}{stat\+\_\+convergence}} (c\+\_\+dist, dims, write\+\_\+out=True)
+\item 
+\mbox{\hyperlink{namespacefuncs_a74b5578dcc03f31a7cd7fe1d9ac74305}{write\+\_\+demc\+\_\+summary}} (filename, n\+\_\+samples, burn, c\+\_\+mean, c\+\_\+std, post\+\_\+cov)
 \item 
 \mbox{\hyperlink{namespacefuncs_ac34dcb7641de37b9f8c47b55f6f8866b}{x\+\_\+derivatives}} (x, t, c0, c1, c2)
 \item 
@@ -25,6 +40,11 @@
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+DE-\/\+MC analysis module. 
+
+This module contains the functions needed to fit an equation of motion to dislocation position data using Differential Evolution Monte Carlo (DE-\/\+MC) 
+
 \doxysubsection{Function Documentation}
 \Hypertarget{namespacefuncs_a2f73b98a1da5de062e191f6137156de0}\label{namespacefuncs_a2f73b98a1da5de062e191f6137156de0} 
 \index{funcs@{funcs}!c0\_to\_m@{c0\_to\_m}}
@@ -32,15 +52,46 @@
 \doxysubsubsection{\texorpdfstring{c0\_to\_m()}{c0\_to\_m()}}
 {\footnotesize\ttfamily c0\+\_\+to\+\_\+m (\begin{DoxyParamCaption}\item[{}]{c0,  }\item[{}]{ts,  }\item[{}]{xs,  }\item[{}]{Fs }\end{DoxyParamCaption})}
 
+\begin{DoxyVerb}Calculates m, the dislocation effective mass, from its corresponding 
+non-dimensional parameter.
 
+Parameters
+----------
+c0 : float
+ts : float
+xs : float
+Fs : float
+     ds
+Returns
+-------
+float
+     Dislocation effective mass
+\end{DoxyVerb}
+ 
 
-Definition at line \mbox{\hyperlink{funcs_8py_source_l00051}{51}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00137}{137}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00051\ \textcolor{keyword}{def\ }c0\_to\_m(c0,ts,xs,Fs):}
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordflow}{return}\ ((ts**2)*Fs)/(xs*c0)}
-\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00137\ \textcolor{keyword}{def\ }c0\_to\_m(c0,ts,xs,Fs):}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00139\ \textcolor{stringliteral}{\ \ \ \ Calculates\ m,\ the\ dislocation\ effective\ mass,\ from\ its\ corresponding\ }}
+\DoxyCodeLine{00140\ \textcolor{stringliteral}{\ \ \ \ non-\/dimensional\ parameter.}}
+\DoxyCodeLine{00141\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00142\ \textcolor{stringliteral}{\ \ \ \ Parameters}}
+\DoxyCodeLine{00143\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00144\ \textcolor{stringliteral}{\ \ \ \ c0\ :\ float}}
+\DoxyCodeLine{00145\ \textcolor{stringliteral}{\ \ \ \ ts\ :\ float}}
+\DoxyCodeLine{00146\ \textcolor{stringliteral}{\ \ \ \ xs\ :\ float}}
+\DoxyCodeLine{00147\ \textcolor{stringliteral}{\ \ \ \ Fs\ :\ float}}
+\DoxyCodeLine{00148\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ ds}}
+\DoxyCodeLine{00149\ \textcolor{stringliteral}{\ \ \ \ Returns}}
+\DoxyCodeLine{00150\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00151\ \textcolor{stringliteral}{\ \ \ \ float}}
+\DoxyCodeLine{00152\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ Dislocation\ effective\ mass}}
+\DoxyCodeLine{00153\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordflow}{return}\ ((ts**2)*Fs)/(xs*c0)}
+\DoxyCodeLine{00155\ }
 
 \end{DoxyCode}
 \Hypertarget{namespacefuncs_ab0932baa334ad3593902f4ea92de333b}\label{namespacefuncs_ab0932baa334ad3593902f4ea92de333b} 
@@ -49,15 +100,46 @@ Definition at line \mbox{\hyperlink{funcs_8py_source_l00051}{51}} of file \mbox{
 \doxysubsubsection{\texorpdfstring{c1\_to\_B()}{c1\_to\_B()}}
 {\footnotesize\ttfamily c1\+\_\+to\+\_\+B (\begin{DoxyParamCaption}\item[{}]{c1,  }\item[{}]{ts,  }\item[{}]{xs,  }\item[{}]{Fs }\end{DoxyParamCaption})}
 
+\begin{DoxyVerb}Calculates B, the drag coefficient, from its corresponding 
+non-dimensional parameter.
 
+Parameters
+----------
+c1 : float
+ts : float
+xs : float
+Fs : float
+     ds
+Returns
+-------
+float
+     Drag coefficient.
+\end{DoxyVerb}
+ 
 
-Definition at line \mbox{\hyperlink{funcs_8py_source_l00054}{54}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00156}{156}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00054\ \textcolor{keyword}{def\ }c1\_to\_B(c1,ts,xs,Fs):}
-\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ (c1*ts*Fs)/xs}
-\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00156\ \textcolor{keyword}{def\ }c1\_to\_B(c1,ts,xs,Fs):}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00158\ \textcolor{stringliteral}{\ \ \ \ Calculates\ B,\ the\ drag\ coefficient,\ from\ its\ corresponding\ }}
+\DoxyCodeLine{00159\ \textcolor{stringliteral}{\ \ \ \ non-\/dimensional\ parameter.}}
+\DoxyCodeLine{00160\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00161\ \textcolor{stringliteral}{\ \ \ \ Parameters}}
+\DoxyCodeLine{00162\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00163\ \textcolor{stringliteral}{\ \ \ \ c1\ :\ float}}
+\DoxyCodeLine{00164\ \textcolor{stringliteral}{\ \ \ \ ts\ :\ float}}
+\DoxyCodeLine{00165\ \textcolor{stringliteral}{\ \ \ \ xs\ :\ float}}
+\DoxyCodeLine{00166\ \textcolor{stringliteral}{\ \ \ \ Fs\ :\ float}}
+\DoxyCodeLine{00167\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ ds}}
+\DoxyCodeLine{00168\ \textcolor{stringliteral}{\ \ \ \ Returns}}
+\DoxyCodeLine{00169\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00170\ \textcolor{stringliteral}{\ \ \ \ float}}
+\DoxyCodeLine{00171\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ Drag\ coefficient.}}
+\DoxyCodeLine{00172\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}\ \ \ \ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordflow}{return}\ (c1*ts*Fs)/xs}
+\DoxyCodeLine{00174\ }
 
 \end{DoxyCode}
 \Hypertarget{namespacefuncs_af4435a845fb35f9c92a80999be6a5d84}\label{namespacefuncs_af4435a845fb35f9c92a80999be6a5d84} 
@@ -66,16 +148,43 @@ Definition at line \mbox{\hyperlink{funcs_8py_source_l00054}{54}} of file \mbox{
 \doxysubsubsection{\texorpdfstring{c2\_to\_F()}{c2\_to\_F()}}
 {\footnotesize\ttfamily c2\+\_\+to\+\_\+F (\begin{DoxyParamCaption}\item[{}]{c2,  }\item[{}]{Fs }\end{DoxyParamCaption})}
 
+\begin{DoxyVerb}Calculates F, the force on a dislocation, from its corresponding 
+non-dimensional parameter.
 
+Parameters
+----------
+c2 : float
+Fs : float
+     ds
+Returns
+-------
+float
+     The force on a dislocation.
+\end{DoxyVerb}
+ 
 
-Definition at line \mbox{\hyperlink{funcs_8py_source_l00057}{57}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00175}{175}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00057\ \textcolor{keyword}{def\ }c2\_to\_F(c2,Fs):}
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{return}\ Fs*c2}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ \textcolor{comment}{\#\ DE-\/MC\ Analysis}}
+\DoxyCodeLine{00175\ \textcolor{keyword}{def\ }c2\_to\_F(c2,Fs):}
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00177\ \textcolor{stringliteral}{\ \ \ \ Calculates\ F,\ the\ force\ on\ a\ dislocation,\ from\ its\ corresponding\ }}
+\DoxyCodeLine{00178\ \textcolor{stringliteral}{\ \ \ \ non-\/dimensional\ parameter.}}
+\DoxyCodeLine{00179\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00180\ \textcolor{stringliteral}{\ \ \ \ Parameters}}
+\DoxyCodeLine{00181\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00182\ \textcolor{stringliteral}{\ \ \ \ c2\ :\ float}}
+\DoxyCodeLine{00183\ \textcolor{stringliteral}{\ \ \ \ Fs\ :\ float}}
+\DoxyCodeLine{00184\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ ds}}
+\DoxyCodeLine{00185\ \textcolor{stringliteral}{\ \ \ \ Returns}}
+\DoxyCodeLine{00186\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00187\ \textcolor{stringliteral}{\ \ \ \ float}}
+\DoxyCodeLine{00188\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ The\ force\ on\ a\ dislocation.}}
+\DoxyCodeLine{00189\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keywordflow}{return}\ Fs*c2}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \textcolor{comment}{\#\ DE-\/MC\ Analysis}}
 
 \end{DoxyCode}
 \Hypertarget{namespacefuncs_a5737b8a61a3f2ecfbd0e9890fa7bc5c0}\label{namespacefuncs_a5737b8a61a3f2ecfbd0e9890fa7bc5c0} 
@@ -84,35 +193,79 @@ Definition at line \mbox{\hyperlink{funcs_8py_source_l00057}{57}} of file \mbox{
 \doxysubsubsection{\texorpdfstring{get\_posterior()}{get\_posterior()}}
 {\footnotesize\ttfamily get\+\_\+posterior (\begin{DoxyParamCaption}\item[{}]{data,  }\item[{}]{n\+\_\+samples,  }\item[{}]{burn,  }\item[{}]{dims = {\ttfamily 3} }\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}Function to get parameter posterior distributions
-Returns posterior samples for each parameter discarding burn samples
-Also returns the multivariate posterior distribution
+\begin{DoxyVerb}Calculates parameter posterior distributions from DE-MC accepted samples.
+
+Parameters
+----------
+data      : np.ndarray
+            DE-MC output.
+n_samples : int
+            Number of DE_MC samples.
+burn      : int
+            Number of accepted samples to discard.
+dims      : int
+            Number of parameters.
+
+Returns
+-------
+numpy.ndarray
+            Marginal parameter posterior distributions.
+numpy.ndarray
+            Marginal parameter posterior distributions.
+numpy.ndarray
+            Parameter means.
+numpy.ndarray
+            Joint posterior distribution covariance matrix.
+numpy.ndarray
+            Parameter standard deviations.
 \end{DoxyVerb}
  
 
-Definition at line \mbox{\hyperlink{funcs_8py_source_l00061}{61}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00193}{193}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00061\ \textcolor{keyword}{def\ }get\_posterior(data,\ n\_samples,\ burn,\ dims=3):}
-\DoxyCodeLine{00062\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
-\DoxyCodeLine{00063\ \textcolor{stringliteral}{\ \ \ \ Function\ to\ get\ parameter\ posterior\ distributions}}
-\DoxyCodeLine{00064\ \textcolor{stringliteral}{\ \ \ \ Returns\ posterior\ samples\ for\ each\ parameter\ discarding\ burn\ samples}}
-\DoxyCodeLine{00065\ \textcolor{stringliteral}{\ \ \ \ Also\ returns\ the\ multivariate\ posterior\ distribution}}
-\DoxyCodeLine{00066\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
-\DoxyCodeLine{00067\ \ \ \ \ \textcolor{comment}{\#\ All\ posterior\ samples}}
-\DoxyCodeLine{00068\ \ \ \ \ posterior\ =\ np.array(data[\textcolor{stringliteral}{"{}posterior"{}}][burn:n\_samples])}
-\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{\#\ Marginal\ posterior\ samples}}
-\DoxyCodeLine{00070\ \ \ \ \ c\_dist\ =\ np.array([np.array(posterior[:,i])\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(dims)])}
-\DoxyCodeLine{00071\ \ \ \ \ \textcolor{comment}{\#\ Parameter\ means}}
-\DoxyCodeLine{00072\ \ \ \ \ c\_means\ =\ np.array([c\_dist[i].mean()\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(dims)])}
-\DoxyCodeLine{00073\ \ \ \ \ \textcolor{comment}{\#\ Posterior\ covariance\ matrix}}
-\DoxyCodeLine{00074\ \ \ \ \ post\_cov\ =\ np.array(np.cov(posterior,\ rowvar=\textcolor{keyword}{False}))}
-\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{\#\ Parameter\ standard\ deviations}}
-\DoxyCodeLine{00076\ \ \ \ \ c\_std\ =\ np.array([np.sqrt(post\_cov[i][i])\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(dims)])}
-\DoxyCodeLine{00077\ \ \ \ \ }
-\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordflow}{return}\ posterior,\ c\_dist,\ c\_means,\ post\_cov,\ c\_std}
-\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00193\ \textcolor{keyword}{def\ }get\_posterior(data,\ n\_samples,\ burn,\ dims=3):}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00195\ \textcolor{stringliteral}{\ \ \ \ Calculates\ parameter\ posterior\ distributions\ from\ DE-\/MC\ accepted\ samples.}}
+\DoxyCodeLine{00196\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00197\ \textcolor{stringliteral}{\ \ \ \ Parameters}}
+\DoxyCodeLine{00198\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00199\ \textcolor{stringliteral}{\ \ \ \ data\ \ \ \ \ \ :\ np.ndarray}}
+\DoxyCodeLine{00200\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DE-\/MC\ output.}}
+\DoxyCodeLine{00201\ \textcolor{stringliteral}{\ \ \ \ n\_samples\ :\ int}}
+\DoxyCodeLine{00202\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Number\ of\ DE\_MC\ samples.}}
+\DoxyCodeLine{00203\ \textcolor{stringliteral}{\ \ \ \ burn\ \ \ \ \ \ :\ int}}
+\DoxyCodeLine{00204\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Number\ of\ accepted\ samples\ to\ discard.}}
+\DoxyCodeLine{00205\ \textcolor{stringliteral}{\ \ \ \ dims\ \ \ \ \ \ :\ int}}
+\DoxyCodeLine{00206\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Number\ of\ parameters.}}
+\DoxyCodeLine{00207\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00208\ \textcolor{stringliteral}{\ \ \ \ Returns}}
+\DoxyCodeLine{00209\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00210\ \textcolor{stringliteral}{\ \ \ \ numpy.ndarray}}
+\DoxyCodeLine{00211\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Marginal\ parameter\ posterior\ distributions.}}
+\DoxyCodeLine{00212\ \textcolor{stringliteral}{\ \ \ \ numpy.ndarray}}
+\DoxyCodeLine{00213\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Marginal\ parameter\ posterior\ distributions.}}
+\DoxyCodeLine{00214\ \textcolor{stringliteral}{\ \ \ \ numpy.ndarray}}
+\DoxyCodeLine{00215\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Parameter\ means.}}
+\DoxyCodeLine{00216\ \textcolor{stringliteral}{\ \ \ \ numpy.ndarray}}
+\DoxyCodeLine{00217\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Joint\ posterior\ distribution\ covariance\ matrix.}}
+\DoxyCodeLine{00218\ \textcolor{stringliteral}{\ \ \ \ numpy.ndarray}}
+\DoxyCodeLine{00219\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Parameter\ standard\ deviations.}}
+\DoxyCodeLine{00220\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{comment}{\#\ All\ posterior\ samples}}
+\DoxyCodeLine{00222\ \ \ \ \ posterior\ =\ np.array(data[\textcolor{stringliteral}{"{}posterior"{}}][burn:n\_samples])}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{comment}{\#\ Marginal\ posterior\ samples}}
+\DoxyCodeLine{00224\ \ \ \ \ c\_dist\ =\ np.array([np.array(posterior[:,i])\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(dims)])}
+\DoxyCodeLine{00225\ \ \ \ \ \textcolor{comment}{\#\ Parameter\ means}}
+\DoxyCodeLine{00226\ \ \ \ \ c\_means\ =\ np.array([c\_dist[i].mean()\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(dims)])}
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{comment}{\#\ Posterior\ covariance\ matrix}}
+\DoxyCodeLine{00228\ \ \ \ \ post\_cov\ =\ np.array(np.cov(posterior,\ rowvar=\textcolor{keyword}{False}))}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{comment}{\#\ Parameter\ standard\ deviations}}
+\DoxyCodeLine{00230\ \ \ \ \ c\_std\ =\ np.array([np.sqrt(post\_cov[i][i])\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(dims)])}
+\DoxyCodeLine{00231\ \ \ \ \ }
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordflow}{return}\ c\_dist,\ c\_means,\ post\_cov,\ c\_std}
+\DoxyCodeLine{00233\ }
 
 \end{DoxyCode}
 \Hypertarget{namespacefuncs_a6f41c57e2b22ccd30504b7308b3ef0a5}\label{namespacefuncs_a6f41c57e2b22ccd30504b7308b3ef0a5} 
@@ -121,23 +274,55 @@ Definition at line \mbox{\hyperlink{funcs_8py_source_l00061}{61}} of file \mbox{
 \doxysubsubsection{\texorpdfstring{ODE\_solution()}{ODE\_solution()}}
 {\footnotesize\ttfamily ODE\+\_\+solution (\begin{DoxyParamCaption}\item[{}]{t,  }\item[{}]{x0,  }\item[{}]{t\+\_\+data }\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}x0: vector containing initial position and velocity
+\begin{DoxyVerb}Solves the non-dimensional equation of motion c0 x" + c1 x' = c2
+Requires derivatives to be defined previously.
+
+Parameters
+----------
+t      : numpy.ndarray
+         Parameter vector
+x0     : numpy.ndarray  
+         Initial position and velocity.
+t_data : numpy.ndarray
+         Time - times at which equation is solved.    
+Returns
+-------
+numpy.ndarray
+         Non-dimensional dislocation position time series.
+numpy.ndarray
+         Non-dimensional dislocation velocity time series.
 \end{DoxyVerb}
  
 
-Definition at line \mbox{\hyperlink{funcs_8py_source_l00023}{23}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00064}{64}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00023\ \textcolor{keyword}{def\ }ODE\_solution(t,x0,t\_data):}
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
-\DoxyCodeLine{00025\ \textcolor{stringliteral}{\ \ \ \ x0:\ vector\ containing\ initial\ position\ and\ velocity}}
-\DoxyCodeLine{00026\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
-\DoxyCodeLine{00027\ \ \ \ \ c0,\ c1,\ c2\ =\ t\ \ \textcolor{comment}{\#\ Unpack\ parameters}}
-\DoxyCodeLine{00028\ \ \ \ \ position,\ velocity\ =\ odeint(x\_derivatives,\ x0,\ t\_data,\ args=(c0,c1,c2)).T}
-\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{return}\ position,\ velocity}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \textcolor{comment}{\#\ Dimensional\ Model}}
+\DoxyCodeLine{00064\ \textcolor{keyword}{def\ }ODE\_solution(t,x0,t\_data):}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00066\ \textcolor{stringliteral}{\ \ \ \ Solves\ the\ non-\/dimensional\ equation\ of\ motion\ c0\ x"{}\ +\ c1\ x'\ =\ c2}}
+\DoxyCodeLine{00067\ \textcolor{stringliteral}{\ \ \ \ Requires\ derivatives\ to\ be\ defined\ previously.}}
+\DoxyCodeLine{00068\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00069\ \textcolor{stringliteral}{\ \ \ \ Parameters}}
+\DoxyCodeLine{00070\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00071\ \textcolor{stringliteral}{\ \ \ \ t\ \ \ \ \ \ :\ numpy.ndarray}}
+\DoxyCodeLine{00072\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ Parameter\ vector}}
+\DoxyCodeLine{00073\ \textcolor{stringliteral}{\ \ \ \ x0\ \ \ \ \ :\ numpy.ndarray\ \ }}
+\DoxyCodeLine{00074\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ Initial\ position\ and\ velocity.}}
+\DoxyCodeLine{00075\ \textcolor{stringliteral}{\ \ \ \ t\_data\ :\ numpy.ndarray}}
+\DoxyCodeLine{00076\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ Time\ -\/\ times\ at\ which\ equation\ is\ solved.\ \ \ \ }}
+\DoxyCodeLine{00077\ \textcolor{stringliteral}{\ \ \ \ Returns}}
+\DoxyCodeLine{00078\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00079\ \textcolor{stringliteral}{\ \ \ \ numpy.ndarray}}
+\DoxyCodeLine{00080\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ Non-\/dimensional\ dislocation\ position\ time\ series.}}
+\DoxyCodeLine{00081\ \textcolor{stringliteral}{\ \ \ \ numpy.ndarray}}
+\DoxyCodeLine{00082\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ Non-\/dimensional\ dislocation\ velocity\ time\ series.}}
+\DoxyCodeLine{00083\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00084\ \ \ \ \ c0,\ c1,\ c2\ =\ t\ \ \textcolor{comment}{\#\ Unpack\ parameters}}
+\DoxyCodeLine{00085\ \ \ \ \ position,\ velocity\ =\ odeint(x\_derivatives,\ x0,\ t\_data,\ args=(c0,c1,c2)).T}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{return}\ position,\ velocity}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{comment}{\#\ Dimensional\ Model}}
 
 \end{DoxyCode}
 \Hypertarget{namespacefuncs_a543157c31e20837d8dd6891bd93e867b}\label{namespacefuncs_a543157c31e20837d8dd6891bd93e867b} 
@@ -146,50 +331,442 @@ Definition at line \mbox{\hyperlink{funcs_8py_source_l00023}{23}} of file \mbox{
 \doxysubsubsection{\texorpdfstring{ODE\_solution\_dim()}{ODE\_solution\_dim()}}
 {\footnotesize\ttfamily ODE\+\_\+solution\+\_\+dim (\begin{DoxyParamCaption}\item[{}]{t,  }\item[{}]{x0,  }\item[{}]{t\+\_\+data }\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}x0: vector containing initial position and velocity
+\begin{DoxyVerb}Solves the dimensional equation of motion mx" + Bx' = F
+Requires derivatives to be defined previously.
+
+Parameters
+----------
+t      : numpy.ndarray
+         Parameter vector
+x0     : numpy.ndarray  
+         Initial position and velocity.
+t_data : numpy.ndarray
+         Time - times at which equation is solved.    
+Returns
+-------
+numpy.ndarray
+         Non-dimensional dislocation position time series.
+numpy.ndarray
+         Non-dimensional dislocation velocity time series.
 \end{DoxyVerb}
  
 
-Definition at line \mbox{\hyperlink{funcs_8py_source_l00041}{41}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00113}{113}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00041\ \textcolor{keyword}{def\ }ODE\_solution\_dim(t,x0,t\_data):}
-\DoxyCodeLine{00042\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
-\DoxyCodeLine{00043\ \textcolor{stringliteral}{\ \ \ \ x0:\ vector\ containing\ initial\ position\ and\ velocity}}
-\DoxyCodeLine{00044\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
-\DoxyCodeLine{00045\ \ \ \ \ m,\ B,\ F\ =\ t\ \ \textcolor{comment}{\#\ Unpack\ parameters}}
-\DoxyCodeLine{00046\ \ \ \ \ position,\ velocity\ =\ odeint(x\_derivatives\_dim,\ x0,\ t\_data,\ args=(m,B,F)).T}
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordflow}{return}\ position,\ velocity}
-\DoxyCodeLine{00048\ }
-\DoxyCodeLine{00049\ \textcolor{comment}{\#\ Functions\ to\ convert\ from\ non-\/dimensional\ parameters}}
-\DoxyCodeLine{00050\ \textcolor{comment}{\#\ c0,\ c1,\ c2\ to\ m,\ B,\ F}}
+\DoxyCodeLine{00113\ \textcolor{keyword}{def\ }ODE\_solution\_dim(t,x0,t\_data):}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00115\ \textcolor{stringliteral}{\ \ \ \ Solves\ the\ dimensional\ equation\ of\ motion\ mx"{}\ +\ Bx'\ =\ F}}
+\DoxyCodeLine{00116\ \textcolor{stringliteral}{\ \ \ \ Requires\ derivatives\ to\ be\ defined\ previously.}}
+\DoxyCodeLine{00117\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00118\ \textcolor{stringliteral}{\ \ \ \ Parameters}}
+\DoxyCodeLine{00119\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00120\ \textcolor{stringliteral}{\ \ \ \ t\ \ \ \ \ \ :\ numpy.ndarray}}
+\DoxyCodeLine{00121\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ Parameter\ vector}}
+\DoxyCodeLine{00122\ \textcolor{stringliteral}{\ \ \ \ x0\ \ \ \ \ :\ numpy.ndarray\ \ }}
+\DoxyCodeLine{00123\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ Initial\ position\ and\ velocity.}}
+\DoxyCodeLine{00124\ \textcolor{stringliteral}{\ \ \ \ t\_data\ :\ numpy.ndarray}}
+\DoxyCodeLine{00125\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ Time\ -\/\ times\ at\ which\ equation\ is\ solved.\ \ \ \ }}
+\DoxyCodeLine{00126\ \textcolor{stringliteral}{\ \ \ \ Returns}}
+\DoxyCodeLine{00127\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00128\ \textcolor{stringliteral}{\ \ \ \ numpy.ndarray}}
+\DoxyCodeLine{00129\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ Non-\/dimensional\ dislocation\ position\ time\ series.}}
+\DoxyCodeLine{00130\ \textcolor{stringliteral}{\ \ \ \ numpy.ndarray}}
+\DoxyCodeLine{00131\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ Non-\/dimensional\ dislocation\ velocity\ time\ series.}}
+\DoxyCodeLine{00132\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00133\ \ \ \ \ m,\ B,\ F\ =\ t\ \ \textcolor{comment}{\#\ Unpack\ parameters}}
+\DoxyCodeLine{00134\ \ \ \ \ position,\ velocity\ =\ odeint(x\_derivatives\_dim,\ x0,\ t\_data,\ args=(m,B,F)).T}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{return}\ position,\ velocity}
+\DoxyCodeLine{00136\ }
 
 \end{DoxyCode}
-\Hypertarget{namespacefuncs_a1f4d59a8b841f2e76b6da40ed5b7afc9}\label{namespacefuncs_a1f4d59a8b841f2e76b6da40ed5b7afc9} 
+\Hypertarget{namespacefuncs_a5dfd15c2e5395faaf20456ba0a4ff39c}\label{namespacefuncs_a5dfd15c2e5395faaf20456ba0a4ff39c} 
+\index{funcs@{funcs}!plot\_convg@{plot\_convg}}
+\index{plot\_convg@{plot\_convg}!funcs@{funcs}}
+\doxysubsubsection{\texorpdfstring{plot\_convg()}{plot\_convg()}}
+{\footnotesize\ttfamily plot\+\_\+convg (\begin{DoxyParamCaption}\item[{}]{dims,  }\item[{}]{means,  }\item[{}]{std\+\_\+devs,  }\item[{}]{params,  }\item[{}]{save\+\_\+plt = {\ttfamily False},  }\item[{}]{show\+\_\+plt = {\ttfamily True} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Plots the marginal parameter posterior and parameter prior distributions.
+Assumes parameters are normally distributed.
+
+Parameters
+----------
+dims     : int
+           Number of fitting parameters.    
+means    : numpy.ndarray
+           An array of the mean of the accepted parameter values at every DE-MC 
+           generation for each parameter. This should be an N x M  array, where 
+           N is the number of parameters and M is the number of DE-MC iterations. 
+std_devs : numpy.ndarray
+           An array of the standard deviation of the accepted parameter values at 
+           every DE-MC generation for each parameter. This should be an N x M  array, 
+           where N is the number of parameters and M is the number of DE-MC iterations.
+params   : list
+           N-dimensional array containing parameter names as strings for plot 
+           labels.
+save_plt : bool
+           If True, saves the trace plot. Default value is False.
+show_plt : bool
+           If True, shows the trace plot. Default value is True.
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00394}{394}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00394\ \textcolor{keyword}{def\ }plot\_convg(dims,means,std\_devs,params,save\_plt=False,show\_plt=True):}
+\DoxyCodeLine{00395\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00396\ \textcolor{stringliteral}{\ \ \ \ Plots\ the\ marginal\ parameter\ posterior\ and\ parameter\ prior\ distributions.}}
+\DoxyCodeLine{00397\ \textcolor{stringliteral}{\ \ \ \ Assumes\ parameters\ are\ normally\ distributed.}}
+\DoxyCodeLine{00398\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00399\ \textcolor{stringliteral}{\ \ \ \ Parameters}}
+\DoxyCodeLine{00400\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00401\ \textcolor{stringliteral}{\ \ \ \ dims\ \ \ \ \ :\ int}}
+\DoxyCodeLine{00402\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Number\ of\ fitting\ parameters.\ \ \ \ }}
+\DoxyCodeLine{00403\ \textcolor{stringliteral}{\ \ \ \ means\ \ \ \ :\ numpy.ndarray}}
+\DoxyCodeLine{00404\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ An\ array\ of\ the\ mean\ of\ the\ accepted\ parameter\ values\ at\ every\ DE-\/MC\ }}
+\DoxyCodeLine{00405\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ generation\ for\ each\ parameter.\ This\ should\ be\ an\ N\ x\ M\ \ array,\ where\ }}
+\DoxyCodeLine{00406\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ N\ is\ the\ number\ of\ parameters\ and\ M\ is\ the\ number\ of\ DE-\/MC\ iterations.\ }}
+\DoxyCodeLine{00407\ \textcolor{stringliteral}{\ \ \ \ std\_devs\ :\ numpy.ndarray}}
+\DoxyCodeLine{00408\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ An\ array\ of\ the\ standard\ deviation\ of\ the\ accepted\ parameter\ values\ at\ }}
+\DoxyCodeLine{00409\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ every\ DE-\/MC\ generation\ for\ each\ parameter.\ This\ should\ be\ an\ N\ x\ M\ \ array,\ }}
+\DoxyCodeLine{00410\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ where\ N\ is\ the\ number\ of\ parameters\ and\ M\ is\ the\ number\ of\ DE-\/MC\ iterations.}}
+\DoxyCodeLine{00411\ \textcolor{stringliteral}{\ \ \ \ params\ \ \ :\ list}}
+\DoxyCodeLine{00412\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ N-\/dimensional\ array\ containing\ parameter\ names\ as\ strings\ for\ plot\ }}
+\DoxyCodeLine{00413\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ labels.}}
+\DoxyCodeLine{00414\ \textcolor{stringliteral}{\ \ \ \ save\_plt\ :\ bool}}
+\DoxyCodeLine{00415\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ If\ True,\ saves\ the\ trace\ plot.\ Default\ value\ is\ False.}}
+\DoxyCodeLine{00416\ \textcolor{stringliteral}{\ \ \ \ show\_plt\ :\ bool}}
+\DoxyCodeLine{00417\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ If\ True,\ shows\ the\ trace\ plot.\ Default\ value\ is\ True.}}
+\DoxyCodeLine{00418\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00419\ \ \ \ \ fig,\ axs\ =\ plt.subplots(1,2,\ figsize=(10,5))}
+\DoxyCodeLine{00420\ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(dims):}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ means}}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ axs[0].plot(means[i],\ label=params[i])}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ axs[0].set\_ylabel(\textcolor{stringliteral}{"{}Parameter\ mean"{}},\ fontsize=12)}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ axs[0].set\_xlabel(\textcolor{stringliteral}{"{}Generation"{}},\ fontsize=12)}
+\DoxyCodeLine{00425\ }
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ std.\ devs}}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ axs[1].plot(std\_devs[i],\ label=params[i])}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ axs[1].set\_ylabel(\textcolor{stringliteral}{"{}Parameter\ Std.\ Dev."{}},\ fontsize=12)}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ axs[1].set\_xlabel(\textcolor{stringliteral}{"{}Generation"{}},\ fontsize=12)}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ axs[1].legend(loc=4,\ fontsize=12)}
+\DoxyCodeLine{00431\ \ \ \ \ }
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{keywordflow}{if}\ save\_plt:}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ fig.savefig(\textcolor{stringliteral}{"{}convergence.png"{}},\ dpi=350,\ format=\textcolor{stringliteral}{"{}png"{}})}
+\DoxyCodeLine{00434\ \ \ \ \ }
+\DoxyCodeLine{00435\ \ \ \ \ \textcolor{keywordflow}{if}\ show\_plt:}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ plt.show()}
+\DoxyCodeLine{00437\ }
+\DoxyCodeLine{00438\ \ \ \ \ }
+
+\end{DoxyCode}
+\Hypertarget{namespacefuncs_a9a683cda2e20b739f342badfc963b018}\label{namespacefuncs_a9a683cda2e20b739f342badfc963b018} 
+\index{funcs@{funcs}!plot\_marginal@{plot\_marginal}}
+\index{plot\_marginal@{plot\_marginal}!funcs@{funcs}}
+\doxysubsubsection{\texorpdfstring{plot\_marginal()}{plot\_marginal()}}
+{\footnotesize\ttfamily plot\+\_\+marginal (\begin{DoxyParamCaption}\item[{}]{dims,  }\item[{}]{c\+\_\+dist,  }\item[{}]{c\+\_\+mean,  }\item[{}]{c\+\_\+std,  }\item[{}]{prior\+\_\+mean,  }\item[{}]{prior\+\_\+std,  }\item[{}]{d\+\_\+range,  }\item[{}]{params,  }\item[{}]{save\+\_\+plt = {\ttfamily False},  }\item[{}]{show\+\_\+plt = {\ttfamily True} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Plots the marginal parameter posterior and parameter prior distributions.
+Assumes parameters are normally distributed.
+
+Parameters
+----------
+dims       : int
+             Number of fitting parameters.    
+c_dist     : numpy.ndarray
+             Accepted samples for each parameter. This should be an N x M 
+             array where N is equal to dims and M is the number of samples.
+c_mean     : numpy.ndarray
+             N-dimensional array of parameter means.
+c_std      : numpy.ndarray
+             N-dimensional array of parameter standard deviations.
+prior_mean : numpy.ndarray
+             N-dimensional array of prior means.
+prior_std  : numpy.ndarray
+             N-dimensional array of prior standard deviations.
+d_range    : numpy.ndarray
+             Array of values at which to evaluate the parameter 
+             probability density function (PDF)
+params     : list
+             N-dimensional array containing parameter names as strings for plot 
+             labels.
+save_plt   : bool
+             If True, saves the trace plot. Default value is False.
+show_plt   : bool
+             If True, shows the trace plot. Default value is True.   
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00341}{341}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00341\ \textcolor{keyword}{def\ }plot\_marginal(dims,c\_dist,c\_mean,c\_std,prior\_mean,prior\_std,d\_range,params,save\_plt=False,show\_plt=True):}
+\DoxyCodeLine{00342\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00343\ \textcolor{stringliteral}{\ \ \ \ Plots\ the\ marginal\ parameter\ posterior\ and\ parameter\ prior\ distributions.}}
+\DoxyCodeLine{00344\ \textcolor{stringliteral}{\ \ \ \ Assumes\ parameters\ are\ normally\ distributed.}}
+\DoxyCodeLine{00345\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00346\ \textcolor{stringliteral}{\ \ \ \ Parameters}}
+\DoxyCodeLine{00347\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00348\ \textcolor{stringliteral}{\ \ \ \ dims\ \ \ \ \ \ \ :\ int}}
+\DoxyCodeLine{00349\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Number\ of\ fitting\ parameters.\ \ \ \ }}
+\DoxyCodeLine{00350\ \textcolor{stringliteral}{\ \ \ \ c\_dist\ \ \ \ \ :\ numpy.ndarray}}
+\DoxyCodeLine{00351\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Accepted\ samples\ for\ each\ parameter.\ This\ should\ be\ an\ N\ x\ M\ }}
+\DoxyCodeLine{00352\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ array\ where\ N\ is\ equal\ to\ dims\ and\ M\ is\ the\ number\ of\ samples.}}
+\DoxyCodeLine{00353\ \textcolor{stringliteral}{\ \ \ \ c\_mean\ \ \ \ \ :\ numpy.ndarray}}
+\DoxyCodeLine{00354\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ N-\/dimensional\ array\ of\ parameter\ means.}}
+\DoxyCodeLine{00355\ \textcolor{stringliteral}{\ \ \ \ c\_std\ \ \ \ \ \ :\ numpy.ndarray}}
+\DoxyCodeLine{00356\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ N-\/dimensional\ array\ of\ parameter\ standard\ deviations.}}
+\DoxyCodeLine{00357\ \textcolor{stringliteral}{\ \ \ \ prior\_mean\ :\ numpy.ndarray}}
+\DoxyCodeLine{00358\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ N-\/dimensional\ array\ of\ prior\ means.}}
+\DoxyCodeLine{00359\ \textcolor{stringliteral}{\ \ \ \ prior\_std\ \ :\ numpy.ndarray}}
+\DoxyCodeLine{00360\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ N-\/dimensional\ array\ of\ prior\ standard\ deviations.}}
+\DoxyCodeLine{00361\ \textcolor{stringliteral}{\ \ \ \ d\_range\ \ \ \ :\ numpy.ndarray}}
+\DoxyCodeLine{00362\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Array\ of\ values\ at\ which\ to\ evaluate\ the\ parameter\ }}
+\DoxyCodeLine{00363\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ probability\ density\ function\ (PDF)}}
+\DoxyCodeLine{00364\ \textcolor{stringliteral}{\ \ \ \ params\ \ \ \ \ :\ list}}
+\DoxyCodeLine{00365\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ N-\/dimensional\ array\ containing\ parameter\ names\ as\ strings\ for\ plot\ }}
+\DoxyCodeLine{00366\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ labels.}}
+\DoxyCodeLine{00367\ \textcolor{stringliteral}{\ \ \ \ save\_plt\ \ \ :\ bool}}
+\DoxyCodeLine{00368\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ If\ True,\ saves\ the\ trace\ plot.\ Default\ value\ is\ False.}}
+\DoxyCodeLine{00369\ \textcolor{stringliteral}{\ \ \ \ show\_plt\ \ \ :\ bool}}
+\DoxyCodeLine{00370\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ If\ True,\ shows\ the\ trace\ plot.\ Default\ value\ is\ True.\ \ \ }}
+\DoxyCodeLine{00371\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00372\ \ \ \ \ fig,\ axs\ =\ plt.subplots(1,dims,\ figsize=(10,5))}
+\DoxyCodeLine{00373\ \ \ \ \ bins\ =\ 100}
+\DoxyCodeLine{00374\ }
+\DoxyCodeLine{00375\ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(dims):}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Posterior}}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ axs[i].hist(c\_dist[i],\ density=\textcolor{keyword}{True},\ bins=bins,\ color=f\textcolor{stringliteral}{"{}C0"{}},\ alpha=0.5,\ label=\textcolor{stringliteral}{"{}DE-\/MC\ Samples"{}})}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ axs[i].plot(d\_range,\ st.norm.pdf(d\_range,\ loc=c\_mean[i],\ scale=c\_std[i]),}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ color=\textcolor{stringliteral}{"{}C0"{}},\ label=\textcolor{stringliteral}{r"{}\$\(\backslash\)mathcal\{N\}(\$"{}}\ +\ f\textcolor{stringliteral}{"{}\{round(c\_mean[i],2)\},\ \{round(c\_std[i],2)\}"{}}\ +\textcolor{stringliteral}{r"{}\$\string^2\$)"{}})\ \ \ \ }
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \textcolor{comment}{\#\ Prior}}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ axs[i].plot(d\_range,\ st.norm.pdf(d\_range,\ loc=prior\_mean[i],\ scale=prior\_std[i]),}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ color=\textcolor{stringliteral}{"{}C3"{}},\ label=\textcolor{stringliteral}{r"{}Prior\ -\/\ \$\(\backslash\)mathcal\{N\}(\$"{}}\ +\ f\textcolor{stringliteral}{"{}\{prior\_mean[i]\},\ \{prior\_std[i]\}"{}}+\textcolor{stringliteral}{r"{}\$\string^2\$)"{}})}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ axs[i].set\_xlabel(f\textcolor{stringliteral}{"{}\{params[i]\}"{}},\ fontsize=12)}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ axs[i].legend(loc=2,\ fontsize=10.5)}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ \ \ \ \ axs[0].set\_ylabel(\textcolor{stringliteral}{"{}Density"{}},\ fontsize=12)}
+\DoxyCodeLine{00388\ \ \ \ }
+\DoxyCodeLine{00389\ \ \ \ \ \textcolor{keywordflow}{if}\ save\_plt:}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \ fig.savefig(\textcolor{stringliteral}{"{}param\_posterior.png"{}},\ dpi=350,\ format=\textcolor{stringliteral}{"{}png"{}})}
+\DoxyCodeLine{00391\ \ \ \ \ \textcolor{keywordflow}{if}\ show\_plt:}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ plt.show()}
+\DoxyCodeLine{00393\ }
+
+\end{DoxyCode}
+\Hypertarget{namespacefuncs_ac0b38e88d85e3ed558efd8d03c8d6b8c}\label{namespacefuncs_ac0b38e88d85e3ed558efd8d03c8d6b8c} 
+\index{funcs@{funcs}!plot\_pairplot@{plot\_pairplot}}
+\index{plot\_pairplot@{plot\_pairplot}!funcs@{funcs}}
+\doxysubsubsection{\texorpdfstring{plot\_pairplot()}{plot\_pairplot()}}
+{\footnotesize\ttfamily plot\+\_\+pairplot (\begin{DoxyParamCaption}\item[{}]{c\+\_\+dist,  }\item[{}]{params,  }\item[{}]{save\+\_\+plt = {\ttfamily False},  }\item[{}]{show\+\_\+plt = {\ttfamily True} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Plots a pairplot of the fitted parameters.
+
+Parameters
+----------
+c_dist   : numpy.ndarray
+           Accepted samples for each parameter. This should be an N x M 
+           array where N is equal to dims and M is the number of samples.
+params   : list
+           N-dimensional array containing parameter names as strings for plot 
+           labels.
+save_plt : bool
+           If True, saves the trace plot. Default value is False.
+show_plt : bool
+           If True, shows the trace plot. Default value is True.       
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00317}{317}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00317\ \textcolor{keyword}{def\ }plot\_pairplot(c\_dist,\ params,save\_plt=False,show\_plt=True):}
+\DoxyCodeLine{00318\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00319\ \textcolor{stringliteral}{\ \ \ \ Plots\ a\ pairplot\ of\ the\ fitted\ parameters.}}
+\DoxyCodeLine{00320\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00321\ \textcolor{stringliteral}{\ \ \ \ Parameters}}
+\DoxyCodeLine{00322\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00323\ \textcolor{stringliteral}{\ \ \ \ c\_dist\ \ \ :\ numpy.ndarray}}
+\DoxyCodeLine{00324\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Accepted\ samples\ for\ each\ parameter.\ This\ should\ be\ an\ N\ x\ M\ }}
+\DoxyCodeLine{00325\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ array\ where\ N\ is\ equal\ to\ dims\ and\ M\ is\ the\ number\ of\ samples.}}
+\DoxyCodeLine{00326\ \textcolor{stringliteral}{\ \ \ \ params\ \ \ :\ list}}
+\DoxyCodeLine{00327\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ N-\/dimensional\ array\ containing\ parameter\ names\ as\ strings\ for\ plot\ }}
+\DoxyCodeLine{00328\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ labels.}}
+\DoxyCodeLine{00329\ \textcolor{stringliteral}{\ \ \ \ save\_plt\ :\ bool}}
+\DoxyCodeLine{00330\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ If\ True,\ saves\ the\ trace\ plot.\ Default\ value\ is\ False.}}
+\DoxyCodeLine{00331\ \textcolor{stringliteral}{\ \ \ \ show\_plt\ :\ bool}}
+\DoxyCodeLine{00332\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ If\ True,\ shows\ the\ trace\ plot.\ Default\ value\ is\ True.\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00333\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00334\ \ \ \ \ sns.pairplot(pd.DataFrame(c\_dist.T,\ columns=params),\ plot\_kws=\{\textcolor{stringliteral}{"{}s"{}}:\ 3\})}
+\DoxyCodeLine{00335\ \ \ \ \ }
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{keywordflow}{if}\ save\_plt:}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ plt.savefig(\textcolor{stringliteral}{"{}pairplot.png"{}},\ dpi=350,\ format=\textcolor{stringliteral}{"{}png"{}})\ \ \ \ }
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keywordflow}{if}\ show\_plt:}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ plt.show()}
+\DoxyCodeLine{00340\ }
+
+\end{DoxyCode}
+\Hypertarget{namespacefuncs_a395964f7cb35a51200f65747977f5128}\label{namespacefuncs_a395964f7cb35a51200f65747977f5128} 
+\index{funcs@{funcs}!plot\_trace@{plot\_trace}}
+\index{plot\_trace@{plot\_trace}!funcs@{funcs}}
+\doxysubsubsection{\texorpdfstring{plot\_trace()}{plot\_trace()}}
+{\footnotesize\ttfamily plot\+\_\+trace (\begin{DoxyParamCaption}\item[{}]{dims,  }\item[{}]{burn,  }\item[{}]{c\+\_\+dist,  }\item[{}]{params,  }\item[{}]{save\+\_\+plt = {\ttfamily False},  }\item[{}]{show\+\_\+plt = {\ttfamily True} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Plots a trace plot using the accepted DE-MC samples.
+
+Parameters
+----------
+dims     : int
+           Number of fitting parameters.
+burn     : int
+           Number of accepted discarded samples.
+c_dist   : numpy.ndarray
+           Accepted samples for each parameter. This should be an N x M 
+           array where N is equal to dims and M is the number of samples.
+params   : list
+           N-dimensional array containg parameter names as strings for plot 
+           labels.
+save_plt : bool
+           If True, saves the trace plot. Default value is False.
+show_plt : bool
+           If True, shows the trace plot. Default value is True.
+\end{DoxyVerb}
+ 
+
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00282}{282}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00282\ \textcolor{keyword}{def\ }plot\_trace(dims,burn,c\_dist,params,save\_plt=False,show\_plt=True):}
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00284\ \textcolor{stringliteral}{\ \ \ \ Plots\ a\ trace\ plot\ using\ the\ accepted\ DE-\/MC\ samples.}}
+\DoxyCodeLine{00285\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00286\ \textcolor{stringliteral}{\ \ \ \ Parameters}}
+\DoxyCodeLine{00287\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00288\ \textcolor{stringliteral}{\ \ \ \ dims\ \ \ \ \ :\ int}}
+\DoxyCodeLine{00289\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Number\ of\ fitting\ parameters.}}
+\DoxyCodeLine{00290\ \textcolor{stringliteral}{\ \ \ \ burn\ \ \ \ \ :\ int}}
+\DoxyCodeLine{00291\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Number\ of\ accepted\ discarded\ samples.}}
+\DoxyCodeLine{00292\ \textcolor{stringliteral}{\ \ \ \ c\_dist\ \ \ :\ numpy.ndarray}}
+\DoxyCodeLine{00293\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Accepted\ samples\ for\ each\ parameter.\ This\ should\ be\ an\ N\ x\ M\ }}
+\DoxyCodeLine{00294\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ array\ where\ N\ is\ equal\ to\ dims\ and\ M\ is\ the\ number\ of\ samples.}}
+\DoxyCodeLine{00295\ \textcolor{stringliteral}{\ \ \ \ params\ \ \ :\ list}}
+\DoxyCodeLine{00296\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ N-\/dimensional\ array\ containg\ parameter\ names\ as\ strings\ for\ plot\ }}
+\DoxyCodeLine{00297\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ labels.}}
+\DoxyCodeLine{00298\ \textcolor{stringliteral}{\ \ \ \ save\_plt\ :\ bool}}
+\DoxyCodeLine{00299\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ If\ True,\ saves\ the\ trace\ plot.\ Default\ value\ is\ False.}}
+\DoxyCodeLine{00300\ \textcolor{stringliteral}{\ \ \ \ show\_plt\ :\ bool}}
+\DoxyCodeLine{00301\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ If\ True,\ shows\ the\ trace\ plot.\ Default\ value\ is\ True.}}
+\DoxyCodeLine{00302\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00303\ \ \ \ \ fig,\ axs\ =\ plt.subplots(1,\ dims,\ figsize=(10,5))}
+\DoxyCodeLine{00304\ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(dims):}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ axs[i].plot(c\_dist[i],\ lw=1,\ alpha=0.5)}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ axs[i].axvline(burn,\ c=\textcolor{stringliteral}{"{}tab:red"{}},\ lw=1,\ ls=\textcolor{stringliteral}{"{}-\/-\/"{}},\ label=f\textcolor{stringliteral}{"{}Burned\ Samples\ =\ "{}}+\textcolor{stringliteral}{r"{}\$10\string^5\$"{}})}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ axs[i].set\_ylabel(f\textcolor{stringliteral}{"{}ln(\{params[i]\})"{}},\ fontsize=12)}
+\DoxyCodeLine{00308\ \ \ \ \ \textcolor{keywordflow}{for}\ ax\ \textcolor{keywordflow}{in}\ axs:}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ ax.set\_xlabel(\textcolor{stringliteral}{"{}Generation"{}},\ fontsize=12)}
+\DoxyCodeLine{00310\ \ \ \ \ axs[-\/1].legend(fontsize=12)}
+\DoxyCodeLine{00311\ \ \ \ \ }
+\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keywordflow}{if}\ save\_plt:}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ fig.savefig(\textcolor{stringliteral}{"{}trace.png"{}},\ dpi=350,\ format=\textcolor{stringliteral}{"{}png"{}})}
+\DoxyCodeLine{00314\ \ \ \ \ \textcolor{keywordflow}{if}\ show\_plt:}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ plt.show()}
+\DoxyCodeLine{00316\ }
+
+\end{DoxyCode}
+\Hypertarget{namespacefuncs_af4ecab27fe6b9adbd8d1a9b3a00ddef0}\label{namespacefuncs_af4ecab27fe6b9adbd8d1a9b3a00ddef0} 
 \index{funcs@{funcs}!stat\_convergence@{stat\_convergence}}
 \index{stat\_convergence@{stat\_convergence}!funcs@{funcs}}
 \doxysubsubsection{\texorpdfstring{stat\_convergence()}{stat\_convergence()}}
-{\footnotesize\ttfamily stat\+\_\+convergence (\begin{DoxyParamCaption}\item[{}]{data,  }\item[{}]{dims }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily stat\+\_\+convergence (\begin{DoxyParamCaption}\item[{}]{c\+\_\+dist,  }\item[{}]{dims,  }\item[{}]{write\+\_\+out = {\ttfamily True} }\end{DoxyParamCaption})}
 
 \begin{DoxyVerb}Function to calculate the mean and standarde deviation of a parameter dataset
-with increasing sample size
+with increasing sample size.
+
+Parameters
+----------
+c_dist    : numpy.array
+            Accepted samples for each parameter. This should be an N x M 
+            array where N is equal to dims and M is the number of samples.
+dims      : int
+            Number of fitting parameters.
+write_out : bool
+            If True, writes out the results to stats_convg.txt              
 \end{DoxyVerb}
  
 
-Definition at line \mbox{\hyperlink{funcs_8py_source_l00080}{80}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00234}{234}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00080\ \textcolor{keyword}{def\ }stat\_convergence(data,\ dims):}
-\DoxyCodeLine{00081\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
-\DoxyCodeLine{00082\ \textcolor{stringliteral}{\ \ \ \ Function\ to\ calculate\ the\ mean\ and\ standarde\ deviation\ of\ a\ parameter\ dataset}}
-\DoxyCodeLine{00083\ \textcolor{stringliteral}{\ \ \ \ with\ increasing\ sample\ size}}
-\DoxyCodeLine{00084\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
-\DoxyCodeLine{00085\ \ \ \ \ means\ \ \ \ =\ np.array([[data[i][:N].mean()\ \textcolor{keywordflow}{for}\ N\ \textcolor{keywordflow}{in}\ range(1,len(data[i]))]\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(dims)])}
-\DoxyCodeLine{00086\ \ \ \ \ std\_devs\ =\ np.array([[data[i][:N].std()\ \textcolor{keywordflow}{for}\ N\ \textcolor{keywordflow}{in}\ range(1,len(data[i]))]\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(dims)])}
-\DoxyCodeLine{00087\ }
-\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordflow}{return}\ means,\ std\_devs}
+\DoxyCodeLine{00234\ \textcolor{keyword}{def\ }stat\_convergence(c\_dist,\ dims,\ write\_out=True):}
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00236\ \textcolor{stringliteral}{\ \ \ \ Function\ to\ calculate\ the\ mean\ and\ standarde\ deviation\ of\ a\ parameter\ dataset}}
+\DoxyCodeLine{00237\ \textcolor{stringliteral}{\ \ \ \ with\ increasing\ sample\ size.}}
+\DoxyCodeLine{00238\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00239\ \textcolor{stringliteral}{\ \ \ \ Parameters}}
+\DoxyCodeLine{00240\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00241\ \textcolor{stringliteral}{\ \ \ \ c\_dist\ \ \ \ :\ numpy.array}}
+\DoxyCodeLine{00242\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Accepted\ samples\ for\ each\ parameter.\ This\ should\ be\ an\ N\ x\ M\ }}
+\DoxyCodeLine{00243\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ array\ where\ N\ is\ equal\ to\ dims\ and\ M\ is\ the\ number\ of\ samples.}}
+\DoxyCodeLine{00244\ \textcolor{stringliteral}{\ \ \ \ dims\ \ \ \ \ \ :\ int}}
+\DoxyCodeLine{00245\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Number\ of\ fitting\ parameters.}}
+\DoxyCodeLine{00246\ \textcolor{stringliteral}{\ \ \ \ write\_out\ :\ bool}}
+\DoxyCodeLine{00247\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ If\ True,\ writes\ out\ the\ results\ to\ stats\_convg.txt\ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00248\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00249\ \ \ \ \ means\ \ \ \ =\ np.array([[c\_dist[i][:N].mean()\ \textcolor{keywordflow}{for}\ N\ \textcolor{keywordflow}{in}\ range(1,len(c\_dist[i]))]\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(dims)])}
+\DoxyCodeLine{00250\ \ \ \ \ std\_devs\ =\ np.array([[c\_dist[i][:N].std()\ \textcolor{keywordflow}{for}\ N\ \textcolor{keywordflow}{in}\ range(1,len(c\_dist[i]))]\ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(dims)])}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keywordflow}{if}\ write\_out:}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ f\ =\ open(\textcolor{stringliteral}{"{}stats\_convg.txt"{}},\ \textcolor{stringliteral}{"{}w"{}})}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ i\ \textcolor{keywordflow}{in}\ range(len(means)):}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ f.write(f\textcolor{stringliteral}{"{}\{means[i]\}\ \ \ \ \ \{std\_devs[i]\}\ \(\backslash\)n"{}})}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ f.close()}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordflow}{return}\ means,\ std\_devs}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \textcolor{comment}{\#\ Writing\ output\ to\ file}}
+\DoxyCodeLine{00262\ \textcolor{comment}{\#\ Statistics}}
+
+\end{DoxyCode}
+\Hypertarget{namespacefuncs_a74b5578dcc03f31a7cd7fe1d9ac74305}\label{namespacefuncs_a74b5578dcc03f31a7cd7fe1d9ac74305} 
+\index{funcs@{funcs}!write\_demc\_summary@{write\_demc\_summary}}
+\index{write\_demc\_summary@{write\_demc\_summary}!funcs@{funcs}}
+\doxysubsubsection{\texorpdfstring{write\_demc\_summary()}{write\_demc\_summary()}}
+{\footnotesize\ttfamily write\+\_\+demc\+\_\+summary (\begin{DoxyParamCaption}\item[{}]{filename,  }\item[{}]{n\+\_\+samples,  }\item[{}]{burn,  }\item[{}]{c\+\_\+mean,  }\item[{}]{c\+\_\+std,  }\item[{}]{post\+\_\+cov }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00263}{263}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00263\ \textcolor{keyword}{def\ }write\_demc\_summary(filename,\ n\_samples,\ burn,\ c\_mean,\ c\_std,\ post\_cov):}
+\DoxyCodeLine{00264\ \ \ \ \ f\ =\ open(f\textcolor{stringliteral}{"{}\{filename\}"{}},\ \textcolor{stringliteral}{"{}w"{}})}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \ \ f.write(\textcolor{stringliteral}{"{}DE-\/MC\ parameter\ fitting\ summary\ \(\backslash\)n\(\backslash\)n"{}})}
+\DoxyCodeLine{00267\ \ \ \ \ f.write(\textcolor{stringliteral}{"{}General\ \(\backslash\)n"{}})}
+\DoxyCodeLine{00268\ \ \ \ \ f.write(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/\ \(\backslash\)n"{}})}
+\DoxyCodeLine{00269\ \ \ \ \ f.write(f\textcolor{stringliteral}{"{}Accepted\ samples\ \ =\ \{n\_samples\}\ \(\backslash\)n"{}})}
+\DoxyCodeLine{00270\ \ \ \ \ f.write(f\textcolor{stringliteral}{"{}Burned\ samples\ \ \ \ =\ \{burn\}\ \(\backslash\)n"{}})}
+\DoxyCodeLine{00271\ \ \ \ \ f.write(f\textcolor{stringliteral}{"{}Remaining\ samples\ =\ \{n\_samples-\/burn\}\ \(\backslash\)n\(\backslash\)n"{}})}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \ \ \ \ f.write(\textcolor{stringliteral}{"{}Parameter\ Statistics\ \(\backslash\)n"{}})}
+\DoxyCodeLine{00274\ \ \ \ \ f.write(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ \(\backslash\)n"{}})}
+\DoxyCodeLine{00275\ \ \ \ \ f.write(f\textcolor{stringliteral}{"{}Parameter\ Means\ \(\backslash\)n\ \{c\_mean\}\ \(\backslash\)n"{}})}
+\DoxyCodeLine{00276\ \ \ \ \ f.write(f\textcolor{stringliteral}{"{}Standard\ dev.\ \(\backslash\)n\ \{c\_std\}\ \(\backslash\)n"{}})}
+\DoxyCodeLine{00277\ \ \ \ \ f.write(f\textcolor{stringliteral}{"{}Posterior\ Covariance\ Matrix\ \(\backslash\)n\ \{post\_cov\}"{}})\ \ \ \ }
+\DoxyCodeLine{00278\ \ \ \ \ }
+\DoxyCodeLine{00279\ \ \ \ \ f.close()}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \textcolor{comment}{\#\ Plotting}}
 
 \end{DoxyCode}
 \Hypertarget{namespacefuncs_ac34dcb7641de37b9f8c47b55f6f8866b}\label{namespacefuncs_ac34dcb7641de37b9f8c47b55f6f8866b} 
@@ -198,25 +775,59 @@ Definition at line \mbox{\hyperlink{funcs_8py_source_l00080}{80}} of file \mbox{
 \doxysubsubsection{\texorpdfstring{x\_derivatives()}{x\_derivatives()}}
 {\footnotesize\ttfamily x\+\_\+derivatives (\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{t,  }\item[{}]{c0,  }\item[{}]{c1,  }\item[{}]{c2 }\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}x: LHS row vector (dependent variable)
-t: time (the independent variable)
-m, B, F: constants
+\begin{DoxyVerb}Defines the derivatives needed to solve the equation c0 x" + c1 x' = c2
+This is the non-dimensional equation of motion
+
+Parameters
+----------
+x   : numpy.ndarray 
+      LHS row vector (dependent variable)
+t   : numpy.ndarray
+      time (the independent variable)
+c0  : float
+      Non-dimensional parameter related to the effective mass.
+c1  : float
+      Non-dimensional parameter related to the drag coefficient.
+c2  : float
+      Non-dimensional parameter related to the force.
+
+Returns
+-------
+numpy.ndarray
+      Derrivates.
 \end{DoxyVerb}
  
 
-Definition at line \mbox{\hyperlink{funcs_8py_source_l00014}{14}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00038}{38}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00014\ \textcolor{keyword}{def\ }x\_derivatives(x,t,c0,c1,c2):}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
-\DoxyCodeLine{00016\ \textcolor{stringliteral}{\ \ \ \ x:\ LHS\ row\ vector\ (dependent\ variable)}}
-\DoxyCodeLine{00017\ \textcolor{stringliteral}{\ \ \ \ t:\ time\ (the\ independent\ variable)}}
-\DoxyCodeLine{00018\ \textcolor{stringliteral}{\ \ \ \ m,\ B,\ F:\ constants}}
-\DoxyCodeLine{00019\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
-\DoxyCodeLine{00020\ \ \ \ \ dxdt\ =\ [x[1],\ np.exp(c0)*(np.exp(c2)\ -\/\ np.exp(c1)*x[1])]}
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{return}\ dxdt}
-\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{def\ }x\_derivatives(x,t,c0,c1,c2):}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00040\ \textcolor{stringliteral}{\ \ \ \ Defines\ the\ derivatives\ needed\ to\ solve\ the\ equation\ c0\ x"{}\ +\ c1\ x'\ =\ c2}}
+\DoxyCodeLine{00041\ \textcolor{stringliteral}{\ \ \ \ This\ is\ the\ non-\/dimensional\ equation\ of\ motion}}
+\DoxyCodeLine{00042\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00043\ \textcolor{stringliteral}{\ \ \ \ Parameters}}
+\DoxyCodeLine{00044\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00045\ \textcolor{stringliteral}{\ \ \ \ x\ \ \ :\ numpy.ndarray\ }}
+\DoxyCodeLine{00046\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ LHS\ row\ vector\ (dependent\ variable)}}
+\DoxyCodeLine{00047\ \textcolor{stringliteral}{\ \ \ \ t\ \ \ :\ numpy.ndarray}}
+\DoxyCodeLine{00048\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ time\ (the\ independent\ variable)}}
+\DoxyCodeLine{00049\ \textcolor{stringliteral}{\ \ \ \ c0\ \ :\ float}}
+\DoxyCodeLine{00050\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ Non-\/dimensional\ parameter\ related\ to\ the\ effective\ mass.}}
+\DoxyCodeLine{00051\ \textcolor{stringliteral}{\ \ \ \ c1\ \ :\ float}}
+\DoxyCodeLine{00052\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ Non-\/dimensional\ parameter\ related\ to\ the\ drag\ coefficient.}}
+\DoxyCodeLine{00053\ \textcolor{stringliteral}{\ \ \ \ c2\ \ :\ float}}
+\DoxyCodeLine{00054\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ Non-\/dimensional\ parameter\ related\ to\ the\ force.}}
+\DoxyCodeLine{00055\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00056\ \textcolor{stringliteral}{\ \ \ \ Returns}}
+\DoxyCodeLine{00057\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00058\ \textcolor{stringliteral}{\ \ \ \ numpy.ndarray}}
+\DoxyCodeLine{00059\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ Derrivates.}}
+\DoxyCodeLine{00060\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00061\ \ \ \ \ dxdt\ =\ [x[1],\ np.exp(c0)*(np.exp(c2)\ -\/\ np.exp(c1)*x[1])]}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordflow}{return}\ dxdt}
+\DoxyCodeLine{00063\ }
 
 \end{DoxyCode}
 \Hypertarget{namespacefuncs_ad67954a2c6f4626ce9e16627630e22ed}\label{namespacefuncs_ad67954a2c6f4626ce9e16627630e22ed} 
@@ -225,25 +836,55 @@ Definition at line \mbox{\hyperlink{funcs_8py_source_l00014}{14}} of file \mbox{
 \doxysubsubsection{\texorpdfstring{x\_derivatives\_dim()}{x\_derivatives\_dim()}}
 {\footnotesize\ttfamily x\+\_\+derivatives\+\_\+dim (\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{t,  }\item[{}]{m,  }\item[{}]{B,  }\item[{}]{F }\end{DoxyParamCaption})}
 
-\begin{DoxyVerb}x: LHS row vector (dependent variable)
-t: time (the independent variable)
-m, B, F: constants
+\begin{DoxyVerb}Defines the derivatives needed to solve the dimensional equation of motion mx" + Bx' = F
+
+Parameters
+----------
+x : numpy.ndarray 
+    LHS row vector (dependent variable)
+t : numpy.ndarray
+    time (the independent variable)
+m : float
+    Dislocation effective mass.
+B : float
+    Drag coefficient.
+F : float
+    Force on the dislocation.
+Returns
+-------
+numpy.ndarray
+      Derrivates.
 \end{DoxyVerb}
  
 
-Definition at line \mbox{\hyperlink{funcs_8py_source_l00032}{32}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00089}{89}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00032\ \textcolor{keyword}{def\ }x\_derivatives\_dim(x,t,m,B,F):}
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
-\DoxyCodeLine{00034\ \textcolor{stringliteral}{\ \ \ \ x:\ LHS\ row\ vector\ (dependent\ variable)}}
-\DoxyCodeLine{00035\ \textcolor{stringliteral}{\ \ \ \ t:\ time\ (the\ independent\ variable)}}
-\DoxyCodeLine{00036\ \textcolor{stringliteral}{\ \ \ \ m,\ B,\ F:\ constants}}
-\DoxyCodeLine{00037\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
-\DoxyCodeLine{00038\ \ \ \ \ dxdt\ =\ [x[1],\ (1/m)*(F\ -\/\ B*x[1])]}
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{return}\ dxdt}
-\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{def\ }x\_derivatives\_dim(x,t,m,B,F):}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00091\ \textcolor{stringliteral}{\ \ \ \ Defines\ the\ derivatives\ needed\ to\ solve\ the\ dimensional\ equation\ of\ motion\ mx"{}\ +\ Bx'\ =\ F}}
+\DoxyCodeLine{00092\ \textcolor{stringliteral}{\ \ \ \ }}
+\DoxyCodeLine{00093\ \textcolor{stringliteral}{\ \ \ \ Parameters}}
+\DoxyCodeLine{00094\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00095\ \textcolor{stringliteral}{\ \ \ \ x\ :\ numpy.ndarray\ }}
+\DoxyCodeLine{00096\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ LHS\ row\ vector\ (dependent\ variable)}}
+\DoxyCodeLine{00097\ \textcolor{stringliteral}{\ \ \ \ t\ :\ numpy.ndarray}}
+\DoxyCodeLine{00098\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ time\ (the\ independent\ variable)}}
+\DoxyCodeLine{00099\ \textcolor{stringliteral}{\ \ \ \ m\ :\ float}}
+\DoxyCodeLine{00100\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Dislocation\ effective\ mass.}}
+\DoxyCodeLine{00101\ \textcolor{stringliteral}{\ \ \ \ B\ :\ float}}
+\DoxyCodeLine{00102\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Drag\ coefficient.}}
+\DoxyCodeLine{00103\ \textcolor{stringliteral}{\ \ \ \ F\ :\ float}}
+\DoxyCodeLine{00104\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ Force\ on\ the\ dislocation.}}
+\DoxyCodeLine{00105\ \textcolor{stringliteral}{\ \ \ \ Returns}}
+\DoxyCodeLine{00106\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00107\ \textcolor{stringliteral}{\ \ \ \ numpy.ndarray}}
+\DoxyCodeLine{00108\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ Derrivates.}}
+\DoxyCodeLine{00109\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00110\ \ \ \ \ dxdt\ =\ [x[1],\ (1/m)*(F\ -\/\ B*x[1])]}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordflow}{return}\ dxdt}
+\DoxyCodeLine{00112\ }
 
 \end{DoxyCode}
 \Hypertarget{namespacefuncs_af2d0ab5140fa7165180f56988326e7ea}\label{namespacefuncs_af2d0ab5140fa7165180f56988326e7ea} 
@@ -253,22 +894,52 @@ Definition at line \mbox{\hyperlink{funcs_8py_source_l00032}{32}} of file \mbox{
 {\footnotesize\ttfamily x\+\_\+t (\begin{DoxyParamCaption}\item[{}]{t,  }\item[{}]{xi,  }\item[{}]{m,  }\item[{}]{B,  }\item[{}]{F }\end{DoxyParamCaption})}
 
 \begin{DoxyVerb}Analytic solution to the equation of motion mx" + Bx' = F
-Full dimensional equation
+
+Parameters
+----------
+t  : numpy.ndarray
+     Time - times at which position is calculated.
+xi : float
+     Initial dislocation position.
+m  : float
+     Dislocation effective mass.
+B  : float
+     Drag coefficient.
+F  : float
+     Force on the dislocation.
+Returns
+-------
+float
+     Dislocation position timeseries.    
 \end{DoxyVerb}
  
 
-Definition at line \mbox{\hyperlink{funcs_8py_source_l00005}{5}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
+Definition at line \mbox{\hyperlink{funcs_8py_source_l00015}{15}} of file \mbox{\hyperlink{funcs_8py_source}{funcs.\+py}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00005\ \textcolor{keyword}{def\ }x\_t(t,xi,m,\ B,\ F):}
-\DoxyCodeLine{00006\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}}}
-\DoxyCodeLine{00007\ \textcolor{stringliteral}{\ \ \ \ Analytic\ solution\ to\ the\ equation\ of\ motion\ mx"{}\ +\ Bx'\ =\ F}}
-\DoxyCodeLine{00008\ \textcolor{stringliteral}{\ \ \ \ Full\ dimensional\ equation}}
-\DoxyCodeLine{00009\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
-\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keywordflow}{return}\ xi\ +\ ((F/B)*(t\ +\ (m/B)*(np.exp(-\/(B/m)*t)\ -\/\ 1.0)))}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \textcolor{comment}{\#\ Non-\/dimensional\ Model}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{def\ }x\_t(t,xi,m,\ B,\ F):}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{stringliteral}{"{}"{}"{}\ \ \ \ }}
+\DoxyCodeLine{00017\ \textcolor{stringliteral}{\ \ \ \ Analytic\ solution\ to\ the\ equation\ of\ motion\ mx"{}\ +\ Bx'\ =\ F}}
+\DoxyCodeLine{00018\ \textcolor{stringliteral}{}}
+\DoxyCodeLine{00019\ \textcolor{stringliteral}{\ \ \ \ Parameters}}
+\DoxyCodeLine{00020\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00021\ \textcolor{stringliteral}{\ \ \ \ t\ \ :\ numpy.ndarray}}
+\DoxyCodeLine{00022\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ Time\ -\/\ times\ at\ which\ position\ is\ calculated.}}
+\DoxyCodeLine{00023\ \textcolor{stringliteral}{\ \ \ \ xi\ :\ float}}
+\DoxyCodeLine{00024\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ Initial\ dislocation\ position.}}
+\DoxyCodeLine{00025\ \textcolor{stringliteral}{\ \ \ \ m\ \ :\ float}}
+\DoxyCodeLine{00026\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ Dislocation\ effective\ mass.}}
+\DoxyCodeLine{00027\ \textcolor{stringliteral}{\ \ \ \ B\ \ :\ float}}
+\DoxyCodeLine{00028\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ Drag\ coefficient.}}
+\DoxyCodeLine{00029\ \textcolor{stringliteral}{\ \ \ \ F\ \ :\ float}}
+\DoxyCodeLine{00030\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ Force\ on\ the\ dislocation.}}
+\DoxyCodeLine{00031\ \textcolor{stringliteral}{\ \ \ \ Returns}}
+\DoxyCodeLine{00032\ \textcolor{stringliteral}{\ \ \ \ -\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00033\ \textcolor{stringliteral}{\ \ \ \ float}}
+\DoxyCodeLine{00034\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ Dislocation\ position\ timeseries.\ \ \ \ }}
+\DoxyCodeLine{00035\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{return}\ xi\ +\ ((F/B)*(t\ +\ (m/B)*(np.exp(-\/(B/m)*t)\ -\/\ 1.0)))}
+\DoxyCodeLine{00037\ }
 
 \end{DoxyCode}

@@ -1,95 +1,48 @@
 \doxysection{lmp\+\_\+pre\+\_\+strain Namespace Reference}
 \hypertarget{namespacelmp__pre__strain}{}\label{namespacelmp__pre__strain}\index{lmp\_pre\_strain@{lmp\_pre\_strain}}
+
+
+An example LAMMPS python script to set up and run a dislocation MD simulation in pure Ni.  
+
+
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{namespacelmp__pre__strain_a111d1f34a231d570fc30d0e0fcd86582}{thermo\+\_\+type}} (\mbox{\hyperlink{namespacelmp__pre__strain_a0d1ba6853502d541ca10c5de7959fb62}{thermo\+\_\+ensemble}})
 \begin{DoxyCompactList}\small\item\em Temperature/\+Pressure Control \#. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-tuple \mbox{\hyperlink{namespacelmp__pre__strain_a5a820f2c23ea594534330561c620ea98}{app\+\_\+force\+\_\+lower}} = (\mbox{\hyperlink{namespacelmp__pre__strain_af7c2dc72bb970fef4e6313293cadfe95}{lx}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__pre__strain_a6d5d22bdb3cf920dd706c9a1f94f376c}{ly}})/\mbox{\hyperlink{namespacelmp__pre__strain_aed8ad95a596ff8ea1efa3b85ea51ba1e}{nlower}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__pre__strain_a64cddb1ad704ff5cc78b012010314024}{sigma}}/\mbox{\hyperlink{namespacelmp__pre__strain_ad95fb03238f547447c8eb79ac6ea1fa3}{e\+V\+\_\+to\+\_\+J}}
-\item 
-tuple \mbox{\hyperlink{namespacelmp__pre__strain_a96b94c283374078d5e9fd204c5acda83}{app\+\_\+force\+\_\+upper}} = (\mbox{\hyperlink{namespacelmp__pre__strain_af7c2dc72bb970fef4e6313293cadfe95}{lx}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__pre__strain_a6d5d22bdb3cf920dd706c9a1f94f376c}{ly}})/\mbox{\hyperlink{namespacelmp__pre__strain_addad1d6bcd26b64827081caea9091048}{nupper}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__pre__strain_a64cddb1ad704ff5cc78b012010314024}{sigma}}/\mbox{\hyperlink{namespacelmp__pre__strain_ad95fb03238f547447c8eb79ac6ea1fa3}{e\+V\+\_\+to\+\_\+J}}
-\item 
-str \mbox{\hyperlink{namespacelmp__pre__strain_a76bcce3ead38fc192860a18230a72002}{block}}
-\item 
-list \mbox{\hyperlink{namespacelmp__pre__strain_a01fc441b4d74aa997465a8eddad21cc9}{box\+\_\+dim}} = \mbox{[}(\mbox{\hyperlink{namespacelmp__pre__strain_a97fcb0e1731b36905e90757f211b1340}{x1}}+\mbox{\hyperlink{namespacelmp__pre__strain_ad660c90589efbb535c7d55dc032c1b09}{x2}}+\mbox{\hyperlink{namespacelmp__pre__strain_ae067fb8a14696066b62593d8adf469cd}{x3}})\texorpdfstring{$\ast$}{*}np.\+sqrt(2)/2.\+0, \mbox{\hyperlink{namespacelmp__pre__strain_a886daa12d11655f342168e87c7c0b1cb}{y1}}\texorpdfstring{$\ast$}{*}np.\+sqrt(6)/2.\+0, \mbox{\hyperlink{namespacelmp__pre__strain_a5f1285c04e47d67d87125b6653c68562}{z1}}\texorpdfstring{$\ast$}{*}np.\+sqrt(3)\mbox{]}
-\item 
-str \mbox{\hyperlink{namespacelmp__pre__strain_a6011ea35234b3073111d25753f715643}{box\+\_\+name}} = "{}sim\+\_\+box"{}
-\item 
-\mbox{\hyperlink{namespacelmp__pre__strain_a9b142544026b640e49a88445490d9fc1}{cell\+\_\+extents}} = lmp.\+extract\+\_\+box()
-\item 
-bool \mbox{\hyperlink{namespacelmp__pre__strain_aa79f3f854f59cfd74086c89e25a0f55f}{check\+\_\+overlap}} = False
-\item 
-list \mbox{\hyperlink{namespacelmp__pre__strain_a7c47321fae78722b8f29ac89125e15a8}{elements}} = \mbox{[}"{}Ni"{}, "{}Al"{}\mbox{]}
-\item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_afb36f83be68f340092b318ed7c189a6c}{equil\+\_\+run}} = 2
-\item 
-float \mbox{\hyperlink{namespacelmp__pre__strain_ad95fb03238f547447c8eb79ac6ea1fa3}{e\+V\+\_\+to\+\_\+J}} = 1602191.\+7
-\item 
-float \mbox{\hyperlink{namespacelmp__pre__strain_a9b27874ba7d145bc1250fc9179cc308c}{gamma\+\_\+latt}} = 3.\+52
-\item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_a384c3d971a2c23a7b5d687535cd4d870}{last\+\_\+timestep}} = 30000
-\item 
-\mbox{\hyperlink{namespacelmp__pre__strain_ab124f7285006b751c3f603fcd4b80a47}{lmp}} = lammps()
-\begin{DoxyCompactList}\small\item\em System initialization \#. \end{DoxyCompactList}\item 
-str \mbox{\hyperlink{namespacelmp__pre__strain_a9242f629ea2e29adf5bdea1ac0a2c1de}{loading\+\_\+type}} = "{}sym"{}
-\item 
-\mbox{\hyperlink{namespacelmp__pre__strain_a14c2d6545f4ded26c9f86c71c85bd5c4}{lower\+\_\+lim}} = lmp.\+extract\+\_\+box()\mbox{[}0\mbox{]}\mbox{[}2\mbox{]} + (3.\+0\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__pre__strain_a9b27874ba7d145bc1250fc9179cc308c}{gamma\+\_\+latt}}\texorpdfstring{$\ast$}{*}np.\+sqrt(3))
-\item 
-\mbox{\hyperlink{namespacelmp__pre__strain_af7c2dc72bb970fef4e6313293cadfe95}{lx}} = lmp.\+extract\+\_\+variable("{}length\+\_\+x"{})
-\item 
-\mbox{\hyperlink{namespacelmp__pre__strain_a6d5d22bdb3cf920dd706c9a1f94f376c}{ly}} = lmp.\+extract\+\_\+variable("{}length\+\_\+y"{})
-\item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_a16106246b4cae2c0caff572f31dc716e}{MD\+\_\+run}} = 2
-\item 
-\mbox{\hyperlink{namespacelmp__pre__strain_aed8ad95a596ff8ea1efa3b85ea51ba1e}{nlower}} = lmp.\+extract\+\_\+variable("{}nlower"{})
-\item 
-\mbox{\hyperlink{namespacelmp__pre__strain_addad1d6bcd26b64827081caea9091048}{nupper}} = lmp.\+extract\+\_\+variable("{}nupper"{})
-\item 
-str \mbox{\hyperlink{namespacelmp__pre__strain_a2284450a7e0fc8239d572deb7609c49e}{potential}} = "{}./Ni\+Al\+\_\+\+Mishin\+\_\+2004.\+eam.\+alloy"{}
-\begin{DoxyCompactList}\small\item\em Define Interatomic Potential \#. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{namespacelmp__pre__strain_ae7cda6ca83719293f0a225786c5b744e}{pre\+\_\+strain}} = np.\+sqrt(2)\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__pre__strain_a9b27874ba7d145bc1250fc9179cc308c}{gamma\+\_\+latt}}/4.\+0
-\item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_ad19429a485400193c6dfc8c71b151c06}{pressure}} = 1
-\item 
-str \mbox{\hyperlink{namespacelmp__pre__strain_ab351eda9f100d89986f3490815569740}{problem}} = "{}relax"{}
-\item 
-str \mbox{\hyperlink{namespacelmp__pre__strain_a173b5dda013af94c6c3e397545212c77}{restart\+\_\+file}} = "{}md\+\_\+restart.\+30000"{}
-\item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_a64cddb1ad704ff5cc78b012010314024}{sigma}} = 500
-\item 
-str \mbox{\hyperlink{namespacelmp__pre__strain_a0cc3f74bbf11904047904ba2858f06bf}{sim\+\_\+type}} = "{}new"{}
-\item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_aeb0b627a85488d9be1a7632200c41cfe}{species}} = 1
-\item 
-str \mbox{\hyperlink{namespacelmp__pre__strain_a47a6a162aaaec8deeb946d93afc43640}{sys\+\_\+type}} = "{}Ni"{}
-\item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_a0ac2a299549fcca3cd14e4c1ac2087d2}{temperature}} = 300
-\item 
-str \mbox{\hyperlink{namespacelmp__pre__strain_a0d1ba6853502d541ca10c5de7959fb62}{thermo\+\_\+ensemble}} = "{}NVT"{}
-\item 
-float \mbox{\hyperlink{namespacelmp__pre__strain_ab9edcc09985767509bf717e25ac80ab7}{timestep}} = 0.\+001
-\item 
-str \mbox{\hyperlink{namespacelmp__pre__strain_ab4a60aabe529e19e17b4e27692988e55}{units}} = "{}metal"{}
-\item 
-\mbox{\hyperlink{namespacelmp__pre__strain_ac43304e147bd7f78311c61442fa2dff8}{upper\+\_\+lim}} = lmp.\+extract\+\_\+box()\mbox{[}1\mbox{]}\mbox{[}2\mbox{]} -\/ (3.\+0\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__pre__strain_a9b27874ba7d145bc1250fc9179cc308c}{gamma\+\_\+latt}}\texorpdfstring{$\ast$}{*}np.\+sqrt(3))
-\item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_a97fcb0e1731b36905e90757f211b1340}{x1}} = 10
-\item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_ad660c90589efbb535c7d55dc032c1b09}{x2}} = 21
-\item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_ae067fb8a14696066b62593d8adf469cd}{x3}} = 40
-\item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_a46326c15278ffc091dac92438f16af68}{x\+\_\+shift}} = \mbox{\hyperlink{namespacelmp__pre__strain_a97fcb0e1731b36905e90757f211b1340}{x1}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__pre__strain_a9b27874ba7d145bc1250fc9179cc308c}{gamma\+\_\+latt}}\texorpdfstring{$\ast$}{*}np.\+sqrt(2)
-\item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_a886daa12d11655f342168e87c7c0b1cb}{y1}} = 20
-\item 
-int \mbox{\hyperlink{namespacelmp__pre__strain_a5f1285c04e47d67d87125b6653c68562}{z1}} = 40
-\item 
-tuple \mbox{\hyperlink{namespacelmp__pre__strain_afff0b63b39a7ba8af9780f575aa11e2e}{z\+\_\+mid}} = ((\mbox{\hyperlink{namespacelmp__pre__strain_a9b142544026b640e49a88445490d9fc1}{cell\+\_\+extents}}\mbox{[}1\mbox{]}\mbox{[}2\mbox{]})/2.\+0)
-\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An example LAMMPS python script to set up and run a dislocation MD simulation in pure Ni. 
+
+This script shows an example of how to set up and run an MD dislocation simulation using the LAMMPS Python library. The script sets up a simulation of a single ~\newline
+ in a pure Ni cell, where a shear stress of 10 MPa is applied to the simulation cell in order to move the dislocation. Periodic boundary conditions are applied along x and y, and a shrink boundary condition (non-\/periodic) in z, such that the dislocations are infinitely long. The dislocations lie in the (111) plane and the applied shear stress is applied perpendicular to the dislocation such that it moves in the \mbox{[}110\mbox{]} (x) direction.
+
+The starting structure is constructed by reading in three .data files\+: Ni\+\_\+start.\+data (1st padding layer); disloc\+\_\+\+Ni.\+data (cell with dislocation); and Ni\+\_\+end.\+data (2nd padding layer). Once the starting structure is constructed, the script runs the following simulation steps\+:
+\begin{DoxyItemize}
+\item Energy minimization I -\/ for the a/2\texorpdfstring{$<$}{<}110\texorpdfstring{$>$}{>}\{111\} edge dislocation considered here, this is where the expected dissociation into two partial dislocations occurs
+\item Pre-\/straining the simulation cell by slightly displacing atoms -\/ this is in order to prevent any waves being set up due to the applied load
+\item Energy minimization II
+\item Equilibration (NVT ensemble)
+\item MD -\/ Shearing of simulation cell and dislocation dynamics (also NVT)
+\end{DoxyItemize}
+
+The user can adjust some additional simulation settings listed at the beginning of the script, which include\+:
+\begin{DoxyItemize}
+\item Running a new simulation or continuing a simulation from a LAMMPS restart file (only for MD stage).
+\item Temperature and pressure
+\item Applied shear stress
+\item Number of equilibration and MD timesteps
+\item loading type -\/ Symmetric or assymetric loading. In the symmetric loading case, both the top few and bottom few layers of the simulation box are fixed and the shear force is applied to each in opposite directions. In the assymetric loading case, only the bottom few layers are fixed and the shear force is applied to the top few layers of the simulation box.
+\end{DoxyItemize}
+
+The interatomic potential used is the Mishin 2004 potential, which can be changed to any other potential with appropriate adjustment of settings .
+
+This script can be run in parallel using the following command, where X is replaced by the number of processors\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{mpirun\ -\/np\ <X>\ python3\ lmp\_pre\_strain.py}
+
+\end{DoxyCode}
 
 
 \doxysubsection{Function Documentation}
@@ -105,470 +58,37 @@ Temperature/\+Pressure Control \#.
 
 
 
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00086}{86}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
+Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00105}{105}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00086\ \textcolor{keyword}{def\ }thermo\_type(thermo\_ensemble):}
-\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{if}\ thermo\_ensemble\ ==\ \textcolor{stringliteral}{"{}NVE"{}}:}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ block\ =\ f\textcolor{stringliteral}{"{}"{}"{}}}
-\DoxyCodeLine{00089\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ fix\ 1\ mobile\ nve}}
-\DoxyCodeLine{00090\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ fix\ 2\ mobile\ temp/rescale\ 1\ \{temperature\}\ \{temperature\}\ 1.0\ 0.5}}
-\DoxyCodeLine{00091\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ fix\_modify\ 2\ temp\ temp1}}
-\DoxyCodeLine{00092\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ thermo\_modify\ temp\ temp1}}
-\DoxyCodeLine{00093\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}\ }
-\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{elif}\ thermo\_ensemble\ ==\ \textcolor{stringliteral}{"{}NVT"{}}:}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ block\ =\ f\textcolor{stringliteral}{"{}"{}"{}}}
-\DoxyCodeLine{00096\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ fix\ 1\ mobile\ nvt\ temp\ \{temperature\}\ \{temperature\}\ \{100.0*timestep\}}}
-\DoxyCodeLine{00097\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ fix\_modify\ 1\ temp\ temp1}}
-\DoxyCodeLine{00098\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ thermo\_modify\ temp\ temp1}}
-\DoxyCodeLine{00099\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}\ }
-\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{elif}\ thermo\_ensemble\ ==\ \textcolor{stringliteral}{"{}NPT"{}}:}
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ block\ =\ f\textcolor{stringliteral}{"{}"{}"{}}}
-\DoxyCodeLine{00102\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \#\ cannot\ apply\ barostat\ to\ a\ non-\/periodic\ dimension}}
-\DoxyCodeLine{00103\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ fix\ 1\ mobile\ npt\ temp\ \{temperature\}\ \{temperature\}\ \{100.0*timestep\}\ \&}}
-\DoxyCodeLine{00104\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ \{pressure\}\ \{pressure\}\ \{1000.0*timestep\}\ \&}}
-\DoxyCodeLine{00105\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\ \{pressure\}\ \{pressure\}\ \{1000.0*timestep\}}}
-\DoxyCodeLine{00106\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ fix\_modify\ 1\ temp\ temp1}}
-\DoxyCodeLine{00107\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ thermo\_modify\ temp\ temp1}}
-\DoxyCodeLine{00108\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}\ }
-\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{else}:}
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}Error:\ thermo\_ensemble\ should\ be\ set\ to\ 'NVE',\ 'NVT',\ or\ 'NPT'"{}})}
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ sys.exit()}
-\DoxyCodeLine{00112\ }
-\DoxyCodeLine{00113\ \ \ \ \ lmp.commands\_string(block)}
+\DoxyCodeLine{00105\ \textcolor{keyword}{def\ }thermo\_type(thermo\_ensemble):}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordflow}{if}\ thermo\_ensemble\ ==\ \textcolor{stringliteral}{"{}NVE"{}}:}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ block\ =\ f\textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00108\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ fix\ 1\ mobile\ nve}}
+\DoxyCodeLine{00109\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ fix\ 2\ mobile\ temp/rescale\ 1\ \{temperature\}\ \{temperature\}\ 1.0\ 0.5}}
+\DoxyCodeLine{00110\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ fix\_modify\ 2\ temp\ temp1}}
+\DoxyCodeLine{00111\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ thermo\_modify\ temp\ temp1}}
+\DoxyCodeLine{00112\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{elif}\ thermo\_ensemble\ ==\ \textcolor{stringliteral}{"{}NVT"{}}:}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ block\ =\ f\textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00115\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ fix\ 1\ mobile\ nvt\ temp\ \{temperature\}\ \{temperature\}\ \{100.0*timestep\}}}
+\DoxyCodeLine{00116\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ fix\_modify\ 1\ temp\ temp1}}
+\DoxyCodeLine{00117\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ thermo\_modify\ temp\ temp1}}
+\DoxyCodeLine{00118\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordflow}{elif}\ thermo\_ensemble\ ==\ \textcolor{stringliteral}{"{}NPT"{}}:}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ block\ =\ f\textcolor{stringliteral}{"{}"{}"{}}}
+\DoxyCodeLine{00121\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \#\ cannot\ apply\ barostat\ to\ a\ non-\/periodic\ dimension}}
+\DoxyCodeLine{00122\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ fix\ 1\ mobile\ npt\ temp\ \{temperature\}\ \{temperature\}\ \{100.0*timestep\}\ \&}}
+\DoxyCodeLine{00123\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ \{pressure\}\ \{pressure\}\ \{1000.0*timestep\}\ \&}}
+\DoxyCodeLine{00124\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\ \{pressure\}\ \{pressure\}\ \{1000.0*timestep\}}}
+\DoxyCodeLine{00125\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ fix\_modify\ 1\ temp\ temp1}}
+\DoxyCodeLine{00126\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ thermo\_modify\ temp\ temp1}}
+\DoxyCodeLine{00127\ \textcolor{stringliteral}{\ \ \ \ \ \ \ \ "{}"{}"{}}\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordflow}{else}:}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ print(\textcolor{stringliteral}{"{}Error:\ thermo\_ensemble\ should\ be\ set\ to\ 'NVE',\ 'NVT',\ or\ 'NPT'"{}})}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ sys.exit()}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ lmp.commands\_string(block)}
 
 \end{DoxyCode}
-
-
-\doxysubsection{Variable Documentation}
-\Hypertarget{namespacelmp__pre__strain_a5a820f2c23ea594534330561c620ea98}\label{namespacelmp__pre__strain_a5a820f2c23ea594534330561c620ea98} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!app\_force\_lower@{app\_force\_lower}}
-\index{app\_force\_lower@{app\_force\_lower}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{app\_force\_lower}{app\_force\_lower}}
-{\footnotesize\ttfamily tuple app\+\_\+force\+\_\+lower = (\mbox{\hyperlink{namespacelmp__pre__strain_af7c2dc72bb970fef4e6313293cadfe95}{lx}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__pre__strain_a6d5d22bdb3cf920dd706c9a1f94f376c}{ly}})/\mbox{\hyperlink{namespacelmp__pre__strain_aed8ad95a596ff8ea1efa3b85ea51ba1e}{nlower}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__pre__strain_a64cddb1ad704ff5cc78b012010314024}{sigma}}/\mbox{\hyperlink{namespacelmp__pre__strain_ad95fb03238f547447c8eb79ac6ea1fa3}{e\+V\+\_\+to\+\_\+J}}}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00404}{404}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_a96b94c283374078d5e9fd204c5acda83}\label{namespacelmp__pre__strain_a96b94c283374078d5e9fd204c5acda83} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!app\_force\_upper@{app\_force\_upper}}
-\index{app\_force\_upper@{app\_force\_upper}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{app\_force\_upper}{app\_force\_upper}}
-{\footnotesize\ttfamily tuple app\+\_\+force\+\_\+upper = (\mbox{\hyperlink{namespacelmp__pre__strain_af7c2dc72bb970fef4e6313293cadfe95}{lx}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__pre__strain_a6d5d22bdb3cf920dd706c9a1f94f376c}{ly}})/\mbox{\hyperlink{namespacelmp__pre__strain_addad1d6bcd26b64827081caea9091048}{nupper}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__pre__strain_a64cddb1ad704ff5cc78b012010314024}{sigma}}/\mbox{\hyperlink{namespacelmp__pre__strain_ad95fb03238f547447c8eb79ac6ea1fa3}{e\+V\+\_\+to\+\_\+J}}}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00403}{403}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_a76bcce3ead38fc192860a18230a72002}\label{namespacelmp__pre__strain_a76bcce3ead38fc192860a18230a72002} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!block@{block}}
-\index{block@{block}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{block}{block}}
-{\footnotesize\ttfamily str block}
-
-{\bfseries Initial value\+:}
-\begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ =\ \ f\textcolor{stringliteral}{"{}"{}"{}}}
-\DoxyCodeLine{00002\ \textcolor{stringliteral}{\ \ \ \ clear}}
-\DoxyCodeLine{00003\ \textcolor{stringliteral}{\ \ \ \ units\ \{units\}}}
-\DoxyCodeLine{00004\ \textcolor{stringliteral}{\ \ \ \ dimension\ 3}}
-\DoxyCodeLine{00005\ \textcolor{stringliteral}{\ \ \ \ boundary\ p\ p\ s}}
-\DoxyCodeLine{00006\ \textcolor{stringliteral}{\ \ \ \ atom\_style\ atomic}}
-\DoxyCodeLine{00007\ \textcolor{stringliteral}{\ \ \ \ atom\_modify\ map\ array}}
-\DoxyCodeLine{00008\ \textcolor{stringliteral}{\ \ \ \ "{}"{}"{}}}
-
-\end{DoxyCode}
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00125}{125}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_a01fc441b4d74aa997465a8eddad21cc9}\label{namespacelmp__pre__strain_a01fc441b4d74aa997465a8eddad21cc9} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!box\_dim@{box\_dim}}
-\index{box\_dim@{box\_dim}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{box\_dim}{box\_dim}}
-{\footnotesize\ttfamily list box\+\_\+dim = \mbox{[}(\mbox{\hyperlink{namespacelmp__pre__strain_a97fcb0e1731b36905e90757f211b1340}{x1}}+\mbox{\hyperlink{namespacelmp__pre__strain_ad660c90589efbb535c7d55dc032c1b09}{x2}}+\mbox{\hyperlink{namespacelmp__pre__strain_ae067fb8a14696066b62593d8adf469cd}{x3}})\texorpdfstring{$\ast$}{*}np.\+sqrt(2)/2.\+0, \mbox{\hyperlink{namespacelmp__pre__strain_a886daa12d11655f342168e87c7c0b1cb}{y1}}\texorpdfstring{$\ast$}{*}np.\+sqrt(6)/2.\+0, \mbox{\hyperlink{namespacelmp__pre__strain_a5f1285c04e47d67d87125b6653c68562}{z1}}\texorpdfstring{$\ast$}{*}np.\+sqrt(3)\mbox{]}}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00140}{140}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_a6011ea35234b3073111d25753f715643}\label{namespacelmp__pre__strain_a6011ea35234b3073111d25753f715643} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!box\_name@{box\_name}}
-\index{box\_name@{box\_name}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{box\_name}{box\_name}}
-{\footnotesize\ttfamily str box\+\_\+name = "{}sim\+\_\+box"{}}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00139}{139}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_a9b142544026b640e49a88445490d9fc1}\label{namespacelmp__pre__strain_a9b142544026b640e49a88445490d9fc1} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!cell\_extents@{cell\_extents}}
-\index{cell\_extents@{cell\_extents}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{cell\_extents}{cell\_extents}}
-{\footnotesize\ttfamily cell\+\_\+extents = lmp.\+extract\+\_\+box()}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00251}{251}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_aa79f3f854f59cfd74086c89e25a0f55f}\label{namespacelmp__pre__strain_aa79f3f854f59cfd74086c89e25a0f55f} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!check\_overlap@{check\_overlap}}
-\index{check\_overlap@{check\_overlap}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{check\_overlap}{check\_overlap}}
-{\footnotesize\ttfamily bool check\+\_\+overlap = False}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00081}{81}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_a7c47321fae78722b8f29ac89125e15a8}\label{namespacelmp__pre__strain_a7c47321fae78722b8f29ac89125e15a8} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!elements@{elements}}
-\index{elements@{elements}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{elements}{elements}}
-{\footnotesize\ttfamily list elements = \mbox{[}"{}Ni"{}, "{}Al"{}\mbox{]}}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00166}{166}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_afb36f83be68f340092b318ed7c189a6c}\label{namespacelmp__pre__strain_afb36f83be68f340092b318ed7c189a6c} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!equil\_run@{equil\_run}}
-\index{equil\_run@{equil\_run}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{equil\_run}{equil\_run}}
-{\footnotesize\ttfamily int equil\+\_\+run = 2}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00062}{62}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_ad95fb03238f547447c8eb79ac6ea1fa3}\label{namespacelmp__pre__strain_ad95fb03238f547447c8eb79ac6ea1fa3} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!eV\_to\_J@{eV\_to\_J}}
-\index{eV\_to\_J@{eV\_to\_J}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{eV\_to\_J}{eV\_to\_J}}
-{\footnotesize\ttfamily float e\+V\+\_\+to\+\_\+J = 1602191.\+7}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00069}{69}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_a9b27874ba7d145bc1250fc9179cc308c}\label{namespacelmp__pre__strain_a9b27874ba7d145bc1250fc9179cc308c} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!gamma\_latt@{gamma\_latt}}
-\index{gamma\_latt@{gamma\_latt}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{gamma\_latt}{gamma\_latt}}
-{\footnotesize\ttfamily float gamma\+\_\+latt = 3.\+52}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00026}{26}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_a384c3d971a2c23a7b5d687535cd4d870}\label{namespacelmp__pre__strain_a384c3d971a2c23a7b5d687535cd4d870} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!last\_timestep@{last\_timestep}}
-\index{last\_timestep@{last\_timestep}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{last\_timestep}{last\_timestep}}
-{\footnotesize\ttfamily int last\+\_\+timestep = 30000}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00042}{42}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_ab124f7285006b751c3f603fcd4b80a47}\label{namespacelmp__pre__strain_ab124f7285006b751c3f603fcd4b80a47} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!lmp@{lmp}}
-\index{lmp@{lmp}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{lmp}{lmp}}
-{\footnotesize\ttfamily lmp = lammps()}
-
-
-
-System initialization \#. 
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00119}{119}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_a9242f629ea2e29adf5bdea1ac0a2c1de}\label{namespacelmp__pre__strain_a9242f629ea2e29adf5bdea1ac0a2c1de} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!loading\_type@{loading\_type}}
-\index{loading\_type@{loading\_type}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{loading\_type}{loading\_type}}
-{\footnotesize\ttfamily str loading\+\_\+type = "{}sym"{}}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00058}{58}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_a14c2d6545f4ded26c9f86c71c85bd5c4}\label{namespacelmp__pre__strain_a14c2d6545f4ded26c9f86c71c85bd5c4} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!lower\_lim@{lower\_lim}}
-\index{lower\_lim@{lower\_lim}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{lower\_lim}{lower\_lim}}
-{\footnotesize\ttfamily lower\+\_\+lim = lmp.\+extract\+\_\+box()\mbox{[}0\mbox{]}\mbox{[}2\mbox{]} + (3.\+0\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__pre__strain_a9b27874ba7d145bc1250fc9179cc308c}{gamma\+\_\+latt}}\texorpdfstring{$\ast$}{*}np.\+sqrt(3))}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00192}{192}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_af7c2dc72bb970fef4e6313293cadfe95}\label{namespacelmp__pre__strain_af7c2dc72bb970fef4e6313293cadfe95} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!lx@{lx}}
-\index{lx@{lx}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{lx}{lx}}
-{\footnotesize\ttfamily lx = lmp.\+extract\+\_\+variable("{}length\+\_\+x"{})}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00400}{400}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_a6d5d22bdb3cf920dd706c9a1f94f376c}\label{namespacelmp__pre__strain_a6d5d22bdb3cf920dd706c9a1f94f376c} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!ly@{ly}}
-\index{ly@{ly}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{ly}{ly}}
-{\footnotesize\ttfamily ly = lmp.\+extract\+\_\+variable("{}length\+\_\+y"{})}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00401}{401}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_a16106246b4cae2c0caff572f31dc716e}\label{namespacelmp__pre__strain_a16106246b4cae2c0caff572f31dc716e} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!MD\_run@{MD\_run}}
-\index{MD\_run@{MD\_run}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{MD\_run}{MD\_run}}
-{\footnotesize\ttfamily int MD\+\_\+run = 2}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00063}{63}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_aed8ad95a596ff8ea1efa3b85ea51ba1e}\label{namespacelmp__pre__strain_aed8ad95a596ff8ea1efa3b85ea51ba1e} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!nlower@{nlower}}
-\index{nlower@{nlower}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{nlower}{nlower}}
-{\footnotesize\ttfamily nlower = lmp.\+extract\+\_\+variable("{}nlower"{})}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00399}{399}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_addad1d6bcd26b64827081caea9091048}\label{namespacelmp__pre__strain_addad1d6bcd26b64827081caea9091048} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!nupper@{nupper}}
-\index{nupper@{nupper}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{nupper}{nupper}}
-{\footnotesize\ttfamily nupper = lmp.\+extract\+\_\+variable("{}nupper"{})}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00398}{398}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_a2284450a7e0fc8239d572deb7609c49e}\label{namespacelmp__pre__strain_a2284450a7e0fc8239d572deb7609c49e} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!potential@{potential}}
-\index{potential@{potential}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{potential}{potential}}
-{\footnotesize\ttfamily str potential = "{}./Ni\+Al\+\_\+\+Mishin\+\_\+2004.\+eam.\+alloy"{}}
-
-
-
-Define Interatomic Potential \#. 
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00165}{165}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_ae7cda6ca83719293f0a225786c5b744e}\label{namespacelmp__pre__strain_ae7cda6ca83719293f0a225786c5b744e} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!pre\_strain@{pre\_strain}}
-\index{pre\_strain@{pre\_strain}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{pre\_strain}{pre\_strain}}
-{\footnotesize\ttfamily float pre\+\_\+strain = np.\+sqrt(2)\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__pre__strain_a9b27874ba7d145bc1250fc9179cc308c}{gamma\+\_\+latt}}/4.\+0}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00059}{59}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_ad19429a485400193c6dfc8c71b151c06}\label{namespacelmp__pre__strain_ad19429a485400193c6dfc8c71b151c06} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!pressure@{pressure}}
-\index{pressure@{pressure}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{pressure}{pressure}}
-{\footnotesize\ttfamily int pressure = 1}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00056}{56}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_ab351eda9f100d89986f3490815569740}\label{namespacelmp__pre__strain_ab351eda9f100d89986f3490815569740} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!problem@{problem}}
-\index{problem@{problem}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{problem}{problem}}
-{\footnotesize\ttfamily str problem = "{}relax"{}}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00047}{47}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_a173b5dda013af94c6c3e397545212c77}\label{namespacelmp__pre__strain_a173b5dda013af94c6c3e397545212c77} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!restart\_file@{restart\_file}}
-\index{restart\_file@{restart\_file}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{restart\_file}{restart\_file}}
-{\footnotesize\ttfamily str restart\+\_\+file = "{}md\+\_\+restart.\+30000"{}}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00041}{41}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_a64cddb1ad704ff5cc78b012010314024}\label{namespacelmp__pre__strain_a64cddb1ad704ff5cc78b012010314024} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!sigma@{sigma}}
-\index{sigma@{sigma}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{sigma}{sigma}}
-{\footnotesize\ttfamily int sigma = 500}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00057}{57}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_a0cc3f74bbf11904047904ba2858f06bf}\label{namespacelmp__pre__strain_a0cc3f74bbf11904047904ba2858f06bf} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!sim\_type@{sim\_type}}
-\index{sim\_type@{sim\_type}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{sim\_type}{sim\_type}}
-{\footnotesize\ttfamily str sim\+\_\+type = "{}new"{}}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00037}{37}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_aeb0b627a85488d9be1a7632200c41cfe}\label{namespacelmp__pre__strain_aeb0b627a85488d9be1a7632200c41cfe} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!species@{species}}
-\index{species@{species}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{species}{species}}
-{\footnotesize\ttfamily int species = 1}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00141}{141}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_a47a6a162aaaec8deeb946d93afc43640}\label{namespacelmp__pre__strain_a47a6a162aaaec8deeb946d93afc43640} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!sys\_type@{sys\_type}}
-\index{sys\_type@{sys\_type}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{sys\_type}{sys\_type}}
-{\footnotesize\ttfamily str sys\+\_\+type = "{}Ni"{}}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00022}{22}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_a0ac2a299549fcca3cd14e4c1ac2087d2}\label{namespacelmp__pre__strain_a0ac2a299549fcca3cd14e4c1ac2087d2} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!temperature@{temperature}}
-\index{temperature@{temperature}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{temperature}{temperature}}
-{\footnotesize\ttfamily int temperature = 300}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00055}{55}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_a0d1ba6853502d541ca10c5de7959fb62}\label{namespacelmp__pre__strain_a0d1ba6853502d541ca10c5de7959fb62} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!thermo\_ensemble@{thermo\_ensemble}}
-\index{thermo\_ensemble@{thermo\_ensemble}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{thermo\_ensemble}{thermo\_ensemble}}
-{\footnotesize\ttfamily str thermo\+\_\+ensemble = "{}NVT"{}}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00051}{51}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_ab9edcc09985767509bf717e25ac80ab7}\label{namespacelmp__pre__strain_ab9edcc09985767509bf717e25ac80ab7} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!timestep@{timestep}}
-\index{timestep@{timestep}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{timestep}{timestep}}
-{\footnotesize\ttfamily float timestep = 0.\+001}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00052}{52}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_ab4a60aabe529e19e17b4e27692988e55}\label{namespacelmp__pre__strain_ab4a60aabe529e19e17b4e27692988e55} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!units@{units}}
-\index{units@{units}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{units}{units}}
-{\footnotesize\ttfamily str units = "{}metal"{}}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00123}{123}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_ac43304e147bd7f78311c61442fa2dff8}\label{namespacelmp__pre__strain_ac43304e147bd7f78311c61442fa2dff8} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!upper\_lim@{upper\_lim}}
-\index{upper\_lim@{upper\_lim}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{upper\_lim}{upper\_lim}}
-{\footnotesize\ttfamily upper\+\_\+lim = lmp.\+extract\+\_\+box()\mbox{[}1\mbox{]}\mbox{[}2\mbox{]} -\/ (3.\+0\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__pre__strain_a9b27874ba7d145bc1250fc9179cc308c}{gamma\+\_\+latt}}\texorpdfstring{$\ast$}{*}np.\+sqrt(3))}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00191}{191}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_a97fcb0e1731b36905e90757f211b1340}\label{namespacelmp__pre__strain_a97fcb0e1731b36905e90757f211b1340} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!x1@{x1}}
-\index{x1@{x1}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{x1}{x1}}
-{\footnotesize\ttfamily int x1 = 10}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00073}{73}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_ad660c90589efbb535c7d55dc032c1b09}\label{namespacelmp__pre__strain_ad660c90589efbb535c7d55dc032c1b09} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!x2@{x2}}
-\index{x2@{x2}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{x2}{x2}}
-{\footnotesize\ttfamily int x2 = 21}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00074}{74}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_ae067fb8a14696066b62593d8adf469cd}\label{namespacelmp__pre__strain_ae067fb8a14696066b62593d8adf469cd} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!x3@{x3}}
-\index{x3@{x3}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{x3}{x3}}
-{\footnotesize\ttfamily int x3 = 40}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00075}{75}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_a46326c15278ffc091dac92438f16af68}\label{namespacelmp__pre__strain_a46326c15278ffc091dac92438f16af68} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!x\_shift@{x\_shift}}
-\index{x\_shift@{x\_shift}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{x\_shift}{x\_shift}}
-{\footnotesize\ttfamily tuple x\+\_\+shift = \mbox{\hyperlink{namespacelmp__pre__strain_a97fcb0e1731b36905e90757f211b1340}{x1}}\texorpdfstring{$\ast$}{*}\mbox{\hyperlink{namespacelmp__pre__strain_a9b27874ba7d145bc1250fc9179cc308c}{gamma\+\_\+latt}}\texorpdfstring{$\ast$}{*}np.\+sqrt(2)}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00150}{150}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_a886daa12d11655f342168e87c7c0b1cb}\label{namespacelmp__pre__strain_a886daa12d11655f342168e87c7c0b1cb} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!y1@{y1}}
-\index{y1@{y1}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{y1}{y1}}
-{\footnotesize\ttfamily int y1 = 20}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00077}{77}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_a5f1285c04e47d67d87125b6653c68562}\label{namespacelmp__pre__strain_a5f1285c04e47d67d87125b6653c68562} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!z1@{z1}}
-\index{z1@{z1}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{z1}{z1}}
-{\footnotesize\ttfamily int z1 = 40}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00078}{78}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-
-\Hypertarget{namespacelmp__pre__strain_afff0b63b39a7ba8af9780f575aa11e2e}\label{namespacelmp__pre__strain_afff0b63b39a7ba8af9780f575aa11e2e} 
-\index{lmp\_pre\_strain@{lmp\_pre\_strain}!z\_mid@{z\_mid}}
-\index{z\_mid@{z\_mid}!lmp\_pre\_strain@{lmp\_pre\_strain}}
-\doxysubsubsection{\texorpdfstring{z\_mid}{z\_mid}}
-{\footnotesize\ttfamily tuple z\+\_\+mid = ((\mbox{\hyperlink{namespacelmp__pre__strain_a9b142544026b640e49a88445490d9fc1}{cell\+\_\+extents}}\mbox{[}1\mbox{]}\mbox{[}2\mbox{]})/2.\+0)}
-
-
-
-Definition at line \mbox{\hyperlink{lmp__pre__strain_8py_source_l00252}{252}} of file \mbox{\hyperlink{lmp__pre__strain_8py_source}{lmp\+\_\+pre\+\_\+strain.\+py}}.
-

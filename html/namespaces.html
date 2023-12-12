@@ -13,6 +13,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -75,16 +82,16 @@ $(function() {
 <div class="contents">
 <div class="textblock">Here are the packages with brief descriptions (if available):</div><div class="directory">
 <table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespacede__mc__analysis.html" target="_self">de_mc_analysis</a></td><td class="desc"></td></tr>
+<tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespacede__mc__analysis.html" target="_self">de_mc_analysis</a></td><td class="desc">Script to analyse the ouput from the parameter fitting using DE-MC </td></tr>
 <tr id="row_1_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespacedislocation__analysis.html" target="_self">dislocation_analysis</a></td><td class="desc">Dislocation trajectory analysis module </td></tr>
-<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespacedislocation__script.html" target="_self">dislocation_script</a></td><td class="desc"></td></tr>
-<tr id="row_3_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespacefuncs.html" target="_self">funcs</a></td><td class="desc"></td></tr>
-<tr id="row_4_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespacegen__111__atoms.html" target="_self">gen_111_atoms</a></td><td class="desc"></td></tr>
-<tr id="row_5_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespacegen__1disloc__Ni.html" target="_self">gen_1disloc_Ni</a></td><td class="desc"></td></tr>
-<tr id="row_6_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespacelmp__pre__strain.html" target="_self">lmp_pre_strain</a></td><td class="desc"></td></tr>
+<tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespacedislocation__script.html" target="_self">dislocation_script</a></td><td class="desc">Dislocation trajectory post-processing script </td></tr>
+<tr id="row_3_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespacefuncs.html" target="_self">funcs</a></td><td class="desc">DE-MC analysis module </td></tr>
+<tr id="row_4_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespacegen__111__atoms.html" target="_self">gen_111_atoms</a></td><td class="desc">Script to generate a slab of pure FCC Ni </td></tr>
+<tr id="row_5_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespacegen__1disloc__Ni.html" target="_self">gen_1disloc_Ni</a></td><td class="desc">Script to generate a single a/2&lt;110&gt;{111} edge dislocation in a pure FCC Ni cell </td></tr>
+<tr id="row_6_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespacelmp__pre__strain.html" target="_self">lmp_pre_strain</a></td><td class="desc">An example LAMMPS python script to set up and run a dislocation MD simulation in pure Ni </td></tr>
 <tr id="row_7_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespacelmp__script.html" target="_self">lmp_script</a></td><td class="desc"></td></tr>
-<tr id="row_8_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespacemc3__de__mcmc.html" target="_self">mc3_de_mcmc</a></td><td class="desc"></td></tr>
-<tr id="row_9_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespaceovito__disloc.html" target="_self">ovito_disloc</a></td><td class="desc"></td></tr>
+<tr id="row_8_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespacemc3__de__mcmc.html" target="_self">mc3_de_mcmc</a></td><td class="desc">Script to run Differential Evolution Markov Chain Monte Carlo (DE-MC) </td></tr>
+<tr id="row_9_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespaceovito__disloc.html" target="_self">ovito_disloc</a></td><td class="desc">Post-proceesing of dislocation MD trajectories </td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->

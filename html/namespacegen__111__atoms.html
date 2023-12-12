@@ -13,6 +13,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -70,278 +77,18 @@ $(function() {
 
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">gen_111_atoms Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a01fc441b4d74aa997465a8eddad21cc9" id="r_a01fc441b4d74aa997465a8eddad21cc9"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01fc441b4d74aa997465a8eddad21cc9">box_dim</a> = [<a class="el" href="#a90585e1e8a2efdd14881dcb8bdb6b4ce">cell_x</a>,<a class="el" href="#a109685f7f246c6a1cb0b53a781089602">cell_y</a>,<a class="el" href="#a67afb20ecfb2cdfb9638976752dad070">cell_z</a>]</td></tr>
-<tr class="separator:a01fc441b4d74aa997465a8eddad21cc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90585e1e8a2efdd14881dcb8bdb6b4ce" id="r_a90585e1e8a2efdd14881dcb8bdb6b4ce"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a90585e1e8a2efdd14881dcb8bdb6b4ce">cell_x</a> = <a class="el" href="#ac39b33361203e68d7820336db48d45e6">x1</a>*<a class="el" href="#a9b27874ba7d145bc1250fc9179cc308c">gamma_latt</a>*np.sqrt(2)/2.0</td></tr>
-<tr class="separator:a90585e1e8a2efdd14881dcb8bdb6b4ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a109685f7f246c6a1cb0b53a781089602" id="r_a109685f7f246c6a1cb0b53a781089602"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a109685f7f246c6a1cb0b53a781089602">cell_y</a> = <a class="el" href="#a7f911dc1dbbc41c6cae56357e8fb2230">y1</a>*<a class="el" href="#a9b27874ba7d145bc1250fc9179cc308c">gamma_latt</a>*np.sqrt(6)/2.0</td></tr>
-<tr class="separator:a109685f7f246c6a1cb0b53a781089602"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67afb20ecfb2cdfb9638976752dad070" id="r_a67afb20ecfb2cdfb9638976752dad070"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67afb20ecfb2cdfb9638976752dad070">cell_z</a> = <a class="el" href="#a0476983c629a0ea109b36d6c278fbdc0">z1</a>*<a class="el" href="#a9b27874ba7d145bc1250fc9179cc308c">gamma_latt</a>*np.sqrt(3)</td></tr>
-<tr class="separator:a67afb20ecfb2cdfb9638976752dad070"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94c73cf6934fd835103f0f2794071ee9" id="r_a94c73cf6934fd835103f0f2794071ee9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94c73cf6934fd835103f0f2794071ee9">directions</a></td></tr>
-<tr class="separator:a94c73cf6934fd835103f0f2794071ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6df1fc5cf5a0b66c5d4cbcae3a70496" id="r_ac6df1fc5cf5a0b66c5d4cbcae3a70496"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6df1fc5cf5a0b66c5d4cbcae3a70496">gamma_1</a> = FaceCenteredCubic(<a class="el" href="#a94c73cf6934fd835103f0f2794071ee9">directions</a>=<a class="el" href="#a94c73cf6934fd835103f0f2794071ee9">directions</a>, size=(<a class="el" href="#ac39b33361203e68d7820336db48d45e6">x1</a>,<a class="el" href="#a7f911dc1dbbc41c6cae56357e8fb2230">y1</a>,<a class="el" href="#a0476983c629a0ea109b36d6c278fbdc0">z1</a>), symbol=&quot;Ni&quot;, pbc=(1,1,1), latticeconstant=<a class="el" href="#a9b27874ba7d145bc1250fc9179cc308c">gamma_latt</a>)</td></tr>
-<tr class="memdesc:ac6df1fc5cf5a0b66c5d4cbcae3a70496"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lower Gamma Layer #.  <br /></td></tr>
-<tr class="separator:ac6df1fc5cf5a0b66c5d4cbcae3a70496"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0db21c3128d02c7c746d9d02a445111d" id="r_a0db21c3128d02c7c746d9d02a445111d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0db21c3128d02c7c746d9d02a445111d">gamma_1_atom_types</a> = gamma_1.get_chemical_symbols()</td></tr>
-<tr class="separator:a0db21c3128d02c7c746d9d02a445111d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a306d78911ebfe14089aa71f180605c45" id="r_a306d78911ebfe14089aa71f180605c45"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a306d78911ebfe14089aa71f180605c45">gamma_1_atoms</a> = gamma_1.get_positions()</td></tr>
-<tr class="separator:a306d78911ebfe14089aa71f180605c45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b27874ba7d145bc1250fc9179cc308c" id="r_a9b27874ba7d145bc1250fc9179cc308c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b27874ba7d145bc1250fc9179cc308c">gamma_latt</a> = 3.52</td></tr>
-<tr class="separator:a9b27874ba7d145bc1250fc9179cc308c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63fd5f00cf27a20499f15f1796d5b7ea" id="r_a63fd5f00cf27a20499f15f1796d5b7ea"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63fd5f00cf27a20499f15f1796d5b7ea">ntypes</a> = 1</td></tr>
-<tr class="memdesc:a63fd5f00cf27a20499f15f1796d5b7ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write LAMMPS Data File #.  <br /></td></tr>
-<tr class="separator:a63fd5f00cf27a20499f15f1796d5b7ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29cf49a96e2e5ad754a6dc1158c8fb64" id="r_a29cf49a96e2e5ad754a6dc1158c8fb64"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29cf49a96e2e5ad754a6dc1158c8fb64">out_file</a> = &quot;Ni_end.data&quot;</td></tr>
-<tr class="separator:a29cf49a96e2e5ad754a6dc1158c8fb64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac39b33361203e68d7820336db48d45e6" id="r_ac39b33361203e68d7820336db48d45e6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac39b33361203e68d7820336db48d45e6">x1</a> = int(45*2)</td></tr>
-<tr class="separator:ac39b33361203e68d7820336db48d45e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f911dc1dbbc41c6cae56357e8fb2230" id="r_a7f911dc1dbbc41c6cae56357e8fb2230"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f911dc1dbbc41c6cae56357e8fb2230">y1</a> = int(10*2)</td></tr>
-<tr class="separator:a7f911dc1dbbc41c6cae56357e8fb2230"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0476983c629a0ea109b36d6c278fbdc0" id="r_a0476983c629a0ea109b36d6c278fbdc0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0476983c629a0ea109b36d6c278fbdc0">z1</a> = int(40)</td></tr>
-<tr class="separator:a0476983c629a0ea109b36d6c278fbdc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a01fc441b4d74aa997465a8eddad21cc9" name="a01fc441b4d74aa997465a8eddad21cc9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01fc441b4d74aa997465a8eddad21cc9">&#9670;&#160;</a></span>box_dim</h2>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">list box_dim = [<a class="el" href="#a90585e1e8a2efdd14881dcb8bdb6b4ce">cell_x</a>,<a class="el" href="#a109685f7f246c6a1cb0b53a781089602">cell_y</a>,<a class="el" href="#a67afb20ecfb2cdfb9638976752dad070">cell_z</a>]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="gen__111__atoms_8py_source.html#l00028">28</a> of file <a class="el" href="gen__111__atoms_8py_source.html">gen_111_atoms.py</a>.</p>
-
-</div>
-</div>
-<a id="a90585e1e8a2efdd14881dcb8bdb6b4ce" name="a90585e1e8a2efdd14881dcb8bdb6b4ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90585e1e8a2efdd14881dcb8bdb6b4ce">&#9670;&#160;</a></span>cell_x</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float cell_x = <a class="el" href="#ac39b33361203e68d7820336db48d45e6">x1</a>*<a class="el" href="#a9b27874ba7d145bc1250fc9179cc308c">gamma_latt</a>*np.sqrt(2)/2.0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="gen__111__atoms_8py_source.html#l00025">25</a> of file <a class="el" href="gen__111__atoms_8py_source.html">gen_111_atoms.py</a>.</p>
-
-</div>
-</div>
-<a id="a109685f7f246c6a1cb0b53a781089602" name="a109685f7f246c6a1cb0b53a781089602"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a109685f7f246c6a1cb0b53a781089602">&#9670;&#160;</a></span>cell_y</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float cell_y = <a class="el" href="#a7f911dc1dbbc41c6cae56357e8fb2230">y1</a>*<a class="el" href="#a9b27874ba7d145bc1250fc9179cc308c">gamma_latt</a>*np.sqrt(6)/2.0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="gen__111__atoms_8py_source.html#l00026">26</a> of file <a class="el" href="gen__111__atoms_8py_source.html">gen_111_atoms.py</a>.</p>
-
-</div>
-</div>
-<a id="a67afb20ecfb2cdfb9638976752dad070" name="a67afb20ecfb2cdfb9638976752dad070"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67afb20ecfb2cdfb9638976752dad070">&#9670;&#160;</a></span>cell_z</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float cell_z = <a class="el" href="#a0476983c629a0ea109b36d6c278fbdc0">z1</a>*<a class="el" href="#a9b27874ba7d145bc1250fc9179cc308c">gamma_latt</a>*np.sqrt(3)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="gen__111__atoms_8py_source.html#l00027">27</a> of file <a class="el" href="gen__111__atoms_8py_source.html">gen_111_atoms.py</a>.</p>
-
-</div>
-</div>
-<a id="a94c73cf6934fd835103f0f2794071ee9" name="a94c73cf6934fd835103f0f2794071ee9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94c73cf6934fd835103f0f2794071ee9">&#9670;&#160;</a></span>directions</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">directions</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line"><span class="lineno">    1</span>=  np.array([[1,-1,0],</div>
-<div class="line"><span class="lineno">    2</span>                       [1,1,-2],</div>
-<div class="line"><span class="lineno">    3</span>                       [1,1,1]])</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="gen__111__atoms_8py_source.html#l00015">15</a> of file <a class="el" href="gen__111__atoms_8py_source.html">gen_111_atoms.py</a>.</p>
-
-</div>
-</div>
-<a id="ac6df1fc5cf5a0b66c5d4cbcae3a70496" name="ac6df1fc5cf5a0b66c5d4cbcae3a70496"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6df1fc5cf5a0b66c5d4cbcae3a70496">&#9670;&#160;</a></span>gamma_1</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gamma_1 = FaceCenteredCubic(<a class="el" href="#a94c73cf6934fd835103f0f2794071ee9">directions</a>=<a class="el" href="#a94c73cf6934fd835103f0f2794071ee9">directions</a>, size=(<a class="el" href="#ac39b33361203e68d7820336db48d45e6">x1</a>,<a class="el" href="#a7f911dc1dbbc41c6cae56357e8fb2230">y1</a>,<a class="el" href="#a0476983c629a0ea109b36d6c278fbdc0">z1</a>), symbol=&quot;Ni&quot;, pbc=(1,1,1), latticeconstant=<a class="el" href="#a9b27874ba7d145bc1250fc9179cc308c">gamma_latt</a>)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Lower Gamma Layer #. </p>
-
-<p class="definition">Definition at line <a class="el" href="gen__111__atoms_8py_source.html#l00034">34</a> of file <a class="el" href="gen__111__atoms_8py_source.html">gen_111_atoms.py</a>.</p>
-
-</div>
-</div>
-<a id="a0db21c3128d02c7c746d9d02a445111d" name="a0db21c3128d02c7c746d9d02a445111d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0db21c3128d02c7c746d9d02a445111d">&#9670;&#160;</a></span>gamma_1_atom_types</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gamma_1_atom_types = gamma_1.get_chemical_symbols()</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="gen__111__atoms_8py_source.html#l00038">38</a> of file <a class="el" href="gen__111__atoms_8py_source.html">gen_111_atoms.py</a>.</p>
-
-</div>
-</div>
-<a id="a306d78911ebfe14089aa71f180605c45" name="a306d78911ebfe14089aa71f180605c45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a306d78911ebfe14089aa71f180605c45">&#9670;&#160;</a></span>gamma_1_atoms</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">gamma_1_atoms = gamma_1.get_positions()</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="gen__111__atoms_8py_source.html#l00037">37</a> of file <a class="el" href="gen__111__atoms_8py_source.html">gen_111_atoms.py</a>.</p>
-
-</div>
-</div>
-<a id="a9b27874ba7d145bc1250fc9179cc308c" name="a9b27874ba7d145bc1250fc9179cc308c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b27874ba7d145bc1250fc9179cc308c">&#9670;&#160;</a></span>gamma_latt</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float gamma_latt = 3.52</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="gen__111__atoms_8py_source.html#l00012">12</a> of file <a class="el" href="gen__111__atoms_8py_source.html">gen_111_atoms.py</a>.</p>
-
-</div>
-</div>
-<a id="a63fd5f00cf27a20499f15f1796d5b7ea" name="a63fd5f00cf27a20499f15f1796d5b7ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63fd5f00cf27a20499f15f1796d5b7ea">&#9670;&#160;</a></span>ntypes</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int ntypes = 1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Write LAMMPS Data File #. </p>
-
-<p class="definition">Definition at line <a class="el" href="gen__111__atoms_8py_source.html#l00051">51</a> of file <a class="el" href="gen__111__atoms_8py_source.html">gen_111_atoms.py</a>.</p>
-
-</div>
-</div>
-<a id="a29cf49a96e2e5ad754a6dc1158c8fb64" name="a29cf49a96e2e5ad754a6dc1158c8fb64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29cf49a96e2e5ad754a6dc1158c8fb64">&#9670;&#160;</a></span>out_file</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">str out_file = &quot;Ni_end.data&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="gen__111__atoms_8py_source.html#l00009">9</a> of file <a class="el" href="gen__111__atoms_8py_source.html">gen_111_atoms.py</a>.</p>
-
-</div>
-</div>
-<a id="ac39b33361203e68d7820336db48d45e6" name="ac39b33361203e68d7820336db48d45e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac39b33361203e68d7820336db48d45e6">&#9670;&#160;</a></span>x1</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">x1 = int(45*2)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="gen__111__atoms_8py_source.html#l00020">20</a> of file <a class="el" href="gen__111__atoms_8py_source.html">gen_111_atoms.py</a>.</p>
-
-</div>
-</div>
-<a id="a7f911dc1dbbc41c6cae56357e8fb2230" name="a7f911dc1dbbc41c6cae56357e8fb2230"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f911dc1dbbc41c6cae56357e8fb2230">&#9670;&#160;</a></span>y1</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">y1 = int(10*2)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="gen__111__atoms_8py_source.html#l00021">21</a> of file <a class="el" href="gen__111__atoms_8py_source.html">gen_111_atoms.py</a>.</p>
-
-</div>
-</div>
-<a id="a0476983c629a0ea109b36d6c278fbdc0" name="a0476983c629a0ea109b36d6c278fbdc0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0476983c629a0ea109b36d6c278fbdc0">&#9670;&#160;</a></span>z1</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">z1 = int(40)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="gen__111__atoms_8py_source.html#l00022">22</a> of file <a class="el" href="gen__111__atoms_8py_source.html">gen_111_atoms.py</a>.</p>
-
-</div>
-</div>
-</div><!-- contents -->
+<p>Script to generate a slab of pure FCC Ni.  
+<a href="#details">More...</a></p>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Script to generate a slab of pure FCC Ni. </p>
+<p>The structure is oriented such that the xy plane is parallel to the {111} crystalographic plane, where the x-axis is parallel to [1-10], the y-axis is parallel to [11-2], and the z-axis is parallel to [111].</p>
+<p>The cell dimensions can be changed to generate slabs of different sizes.</p>
+<p>The output structure is written to a .data file, which can then be read be used as an input to LAMMPS. </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0

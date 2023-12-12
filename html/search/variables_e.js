@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['params_0',['params',['../namespacemc3__de__mcmc.html#a41000f175dc0115080e2a682cc06dbe9',1,'mc3_de_mcmc.params'],['../namespacede__mc__analysis.html#ad4a342a882e80fb0b1b0a80df4b9321b',1,'de_mc_analysis.params']]],
+  ['params_0',['params',['../namespacemc3__de__mcmc.html#a41000f175dc0115080e2a682cc06dbe9',1,'mc3_de_mcmc.params'],['../namespacede__mc__analysis.html#a41000f175dc0115080e2a682cc06dbe9',1,'de_mc_analysis.params']]],
   ['partial_5f1_1',['partial_1',['../namespacedislocation__script.html#a91147ca25eb6f1e10ff469bf18499299',1,'dislocation_script']]],
   ['partial_5f1_5fvel_2',['partial_1_vel',['../namespacedislocation__script.html#a4aeda4a8e2b7dc0e4136df701a684cb2',1,'dislocation_script']]],
   ['partial_5f2_3',['partial_2',['../namespacedislocation__script.html#af2d4757c7ad7fe053a842840011f2bd4',1,'dislocation_script']]],
@@ -11,13 +11,12 @@ var searchData=
   ['pnames_8',['pnames',['../namespacemc3__de__mcmc.html#a9ef70fcb7c461949595ef21bfb46767a',1,'mc3_de_mcmc']]],
   ['position_9',['position',['../namespacedislocation__script.html#a7130b1618285588513fd1ff97884b9d9',1,'dislocation_script']]],
   ['post_5fcov_10',['post_cov',['../namespacede__mc__analysis.html#af21f176bb548ffc994b08d905d21f92a',1,'de_mc_analysis']]],
-  ['posterior_11',['posterior',['../namespacede__mc__analysis.html#a3c19f7a3a39e427b9d2426e7d9c04ff5',1,'de_mc_analysis']]],
-  ['potential_12',['potential',['../namespacelmp__pre__strain.html#a2284450a7e0fc8239d572deb7609c49e',1,'lmp_pre_strain.potential'],['../namespacelmp__script.html#a2284450a7e0fc8239d572deb7609c49e',1,'lmp_script.potential']]],
-  ['pre_5fstrain_13',['pre_strain',['../namespacelmp__pre__strain.html#ae7cda6ca83719293f0a225786c5b744e',1,'lmp_pre_strain']]],
-  ['pressure_14',['pressure',['../namespacelmp__pre__strain.html#ad19429a485400193c6dfc8c71b151c06',1,'lmp_pre_strain.pressure'],['../namespacelmp__script.html#ad19429a485400193c6dfc8c71b151c06',1,'lmp_script.pressure']]],
-  ['prior_15',['prior',['../namespacede__mc__analysis.html#a899d3aff6fc24618b39966171b723bcd',1,'de_mc_analysis.prior'],['../namespacemc3__de__mcmc.html#a81a3a3e620ac63ad46dda3f81db472c6',1,'mc3_de_mcmc.prior']]],
-  ['priorlow_16',['priorlow',['../namespacede__mc__analysis.html#a93a86e854a239e6d7bbde96c61637177',1,'de_mc_analysis.priorlow'],['../namespacemc3__de__mcmc.html#a74ad46de1451ea876841ed49a7cdb781',1,'mc3_de_mcmc.priorlow']]],
-  ['priorup_17',['priorup',['../namespacede__mc__analysis.html#a132873269d56c3eb204d496ae2011110',1,'de_mc_analysis.priorup'],['../namespacemc3__de__mcmc.html#af8d7102cf9fc76c433b9994ca4ba0974',1,'mc3_de_mcmc.priorup']]],
-  ['problem_18',['problem',['../namespacelmp__pre__strain.html#ab351eda9f100d89986f3490815569740',1,'lmp_pre_strain.problem'],['../namespacelmp__script.html#ab351eda9f100d89986f3490815569740',1,'lmp_script.problem']]],
-  ['pstep_19',['pstep',['../namespacemc3__de__mcmc.html#a2e878e6631d1d5c32cb8255685fb5873',1,'mc3_de_mcmc']]]
+  ['potential_11',['potential',['../namespacelmp__script.html#a2284450a7e0fc8239d572deb7609c49e',1,'lmp_script.potential'],['../namespacelmp__pre__strain.html#a2284450a7e0fc8239d572deb7609c49e',1,'lmp_pre_strain.potential']]],
+  ['pre_5fstrain_12',['pre_strain',['../namespacelmp__pre__strain.html#ae7cda6ca83719293f0a225786c5b744e',1,'lmp_pre_strain']]],
+  ['pressure_13',['pressure',['../namespacelmp__pre__strain.html#ad19429a485400193c6dfc8c71b151c06',1,'lmp_pre_strain.pressure'],['../namespacelmp__script.html#ad19429a485400193c6dfc8c71b151c06',1,'lmp_script.pressure']]],
+  ['prior_14',['prior',['../namespacede__mc__analysis.html#a899d3aff6fc24618b39966171b723bcd',1,'de_mc_analysis.prior'],['../namespacemc3__de__mcmc.html#a899d3aff6fc24618b39966171b723bcd',1,'mc3_de_mcmc.prior']]],
+  ['priorlow_15',['priorlow',['../namespacede__mc__analysis.html#a93a86e854a239e6d7bbde96c61637177',1,'de_mc_analysis.priorlow'],['../namespacemc3__de__mcmc.html#a93a86e854a239e6d7bbde96c61637177',1,'mc3_de_mcmc.priorlow']]],
+  ['priorup_16',['priorup',['../namespacede__mc__analysis.html#a132873269d56c3eb204d496ae2011110',1,'de_mc_analysis.priorup'],['../namespacemc3__de__mcmc.html#a132873269d56c3eb204d496ae2011110',1,'mc3_de_mcmc.priorup']]],
+  ['problem_17',['problem',['../namespacelmp__pre__strain.html#ab351eda9f100d89986f3490815569740',1,'lmp_pre_strain.problem'],['../namespacelmp__script.html#ab351eda9f100d89986f3490815569740',1,'lmp_script.problem']]],
+  ['pstep_18',['pstep',['../namespacemc3__de__mcmc.html#a2e878e6631d1d5c32cb8255685fb5873',1,'mc3_de_mcmc']]]
 ];

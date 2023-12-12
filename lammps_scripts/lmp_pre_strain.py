@@ -23,7 +23,7 @@ The user can adjust some additional simulation settings listed at the beginning 
 - loading type - Symmetric or assymetric loading. In the symmetric loading case, both the top few and bottom few layers of the simulation box are fixed and the shear force is applied to each 
 in opposite directions. In the assymetric loading case, only the bottom few layers are fixed and the shear force is applied to the top few layers of the simulation box.
 
-The interatomic potential used is the Mishin 2004 potential, which can be changed.
+The interatomic potential used is the Mishin 2004 potential, which can be changed to any other potential with appropriate adjustment of settings .
 
 This script can be run in parallel using the following command, where X is replaced by the number of processors:
 @code mpirun -np <X> python3 lmp_pre_strain.py
@@ -34,7 +34,6 @@ from lammps.formats import LogFile as lmp_log
 import numpy as np
 import os
 import sys
-from matplotlib import pyplot as plt
 from mpi4py import MPI
 
 # Select "Ni" or "Ni3Al" 

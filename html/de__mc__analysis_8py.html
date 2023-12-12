@@ -13,6 +13,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -86,88 +93,61 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacede__mc__analysis" id="r_namespacede__mc__analysis"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html">de_mc_analysis</a></td></tr>
+<tr class="memdesc:namespacede__mc__analysis"><td class="mdescLeft">&#160;</td><td class="mdescRight">Script to analyse the ouput from the parameter fitting using DE-MC. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a62197192f0fbf4e0675eb37be1c4c175" id="r_a62197192f0fbf4e0675eb37be1c4c175"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a62197192f0fbf4e0675eb37be1c4c175">alpha</a></td></tr>
-<tr class="separator:a62197192f0fbf4e0675eb37be1c4c175"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b5398ce3cb5c9b60d8bb20a94dc945b" id="r_a5b5398ce3cb5c9b60d8bb20a94dc945b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a5b5398ce3cb5c9b60d8bb20a94dc945b">axs</a></td></tr>
-<tr class="separator:a5b5398ce3cb5c9b60d8bb20a94dc945b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad369a2b2d29cd52a7afa99260922a6b8" id="r_ad369a2b2d29cd52a7afa99260922a6b8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#ad369a2b2d29cd52a7afa99260922a6b8">bins</a> = 100</td></tr>
-<tr class="separator:ad369a2b2d29cd52a7afa99260922a6b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d843ba517b7a9e462deec3861eeafcd" id="r_a3d843ba517b7a9e462deec3861eeafcd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a3d843ba517b7a9e462deec3861eeafcd">burn</a> = int(1e5)</td></tr>
+<tr class="memitem:a3d843ba517b7a9e462deec3861eeafcd" id="r_a3d843ba517b7a9e462deec3861eeafcd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a3d843ba517b7a9e462deec3861eeafcd">burn</a></td></tr>
 <tr class="separator:a3d843ba517b7a9e462deec3861eeafcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0323a9039add2978bf5b49550572c7c" id="r_ae0323a9039add2978bf5b49550572c7c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#ae0323a9039add2978bf5b49550572c7c">c</a></td></tr>
-<tr class="separator:ae0323a9039add2978bf5b49550572c7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37dbdc30935031c05304482e1be89d8f" id="r_a37dbdc30935031c05304482e1be89d8f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a37dbdc30935031c05304482e1be89d8f">color</a></td></tr>
-<tr class="separator:a37dbdc30935031c05304482e1be89d8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a511ae0b1c13f95e5f08f1a0dd3da3d93" id="r_a511ae0b1c13f95e5f08f1a0dd3da3d93"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a511ae0b1c13f95e5f08f1a0dd3da3d93">data</a> = np.loadtxt(&quot;perfect_pos.txt&quot;)</td></tr>
+<tr class="memitem:aa3b7b7485467046f9ac6f242bb6280d4" id="r_aa3b7b7485467046f9ac6f242bb6280d4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#aa3b7b7485467046f9ac6f242bb6280d4">d_range</a></td></tr>
+<tr class="separator:aa3b7b7485467046f9ac6f242bb6280d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a511ae0b1c13f95e5f08f1a0dd3da3d93" id="r_a511ae0b1c13f95e5f08f1a0dd3da3d93"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a511ae0b1c13f95e5f08f1a0dd3da3d93">data</a></td></tr>
 <tr class="separator:a511ae0b1c13f95e5f08f1a0dd3da3d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e4556ca64e20936a8d96dbcff9ab73c" id="r_a1e4556ca64e20936a8d96dbcff9ab73c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a1e4556ca64e20936a8d96dbcff9ab73c">density</a></td></tr>
-<tr class="separator:a1e4556ca64e20936a8d96dbcff9ab73c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a426852633d2045ae6b1f25f7efdaac11" id="r_a426852633d2045ae6b1f25f7efdaac11"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a426852633d2045ae6b1f25f7efdaac11">dims</a> = 3</td></tr>
+<tr class="memitem:a426852633d2045ae6b1f25f7efdaac11" id="r_a426852633d2045ae6b1f25f7efdaac11"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a426852633d2045ae6b1f25f7efdaac11">dims</a></td></tr>
 <tr class="separator:a426852633d2045ae6b1f25f7efdaac11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a1de82247f92a147c1906b36938a647" id="r_a6a1de82247f92a147c1906b36938a647"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a6a1de82247f92a147c1906b36938a647">dirs</a> = f&quot;de_mc_out&quot;</td></tr>
-<tr class="separator:a6a1de82247f92a147c1906b36938a647"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4024db5b48e2ddd9bcd43847f10f016" id="r_ab4024db5b48e2ddd9bcd43847f10f016"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#ab4024db5b48e2ddd9bcd43847f10f016">dpi</a></td></tr>
-<tr class="separator:ab4024db5b48e2ddd9bcd43847f10f016"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64aa603bc3c6c1587e7c6542452481ac" id="r_a64aa603bc3c6c1587e7c6542452481ac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a64aa603bc3c6c1587e7c6542452481ac">fig</a></td></tr>
-<tr class="separator:a64aa603bc3c6c1587e7c6542452481ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a574732c04d57514f219fc914fdcb54e5" id="r_a574732c04d57514f219fc914fdcb54e5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a574732c04d57514f219fc914fdcb54e5">figsize</a></td></tr>
-<tr class="separator:a574732c04d57514f219fc914fdcb54e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a387137c43ed9616d39ba90e890d181eb" id="r_a387137c43ed9616d39ba90e890d181eb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a387137c43ed9616d39ba90e890d181eb">format</a></td></tr>
-<tr class="separator:a387137c43ed9616d39ba90e890d181eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a864fffd21c558dd8b1c4394102d58331" id="r_a864fffd21c558dd8b1c4394102d58331"><td class="memItemLeft" align="right" valign="top">tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a864fffd21c558dd8b1c4394102d58331">Fs</a> = (250.0*1e6*1e12*np.sqrt(2)*0.352)/(2.0*(1e9**2))</td></tr>
-<tr class="separator:a864fffd21c558dd8b1c4394102d58331"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22f45a3cb4f074e609f58ebaeef0ecf9" id="r_a22f45a3cb4f074e609f58ebaeef0ecf9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a22f45a3cb4f074e609f58ebaeef0ecf9">label</a></td></tr>
-<tr class="separator:a22f45a3cb4f074e609f58ebaeef0ecf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a9e9c5c3eae62014f8951f1c926fd22" id="r_a0a9e9c5c3eae62014f8951f1c926fd22"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a0a9e9c5c3eae62014f8951f1c926fd22">filename</a></td></tr>
+<tr class="separator:a0a9e9c5c3eae62014f8951f1c926fd22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd9e1b0682bd285ded3d808e850700c8" id="r_acd9e1b0682bd285ded3d808e850700c8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#acd9e1b0682bd285ded3d808e850700c8">log_c</a></td></tr>
 <tr class="separator:acd9e1b0682bd285ded3d808e850700c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5adc60559940903691fabfc8f65a958d" id="r_a5adc60559940903691fabfc8f65a958d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a5adc60559940903691fabfc8f65a958d">log_c_mean</a></td></tr>
 <tr class="separator:a5adc60559940903691fabfc8f65a958d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bc8f51b043ad18a80a48ed524f8e492" id="r_a2bc8f51b043ad18a80a48ed524f8e492"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a2bc8f51b043ad18a80a48ed524f8e492">log_c_std</a></td></tr>
 <tr class="separator:a2bc8f51b043ad18a80a48ed524f8e492"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a87a2aca89a725b3ae97f8817e4d1327e" id="r_a87a2aca89a725b3ae97f8817e4d1327e"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a87a2aca89a725b3ae97f8817e4d1327e">log_params</a> = [r&quot;ln($c_{0}$)&quot;, r&quot;ln($c_{1}$)&quot;, r&quot;ln($c_{2}$)&quot;]</td></tr>
-<tr class="separator:a87a2aca89a725b3ae97f8817e4d1327e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac1113e50f7f1460beeaeeba69f63701" id="r_aac1113e50f7f1460beeaeeba69f63701"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#aac1113e50f7f1460beeaeeba69f63701">ls</a></td></tr>
-<tr class="separator:aac1113e50f7f1460beeaeeba69f63701"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea01c649994f33fb3a83b427bec999bc" id="r_aea01c649994f33fb3a83b427bec999bc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#aea01c649994f33fb3a83b427bec999bc">lw</a></td></tr>
-<tr class="separator:aea01c649994f33fb3a83b427bec999bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76f11d9a0a47b94f72c2d0e77fb32240" id="r_a76f11d9a0a47b94f72c2d0e77fb32240"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a76f11d9a0a47b94f72c2d0e77fb32240">n</a> = 6</td></tr>
+<tr class="memitem:ac7d442f1eb09e22e9442a4a02ac9ac21" id="r_ac7d442f1eb09e22e9442a4a02ac9ac21"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#ac7d442f1eb09e22e9442a4a02ac9ac21">log_params</a></td></tr>
+<tr class="separator:ac7d442f1eb09e22e9442a4a02ac9ac21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76f11d9a0a47b94f72c2d0e77fb32240" id="r_a76f11d9a0a47b94f72c2d0e77fb32240"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a76f11d9a0a47b94f72c2d0e77fb32240">n</a></td></tr>
 <tr class="separator:a76f11d9a0a47b94f72c2d0e77fb32240"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a640ebad51b0795fbf7b4ec2e44b5ece5" id="r_a640ebad51b0795fbf7b4ec2e44b5ece5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a640ebad51b0795fbf7b4ec2e44b5ece5">n_samples</a> = int(1e6)</td></tr>
+<tr class="memitem:a640ebad51b0795fbf7b4ec2e44b5ece5" id="r_a640ebad51b0795fbf7b4ec2e44b5ece5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a640ebad51b0795fbf7b4ec2e44b5ece5">n_samples</a></td></tr>
 <tr class="separator:a640ebad51b0795fbf7b4ec2e44b5ece5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4a342a882e80fb0b1b0a80df4b9321b" id="r_ad4a342a882e80fb0b1b0a80df4b9321b"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#ad4a342a882e80fb0b1b0a80df4b9321b">params</a> = [r&quot;$c_{0}$&quot;, r&quot;$c_{1}$&quot;, r&quot;$c_{2}$&quot;]</td></tr>
-<tr class="separator:ad4a342a882e80fb0b1b0a80df4b9321b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3c2c270199fd3662cdaa096853aae60" id="r_af3c2c270199fd3662cdaa096853aae60"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#af3c2c270199fd3662cdaa096853aae60">out_dir</a></td></tr>
+<tr class="separator:af3c2c270199fd3662cdaa096853aae60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41000f175dc0115080e2a682cc06dbe9" id="r_a41000f175dc0115080e2a682cc06dbe9"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a41000f175dc0115080e2a682cc06dbe9">params</a></td></tr>
+<tr class="separator:a41000f175dc0115080e2a682cc06dbe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af21f176bb548ffc994b08d905d21f92a" id="r_af21f176bb548ffc994b08d905d21f92a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#af21f176bb548ffc994b08d905d21f92a">post_cov</a></td></tr>
 <tr class="separator:af21f176bb548ffc994b08d905d21f92a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c19f7a3a39e427b9d2426e7d9c04ff5" id="r_a3c19f7a3a39e427b9d2426e7d9c04ff5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a3c19f7a3a39e427b9d2426e7d9c04ff5">posterior</a></td></tr>
-<tr class="separator:a3c19f7a3a39e427b9d2426e7d9c04ff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a899d3aff6fc24618b39966171b723bcd" id="r_a899d3aff6fc24618b39966171b723bcd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a899d3aff6fc24618b39966171b723bcd">prior</a> = np.array([0.0, 0.0, 0.0])</td></tr>
+<tr class="memitem:a899d3aff6fc24618b39966171b723bcd" id="r_a899d3aff6fc24618b39966171b723bcd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a899d3aff6fc24618b39966171b723bcd">prior</a></td></tr>
 <tr class="separator:a899d3aff6fc24618b39966171b723bcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93a86e854a239e6d7bbde96c61637177" id="r_a93a86e854a239e6d7bbde96c61637177"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a93a86e854a239e6d7bbde96c61637177">priorlow</a> = np.array([2.0, 2.0, 2.0])</td></tr>
+<tr class="memitem:a93a86e854a239e6d7bbde96c61637177" id="r_a93a86e854a239e6d7bbde96c61637177"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a93a86e854a239e6d7bbde96c61637177">priorlow</a></td></tr>
 <tr class="separator:a93a86e854a239e6d7bbde96c61637177"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a132873269d56c3eb204d496ae2011110" id="r_a132873269d56c3eb204d496ae2011110"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a132873269d56c3eb204d496ae2011110">priorup</a> = np.array([2.0, 2.0, 2.0])</td></tr>
+<tr class="memitem:a132873269d56c3eb204d496ae2011110" id="r_a132873269d56c3eb204d496ae2011110"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a132873269d56c3eb204d496ae2011110">priorup</a></td></tr>
 <tr class="separator:a132873269d56c3eb204d496ae2011110"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed39282eeeb6b1970c1ce27485e91afe" id="r_aed39282eeeb6b1970c1ce27485e91afe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#aed39282eeeb6b1970c1ce27485e91afe">t_data</a> = <a class="el" href="namespacede__mc__analysis.html#a511ae0b1c13f95e5f08f1a0dd3da3d93">data</a>[:-<a class="el" href="namespacede__mc__analysis.html#a76f11d9a0a47b94f72c2d0e77fb32240">n</a>,0]</td></tr>
+<tr class="memitem:a53a9b7aa07c149779cad676cdf07b4f7" id="r_a53a9b7aa07c149779cad676cdf07b4f7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a53a9b7aa07c149779cad676cdf07b4f7">save_plt</a></td></tr>
+<tr class="separator:a53a9b7aa07c149779cad676cdf07b4f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab913f032c28426fe84f1b5a8ccedd498" id="r_ab913f032c28426fe84f1b5a8ccedd498"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#ab913f032c28426fe84f1b5a8ccedd498">show_plt</a></td></tr>
+<tr class="separator:ab913f032c28426fe84f1b5a8ccedd498"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed39282eeeb6b1970c1ce27485e91afe" id="r_aed39282eeeb6b1970c1ce27485e91afe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#aed39282eeeb6b1970c1ce27485e91afe">t_data</a></td></tr>
 <tr class="separator:aed39282eeeb6b1970c1ce27485e91afe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d751bacdd9e4d26d056f5398ae4246e" id="r_a5d751bacdd9e4d26d056f5398ae4246e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a5d751bacdd9e4d26d056f5398ae4246e">t_range</a> = np.ptp(<a class="el" href="namespacede__mc__analysis.html#aed39282eeeb6b1970c1ce27485e91afe">t_data</a>)</td></tr>
+<tr class="memitem:a5d751bacdd9e4d26d056f5398ae4246e" id="r_a5d751bacdd9e4d26d056f5398ae4246e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a5d751bacdd9e4d26d056f5398ae4246e">t_range</a></td></tr>
 <tr class="separator:a5d751bacdd9e4d26d056f5398ae4246e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a643a20c0c59588a0f741a6095e2025fd" id="r_a643a20c0c59588a0f741a6095e2025fd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a643a20c0c59588a0f741a6095e2025fd">True</a></td></tr>
 <tr class="separator:a643a20c0c59588a0f741a6095e2025fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6120ebabcd02e35082049723d85f6a08" id="r_a6120ebabcd02e35082049723d85f6a08"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a6120ebabcd02e35082049723d85f6a08">ts</a> = <a class="el" href="namespacede__mc__analysis.html#a5d751bacdd9e4d26d056f5398ae4246e">t_range</a></td></tr>
-<tr class="separator:a6120ebabcd02e35082049723d85f6a08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7bae07f096dd3fd9016a444d18e13045" id="r_a7bae07f096dd3fd9016a444d18e13045"><td class="memItemLeft" align="right" valign="top">list&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a7bae07f096dd3fd9016a444d18e13045">x0</a> = [0.0,0.0]</td></tr>
-<tr class="separator:a7bae07f096dd3fd9016a444d18e13045"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5637c0fc79271593e595e5f5a28a042e" id="r_a5637c0fc79271593e595e5f5a28a042e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a5637c0fc79271593e595e5f5a28a042e">x_data</a> = 0.1*<a class="el" href="namespacede__mc__analysis.html#a511ae0b1c13f95e5f08f1a0dd3da3d93">data</a>[n:,1]</td></tr>
+<tr class="memitem:a5637c0fc79271593e595e5f5a28a042e" id="r_a5637c0fc79271593e595e5f5a28a042e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a5637c0fc79271593e595e5f5a28a042e">x_data</a></td></tr>
 <tr class="separator:a5637c0fc79271593e595e5f5a28a042e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a4e70aef1b59c2077e838835e0ad13c" id="r_a5a4e70aef1b59c2077e838835e0ad13c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a5a4e70aef1b59c2077e838835e0ad13c">x_range</a> = np.ptp(<a class="el" href="namespacede__mc__analysis.html#a5637c0fc79271593e595e5f5a28a042e">x_data</a>)</td></tr>
+<tr class="memitem:a5a4e70aef1b59c2077e838835e0ad13c" id="r_a5a4e70aef1b59c2077e838835e0ad13c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a5a4e70aef1b59c2077e838835e0ad13c">x_range</a></td></tr>
 <tr class="separator:a5a4e70aef1b59c2077e838835e0ad13c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39291e1e7c5545a7b8a9c64b89d973f9" id="r_a39291e1e7c5545a7b8a9c64b89d973f9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a39291e1e7c5545a7b8a9c64b89d973f9">xi</a> = <a class="el" href="namespacede__mc__analysis.html#a5637c0fc79271593e595e5f5a28a042e">x_data</a>[0]</td></tr>
+<tr class="memitem:a39291e1e7c5545a7b8a9c64b89d973f9" id="r_a39291e1e7c5545a7b8a9c64b89d973f9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#a39291e1e7c5545a7b8a9c64b89d973f9">xi</a></td></tr>
 <tr class="separator:a39291e1e7c5545a7b8a9c64b89d973f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0f5e82ee31a657ad8312b0ed1851438" id="r_ae0f5e82ee31a657ad8312b0ed1851438"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacede__mc__analysis.html#ae0f5e82ee31a657ad8312b0ed1851438">xs</a> = <a class="el" href="namespacede__mc__analysis.html#a5a4e70aef1b59c2077e838835e0ad13c">x_range</a></td></tr>
-<tr class="separator:ae0f5e82ee31a657ad8312b0ed1851438"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
