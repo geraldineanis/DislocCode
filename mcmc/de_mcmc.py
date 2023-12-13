@@ -1,5 +1,5 @@
 """
-DE-MC with snooker updater (Braak and Vrugt (2008))
+Standard DE-MC (Braak and Vrugt (2006))
 """
 import numpy as np
 import scipy.stats as st
