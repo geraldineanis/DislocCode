@@ -138,14 +138,14 @@ fig, axs = plt.subplots(1,2)
 for i in range(N):
     # p1
     axs[0].hist(p1[i], density=True, bins=100, color=f"C{i}", alpha=0.3, label=f"p1 - chain {i+1}")
-    xd = np.linspace(min(p1[i]), max(p1[i]), 1000)
+    xd1 = np.linspace(min(p1[i]), max(p1[i]), 1000)
     p_cov = np.cov(p1[i], p2[i])
-    axs[0].plot(xd, st.norm.pdf(xd, loc = np.mean(p1[i]), scale=np.sqrt(p_cov[0,0])), color=f"C{i}")
+    axs[0].plot(xd1, st.norm.pdf(xd1, loc = np.mean(p1[i]), scale=np.sqrt(p_cov[0,0])), color=f"C{i}")
     axs[0].axvline(np.mean(p1[i]), ls="--", color=f"C{i}")
     # p2
-    xd = np.linspace(min(p2[i]), max(p2[i]), 1000)
+    xd2 = np.linspace(min(p2[i]), max(p2[i]), 1000)
     axs[1].hist(p2[i], density=True, bins=100, color=f"C{i}", alpha=0.3, label=f"p2 - chain {i+1}")
-    axs[1].plot(xd, st.norm.pdf(xd, loc = np.mean(p2[i]), scale=np.sqrt(p_cov[1,1])), color=f"C{i}")
+    axs[1].plot(xd2, st.norm.pdf(xd2, loc = np.mean(p2[i]), scale=np.sqrt(p_cov[1,1])), color=f"C{i}")
     axs[1].axvline(np.mean(p2[i]), ls="--", color=f"C{i}")
 
 for ax in axs:
@@ -168,21 +168,27 @@ p_cov = np.array(np.cov(p1[c], p2[c]))
 
 fit = lin_func(x, [np.mean(p1[c]), np.mean(p2[c])])
 
-# Draw samples from posterior
-post_samples = st.multivariate_normal.rvs(p_means, p_cov, size=1000)
-
-model_samples = [lin_func(x, s) for s in post_samples]
-
 xd1 = np.linspace(min(p1[c]), max(p1[c]), 1000)
 xd2 = np.linspace(min(p2[c]), max(p2[c]), 1000)
 
 fig, axs = plt.subplots(1,2)
-axs[0].hist(p1[c], bins=50, density=True)
-axs[0].plot(xd1, st.norm.pdf(xd1, loc = p_means[0], scale = p_cov[0,0]))
-axs[1].hist(p2[c], bins=50, density=True)
-axs[1].plot(xd2, st.norm.pdf(xd2, loc = p_means[1], scale = p_cov[1,1]))
+axs[0].hist(p1[c], bins=100, density=True, label="p1 probability density")
+axs[0].plot(xd1, st.norm.pdf(xd1, loc =p_means[0], scale = np.sqrt(p_cov[0,0])))
+# axs[0].plot(np.linspace(0.0,2.0, 1000), st.norm.pdf(np.linspace(0.0,2.0, 1000), loc=prior_mean[0], scale=np.sqrt(prior_cov[0,0])), label="p1 prior")
+
+axs[1].hist(p2[c], bins=100, density=True, label="p2 probability density")
+axs[1].plot(xd2, st.norm.pdf(xd2, loc = p_means[1], scale=np.sqrt(p_cov[1,1])))
+# axs[1].plot(np.linspace(0.0,2.0, 1000), st.norm.pdf(np.linspace(0.0,2.0, 1000), loc=prior_mean[1], scale=np.sqrt(prior_cov[1,1])), label="p2 prior")
+
+for ax in axs:
+    ax.legend()
 
 plt.show()
+
+# Draw samples from posterior and plot fit
+post_samples = st.multivariate_normal.rvs(p_means, p_cov, size=1000)
+
+model_samples = [lin_func(x, s) for s in post_samples]
 
 fig, axs = plt.subplots(1,1)
 axs.scatter(x, data, color="tab:red", s=2, zorder=2, label="Data with noise")
