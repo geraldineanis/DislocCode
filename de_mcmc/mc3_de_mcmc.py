@@ -41,7 +41,7 @@ priorup =  np.array([2.0, 2.0])     # parameters +1*sigma
 # Read in and non-dimnesionalise dislocation position-time data
 # Number of points to discard at beginning of trajectory
 filename = "perfect_pos.txt"
-n = 7
+n = 0
 
 t_dim, t_nondim, x_dim, x_nondim, ts, xs = get_nondim_data(filename, discard=n)
 
@@ -108,11 +108,10 @@ textnames = [r"c_{0}", r"c_{1}"]
 sampler = "snooker"
 
 # MCMC Configuration
-nsamples = 1e6          # Number of MCMC iterations
+nsamples = 1e5          # Number of MCMC iterations
 burnin = 0              # Number of burn in samples - Setting this to zero outputs 
                         # all accepted samples and an appropriate burn-in can be 
                         # determined when doing the analysis
-
 nchains = chains        # Number of MCMC chains
 ncpu = 7                # Number of CPUs 
 thinning = 1            
