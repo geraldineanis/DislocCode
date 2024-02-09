@@ -10,8 +10,6 @@ The output structure is written to a .data file, which can then be read be used 
 
 @sa 
 
-lmp_pre_strain.py
-
 gen_111_atoms.py
 """
 
