@@ -52,7 +52,8 @@ def get_nondim_data(filename, discard=0):
         x_dim = 0.1*data[:,1]          
         x_range = np.ptp(x_dim)
         xi = x_dim[0]
-        x_nondim = (x_dim-xi)/x_range
+        x_dim = x_dim - xi
+        x_nondim = x_dim/x_range
     else:
         # time
         t_dim = data[:-discard,0]
@@ -91,30 +92,26 @@ def x_t(t,xi,m, B, F):
     """
     return xi + ((F/B)*(t + (m/B)*(np.exp(-(B/m)*t) - 1.0)))
 
-def x_derivatives(x,t,c0,c1,c2):
+def x_derivatives(x,t,c0,c1):
     """
-    Defines the derivatives needed to solve the equation c0 x" + c1 x' = c2
-    This is the non-dimensional equation of motion
+    Defines the derivatives needed to solve the non-dimensional equation of motion x" + c0*x' = c1
     
     Parameters
     ----------
-    x   : numpy.ndarray 
-          LHS row vector (dependent variable)
-    t   : numpy.ndarray
-          time (the independent variable)
-    c0  : float
-          Non-dimensional parameter related to the effective mass.
+    x  : numpy.ndarray 
+         LHS row vector (dependent variable)
+    t  : numpy.ndarray
+         Time (the independent variable)
+    c0 : float
+         Non-dimensional parameter - B/m
     c1  : float
-          Non-dimensional parameter related to the drag coefficient.
-    c2  : float
-          Non-dimensional parameter related to the force.
-
+         Non-dimensional parameter - F/m
     Returns
     -------
     numpy.ndarray
           Derrivates.
     """
-    dxdt = [x[1], np.exp(c0)*(np.exp(c2) - np.exp(c1)*x[1])]
+    dxdt = [x[1], np.exp(c1)- np.exp(c0)*x[1]]
     return dxdt
 
 def ODE_solution(t,x0,t_data):
@@ -137,12 +134,12 @@ def ODE_solution(t,x0,t_data):
     numpy.ndarray
              Non-dimensional dislocation velocity time series.
     """
-    c0, c1, c2 = t  # Unpack parameters
-    position, velocity = odeint(x_derivatives, x0, t_data, args=(c0,c1,c2)).T
+    c0, c1 = t  # Unpack parameters
+    position, velocity = odeint(x_derivatives, x0, t_data, args=(c0,c1)).T
     return position, velocity
 
 # Dimensional Model
-def x_derivatives_dim(x,t,m,B,F):
+def x_derivatives_dim(x,t,B_m,F_m):
     """
     Defines the derivatives needed to solve the dimensional equation of motion mx" + Bx' = F
     
@@ -163,7 +160,7 @@ def x_derivatives_dim(x,t,m,B,F):
     numpy.ndarray
           Derrivates.
     """
-    dxdt = [x[1], (1/m)*(F - B*x[1])]
+    dxdt = [x[1], (F_m - B_m*x[1])]
     return dxdt
 
 def ODE_solution_dim(t,x0,t_data):
@@ -186,8 +183,8 @@ def ODE_solution_dim(t,x0,t_data):
     numpy.ndarray
              Non-dimensional dislocation velocity time series.
     """
-    m, B, F = t  # Unpack parameters
-    position, velocity = odeint(x_derivatives_dim, x0, t_data, args=(m,B,F)).T
+    B_m, F_m = t  # Unpack parameters
+    position, velocity = odeint(x_derivatives_dim, x0, t_data, args=(B_m,F_m)).T
     return position, velocity
 
 def c0_to_m(c0,ts,xs,Fs):
@@ -472,7 +469,7 @@ def plot_convg(dims,means,std_devs,params,save_plt=False,show_plt=True):
     show_plt : bool
                If True, shows the trace plot. Default value is True.
     """                 
-    fig, axs = plt.subplots(1,2, figsize=(10,5))
+    fig, axs = plt.subplots(1,2, figsize=(15,5))
     for i in range(dims):
         # means
         axs[0].plot(means[i], label=params[i])
@@ -483,10 +480,15 @@ def plot_convg(dims,means,std_devs,params,save_plt=False,show_plt=True):
         axs[1].plot(std_devs[i], label=params[i])
         axs[1].set_ylabel("Parameter Std. Dev.", fontsize=12)
         axs[1].set_xlabel("Generation", fontsize=12)
-        axs[1].legend(loc=4, fontsize=12)
+    
+    axs[1].legend(loc=4, fontsize=12)
+
+    for ax in axs:
+        ax.tick_params(axis='both', labelsize=11)
+
     
     if save_plt:
-        fig.savefig("convergence.png", dpi=350, format="png")
+        fig.savefig("convergence.png", dpi=350, format="png", bbox_inches="tight")
     
     if show_plt:
         plt.show()
