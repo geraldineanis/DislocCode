@@ -225,7 +225,7 @@ def c1_F_m(c1, xs, ts):
     return c1*xs/(ts**2)
 
 # DE-MC Analysis
-def get_posterior(data, n_samples, burn, dims=3):
+def get_posterior(data, n_samples, burn, dims):
     """
     Calculates parameter posterior distributions from DE-MC accepted samples.
 
@@ -251,7 +251,7 @@ def get_posterior(data, n_samples, burn, dims=3):
     numpy.ndarray
                 Parameter standard deviations.
     """
-    # All posterior samples
+    # Posterior samples after removing burn-in samples
     posterior = np.array(data["posterior"][burn:n_samples])
     # Marginal posterior samples
     c_dist = np.array([np.array(posterior[:,i]) for i in range(dims)])
@@ -357,14 +357,16 @@ def plot_trace(dims,burn,c_dist,params,save_plt=False,show_plt=True):
     show_plt : bool
                If True, shows the trace plot. Default value is True.
     """
-    fig, axs = plt.subplots(1, dims, figsize=(10,5))
+    fig, axs = plt.subplots(1, dims, figsize=(20,7.5))
     for i in range(dims):
-        axs[i].plot(c_dist[i], lw=1, alpha=0.5)
-        axs[i].axvline(burn, c="tab:red", lw=1, ls="--", label=f"Burned Samples = "+r"$10^5$")
-        axs[i].set_ylabel(f"ln({params[i]})", fontsize=12)
+        axs[i].plot(c_dist[i], lw=1, alpha=1.0)
+        axs[i].axvline(burn, c="tab:red", lw=4, ls="--", label=f"Burned Samples = {burn}")
+        axs[i].set_ylabel(params[i], fontsize=18)
     for ax in axs:
-        ax.set_xlabel("Generation", fontsize=12)
-    axs[-1].legend(fontsize=12)
+        ax.set_xlabel("generation", fontsize=18)
+        ax.tick_params(axis='both', labelsize=18)
+
+    axs[-1].legend(fontsize=19.5)
     
     if save_plt:
         fig.savefig("trace.png", dpi=350, format="png")
@@ -395,7 +397,7 @@ def plot_pairplot(c_dist, params,save_plt=False,show_plt=True):
     if show_plt:
         plt.show()
 
-def plot_marginal(dims,c_dist,c_mean,c_std,prior_mean,prior_std,d_range,params,save_plt=False,show_plt=True):
+def plot_marginal(dims,c_dist,c_mean,post_cov,prior_dist,params,prior=False,save_plt=False,show_plt=True):
     """
     Plots the marginal parameter posterior and parameter prior distributions.
     Assumes parameters are normally distributed.
@@ -409,41 +411,44 @@ def plot_marginal(dims,c_dist,c_mean,c_std,prior_mean,prior_std,d_range,params,s
                  array where N is equal to dims and M is the number of samples.
     c_mean     : numpy.ndarray
                  Parameter means.
-    c_std      : numpy.ndarray
-                 Parameter standard deviations.
-    prior_mean : numpy.ndarray
-                 Prior means.
-    prior_std  : numpy.ndarray
-                 N-dimensional array of prior standard deviations.
-    d_range    : numpy.ndarray
-                 Values at which to evaluate the parameter probability
-                 density function (PDF).
+    post_cov   : numpy.ndarray
+                 Posterior distribution covariance matrix.
+    prior_dist : numpy.ndarray
+                 Prior mean and standard deviation.
     params     : list
                  N-dimensional array containing parameter names as strings for plot 
                  labels.
+    prior      : bool
+                 If True, plots the prior distribution. Defailt is False.
     save_plt   : bool
                  If True, saves the trace plot. Default value is False.
     show_plt   : bool
                  If True, shows the trace plot. Default value is True.   
     """
-    fig, axs = plt.subplots(1,dims, figsize=(10,5))
+    fig, axs = plt.subplots(1,dims, figsize=(20, 7.5))
     
     bins = 100
 
+    x_dist = [np.linspace(np.min(c_dist[i]), np.max(c_dist[i]), 1000) for i in range(dims)]
+
+    dist_est = [st.norm.pdf(x_dist[i], loc=c_mean[i], scale=np.sqrt(post_cov[i,i])) for i in range(dims)] 
+
     for i in range(dims):
         # Posterior
-        axs[i].hist(c_dist[i], density=True, bins=bins, color=f"C0", alpha=0.5, label="DE-MC Samples")
-        axs[i].plot(d_range, st.norm.pdf(d_range, loc=c_mean[i], scale=c_std[i]),
-                    color="C0", label=r"$\mathcal{N}($" + f"{round(c_mean[i],2)}, {round(c_std[i],2)}" +r"$^2$)")    
+        axs[i].hist(c_dist[i], density=True, bins=bins, color=f"C0", label="DE-MC Samples")
+        axs[i].plot(x_dist[i], dist_est[i], lw=4, color="C1", label=r"$\mathcal{N}($" + f"{c_mean[i]}, {post_cov[i,i]}" +r"$^2$)")    
         # Prior
-        axs[i].plot(d_range, st.norm.pdf(d_range, loc=prior_mean[i], scale=prior_std[i]),
-                    color="C3", label=r"Prior - $\mathcal{N}($" + f"{prior_mean[i]}, {prior_std[i]}"+r"$^2$)")
+        if prior:
+            axs[i].plot(x_dist[i], st.norm.pdf(x_dist[i], loc=prior_dist[i][0], scale=prior_dist[i][1]),
+                        color="C3", label=r"Prior - $\mathcal{N}($" + f"{prior_dist[i][0]}, {prior_dist[i][1]}"+r"$^2$)")
 
-        axs[i].set_xlabel(f"{params[i]}", fontsize=12)
-        axs[i].legend(loc=2, fontsize=10.5)
+    for i, ax in enumerate(axs):
+        ax.set_xlabel(f"{params[i]}", fontsize=25)
+        ax.legend(loc="upper right", fontsize=19.5)
+        ax.tick_params(axis='both', labelsize=20)
 
-    axs[0].set_ylabel("Density", fontsize=12)
-   
+    axs[0].set_ylabel(f"density", fontsize=25)
+    
     if save_plt:
          fig.savefig("param_posterior.png", dpi=350, format="png")
     if show_plt:
@@ -470,28 +475,26 @@ def plot_convg(dims,means,std_devs,params,save_plt=False,show_plt=True):
     show_plt : bool
                If True, shows the trace plot. Default value is True.
     """                 
-    fig, axs = plt.subplots(1,2, figsize=(15,5))
+    fig, axs = plt.subplots(1,2, figsize=(20,7.5))
     for i in range(dims):
         # means
-        axs[0].plot(means[i], label=params[i])
-        axs[0].set_ylabel("Parameter mean", fontsize=12)
-        axs[0].set_xlabel("Generation", fontsize=12)
+        axs[0].plot(means[i], label=params[i], lw=4)
+        axs[0].set_ylabel("Parameter mean", fontsize=25)
+        axs[0].set_xlabel("Generation", fontsize=25)
 
         # std. devs
-        axs[1].plot(std_devs[i], label=params[i])
-        axs[1].set_ylabel("Parameter Std. Dev.", fontsize=12)
-        axs[1].set_xlabel("Generation", fontsize=12)
+        axs[1].plot(std_devs[i], label=params[i], lw=4)
+        axs[1].set_ylabel("Parameter Std. Dev.", fontsize=25)
+        axs[1].set_xlabel("Generation", fontsize=25)
     
     axs[1].legend(loc=4, fontsize=12)
 
     for ax in axs:
-        ax.tick_params(axis='both', labelsize=11)
+        ax.tick_params(axis='both', labelsize=20)
 
-    
     if save_plt:
         fig.savefig("convergence.png", dpi=350, format="png", bbox_inches="tight")
     
     if show_plt:
         plt.show()
-
     
