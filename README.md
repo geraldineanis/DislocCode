@@ -41,9 +41,10 @@ https://mc3.readthedocs.io/en/latest/get_started.html
 
 https://wiki.fysik.dtu.dk/ase/install.html
 
-Python libraries:
+**Python libraries**
 - Numpy
 - Matplotlib
 - Scipy
 - Pandas
 - Seaborn
+- mpi4py
