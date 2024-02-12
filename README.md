@@ -6,7 +6,7 @@ The general workflow is:
 ![](general_method.png)
 
 ### Generating the structure files:  
-**structure_gen**[](./structure_gen)
+[**structure_gen**](./structure_gen)
 - `gen_1disloc_Ni.py` generates a single $\frac{a_0}{2}\langle 110 \rangle{111}$ edge dislocation in an FCC Ni cell.
 - `gen_111_atoms.py` generates a slab of FCC Ni.  
 
