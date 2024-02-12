@@ -1,7 +1,7 @@
 # DislocCode
 A collection of python tools to setup, run, and analyse molecular dynamics (MD) simulations of edge dislocations in face-centered cubic (FCC) Ni.
 
-
+!(general_method.png)
 
 #### `structure_gen`
 Scripts that generate:
@@ -19,19 +19,19 @@ Script to fit the parameters of an equation of motion to MD dislocation trajecto
 
 
 ## Requirements 
-LAMMPS Python Module and Shared library:
+**LAMMPS Python Module and Shared library**:
 
 https://docs.lammps.org/Python_install.html
 
-Ovito python libraries:
+**Ovito python libraries**:
 
 https://www.ovito.org/docs/current/python/introduction/installation.html
 
-MC3:
+**MC3**:
 
 https://mc3.readthedocs.io/en/latest/get_started.html
 
-ASE:
+**ASE**:
 
 https://wiki.fysik.dtu.dk/ase/install.html
 
