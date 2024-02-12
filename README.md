@@ -16,7 +16,6 @@ The general workflow is:
 
 ### Post-procecessing the MD trajectories:  
 [**dislocation_tracking**](./dislocation_tracking)  
-Scripts to post-process dislocation simulation output  
 - `ovito_disloc.py` detects dislocations using OVITO DXA and records their coordinates.  
 - `dislocatio_script.py` tracks dislocations detected by OVITO DXA, sorting their coordinates and assigning them to the correct dislocation. This outputs position-time data for every dislocation detected.  
 
