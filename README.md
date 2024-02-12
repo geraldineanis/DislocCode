@@ -1,7 +1,7 @@
 # DislocCode
 A collection of python tools to setup, run, and analyse molecular dynamics (MD) simulations of edge dislocations in face-centered cubic (FCC) Ni.
 
-!(general_method.png)
+![](general_method.png)
 
 #### `structure_gen`
 Scripts that generate:
