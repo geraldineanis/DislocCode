@@ -1,0 +1,47 @@
+Summary of posterior statistics:
+
+Parameter estimates:
+ Median         Mean           Max-posterior  Mode           Parameter
+ 1.9870672e+00  1.9856743e+00  1.9872116e+00  1.9887387e+00  c0
+ 1.5553276e+00  1.5518164e+00  1.5539208e+00  1.5614220e+00  c1
+
+ Std_deviation  Parameter
+ 5.2817498e-02  c0
+ 1.6555965e-01  c1
+
+Central quintile credible intervals:
+ 2sigma_low     1sigma_low     1sigma_up      2sigma_up      Parameter
+ 1.9611502e+00  1.9762803e+00  1.9985677e+00  2.0106309e+00  c0
+ 1.4122075e+00  1.4881898e+00  1.6197519e+00  1.6946496e+00  c1
+
+Highest-posterior-density credible intervals:
+ 2sigma_low     1sigma_low     1sigma_up      2sigma_up      Parameter
+ 1.9572490e+00  1.9730996e+00  2.0014192e+00  2.0174810e+00  c0
+ 1.4037567e+00  1.4845767e+00  1.6250181e+00  1.7058382e+00  c1
+
+
+LaTeX format
+Median and 1sigma central-quantile statistics
+c_{0}  &  $1.987^{+0.012}_{-0.011}$
+c_{1}  &  $1.555^{+0.064}_{-0.067}$
+
+Median and 2sigma central-quantile statistics
+c_{0}  &  $1.987^{+0.024}_{-0.026}$
+c_{1}  &  $1.56^{+0.14}_{-0.14}$
+
+Marginal max_posterior (mode) and 1sigma-HPD statistics
+c_{0}  &  $1.989^{+0.013}_{-0.016}$
+c_{1}  &  $1.561^{+0.064}_{-0.077}$
+
+Marginal max_posterior (mode) and 2sigma-HPD statistics
+c_{0}  &  $1.989^{+0.029}_{-0.031}$
+c_{1}  &  $1.56^{+0.14}_{-0.16}$
+
+
+Best-parameter's chi-squared:       1035.1075
+Best-parameter's -2*log(posterior): 1041.4711
+Bayesian Information Criterion:     1048.9230
+Reduced chi-squared:                   1.0372
+Standard deviation of residuals:  1.0174
+
+

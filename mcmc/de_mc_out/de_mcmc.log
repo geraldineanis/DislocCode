@@ -1,0 +1,130 @@
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+  Multi-core Markov-chain Monte Carlo (mc3).
+  Version 3.1.2.
+  Copyright (c) 2015-2023 Patricio Cubillos and collaborators.
+  mc3 is open-source software under the MIT license (see LICENSE).
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Start MCMC chains  (Wed Dec 13 21:55:51 2023)
+
+[:         ]  10.0% completed  (Wed Dec 13 21:55:51 2023)
+Out-of-bound Trials:
+[0 0]
+Best Parameters: (chisq=1041.5311)
+[1.9868832  1.56314427]
+Gelman-Rubin statistics for free parameters:
+[1.00352202 1.04140118]
+
+[::        ]  20.0% completed  (Wed Dec 13 21:55:52 2023)
+Out-of-bound Trials:
+[0 0]
+Best Parameters: (chisq=1041.5094)
+[1.98807446 1.55518503]
+Gelman-Rubin statistics for free parameters:
+[1.00157356 1.01932018]
+
+[:::       ]  30.1% completed  (Wed Dec 13 21:55:52 2023)
+Out-of-bound Trials:
+[0 0]
+Best Parameters: (chisq=1041.4712)
+[1.98717408 1.55378414]
+Gelman-Rubin statistics for free parameters:
+[1.00059372 1.00969496]
+All parameters converged to within 1% of unity.
+
+[::::      ]  40.0% completed  (Wed Dec 13 21:55:52 2023)
+Out-of-bound Trials:
+[0 0]
+Best Parameters: (chisq=1041.4712)
+[1.98717408 1.55378414]
+Gelman-Rubin statistics for free parameters:
+[1.00028497 1.00549934]
+All parameters converged to within 1% of unity.
+
+[:::::     ]  50.0% completed  (Wed Dec 13 21:55:52 2023)
+Out-of-bound Trials:
+[0 0]
+Best Parameters: (chisq=1041.4712)
+[1.98717408 1.55378414]
+Gelman-Rubin statistics for free parameters:
+[1.00022328 1.00525549]
+All parameters converged to within 1% of unity.
+
+[::::::    ]  60.1% completed  (Wed Dec 13 21:55:52 2023)
+Out-of-bound Trials:
+[0 0]
+Best Parameters: (chisq=1041.4712)
+[1.98717408 1.55378414]
+Gelman-Rubin statistics for free parameters:
+[1.00022459 1.00394583]
+All parameters converged to within 1% of unity.
+
+[:::::::   ]  70.0% completed  (Wed Dec 13 21:55:52 2023)
+Out-of-bound Trials:
+[0 0]
+Best Parameters: (chisq=1041.4712)
+[1.98717408 1.55378414]
+Gelman-Rubin statistics for free parameters:
+[1.00024908 1.00304444]
+All parameters converged to within 1% of unity.
+
+[::::::::  ]  80.0% completed  (Wed Dec 13 21:55:52 2023)
+Out-of-bound Trials:
+[0 0]
+Best Parameters: (chisq=1041.4711)
+[1.98721161 1.55392083]
+Gelman-Rubin statistics for free parameters:
+[1.00021898 1.0018754 ]
+All parameters converged to within 1% of unity.
+
+[::::::::: ]  90.1% completed  (Wed Dec 13 21:55:52 2023)
+Out-of-bound Trials:
+[0 0]
+Best Parameters: (chisq=1041.4711)
+[1.98721161 1.55392083]
+Gelman-Rubin statistics for free parameters:
+[1.00040966 1.00235883]
+All parameters converged to within 1% of unity.
+
+[::::::::::] 100.0% completed  (Wed Dec 13 21:55:53 2023)
+Out-of-bound Trials:
+[0 0]
+Best Parameters: (chisq=1041.4711)
+[1.98721161 1.55392083]
+Gelman-Rubin statistics for free parameters:
+[1.00027671 1.00240195]
+All parameters converged to within 1% of unity.
+
+MCMC Summary:
+-------------
+  Number of evaluated samples:        10002
+  Number of parallel chains:              6
+  Average iterations per chain:        1667
+  Burned-in iterations per chain:         0
+  Thinning factor:                        1
+  MCMC sample size (thinned, burned): 10002
+  Acceptance rate:   34.97%
+
+Parameter name     best fit   median      1sigma_low   1sigma_hi        S/N
+--------------- -----------  -----------------------------------  ---------
+c0               1.9872e+00   1.9871e+00 -1.0787e-02  1.1501e-02       37.6
+c1               1.5539e+00   1.5553e+00 -6.7138e-02  6.4424e-02        9.4
+
+  Best-parameter's chi-squared:       1035.1075
+  Best-parameter's -2*log(posterior): 1041.4711
+  Bayesian Information Criterion:     1048.9230
+  Reduced chi-squared:                   1.0372
+  Standard deviation of residuals:  1.0174
+
+For a detailed summary with all parameter posterior statistics see
+de_mcmc_statistics.txt
+
+Output sampler files:
+  de_mcmc_statistics.txt
+  de_mcmc.npz
+  de_mcmc_trace.png
+  de_mcmc_pairwise_posterior.png
+  de_mcmc_marginal_posterior.png
+  de_mcmc_RMS.png
+  de_mcmc.log

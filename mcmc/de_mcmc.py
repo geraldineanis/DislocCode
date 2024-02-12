@@ -24,6 +24,11 @@ noise = np.random.normal(0.0, sigma_n, len(x))
 
 data = y + noise
 
+f = open("data.txt", "w")
+for i in range(len(data)):
+    f.write(f"{x[i]}    {data[i]} \n")
+f.close()
+
 # plt.plot(x, data)
 # plt.xlabel("x")
 # plt.ylabel("y")
@@ -41,7 +46,7 @@ prior_cov = np.array([[1.0, 0.0],
 # Likelihood
 def log_likelihood(func, x , t, y, sigma):
      f = func(x,t)
-     return -1.0/(2.0*sigma**2)*np.sum((f - y)**2)
+     return (-1.0/(2.0*sigma**2))*np.sum((f - y)**2)
 
 # Posterior
 def log_posterior(log_likelihood, log_prior):
@@ -90,9 +95,20 @@ for i in range(1,n_iter):                               # Loop through iteration
 
         # Calculate acceptance ratio, r
         r_i = log_posterior(log_likelihood(lin_func, x, X[j], data, sigma_n), log_prior(X[j], prior_mean, prior_cov))
+
         r_p = log_posterior(log_likelihood(lin_func, x, x_p, data, sigma_n), log_prior(x_p, prior_mean, prior_cov))
 
         r = np.exp(r_p - r_i)
+
+        # if i == 1:
+        #     print("\n")
+        #     print(x_R)
+        #     print(R)
+        #     print(x_p)
+        #     print(r_i)
+        #     print(r_p)
+        #     print(r)
+        #     print(min(1, r))
 
         # Accept or reject proposal
         if np.random.rand() <= min(1, r):
@@ -100,6 +116,7 @@ for i in range(1,n_iter):                               # Loop through iteration
             counter[j] = counter[j] + 1
         else:
             X_new[j] = X[j]
+
 
     samples[i] = X_new
     X = X_new
@@ -116,8 +133,6 @@ samples = samples[burn:]
 
 p1 = np.array([samples[i][:,0] for i in range(n_iter-burn)]).T
 p2 = np.array([samples[i][:,1] for i in range(n_iter-burn)]).T
-
-print(np.shape(p1))
 
 # Trace plots for all N chains
 fig, axs = plt.subplots(1,2)
@@ -156,6 +171,15 @@ plt.show()
 c = np.random.choice(states)
 print(f"Doing analysis using chain {c}")
 
+p_mean = np.array([np.mean(p1[c]), np.mean(p2[c])])
+p_cov = np.array(np.cov(p1[c], p2[c]))
+
+print("Parameter means")
+print(p_mean)
+print("\n")
+print("Posterior Covariance Matrix")
+print(p_cov)
+
 # Trace plots
 fig, axs = plt.subplots(1,2)
 axs[0].plot(p1[c])
@@ -193,13 +217,16 @@ model_samples = [lin_func(x, s) for s in post_samples]
 fig, axs = plt.subplots(1,1)
 axs.scatter(x, data, color="tab:red", s=2, zorder=2, label="Data with noise")
 axs.plot(x, y, color="tab:red", zorder=3, label="Original Data" )
-axs.plot(x, fit, color="k", zorder=3, label="MAP Fit")
+axs.plot(x, fit, color="k", zorder=3, label="Mean Fit")
 
 for i, s in enumerate(model_samples):
     if i == 1:
         axs.plot(x, s, color="tab:green", alpha=0.3, label="Samples")
     else:
         axs.plot(x, s, color="tab:green", alpha=0.3)
+
+axs.set_xlabel("x")
+axs.set_ylabel("y")
 
 axs.legend()
 plt.show()
