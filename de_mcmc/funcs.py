@@ -13,62 +13,60 @@ import pandas as pd
 import scipy.stats as st
 
 # General
-def get_nondim_data(filename, discard=0):
+
+def get_nondim_data(filename, n):
     """
-    Non-dimensionalise time and position data.
-    The user should make sure that the same dislocation data and the number of discareded points
-    are used across different analyses tools.
-    It is not always necessary to discard any portion of the trajectory and in that case discard should
-    be set to zero, which is also the default.
+    Non-dimensionalise time and position data. Also calculates the mean position and
+    standard deviation at every simulation timestep.
 
     Parameters
     ----------
     filename : str
                Dislocation position data file name.
-    discard  : int
-               Number of points to discard at beginning of trajectory if required.
+    n        : int
+               Number of MD trajectories.
     
     Returns
     -------
     numpy.ndarray
-               Original (dimimensional) time data.    
+               Dimimensional time data in ps.    
     numpy.ndarray
-               Non-dimensional time data.
+               Non-dimensionalised time data.
     numpy.ndarray
-               Original (dimimensional) postition data.                   
+               Mean dislocation postition in nm.                   
     numpy.ndarray
-               Non-dimensional position data.
+               Non-dimensionalised mean dislocation positions.
+    numpy.ndarray
+               Dislocation postition standard deviations calculated from dimensional position data.                   
+    numpy.ndarray
+               Dislocation postition standard deviations calculated from non-dimensionalised position data.                   
     float
                Range of time data.
     float      
                Range of position data.               
     """
-    data = np.loadtxt(filename)   
-
-    if discard == 0:
-        # time
-        t_dim = data[:,0]
-        t_range = np.ptp(t_dim)
-        t_nondim = t_dim/t_range
-        # position data
-        x_dim = 0.1*data[:,1]          
-        x_range = np.ptp(x_dim)
-        xi = x_dim[0]
-        x_dim = x_dim - xi
-        x_nondim = x_dim/x_range
-    else:
-        # time
-        t_dim = data[:-discard,0]
-        t_range = np.ptp(t_dim)
-        t_nondim = t_dim/t_range
-        # position data
-        x_dim = 0.1*data[discard:,1]
-        x_range = np.ptp(x_dim)
-        xi = x_dim[0]
-        x_dim = x_dim-xi
-        x_nondim = x_dim/x_range
+    data = np.loadtxt(filename)
     
-    return t_dim, t_nondim, x_dim, x_nondim, t_range, x_range
+    # time
+    t_dim = data[::n,0]
+    t_range = np.ptp(t_dim)
+    t_nondim = t_dim/t_range
+    
+    # position data
+    x_dim = data[:,1]
+
+    x_mean_dim = np.array([np.mean(x_dim[i*n:(i*n)+n]) for i in range(len(t_dim))])
+    x_std_dim = np.array([np.std(x_dim[i*n:(i*n)+n]) for i in range(len(t_dim))])
+
+    x_range = np.ptp(x_mean_dim)
+    x_mean_nondim = x_mean_dim/x_range
+    
+    x_std_nondim = np.array([np.std((x_dim/x_range)[i*n:(i*n)+n]) for i in range(len(t_dim))])
+
+    # Set sigma of first point to something small - cannot be zero for fit
+    x_std_nondim[0] = 0.001
+    
+    return t_dim, t_nondim, x_mean_dim, x_mean_nondim, x_std_dim, x_std_nondim, t_range, x_range
 
 # Model
 def x_t(t,xi,m, B, F):
@@ -251,7 +249,7 @@ def get_posterior(data, n_samples, burn, dims):
     numpy.ndarray
                 Parameter standard deviations.
     """
-    # Posterior samples after removing burn-in samples
+    # All posterior samples
     posterior = np.array(data["posterior"][burn:n_samples])
     # Marginal posterior samples
     c_dist = np.array([np.array(posterior[:,i]) for i in range(dims)])
@@ -497,4 +495,5 @@ def plot_convg(dims,means,std_devs,params,save_plt=False,show_plt=True):
     
     if show_plt:
         plt.show()
+
     
