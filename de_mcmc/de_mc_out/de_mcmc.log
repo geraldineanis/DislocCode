@@ -6,94 +6,94 @@
   mc3 is open-source software under the MIT license (see LICENSE).
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-Start MCMC chains  (Fri Feb  9 16:09:56 2024)
+Start MCMC chains  (Thu Jan 18 18:37:01 2024)
 
-[:         ]  10.0% completed  (Fri Feb  9 16:09:58 2024)
+[:         ]  10.0% completed  (Thu Jan 18 18:37:05 2024)
 Out-of-bound Trials:
 [0 0]
-Best Parameters: (chisq=7.5741)
-[3.22702949 3.26222213]
+Best Parameters: (chisq=11.2914)
+[3.45736237 3.53004522]
 Gelman-Rubin statistics for free parameters:
-[1.03469337 1.02086811]
+[1.03482035 1.02520878]
 
-[::        ]  20.0% completed  (Fri Feb  9 16:10:00 2024)
+[::        ]  20.0% completed  (Thu Jan 18 18:37:08 2024)
 Out-of-bound Trials:
 [0 0]
-Best Parameters: (chisq=7.5741)
-[3.22702949 3.26222213]
+Best Parameters: (chisq=11.2901)
+[3.4493011  3.52292234]
 Gelman-Rubin statistics for free parameters:
-[1.01481983 1.00768147]
+[1.01609571 1.01076778]
 
-[:::       ]  30.0% completed  (Fri Feb  9 16:10:02 2024)
+[:::       ]  30.0% completed  (Thu Jan 18 18:37:12 2024)
 Out-of-bound Trials:
 [0 0]
-Best Parameters: (chisq=7.5741)
-[3.22702949 3.26222213]
+Best Parameters: (chisq=11.2901)
+[3.4493011  3.52292234]
 Gelman-Rubin statistics for free parameters:
-[1.0089317  1.00386367]
+[1.00975742 1.00649008]
 All parameters converged to within 1% of unity.
 
-[::::      ]  40.0% completed  (Fri Feb  9 16:10:04 2024)
+[::::      ]  40.0% completed  (Thu Jan 18 18:37:15 2024)
 Out-of-bound Trials:
 [0 0]
-Best Parameters: (chisq=7.5741)
-[3.22702949 3.26222213]
+Best Parameters: (chisq=11.2901)
+[3.4493011  3.52292234]
 Gelman-Rubin statistics for free parameters:
-[1.00571881 1.0016977 ]
+[1.00709374 1.00450535]
 All parameters converged to within 1% of unity.
 
-[:::::     ]  50.0% completed  (Fri Feb  9 16:10:07 2024)
+[:::::     ]  50.0% completed  (Thu Jan 18 18:37:18 2024)
 Out-of-bound Trials:
 [0 0]
-Best Parameters: (chisq=7.5741)
-[3.22702949 3.26222213]
+Best Parameters: (chisq=11.2899)
+[3.45088979 3.52422926]
 Gelman-Rubin statistics for free parameters:
-[1.00473715 1.00197406]
+[1.00494733 1.00321251]
 All parameters converged to within 1% of unity.
 
-[::::::    ]  60.0% completed  (Fri Feb  9 16:10:09 2024)
+[::::::    ]  60.0% completed  (Thu Jan 18 18:37:22 2024)
 Out-of-bound Trials:
 [0 0]
-Best Parameters: (chisq=7.5741)
-[3.22702949 3.26222213]
+Best Parameters: (chisq=11.2899)
+[3.45088979 3.52422926]
 Gelman-Rubin statistics for free parameters:
-[1.00444137 1.00231084]
+[1.0039378  1.00240993]
 All parameters converged to within 1% of unity.
 
-[:::::::   ]  70.0% completed  (Fri Feb  9 16:10:12 2024)
+[:::::::   ]  70.0% completed  (Thu Jan 18 18:37:25 2024)
 Out-of-bound Trials:
 [0 0]
-Best Parameters: (chisq=7.5741)
-[3.22702949 3.26222213]
+Best Parameters: (chisq=11.2899)
+[3.45088979 3.52422926]
 Gelman-Rubin statistics for free parameters:
-[1.00384651 1.00203151]
+[1.00311927 1.00191995]
 All parameters converged to within 1% of unity.
 
-[::::::::  ]  80.0% completed  (Fri Feb  9 16:10:15 2024)
+[::::::::  ]  80.0% completed  (Thu Jan 18 18:37:28 2024)
 Out-of-bound Trials:
 [0 0]
-Best Parameters: (chisq=7.5741)
-[3.22702949 3.26222213]
+Best Parameters: (chisq=11.2899)
+[3.45088979 3.52422926]
 Gelman-Rubin statistics for free parameters:
-[1.00325167 1.00156428]
+[1.00296705 1.00178273]
 All parameters converged to within 1% of unity.
 
-[::::::::: ]  90.0% completed  (Fri Feb  9 16:10:17 2024)
+[::::::::: ]  90.0% completed  (Thu Jan 18 18:37:31 2024)
 Out-of-bound Trials:
 [0 0]
-Best Parameters: (chisq=7.5741)
-[3.22702949 3.26222213]
+Best Parameters: (chisq=11.2899)
+[3.45088979 3.52422926]
 Gelman-Rubin statistics for free parameters:
-[1.00289898 1.00138461]
+[1.00256682 1.0016091 ]
 All parameters converged to within 1% of unity.
 
-[::::::::::] 100.0% completed  (Fri Feb  9 16:10:20 2024)
+[::::::::::] 100.0% completed  (Thu Jan 18 18:37:34 2024)
 Out-of-bound Trials:
 [0 0]
-Best Parameters: (chisq=7.5741)
-[3.22702949 3.26222213]
+Best Parameters: (chisq=11.2899)
+[3.45088979 3.52422926]
 Gelman-Rubin statistics for free parameters:
-[1.00246645 1.00120516]
+[1.0021064 1.0013111]
 All parameters converged to within 1% of unity.
 
 MCMC Summary:
@@ -104,18 +104,18 @@ MCMC Summary:
   Burned-in iterations per chain:          0
   Thinning factor:                         1
   MCMC sample size (thinned, burned): 100008
-  Acceptance rate:   28.42%
+  Acceptance rate:   31.52%
 
 Parameter name     best fit   median      1sigma_low   1sigma_hi        S/N
 --------------- -----------  -----------------------------------  ---------
-c0               3.2270e+00   3.3323e+00 -4.5423e-01  6.0681e-01        4.0
-c1               3.2622e+00   3.3617e+00 -4.2329e-01  5.8130e-01        5.7
+c0               3.4509e+00   3.4633e+00 -1.5681e-01  1.6643e-01       13.6
+c1               3.5242e+00   3.5345e+00 -1.4273e-01  1.5743e-01       18.0
 
-  Best-parameter's chi-squared:        2.3101
-  Best-parameter's -2*log(posterior):  7.5741
-  Bayesian Information Criterion:     12.9168
-  Reduced chi-squared:                 0.0116
-  Standard deviation of residuals:  0.0161913
+  Best-parameter's chi-squared:        5.2077
+  Best-parameter's -2*log(posterior): 11.2899
+  Bayesian Information Criterion:     15.8143
+  Reduced chi-squared:                 0.0262
+  Standard deviation of residuals:  0.0158553
 
 For a detailed summary with all parameter posterior statistics see
 de_mcmc_statistics.txt
