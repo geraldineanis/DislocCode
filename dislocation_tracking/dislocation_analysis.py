@@ -119,18 +119,9 @@ def wrap_coords(dislocation, ax, extent):
         sys.exit()
     for i in range(len(dislocation)):
         if dislocation[i][j] < 0.0:
-            print(f"i = {i}")
-            print("x < 0.0")
-            print(dislocation[i][j])
             dislocation[i][j] = dislocation[i][j] + extent
-            print(dislocation[i][j])
         if dislocation[i][j] > extent:
-            print(f"i = {i}")
-            print("x > x_lim")
-            print(dislocation[i][j])
-            dislocation[i][j] = dislocation[i][j] - extent
-            print(dislocation[i][j])
-    
+            dislocation[i][j] = dislocation[i][j] - extent 
     return dislocation
 
 def get_disloc_coords(dislocation):
@@ -305,8 +296,6 @@ def track_disloc(avg, x_lim):
                 pos_c = avg[i][j][0][0]
                 pos_p = obj[-1][1][0]
 
-                # print(f"current pos = {pos_c}")
-                # print(f"previous pos = {pos_p}")
                 dist_1 = pos_c - pos_p
                 dist_2 = pos_c + x_lim - pos_p
                 dist_3 = pos_c - x_lim - pos_p
